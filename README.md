@@ -7,6 +7,16 @@ git add .
 git commit -m "Mise à jour"
 git push
 ```
+ou 
+```bash
+git init
+git remote add origin https://github.com/THEMEZE/Presentation-These.git
+git fetch origin
+git branch -M main
+git add .
+git commit -m "Modifications depuis copie C"
+git push -u origin main
+```
 
 Une solution **complète, en ligne de commande**, pour (A) **créer** un PDF contenant une animation à l’intérieur (avec LaTeX), et (B) les options réalistes pour afficher/lire cette animation depuis la ligne de commande.
 
@@ -266,3 +276,90 @@ for folder in folders:
 - Python peut ensuite déplacer, renommer ou traiter les PDFs automatiquement après compilation.
 
 # Presentation-These
+
+## 🔹 Les quatre principales méthodes pour geler les degrés de liberté transverses
+
+### 1. Confinement harmonique anisotrope — *Piège “cigare”*
+> **Principe :**  
+> Un faisceau dipolaire ou un champ magnétique crée un piège **fortement anisotrope**, avec une fréquence de confinement transverse  \( \omega_\perp \gg \omega_\parallel \).  Lorsque \( \hbar \omega_\perp \gg k_B T, \mu \), les excitations transverses sont gelées : les atomes occupent uniquement **l’état fondamental transverse** → régime *quasi-1D*.
+
+> **Utilisation typique :**  
+> Premières études sur des condensats allongés.  → *Gerbier et al., PRA 70, 013607 (2004)*  
+
+**Avantages :**
+- Mise en œuvre simple (pièges magnétiques ou dipolaires).  
+- Bon contrôle de la transition 3D → 1D.
+
+---
+
+### 2. Réseaux optiques 2D — *Tubes unidimensionnels*
+> **Principe :**  
+> Deux ondes stationnaires orthogonales forment un **réseau optique bidimensionnel profond**, découpant le nuage en une matrice de **tubes 1D indépendants**.  Le confinement transverse est garanti par la profondeur du réseau  \( V_0 \gg E_R \),  tandis que la dynamique reste libre le long de l’axe longitudinal.
+
+**Expériences emblématiques :**
+- *B. Paredes et al., Nature 429, 277 (2004)*  
+- *T. Kinoshita et al., Science 305, 1125 (2004)*  
+→ Première observation du **gaz de Tonks–Girardeau**.
+
+**Avantages :**
+- Contrôle homogène du confinement.  
+- Reproductibilité élevée.  
+
+**Limites :**
+- Mesures souvent moyennées sur un grand nombre de tubes.
+
+---
+
+### 3. Guides magnétiques et pièges sur puce atomique — *Micro-fils et RF-dressing*
+> **Principe :**  
+> Des micro-conducteurs sur une **puce atomique** génèrent des champs magnétiques qui confinent les atomes de manière tubulaire.  Le confinement transverse peut être **renforcé par des potentiels radio-fréquences “dressed”**, atteignant des fréquences de plusieurs dizaines de kHz — suffisantes pour **geler les degrés de liberté transverses**.
+
+**Avantages :**
+- Accès à un **tube unique** à géométrie bien définie.  
+- Grande **stabilité mécanique et optique**.  
+- Possibilité de **mesures locales et résolues spatialement**.
+
+**Références clés :**
+- *A. van Amerongen et al., PRL 100, 090402 (2008)*  
+- *T. Jacqmin et al., PRL 106, 230405 (2011)*  
+→ Observation directe des fluctuations sub-Poissoniennes dans un gaz 1D sur puce.
+
+---
+
+### 4. Résonances de confinement induit (CIR)
+> **Principe :**  
+> En géométrie confinée, la diffusion atomique est modifiée :  le couplage effectif 1D \( g_{1D} \) dépend du confinement transverse \( a_\perp \).  Pour certains rapports \( a_\perp / a_s \), une **résonance de confinement** apparaît, permettant de **moduler l’interaction sans exciter les modes transverses**.
+
+**Intérêt :**
+- Permet d’explorer les régimes **fortement corrélés** (Tonks–Girardeau, super-Tonks).  
+- Complémentaire aux autres méthodes, contrôlant finement le couplage.
+
+**Références :**
+- *M. Olshanii, PRL 81, 938 (1998)* — théorie fondatrice.  
+- *E. Haller et al., PRL 104, 153203 (2010)* — observation expérimentale.
+
+---
+
+### 🔹 Tableau récapitulatif
+
+| Méthode | Support expérimental | Type de confinement | Références clés |
+|----------|----------------------|----------------------|-----------------|
+| (1) Confinement harmonique anisotrope | Pièges optiques ou magnétiques | Confinement transversal fort, anisotrope | Gerbier (2004) |
+| (2) Réseaux optiques 2D | Lattice optique croisé | Ensemble de tubes 1D indépendants | Paredes (2004), Kinoshita (2004) |
+| (3) Pièges sur puce atomique | Fils micro-fabriqués, RF-dressing | Tube unique fortement confiné | van Amerongen (2008), Jacqmin (2011) |
+| (4) Résonance de confinement (CIR) | Toute géométrie confinée | Modification du couplage \( g_{1D} \) | Olshanii (1998), Haller (2010) |
+
+---
+
+### 🔹 Formulation possible pour ta présentation orale
+
+> “Plusieurs approches expérimentales permettent aujourd’hui de réaliser des gaz d’atomes réellement unidimensionnels, en gelant les degrés de liberté transverses.  
+> Ces méthodes incluent le confinement harmonique anisotrope, les réseaux optiques bidimensionnels formant des tubes 1D, les guides magnétiques sur puce atomique, et les résonances de confinement induit.  
+> Dans notre expérience, la **géométrie sur puce** offre un **contrôle local précis du confinement** et permet **une observation directe des fluctuations dans un tube unique**.”
+
+---
+
+**Auteur :** Guillaume Théméze  
+**Laboratoire :** Institut d’Optique Graduate School  
+**Projet de thèse :** Étude des gaz de Bose unidimensionnels sur puce atomique  
+**Date :** Octobre 2025

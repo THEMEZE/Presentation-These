@@ -9,13 +9,13 @@
 \Section{Introduction}
 
 % Team 
-\begin{frame}
-  \frametitle{Team}
-  %\framesubtitle{Subtitle here}
-  \centering
-  \includegraphics[width=0.6\linewidth , page = 1 ]{figures/Figures_temporaire.pdf}
+% \begin{frame}
+%   \frametitle{Team}
+%   %\framesubtitle{Subtitle here}
+%   \centering
+%   \includegraphics[width=0.6\linewidth , page = 1 ]{figures/Figures_temporaire.pdf}
      
-\end{frame}
+% \end{frame}
 
 % Rapidities and GGE in a classical system
 \begin{frame}
@@ -198,21 +198,25 @@
         %\FlecheEllipse{Cinetic}{45}{180}{3}{1}{blue}{$\text{Kinetic energy}$}
         \begin{tikzpicture}[overlay]
 	        \draw[  opacity = 0.5 ]
-		        (Cinetic) edge[line width=0.4ex ,color = blue ,arrows = {Computer Modern Rightarrow[sharp ,length=0.3cm]-},  , out = 90 , in = 0  ]node[pos=1, left]{\color{blue} \fontsize{8pt}{102pt}\selectfont \bfseries  Kinetic energy }($(Cinetic) + (-1cm,1.5cm)$)
-            (Potentiel) edge[line width=0.4ex ,color = red ,arrows = {Computer Modern Rightarrow[sharp ,length=0.3cm]-},  , out = 90 , in = 180  ]node[pos=1, right]{\color{red} \fontsize{8pt}{102pt}\selectfont \bfseries  Contact potential }($(Potentiel) + (1cm,1.5cm)$)
-            (motg) edge[line width=0.2ex ,color = black ,arrows = {Computer Modern Rightarrow[sharp ,length=0.1cm]-},  , out = -90 , in = 0  ]node[pos=1, left]{\color{black} \fontsize{5pt}{102pt}\selectfont \bfseries  1D repulsion strength }($(motg) + (-1cm,-1cm)$)
+		        (Cinetic) edge[line width=0.4ex ,color = blue ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 90 , in = 0  ]node[pos=1, left]{\color{blue} \fontsize{8pt}{102pt}\selectfont \bfseries  Kinetic energy }($(Cinetic) + (-1cm,1.0cm)$)
+            (Potentiel) edge[line width=0.4ex ,color = red ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 90 , in = 180  ]node[pos=1, right]{\color{red} \fontsize{8pt}{102pt}\selectfont \bfseries  Contact potential }($(Potentiel) + (1cm,1.5cm)$)
+            (motg) edge[line width=0.2ex ,color = black ,arrows = {Computer Modern Rightarrow[sharp ,length=0.1cm]-},  , out = -90 , in = 0  ]node[pos=1, left]{\color{black} \fontsize{5pt}{102pt}\selectfont \bfseries  1D repulsion strength }($(motg) + (-1cm,-0.75cm)$)
 	        ;
         \end{tikzpicture}
       %\end{block}
-      \vspace{1.2cm}
+      \vspace{0.8cm}
       %\begin{block}{Eigenstates}
-        $$ \psi(x_1, x_2) \propto \left \{ \begin{array}{ccl} e^{\frac{i}{\hbar}(p_1 x_1 + p_2 x_2 )} - \ptFleche{Dephase}{\color{blue} $\displaystyle e^{i \Phi } $} e^{\frac{i}{\hbar}(p_2 x_1 + p_1 x_2 )} & \mbox{if} &  x_1 < x_2 \\ ( x_1 \leftrightarrow x_2 ) & \mbox{if} &  x_2 < x_1  \end{array}\right . $$
+        $$ \psi_{\{  \theta_1 , \theta_2 \} }(x_1, x_2) \propto \left \{ \begin{array}{ccl} e^{i\frac{m}{\hbar}(\theta_1 x_1 + \theta_2 x_2 )} - \ptFleche{Dephase}{\color{blue} $\displaystyle e^{i \Phi } $} e^{i\frac{m}{\hbar}(\theta_2 x_1 + \theta_1 x_2 )} & \mbox{if} &  x_1 < x_2 \\ ( x_1 \leftrightarrow x_2 ) & \mbox{if} &  x_2 < x_1  \end{array}\right . $$
         \begin{tikzpicture}[overlay]
 	        \draw[  opacity = 0.5 ]
 		        %(Dephase) edge[line width=0.4ex ,color = blue ,arrows = {Computer Modern Rightarrow[sharp ,length=0.3cm]-},  , out = -90 , in = 0  ]node[pos=1, left]{\color{blue} \fontsize{5}{10}\selectfont \bfseries  $ \displaystyle e^{i \Phi } = \frac{m \frac{g}{\hbar} - i (p_2 - p_1)}{m \frac{g}{\hbar} + i (p_2 - p_1)}$ }($(Dephase) + (-1cm,-1.5cm)$)
-	          (Dephase) edge[line width=0.4ex ,color = blue ,arrows = -{Computer Modern Rightarrow[sharp ,length=0.3cm]},  , out = -90 , in = 180  ]node[pos=1, right]{\color{blue} \fontsize{5}{10}\selectfont \bfseries  $ \displaystyle \Delta = \hbar \frac{d \Phi }{dp} $ }($(Dephase) + (1cm,-1.5cm)$)
+	          (Dephase) edge[line width=0.4ex ,color = blue ,arrows = -{Computer Modern Rightarrow[sharp ,length=0.2cm]},  , out = 90 , in = 180  ]node[pos=1, right]{\color{blue} \fontsize{5}{10}\selectfont \bfseries  $ \displaystyle \Delta = \hbar \frac{d \Phi }{dp} $ }($(Dephase) + (1cm,0.75cm)$)
 	        ;
         \end{tikzpicture}
+      %\end{block}
+      \vspace{0.8cm}
+      %\begin{block}{Eigenstates}
+        $$ \left \{ \begin{array}{rcl} \displaystyle \frac{m}{\hbar} \theta_1 L + \Phi( \theta_1 - \theta_2) & = & 2 \pi I_1 \\ \displaystyle \frac{m}{\hbar} \theta_2 L + \Phi( \theta_2 - \theta_1) & = & 2 \pi I_2  \end{array}\right .  \quad I_1 , I_2 \in \mathbb{Z} + \frac{1}{2} $$
       %\end{block}
       
       }

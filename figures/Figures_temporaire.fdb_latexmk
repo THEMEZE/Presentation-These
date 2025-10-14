@@ -1,7 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1760401534.26504 "/Volumes/NO NAME/arguelles-master/demo/figures/Figures_temporaire.tex" "Figures_temporaire.pdf" "Figures_temporaire" 1760401536.66266 0
-  "/Volumes/NO NAME/arguelles-master/demo/figures/Figures_temporaire.tex" 1760401531.55 4029 515e6abf694c56b891e865b1c5f1c6ce ""
+["pdflatex"] 1760473198.71068 "/Users/themezeguillaume/Desktop/Presentation-These/figures/Figures_temporaire.tex" "Figures_temporaire.pdf" "Figures_temporaire" 1760473200.19962 0
+  "/Users/themezeguillaume/Desktop/Presentation-These/figures/Figures_temporaire.tex" 1760473198.40479 4571 7a8b2981133fa6db7523b344f719d137 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1254269338 2375 baa924870cfb487815765f9094cf3728 ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1202520719 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc" 1202520719 2327 9d6df24f9c4f7368395224341a95523a ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -35,7 +36,9 @@
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/rm-lmr5.tfm" 1254269338 11804 aefb10c002e6492c25236524a447f969 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/rm-lmr6.tfm" 1254269338 11836 e3b6ce3e601aec94f64a536e7f4224d5 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/rm-lmr9.tfm" 1254269338 11884 c93929a6974dce79eabb778f219d7e18 ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi9.pfb" 1254269338 30698 e53a423459271d6c5cdd91f7559396af ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr5.pfb" 1255129361 120387 212cad1e763d510fc9c3ce2466274a57 ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr6.pfb" 1255129361 123394 d390152bb30feeb496aaaa93299ee9ba ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr8.pfb" 1255129361 122174 a7a08406857c9530a0320a2517f60370 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr9.pfb" 1255129361 121065 50bbfa703ce7e11638752ef5a6d120c7 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri7.pfb" 1255129361 111437 74f3e490d3223b7d4352605020ac7fc2 ""
@@ -306,8 +309,8 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1739009920 5467026 fc3ba6f3e7a6524d22a2c191af06cf89 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1744957884 3352635 78babed3e5e133ebbddc8287ce20a982 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "Figures_temporaire.aux" 1760401536.52 208 c02fb63ab22ff319f7f15df8b011e09f "pdflatex"
-  "Figures_temporaire.tex" 1760401531.55 4029 515e6abf694c56b891e865b1c5f1c6ce ""
+  "Figures_temporaire.aux" 1760473200.09693 208 c02fb63ab22ff319f7f15df8b011e09f "pdflatex"
+  "Figures_temporaire.tex" 1760473198.40479 4571 7a8b2981133fa6db7523b344f719d137 ""
   "pakage_tikz.tex" 1682854646 1555 5a8813c73930a0d9c28411376d690b46 ""
   (generated)
   "Figures_temporaire.aux"
