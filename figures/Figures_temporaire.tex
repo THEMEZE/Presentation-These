@@ -1,0 +1,126 @@
+\documentclass{article} % pas standalone
+\usepackage{xparse}
+\usepackage{tikz}
+\include{pakage_tikz}
+\usepackage{tikz}
+\usepackage[europeanresistor]{circuitikz}
+\usepgflibrary {shadings}
+%\usetikzlibrary{calc}
+\usetikzlibrary{hobby, decorations.markings, arrows.meta}
+\usetikzlibrary{decorations.markings} 
+\usetikzlibrary{calc,intersections,through,backgrounds}
+\usepackage{amsmath}
+
+%\usepackage{mathrsfs}
+
+\usepackage{fancyhdr} % ajout du package fancyhdr
+
+\pagestyle{fancy} % définition du style de page
+\fancyhf{} % suppression des en-têtes et pieds de page actuels
+\rfoot{\thepage} % ajout du numéro de page à droite
+\fancyfoot[C]{\thepage}
+\usepackage[margin=1cm]{geometry} % marges petites
+
+% Commande qui crée une image sur une page entière
+% --- Styles par défaut ---
+% --- Styles par défaut ---
+\tikzset{
+  cadre/.style={draw=black!70, thick, rounded corners=3pt},
+  ressort/.style={},
+}
+
+% --- Commande flexible : \TempImage[options]{width}{height}{content}
+\newcommand{\TempImage}[4][]{%
+  \begin{center}
+    \begin{tikzpicture}[ressort, scale=1, transform shape]
+      % --- Valeurs par défaut ---
+      \def\bgcolor{gray!10} % couleur de fond par défaut
+      \def\framecolor{black!60} % couleur du cadre
+      \def\corner{3pt} % rayon des coins arrondis
+
+      % --- Lecture des options facultatives ---
+      \tikzset{tempimage/.cd, #1}
+
+      % --- Cadre avec fond personnalisé ---
+      \draw[
+        fill=\bgcolor,
+        draw=\framecolor,
+        line width=1pt,
+        rounded corners=\corner
+      ] (0,0) rectangle (#2,#3);
+
+      % --- Contenu centré ---
+      \node[
+        align=center,
+        text width=#2-0.5cm,
+        font=\small
+      ] at (#2/2,#3/2) {#4};
+    \end{tikzpicture}
+  \end{center}
+  \clearpage
+}
+
+% --- Définition des clés personnalisées ---
+\tikzset{
+  tempimage/.cd,
+  bgcolor/.store in=\bgcolor,
+  framecolor/.store in=\framecolor,
+  corner/.store in=\corner,
+}
+
+
+
+\begin{document}
+
+\tikzset{ressort/.style={thick,gray,smooth}}
+\tikzstyle{cadre}=[rectangle,inner sep=5pt,inner ysep=5pt,draw,thick]
+
+
+\TempImage{6cm}{4cm}{Equipe}
+
+\TempImage{8cm}{3cm}{Methode 1D 1}
+\TempImage{5cm}{5cm}{Methode 1D 2}
+\TempImage{5cm}{5cm}{Methode 1D 3}
+\TempImage{5cm}{5cm}{Methode 1D 4}
+
+\TempImage[
+    bgcolor=black!10!gray,
+    framecolor=black!60!gray,
+     corner=5pt
+    ]{5cm}{5cm}{
+    {\color{white!90!gray}
+    \fontsize{5}{1}\selectfont
+    One-dimensional quantum gases provide an ideal platform to study strong correlations and non-ergodic dynamics in out-of-equilibrium systems.\\[0.3cm]
+Despite major progress, understanding the local rapidity distribution remains a key challenge.\\[0.3cm]
+or \emph{Schematic view: from experimental system to theoretical description.}}}
+
+\TempImage{8cm}{2cm}{Packet d'onde semiclassique en collisions}
+
+\TempImage{5cm}{5cm}{graph (x,t) pour visualiser $\Delta$}
+
+\begin{tikzpicture}[>=stealth, node distance=2.3cm, thick, font=\small]
+
+  % --- Styles ---
+  \tikzstyle{exp} = [rectangle, rounded corners, draw=blue!60, fill=blue!10, minimum width=3cm, minimum height=1cm, align=center]
+  \tikzstyle{theory} = [rectangle, rounded corners, draw=red!60, fill=red!10, minimum width=3cm, minimum height=1cm, align=center]
+  \tikzstyle{process} = [ellipse, draw=orange!70!black, fill=orange!10, minimum width=2.2cm, align=center]
+
+  % --- Nodes ---
+  \node[exp] (exp) {1D Quantum Gas\\\small (Experiment)};
+  \node[process, right of=exp] (measure) {Local\\Measurements};
+  \node[theory, right of=measure] (rapidities) {Rapidity\\Distribution};
+  \node[theory, right of=rapidities] (gge) {Generalized\\Gibbs Ensemble};
+
+  % --- Arrows ---
+  \draw[->, thick] (exp) -- (measure);
+  \draw[->, thick] (measure) -- (rapidities);
+  \draw[->, thick] (rapidities) -- (gge);
+
+  % --- Optional labels ---
+  \node[below=0.2cm of measure, align=center, font=\footnotesize] {Bridge between\\experiment and theory};
+  \node[above=0.2cm of rapidities, align=center, font=\footnotesize] {Integrable\\description};
+
+\end{tikzpicture}
+
+
+\end{document}

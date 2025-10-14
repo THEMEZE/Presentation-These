@@ -1,3 +1,13 @@
+
+---
+
+## ⚙️ Git Mise à jour
+```bash
+git add .
+git commit -m "Mise à jour"
+git push
+```
+
 Une solution **complète, en ligne de commande**, pour (A) **créer** un PDF contenant une animation à l’intérieur (avec LaTeX), et (B) les options réalistes pour afficher/lire cette animation depuis la ligne de commande.
 
 > [!IMPORTANT]

@@ -1,0 +1,68 @@
+% Commandes pour les flèches textuelles
+% Désactive les shorthands dans TikZ
+\AtBeginDocument{\shorthandoff{:;!?}}
+\tikzset{every picture/.style={execute at begin picture={\shorthandoff{:;!?};}}}
+\tikzstyle{every picture}+=[remember picture]
+\tikzstyle{na} = [shape=rectangle,inner sep=0pt]
+
+
+\newcommand{\ptFleche}[2]{		% Déclaration d'une extrémité de flèche
+    \shorthandoff{:;!?}% <- désactive les shorthands
+    \tikz[baseline=(#1.base)]\node[na](#1){#2};
+  }
+
+\newcommand{\Fleche}[5][thick]{%
+    \begin{tikzpicture}[overlay]
+        \path[->,#1](#2) edge [out=#4, in=#5] (#3);
+    \end{tikzpicture}
+}
+
+% --- Commande FlecheEllipse ---
+% #1 = nœud source (nom)
+% #2 = angle sortie du nœud source
+% #3 = angle entrée du nœud cible
+% #4 = décalage dx, dy sous forme (dx,dy) en cm
+% #5 = couleur ellipses et flèche
+% #6 = texte du nœud cible B
+\newcommand{\FlecheEllipseo}[6]{%
+    \begin{tikzpicture}[overlay, remember picture]
+        % Coordonnées source
+        \path let \p1 = (#1) in 
+        coordinate (Acoord) at (\x1,\y1);
+
+        % Coordonnées cible
+        \pgfmathsetmacro{\dx}{#4}
+        \pgfmathsetmacro{\dy}{#5} % ici on sépare les deux pour le calcul
+
+        \coordinate (B) at ([shift={(#4)}]#1);
+
+        % Nœud A entouré d'ellipse
+        \node[draw,#5,ellipse,inner sep=2pt] (#1-node) at (#1) {#1};
+        % Nœud B entouré d'ellipse
+        \node[draw,#5,ellipse,inner sep=2pt] (B-node) at (B) {#6};
+        % Flèche de A vers B
+        \draw[->,#5,thick] (#1-node) edge [out=#2,in=#3] (B-node);
+    \end{tikzpicture}%
+}
+
+% --- Commande FlecheEllipse finale ---
+% #1 = nom du nœud source (A)
+% #2 = angle sortie du nœud source
+% #3 = angle entrée du nœud cible
+% #4 = décalage horizontal dx (en cm)
+% #5 = décalage vertical dy (en cm)
+% #6 = couleur ellipses et flèche
+% #7 = contenu du nœud B (texte, formule, TikZ, etc.)
+\newcommand{\FlecheEllipse}[7]{%
+    \begin{tikzpicture}[overlay]
+        % --- Nœud source A ---
+        \node[draw,#6,ellipse,inner sep=2pt](#1){};
+
+        % --- Nœud cible B ---
+        \coordinate (B) at ($(#1) + (#4cm,#5cm)$);
+        \node[draw,#6,ellipse,inner sep=2pt] (B-node) at (B) {#7};
+
+        % --- Flèche de A vers B ---
+        \draw[->,#6,thick] (#1) edge [out=#2,in=#3] (B-node);
+    \end{tikzpicture}%
+}
