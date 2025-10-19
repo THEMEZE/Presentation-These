@@ -2,12 +2,14 @@
 
 # Couleurs pour un affichage plus clair
 GREEN="\033[1;32m"
+YELLOW="\033[1;33m"
 RED="\033[1;31m"
 BLUE="\033[1;34m"
 RESET="\033[0m"
 
 # Compteurs
 success_count=0
+warning_count=0
 fail_count=0
 
 echo -e "${BLUE}🔹 Recherche et compilation de tous les fichiers .tex...${RESET}"
@@ -36,25 +38,30 @@ for texfile in $texfiles; do
     folder=$(dirname "$texfile")
     echo -e "${BLUE}🔹 Compilation de${RESET} $texfile"
 
-    # Compile silencieusement
-    pdflatex -interaction=nonstopmode -output-directory="$folder" "$texfile" >/dev/null 2>&1
-    
-    # deuximeme foix 
-    pdflatex -interaction=nonstopmode -output-directory="$folder" "$texfile" >/dev/null 2>&1
+    # Compile deux fois pour bien générer les références
+    log_file=$(mktemp)
+    pdflatex -interaction=nonstopmode -output-directory="$folder" "$texfile" >"$log_file" 2>&1
+    pdflatex -interaction=nonstopmode -output-directory="$folder" "$texfile" >>"$log_file" 2>&1
 
-    # Vérifie le code de retour
-    if [ $? -eq 0 ]; then
-        echo -e "   ✅ ${GREEN}Compilation réussie${RESET} : $basename"
-        ((success_count++))
-    else
+    # Analyse du log
+    if grep -q "Fatal error" "$log_file" || grep -q "! LaTeX Error" "$log_file"; then
         echo -e "   ❌ ${RED}Erreur de compilation${RESET} : $basename"
         ((fail_count++))
+    elif grep -qi "warning" "$log_file"; then
+        echo -e "   ⚠️  ${YELLOW}Compilation avec avertissements${RESET} : $basename"
+        ((warning_count++))
+    else
+        echo -e "   ✅ ${GREEN}Compilation réussie${RESET} : $basename"
+        ((success_count++))
     fi
+
+    rm -f "$log_file"
     echo
 done
 
 # Résumé final
 echo -e "${BLUE}──────────── Résumé ────────────${RESET}"
 echo -e "✅ ${GREEN}Réussies : $success_count${RESET}"
+echo -e "⚠️  ${YELLOW}Avec avertissements : $warning_count${RESET}"
 echo -e "❌ ${RED}Échouées : $fail_count${RESET}"
 echo -e "${BLUE}────────────────────────────────${RESET}"
