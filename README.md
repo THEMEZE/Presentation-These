@@ -238,10 +238,10 @@ folders=("./" "./fichiers/")
 
 # Boucle sur chaque dossier
 for folder in "${folders[@]}"; do
-    echo "Compilation des fichiers dans $folder"
+    echo "🔹 Compilation des fichiers dans $folder"
     # Boucle sur chaque .tex
     for texfile in "$folder"/*.tex; do
-        echo "  Compilation de $texfile"
+        echo "🔹🔹  Compilation de $texfile"
         pdflatex -interaction=nonstopmode -output-directory="$folder" "$texfile"
     done
 done
@@ -250,26 +250,75 @@ done
 - `interaction=nonstopmode` : continue même s’il y a des warnings ou erreurs.
 - `output-directory="$folder"` : place le PDF et fichiers auxiliaires dans le même dossier que le `.tex`.
 
-## Solution Python
-Avec Python, tu peux faire la même chose avec `subprocess` :
 
-```python
-import subprocess
-from pathlib import Path
+```bash
+chmod +x compile_all_tex.sh
+./compile_all_tex.sh
+```
 
-folders = ["dossier1", "dossier2"]
+qui contient 
 
-for folder in folders:
-    folder_path = Path(folder)
-    tex_files = folder_path.glob("*.tex")
-    for tex_file in tex_files:
-        print(f"Compilation de {tex_file}")
-        subprocess.run([
-            "pdflatex",
-            "-interaction=nonstopmode",
-            f"-output-directory={folder_path}",
-            str(tex_file)
-        ])
+```bash
+#!/bin/bash
+
+# Couleurs pour un affichage plus clair
+GREEN="\033[1;32m"
+RED="\033[1;31m"
+BLUE="\033[1;34m"
+RESET="\033[0m"
+
+# Compteurs
+success_count=0
+fail_count=0
+
+echo -e "${BLUE}🔹 Recherche et compilation de tous les fichiers .tex...${RESET}"
+echo
+
+# Trouve tous les fichiers .tex récursivement,
+# en excluant les fichiers cachés et ceux commençant par ._,
+# puis les trie pour que les plus profonds soient compilés en premier.
+texfiles=$(find . -type f -name "*.tex" ! -name "._*" ! -path "*/.*/*" | awk '{ print length, $0 }' | sort -nr | cut -d" " -f2-)
+
+# Vérifie si des fichiers ont été trouvés
+if [ -z "$texfiles" ]; then
+    echo -e "${RED}❌ Aucun fichier .tex trouvé.${RESET}"
+    exit 1
+fi
+
+# Boucle sur chaque fichier trouvé (du plus profond au plus haut)
+for texfile in $texfiles; do
+    basename=$(basename "$texfile")
+
+    # Ignore les fichiers cachés
+    if [[ "$basename" == .* ]]; then
+        continue
+    fi
+
+    folder=$(dirname "$texfile")
+    echo -e "${BLUE}🔹 Compilation de${RESET} $texfile"
+
+    # Compile silencieusement
+    pdflatex -interaction=nonstopmode -output-directory="$folder" "$texfile" >/dev/null 2>&1
+    
+    # deuximeme foix 
+    pdflatex -interaction=nonstopmode -output-directory="$folder" "$texfile" >/dev/null 2>&1
+
+    # Vérifie le code de retour
+    if [ $? -eq 0 ]; then
+        echo -e "   ✅ ${GREEN}Compilation réussie${RESET} : $basename"
+        ((success_count++))
+    else
+        echo -e "   ❌ ${RED}Erreur de compilation${RESET} : $basename"
+        ((fail_count++))
+    fi
+    echo
+done
+
+# Résumé final
+echo -e "${BLUE}──────────── Résumé ────────────${RESET}"
+echo -e "✅ ${GREEN}Réussies : $success_count${RESET}"
+echo -e "❌ ${RED}Échouées : $fail_count${RESET}"
+echo -e "${BLUE}────────────────────────────────${RESET}"
 ```
 ✅ Points forts :
 - Tu peux facilement ajouter un filtre pour ne compiler que certains fichiers.

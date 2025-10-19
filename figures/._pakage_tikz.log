@@ -2,8 +2,8 @@ This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded forma
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./figures/._Figures_temporaire.tex
-(./figures/._Figures_temporaire.tex
+**./figures/._pakage_tikz.tex
+(./figures/._pakage_tikz.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 ! Text line contains an invalid character.
@@ -530,7 +530,7 @@ Continue, and I'll forget that it ever happened.
 
 ! Text line contains an invalid character.
 l.1 ...^^@^^@^^@^^@^^@^^@^^@ATTR^^@^^@^^@^^@^^@^^@
-                                                  ^^N‚^^@^^@^^@¿^^@^^@^^@^^[...
+                                                  ^^N‚^^@^^@^^@¿^^@^^@^^@I^^...
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
 
@@ -543,55 +543,55 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.1 ...^^@^^@^^@^^@^^@^^@ATTR^^@^^@^^@^^@^^@^^@^^N
-                                                  ‚^^@^^@^^@¿^^@^^@^^@^^[^^@...
+                                                  ‚^^@^^@^^@¿^^@^^@^^@I^^@^^...
 
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
 ! Text line contains an invalid character.
 l.1 ...^@^^@^^@^^@^^@ATTR^^@^^@^^@^^@^^@^^@^^N‚^^@
-                                                  ^^@^^@¿^^@^^@^^@^^[^^@^^@^...
+                                                  ^^@^^@¿^^@^^@^^@I^^@^^@^^@...
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
 
 ! Text line contains an invalid character.
 l.1 ...^@^^@^^@^^@ATTR^^@^^@^^@^^@^^@^^@^^N‚^^@^^@
-                                                  ^^@¿^^@^^@^^@^^[^^@^^@^^@^...
+                                                  ^^@¿^^@^^@^^@I^^@^^@^^@^^@...
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
 
 ! Text line contains an invalid character.
 l.1 ...^@^^@^^@ATTR^^@^^@^^@^^@^^@^^@^^N‚^^@^^@^^@
-                                                  ¿^^@^^@^^@^^[^^@^^@^^@^^@^...
+                                                  ¿^^@^^@^^@I^^@^^@^^@^^@^^@...
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
 
 ! Text line contains an invalid character.
 l.1 ...@^^@ATTR^^@^^@^^@^^@^^@^^@^^N‚^^@^^@^^@¿^^@
-                                                  ^^@^^@^^[^^@^^@^^@^^@^^@^^...
+                                                  ^^@^^@I^^@^^@^^@^^@^^@^^@^...
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
 
 ! Text line contains an invalid character.
 l.1 ...@ATTR^^@^^@^^@^^@^^@^^@^^N‚^^@^^@^^@¿^^@^^@
-                                                  ^^@^^[^^@^^@^^@^^@^^@^^@^^...
+                                                  ^^@I^^@^^@^^@^^@^^@^^@^^@^...
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
 
 ! Text line contains an invalid character.
 l.1 ...TR^^@^^@^^@^^@^^@^^@^^N‚^^@^^@^^@¿^^@^^@^^@
-                                                  ^^[^^@^^@^^@^^@^^@^^@^^@^^...
+                                                  I^^@^^@^^@^^@^^@^^@^^@^^@^...
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
 
 
-! LaTeX Error: Invalid UTF-8 byte sequence (‚¿^^[).
+! LaTeX Error: Invalid UTF-8 byte sequence (‚¿I).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1 ...^@^^@^^@^^@^^@^^@^^N‚^^@^^@^^@¿^^@^^@^^@^^[
+l.1 ...R^^@^^@^^@^^@^^@^^@^^N‚^^@^^@^^@¿^^@^^@^^@I
                                                   ^^@^^@^^@^^@^^@^^@^^@^^@^^...
 
 The document does not appear to be in UTF-8 encoding.
@@ -601,92 +601,92 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 ! Text line contains an invalid character.
-l.1 ...^@^^@^^@^^@^^@^^N‚^^@^^@^^@¿^^@^^@^^@^^[^^@
+l.1 ...@^^@^^@^^@^^@^^@^^N‚^^@^^@^^@¿^^@^^@^^@I^^@
                                                   ^^@^^@^^@^^@^^@^^@^^@^^@^^...
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
 
 ! Text line contains an invalid character.
-l.1 ...^@^^@^^@^^@^^N‚^^@^^@^^@¿^^@^^@^^@^^[^^@^^@
+l.1 ...@^^@^^@^^@^^@^^N‚^^@^^@^^@¿^^@^^@^^@I^^@^^@
                                                   ^^@^^@^^@^^@^^@^^@^^@^^@^^...
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
 
 ! Text line contains an invalid character.
-l.1 ...^@^^@^^@^^N‚^^@^^@^^@¿^^@^^@^^@^^[^^@^^@^^@
+l.1 ...@^^@^^@^^@^^N‚^^@^^@^^@¿^^@^^@^^@I^^@^^@^^@
                                                   ^^@^^@^^@^^@^^@^^@^^@^^@^^...
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
 
 ! Text line contains an invalid character.
-l.1 ...^@^^@^^N‚^^@^^@^^@¿^^@^^@^^@^^[^^@^^@^^@^^@
+l.1 ...@^^@^^@^^N‚^^@^^@^^@¿^^@^^@^^@I^^@^^@^^@^^@
                                                   ^^@^^@^^@^^@^^@^^@^^@^^@^^...
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
 
 ! Text line contains an invalid character.
-l.1 ...^@^^N‚^^@^^@^^@¿^^@^^@^^@^^[^^@^^@^^@^^@^^@
+l.1 ...@^^@^^N‚^^@^^@^^@¿^^@^^@^^@I^^@^^@^^@^^@^^@
                                                   ^^@^^@^^@^^@^^@^^@^^@^^@^^...
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
 
 ! Text line contains an invalid character.
-l.1 ...^N‚^^@^^@^^@¿^^@^^@^^@^^[^^@^^@^^@^^@^^@^^@
+l.1 ...@^^N‚^^@^^@^^@¿^^@^^@^^@I^^@^^@^^@^^@^^@^^@
                                                   ^^@^^@^^@^^@^^@^^@^^@^^@^^...
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
 
 ! Text line contains an invalid character.
-l.1 ...^^@^^@^^@¿^^@^^@^^@^^[^^@^^@^^@^^@^^@^^@^^@
+l.1 ...N‚^^@^^@^^@¿^^@^^@^^@I^^@^^@^^@^^@^^@^^@^^@
                                                   ^^@^^@^^@^^@^^@^^@^^@^^@^^...
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
 
 ! Text line contains an invalid character.
-l.1 ...^^@^^@¿^^@^^@^^@^^[^^@^^@^^@^^@^^@^^@^^@^^@
+l.1 ...^@^^@^^@¿^^@^^@^^@I^^@^^@^^@^^@^^@^^@^^@^^@
                                                   ^^@^^@^^@^^@^^@^^@^^@^^B^^...
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
 
 ! Text line contains an invalid character.
-l.1 ...^^@¿^^@^^@^^@^^[^^@^^@^^@^^@^^@^^@^^@^^@^^@
+l.1 ...^@^^@¿^^@^^@^^@I^^@^^@^^@^^@^^@^^@^^@^^@^^@
                                                   ^^@^^@^^@^^@^^@^^@^^B^^@^^...
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
 
 ! Text line contains an invalid character.
-l.1 ...¿^^@^^@^^@^^[^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+l.1 ...^@¿^^@^^@^^@I^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
                                                   ^^@^^@^^@^^@^^@^^B^^@^^@^^...
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
 
 ! Text line contains an invalid character.
-l.1 ...@^^@^^@^^[^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+l.1 ...^^@^^@^^@I^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
                                                   ^^@^^@^^@^^@^^B^^@^^@^^@¿^...
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
 
 ! Text line contains an invalid character.
-l.1 ...@^^@^^[^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+l.1 ...^^@^^@I^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
                                                   ^^@^^@^^@^^B^^@^^@^^@¿^^@^...
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
 
 ! Text line contains an invalid character.
-l.1 ...@^^[^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+l.1 ...^^@I^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
                                                   ^^@^^@^^B^^@^^@^^@¿^^@^^@^...
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
 
 ! Text line contains an invalid character.
-l.1 ...[^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
-                                                  ^^@^^B^^@^^@^^@¿^^@^^@^^@^...
+l.1 ...I^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^B^^@^^@^^@¿^^@^^@^^@9...
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
 
 ! Text line contains an invalid character.
 l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
-                                                  ^^B^^@^^@^^@¿^^@^^@^^@^^P^...
+                                                  ^^B^^@^^@^^@¿^^@^^@^^@9^^@...
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
 
@@ -699,26 +699,26 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^B
-                                                  ^^@^^@^^@¿^^@^^@^^@^^P^^@^...
+                                                  ^^@^^@^^@¿^^@^^@^^@9^^@^^@...
 
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
 ! Text line contains an invalid character.
 l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^B^^@
-                                                  ^^@^^@¿^^@^^@^^@^^P^^@^^@^...
+                                                  ^^@^^@¿^^@^^@^^@9^^@^^@^^U...
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
 
 ! Text line contains an invalid character.
 l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^B^^@^^@
-                                                  ^^@¿^^@^^@^^@^^P^^@^^@^^Zc...
+                                                  ^^@¿^^@^^@^^@9^^@^^@^^Ucom...
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
 
 ! Text line contains an invalid character.
 l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^B^^@^^@^^@
-                                                  ¿^^@^^@^^@^^P^^@^^@^^Zcom....
+                                                  ¿^^@^^@^^@9^^@^^@^^Ucom.ap...
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
 
@@ -730,7 +730,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.1 ...^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^B^^@^^@^^@¿
-                                                  ^^@^^@^^@^^P^^@^^@^^Zcom.a...
+                                                  ^^@^^@^^@9^^@^^@^^Ucom.app...
 
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -740,58 +740,45 @@ Alternatively, save the file in UTF-8 using your editor or another tool
 
 ! Text line contains an invalid character.
 l.1 ...^^@^^@^^@^^@^^@^^@^^@^^@^^@^^B^^@^^@^^@¿^^@
-                                                  ^^@^^@^^P^^@^^@^^Zcom.appl...
+                                                  ^^@^^@9^^@^^@^^Ucom.apple....
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
 
 ! Text line contains an invalid character.
 l.1 ...^^@^^@^^@^^@^^@^^@^^@^^@^^B^^@^^@^^@¿^^@^^@
-                                                  ^^@^^P^^@^^@^^Zcom.apple.l...
+                                                  ^^@9^^@^^@^^Ucom.apple.qua...
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
 
 ! Text line contains an invalid character.
 l.1 ...^^@^^@^^@^^@^^@^^@^^@^^B^^@^^@^^@¿^^@^^@^^@
-                                                  ^^P^^@^^@^^Zcom.apple.last...
+                                                  9^^@^^@^^Ucom.apple.quaran...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+Missing character: There is no 9 in font nullfont!
+! Text line contains an invalid character.
+l.1 ...^@^^@^^@^^@^^@^^@^^B^^@^^@^^@¿^^@^^@^^@9^^@
+                                                  ^^@^^Ucom.apple.quarantine...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+! Text line contains an invalid character.
+l.1 ...^@^^@^^@^^@^^@^^B^^@^^@^^@¿^^@^^@^^@9^^@^^@
+                                                  ^^Ucom.apple.quarantine^^@...
 A funny symbol that I can't read has just been input.
 Continue, and I'll forget that it ever happened.
 
 
-! LaTeX Error: Unicode character ^^P (U+0010)
+! LaTeX Error: Unicode character ^^U (U+0015)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1 ...^^@^^@^^@^^@^^@^^@^^B^^@^^@^^@¿^^@^^@^^@^^P
-                                                  ^^@^^@^^Zcom.apple.lastuse...
-
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-! Text line contains an invalid character.
-l.1 ...^^@^^@^^@^^@^^@^^B^^@^^@^^@¿^^@^^@^^@^^P^^@
-                                                  ^^@^^Zcom.apple.lastusedda...
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-! Text line contains an invalid character.
-l.1 ...^^@^^@^^@^^@^^B^^@^^@^^@¿^^@^^@^^@^^P^^@^^@
-                                                  ^^Zcom.apple.lastuseddate#...
-A funny symbol that I can't read has just been input.
-Continue, and I'll forget that it ever happened.
-
-
-! LaTeX Error: Unicode character ^^Z (U+001A)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1 ...^^@^^@^^@^^B^^@^^@^^@¿^^@^^@^^@^^P^^@^^@^^Z
-                                                  com.apple.lastuseddate#PS^...
+l.1 ...^@^^@^^@^^@^^B^^@^^@^^@¿^^@^^@^^@9^^@^^@^^U
+                                                  com.apple.quarantine^^@^^@...
 
 You may provide a definition with
 \DeclareUnicodeCharacter 
@@ -806,39 +793,39 @@ Missing character: There is no p in font nullfont!
 Missing character: There is no l in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no . in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no t in font nullfont!
+Missing character: There is no q in font nullfont!
 Missing character: There is no u in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no d in font nullfont!
-Missing character: There is no d in font nullfont!
 Missing character: There is no a in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
 Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
 Missing character: There is no e in font nullfont!
-! You can't use `macro parameter character #' in horizontal mode.
-l.1 ...^@^^@^^@^^P^^@^^@^^Zcom.apple.lastuseddate#
-                                                  PS^^@^^@^^@^^@^^@^^@^^@–^^...
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-Missing character: There is no P in font nullfont!
-Missing character: There is no S in font nullfont!
 ! Text line contains an invalid character.
-l.1 ...^^@^^P^^@^^@^^Zcom.apple.lastuseddate#PS^^@
-                                                  ^^@^^@^^@^^@^^@^^@–^^@^^@^...
+l.1 ...¿^^@^^@^^@9^^@^^@^^Ucom.apple.quarantine^^@
+                                                  ^^@^^@^^@˘^^@^^@^^@^^P^^@^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+! Text line contains an invalid character.
+l.1 ...@^^@^^@9^^@^^@^^Ucom.apple.quarantine^^@^^@
+                                                  ^^@^^@˘^^@^^@^^@^^P^^@^^@^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+! Text line contains an invalid character.
+l.1 ...@^^@9^^@^^@^^Ucom.apple.quarantine^^@^^@^^@
+                                                  ^^@˘^^@^^@^^@^^P^^@^^@^^Zc...
 (That makes 100 errors; please try again.) 
 Here is how much of TeX's memory you used:
  17 strings out of 473201
- 446 string characters out of 5716120
+ 418 string characters out of 5716120
  391988 words of memory out of 5000000
  23367 multiletter control sequences out of 15000+600000
  558837 words of font info for 36 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 15i,0n,18p,4166b,14s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 15i,0n,18p,4159b,14s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 !  ==> Fatal error occurred, no output PDF file produced!
