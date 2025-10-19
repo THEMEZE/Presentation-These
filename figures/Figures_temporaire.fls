@@ -1,8 +1,8 @@
-PWD /Users/themezeguillaume/Desktop/Presentation-These/figures
+PWD /Volumes/NO NAME/Presentation-These/figures
 INPUT /usr/local/texlive/2024/texmf.cnf
 INPUT /usr/local/texlive/2024/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/themezeguillaume/Desktop/Presentation-These/figures/Figures_temporaire.tex
+INPUT /Volumes/NO NAME/Presentation-These/figures/Figures_temporaire.tex
 OUTPUT Figures_temporaire.log
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/base/article.cls
@@ -568,11 +568,14 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmr5.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmri7.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmr8.tfm
 INPUT Figures_temporaire.aux
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi6.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi9.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr5.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr6.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr8.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr9.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri7.pfb
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy9.pfb

@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.4.18)  14 OCT 2025 22:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.4.18)  15 OCT 2025 01:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/themezeguillaume/Desktop/Presentation-These/figures/Figures_temporaire.tex
-(/Users/themezeguillaume/Desktop/Presentation-These/figures/Figures_temporaire.tex
+**"/Volumes/NO NAME/Presentation-These/figures/Figures_temporaire.tex"
+(/Volumes/NO NAME/Presentation-These/figures/Figures_temporaire.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (/usr/local/texlive/2024/texmf-dist/tex/latex/base/article.cls
@@ -954,25 +954,31 @@ File: uesint.fd
 
 [8]
 
-[9] (./Figures_temporaire.aux)
+[9{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
+
+[10]
+
+[11]
+
+[12] (./Figures_temporaire.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2020/03/25>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 54285 strings out of 473201
- 1449110 string characters out of 5716120
- 2224734 words of memory out of 5000000
+ 54286 strings out of 473201
+ 1449080 string characters out of 5716120
+ 2224735 words of memory out of 5000000
  76702 multiletter control sequences out of 15000+600000
  600175 words of font info for 91 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,11n,107p,1276b,1004s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri7.pfb>
-Output written on Figures_temporaire.pdf (9 pages, 130582 bytes).
+ 102i,11n,107p,1263b,1004s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy9.pfb>
+Output written on Figures_temporaire.pdf (12 pages, 142845 bytes).
 PDF statistics:
- 97 PDF objects out of 1000 (max. 8388607)
- 56 compressed objects within 1 object stream
+ 117 PDF objects out of 1000 (max. 8388607)
+ 69 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  22637 words of extra memory for PDF output out of 24883 (max. 10000000)
 

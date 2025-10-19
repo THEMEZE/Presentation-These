@@ -363,3 +363,16 @@ for folder in folders:
 **Laboratoire :** Institut d’Optique Graduate School  
 **Projet de thèse :** Étude des gaz de Bose unidimensionnels sur puce atomique  
 **Date :** Octobre 2025
+
+---
+## 🎬 Contexte : les overlays dans Beamer
+
+| Commande       | Avant apparition | Après apparition | Espace réservé ?  | Commentaire                 | Usage |
+| -------------- | ---------------- | ---------------- | ----------------- | --------------------------- | ------------------------------------------------|
+| 🧩 `\only`        | supprimé         | visible          | ❌ non             | pas d’espace avant          | ```\only<2->{Texte visible à partir de la 2e diapo}``` |
+| 💨 `\onslide`     | caché            | visible          | ✅ oui             | même effet que `\uncover`   | ```\onslide<2->{Texte visible à partir de la 2e diapo}``` |
+| 🫥 `\uncover`     | invisible        | visible          | ✅ oui             | garde la mise en page       | ```\uncover<2->{Texte caché au début, mais espace conservé}```|
+| 👀 `\visible`     | supprimé         | visible          | ❌ non             | ne garde pas d’espace       | ```\visible<2->{Texte}```|
+| 🔁 `\alt<>{A}{B}` | B avant          | A après          | dépend du contenu | utile pour alterner         | ```\alt<2>{Version 1}{Version 2}```|
+| 🚫 `\invisible`   | caché            | jamais visible   | selon cas         | souvent pour forcer un état | ```\invisible<1>{Texte}```|
+

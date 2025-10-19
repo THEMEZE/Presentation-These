@@ -25,11 +25,26 @@
   
     % === Colonne gauche ===
     %\begin{column}{0.5\textwidth}
-      \begin{columns}
+      \begin{columns}[T, totalwidth=\textwidth]
+        \centering
+        \begin{column}{0.5\textwidth} 
+          \centering
+          \begin{block}{Chaotic/Ergodic}
+          \end{block}
+        \end{column}
+        \begin{column}{0.5\textwidth} 
+          \centering
+          \begin{block}{Integrable/non-ergidic}
+          \end{block}
+        \end{column}
+      \end{columns}
+
+      \begin{columns}[c, totalwidth=\textwidth]
       
         % --- Sous-colonne gauche ---
         \begin{column}{0.5\textwidth} 
           \centering
+          %\begin{block}%{Chaotic/Ergodic}\centering
           \animategraphics[
             %controls, 
             %autoplay, % démarre automatiquement 
@@ -40,22 +55,45 @@
             buttonsize=1em,
             poster=first
           ]{60}{figures/frames_2D_positions_animation/frame_}{00001}{00001}
+
+          {\fontsize{10}{5}\selectfont 
+          \begin{tikzpicture}[remember picture, overlay]
+            \node []  at  (2,2.5)   (part)                            {$n$};
+            \node []     (moment) [below=1mm of part]             {$nu$};
+            \node []     (nrj) [below=1mm of moment]             {$\varepsilon$};
+	          \draw[  opacity = 0.5 ]
+		          (part) edge[line width=0.2ex ,color = blue ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 90 , in = 180  ]node[pos=1, right]{\color{blue} \fontsize{6}{1}\selectfont \bfseries  particule density }($(part) + (1cm,1.0cm)$)
+              (moment) edge[line width=0.2ex ,color = red ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 0 , in = 180  ]node[pos=1, right]{\color{red} \fontsize{6}{1}\selectfont \bfseries  velocity maen }($(moment) + (1cm,0cm)$)
+              (nrj) edge[line width=0.2ex ,color = black ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = -90 , in = 180  ]node[pos=1, right]{\color{black} \fontsize{6}{1}\selectfont \bfseries  energie density }($(nrj) + (1cm,-1.0cm)$)
+	          ;
+          \end{tikzpicture}
+          }
+        %\end{block}
         \end{column}
         
         % --- Sous-colonne droite ---
         \begin{column}{0.5\textwidth} 
           \centering
+          %\begin{block}%{Integrable/non-ergidic}\centering
+          
           \animategraphics[
             width=0.6\linewidth,
             buttonsize=1em,
             poster=first
           ]{60}{figures/frames_1D_positions_animation/frame_}{00001}{00001} 
+
+          {
+          \fontsize{10}{5}\selectfont 
+          \begin{tikzpicture}[remember picture, overlay]
+            \node []  at  (0,0)   (rho)                            {$\rho(v)$};
+	          \draw[  opacity = 0.5 ]
+              (rho) edge[line width=0.2ex ,color = black ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = -90 , in = 180  ]node[pos=1, right]{\color{black} \fontsize{6}{1}\selectfont \bfseries  velocity density }($(rho) + (1cm,-1.0cm)$)
+	          ;
+          \end{tikzpicture}
+          }
           
-          \animategraphics[
-            width=0.5\linewidth,
-            buttonsize=1em,
-            poster=first
-          ]{60}{figures/frames_1D_velocity_distribution/frame_}{00001}{00001} 
+          
+        %\end{block}
         \end{column}
         
       \end{columns}
@@ -63,22 +101,49 @@
     \vspace{0.2cm}
     % === Colonne droite ===
    %\begin{column}{0.5\textwidth} 
-      \begin{columns}
+      \begin{columns}[T, totalwidth=\textwidth]
       
         % --- Sous-colonne gauche ---
         \begin{column}{0.5\textwidth} 
           \centering
-          \animategraphics[
-            width=0.6\linewidth,
-            buttonsize=1em,
-            poster=first
-          ]{60}{figures/frames_2D_velocity_distribution/frame_}{00001}{00001}
+          \begin{block}{}
+          \centering
+          \begin{columns}[c, totalwidth=\textwidth]
+            \begin{column}{0.4\textwidth} 
+              \centering
+              \animategraphics[
+                width=1.0\linewidth,
+                buttonsize=1em,
+                poster=first
+              ]{60}{figures/frames_2D_velocity_distribution/frame_}{00001}{00001}
+           \end{column}
+           \begin{column}{0.2\textwidth} 
+            \centering
+            {\fontsize{6}{5}\selectfont 
+            $$ \overset{thermalisation}{\Longrightarrow} $$
+            }
+           \end{column}
+           \begin{column}{0.4\textwidth} 
+              \centering
+              \animategraphics[
+                width=1.0\linewidth,
+                buttonsize=1em,
+                poster=first
+              ]{60}{figures/frames_2D_velocity_distribution/frame_}{00600}{00600}
+            \end{column}
+          \end{columns}
+          \end{block}
         \end{column}
         
         % --- Sous-colonne droite ---
         \begin{column}{0.5\textwidth} 
           \centering
-          \includegraphics[width=0.6\linewidth]{figures/frames_2D_velocity_distribution/frame_00600.png}
+          %\includegraphics[width=0.6\linewidth]{figures/frames_2D_velocity_distribution/frame_00600.png}
+          \animategraphics[
+            width=0.5\linewidth,
+            buttonsize=1em,
+            poster=first
+          ]{60}{figures/frames_1D_velocity_distribution/frame_}{00001}{00001} 
         \end{column}
         
       \end{columns}
@@ -89,52 +154,52 @@
 \end{frame}
 
 %How do you make 1D?
-\begin{frame}
-  \frametitle{How do you make 1D?}
+% \begin{frame}
+%   \frametitle{How do you make 1D?}
   
-  %\begin{columns}
+%   %\begin{columns}
   
-    % === Colonne gauche ===
-    %\begin{column}{0.5\textwidth}
-      \begin{columns}
+%     % === Colonne gauche ===
+%     %\begin{column}{0.5\textwidth}
+%       \begin{columns}
       
-        % --- Sous-colonne gauche ---
-        \begin{column}{0.5\textwidth} 
-          \centering
-          \includegraphics[width=0.6\linewidth , page = 2 ]{figures/Figures_temporaire.pdf}
-        \end{column}
+%         % --- Sous-colonne gauche ---
+%         \begin{column}{0.5\textwidth} 
+%           \centering
+%           \includegraphics[width=0.6\linewidth , page = 2 ]{figures/Figures_temporaire.pdf}
+%         \end{column}
         
-        % --- Sous-colonne droite ---
-        \begin{column}{0.5\textwidth} 
-          \centering
-          \includegraphics[width=0.6\linewidth , page = 3 ]{figures/Figures_temporaire.pdf}
-        \end{column}
+%         % --- Sous-colonne droite ---
+%         \begin{column}{0.5\textwidth} 
+%           \centering
+%           \includegraphics[width=0.6\linewidth , page = 3 ]{figures/Figures_temporaire.pdf}
+%         \end{column}
         
-      \end{columns}
-    %\end{column}
-    \vspace{0.2cm}
-    % === Colonne droite ===
-    %\begin{column}{0.5\textwidth} 
-      \begin{columns}
+%       \end{columns}
+%     %\end{column}
+%     \vspace{0.2cm}
+%     % === Colonne droite ===
+%     %\begin{column}{0.5\textwidth} 
+%       \begin{columns}
       
-        % --- Sous-colonne gauche ---
-        \begin{column}{0.5\textwidth} 
-          \centering
-          \includegraphics[width=0.6\linewidth , page = 4 ]{figures/Figures_temporaire.pdf}
-        \end{column}
+%         % --- Sous-colonne gauche ---
+%         \begin{column}{0.5\textwidth} 
+%           \centering
+%           \includegraphics[width=0.6\linewidth , page = 4 ]{figures/Figures_temporaire.pdf}
+%         \end{column}
         
-        % --- Sous-colonne droite ---
-        \begin{column}{0.5\textwidth} 
-          \centering
-          \includegraphics[width=0.6\linewidth , page = 5 ]{figures/Figures_temporaire.pdf}
-        \end{column}
+%         % --- Sous-colonne droite ---
+%         \begin{column}{0.5\textwidth} 
+%           \centering
+%           \includegraphics[width=0.6\linewidth , page = 5 ]{figures/Figures_temporaire.pdf}
+%         \end{column}
         
-      \end{columns}
-    %\end{column}
+%       \end{columns}
+%     %\end{column}
   
-  %\end{columns}
+%   %\end{columns}
 
-\end{frame}
+% \end{frame}
 
 % Thesis Problematic
 \begin{frame}
@@ -173,9 +238,11 @@
       {\fontsize{10}{12}\selectfont  % <- ajuste ici aussi
       \begin{block}{Objectives}
         \begin{itemize}
-          \item Connect local observables with the integrable model description;
-          \item Study relaxation toward generalized stationary states;
-          \item Compare theoretical predictions with experimental results.
+          \item Lieb and Liniger;
+          \item GHD;
+          \item Manip;
+          \item Bipartition;
+          \item Fluctuation 
         \end{itemize}
       \end{block}
       }
@@ -187,14 +254,61 @@
 
 \Section{Lieb-Liniger}
 
+%The 2-body problem: the scattering phase
+% \begin{frame}
+%   \frametitle{The 2-body problem: the scattering phase}
+%   %\framesubtitle{Shift collisionnel 2 corps BA}
+%   \begin{columns}[c, totalwidth=\textwidth]
+%     \begin{column}{0.6\textwidth}
+%       {\fontsize{6}{5}\selectfont  % <- ajuste ici aussi
+%       %\begin{block}{Hamiltonien}
+%         $$ \operator{H} = \ptFleche{Cinetic}{\color{blue} $\displaystyle -\frac{\hbar^2}{2m} \left ( \operator{\partial}_{x_1}^2 + \operator{\partial}_{x_2}^2\right )$} + \ptFleche{Potentiel}{\color{red} $ \displaystyle \ptFleche{motg}{\color{red} $g$} \delta ( \operator{x}_1 - \operator{x}_2)$}$$
+%         %\FlecheEllipse{Cinetic}{45}{180}{3}{1}{blue}{$\text{Kinetic energy}$}
+%         \begin{tikzpicture}[overlay]
+% 	        \draw[  opacity = 0.5 ]
+% 		        (Cinetic) edge[line width=0.4ex ,color = blue ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 90 , in = 0  ]node[pos=1, left]{\color{blue} \fontsize{8pt}{102pt}\selectfont \bfseries  Kinetic energy }($(Cinetic) + (-1cm,1.0cm)$)
+%             (Potentiel) edge[line width=0.4ex ,color = red ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 90 , in = 180  ]node[pos=1, right]{\color{red} \fontsize{8pt}{102pt}\selectfont \bfseries  Contact potential }($(Potentiel) + (1cm,1.5cm)$)
+%             (motg) edge[line width=0.2ex ,color = black ,arrows = {Computer Modern Rightarrow[sharp ,length=0.1cm]-},  , out = -90 , in = 0  ]node[pos=1, left]{\color{black} \fontsize{5pt}{102pt}\selectfont \bfseries  1D repulsion strength }($(motg) + (-1cm,-0.75cm)$)
+% 	        ;
+%         \end{tikzpicture}
+%       %\end{block}
+%       \vspace{0.8cm}
+%       %\begin{block}{Eigenstates}
+%         $$ \psi_{\{ \theta_1 , \theta_2\} }(x_1, x_2) \propto \left \{ \begin{array}{ccl} e^{i\frac{m}{\hbar}(\theta_1 x_1 + \theta_2 x_2 )} - \ptFleche{Dephase}{\color{blue} $\displaystyle e^{i \Phi } $} e^{i\frac{m}{\hbar}(\theta_2 x_1 + \theta_1 x_2 )} & \mbox{if} &  x_1 < x_2 \\ ( x_1 \leftrightarrow x_2 ) & \mbox{if} &  x_2 < x_1  \end{array}\right . $$
+%         \begin{tikzpicture}[overlay]
+% 	        \draw[  opacity = 0.5 ]
+% 		        %(Dephase) edge[line width=0.4ex ,color = blue ,arrows = {Computer Modern Rightarrow[sharp ,length=0.3cm]-},  , out = -90 , in = 0  ]node[pos=1, left]{\color{blue} \fontsize{5}{10}\selectfont \bfseries  $ \displaystyle e^{i \Phi } = \frac{m \frac{g}{\hbar} - i (p_2 - p_1)}{m \frac{g}{\hbar} + i (p_2 - p_1)}$ }($(Dephase) + (-1cm,-1.5cm)$)
+% 	          (Dephase) edge[line width=0.4ex ,color = blue ,arrows = -{Computer Modern Rightarrow[sharp ,length=0.2cm]},  , out = 90 , in = 180  ]node[pos=1, right]{\color{blue} \fontsize{5}{10}\selectfont \bfseries  $ \displaystyle \Delta = \frac{m}{\hbar} \frac{d \Phi }{d\theta} $ }($(Dephase) + (1cm,0.75cm)$)
+% 	        ;
+%         \end{tikzpicture}
+%       %\end{block}
+%       \vspace{0.8cm}
+%       %\begin{block}{Eigenstates}
+%         $$ \left \{ \begin{array}{rcl} \frac{m}{\hbar} \theta_1 L + \Phi( \theta_1 - \theta_2) & = & 2 \pi I_1 \\  \frac{m}{\hbar} \theta_2 L + \Phi( \theta_2 - \theta_1) & = & 2 \pi I_2  \end{array}\right .  \quad I_1 , I_2 \in \mathbb{Z} + \frac{1}{2} $$
+%       %\end{block}
+      
+%       }
+%     \end{column}
+%     \begin{column}{0.4\textwidth}
+%       \centering
+%       \includegraphics[width=\textwidth , page = 7 ]{figures/Figures_temporaire.pdf}
+%       \vspace{0.2cm}
+%       \includegraphics[width=\textwidth , page = 8 ]{figures/Figures_temporaire.pdf}
+%     \end{column} 
+%   \end{columns}
+
+% \end{frame}
+
+%The N-body problem: the scattering phase
 \begin{frame}
-  \frametitle{The 2-body problem: the scattering phase}
+  \frametitle{The N-body problem: the scattering phase}
   %\framesubtitle{Shift collisionnel 2 corps BA}
+  \vspace{1.8cm}
   \begin{columns}[c, totalwidth=\textwidth]
     \begin{column}{0.6\textwidth}
       {\fontsize{6}{5}\selectfont  % <- ajuste ici aussi
       %\begin{block}{Hamiltonien}
-        $$ \operator{H} = \ptFleche{Cinetic}{\color{blue} $\displaystyle -\frac{\hbar^2}{2m} \left ( \operator{\partial}_{x_1}^2 + \operator{\partial}_{x_2}^2\right )$} + \ptFleche{Potentiel}{\color{red} $ \displaystyle \ptFleche{motg}{\color{red} $g$} \operator{\delta} ( x_1 - x_2)$}$$
+        $$ \operator{H} = \ptFleche{Cinetic}{\color{blue} $\displaystyle -\frac{\hbar^2}{2m} \sum_{a = 1}^N \operator{\partial}_{x_a}^2 $} + \ptFleche{Potentiel}{\color{red} $ \displaystyle \ptFleche{motg}{\color{red} $g$} \sum_{1\leq a < b \leq N} \delta ( \operator{x}_a - \operator{x}_b)$}$$
         %\FlecheEllipse{Cinetic}{45}{180}{3}{1}{blue}{$\text{Kinetic energy}$}
         \begin{tikzpicture}[overlay]
 	        \draw[  opacity = 0.5 ]
@@ -204,32 +318,66 @@
 	        ;
         \end{tikzpicture}
       %\end{block}
-      \vspace{0.8cm}
+      \vspace{0.5cm}
       %\begin{block}{Eigenstates}
-        $$ \psi_{\{  \theta_1 , \theta_2 \} }(x_1, x_2) \propto \left \{ \begin{array}{ccl} e^{i\frac{m}{\hbar}(\theta_1 x_1 + \theta_2 x_2 )} - \ptFleche{Dephase}{\color{blue} $\displaystyle e^{i \Phi } $} e^{i\frac{m}{\hbar}(\theta_2 x_1 + \theta_1 x_2 )} & \mbox{if} &  x_1 < x_2 \\ ( x_1 \leftrightarrow x_2 ) & \mbox{if} &  x_2 < x_1  \end{array}\right . $$
+        $$ \psi_{ \ptFleche{Listetheta}{\color{red} $\{\theta_a \}$} }(x_1 < \cdots <  x_N) \propto \sum_{\mathrm{perm.}\sigma} e^{i \Phi_\sigma({\color{red}\{\theta_a\}})} e^{i \frac{m}{\hbar}\sum_{b=1}^N{\color{red}\theta_{\sigma(b)}}x_b } $$
         \begin{tikzpicture}[overlay]
 	        \draw[  opacity = 0.5 ]
-		        %(Dephase) edge[line width=0.4ex ,color = blue ,arrows = {Computer Modern Rightarrow[sharp ,length=0.3cm]-},  , out = -90 , in = 0  ]node[pos=1, left]{\color{blue} \fontsize{5}{10}\selectfont \bfseries  $ \displaystyle e^{i \Phi } = \frac{m \frac{g}{\hbar} - i (p_2 - p_1)}{m \frac{g}{\hbar} + i (p_2 - p_1)}$ }($(Dephase) + (-1cm,-1.5cm)$)
-	          (Dephase) edge[line width=0.4ex ,color = blue ,arrows = -{Computer Modern Rightarrow[sharp ,length=0.2cm]},  , out = 90 , in = 180  ]node[pos=1, right]{\color{blue} \fontsize{5}{10}\selectfont \bfseries  $ \displaystyle \Delta = \hbar \frac{d \Phi }{dp} $ }($(Dephase) + (1cm,0.75cm)$)
+	          (Listetheta) edge[line width=0.4ex ,color = red ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 90 , in = 180  ]node[pos=1, right]{\color{red} \fontsize{5}{10}\selectfont \bfseries  $ \displaystyle  \{\theta_1 , \cdots , \theta_N  \}$ }($(Listetheta) + (1cm,0.75cm)$)
+            (Listetheta) edge[line width=0.4ex ,color = red ,arrows = -{Computer Modern Rightarrow[sharp ,length=0.2cm]},  , out = -90 , in = 180  ]node[pos=1, right]{\color{red} \fontsize{5}{10}\selectfont \bfseries  $ \displaystyle  \ket{\{\theta_a \}}$ }($(Listetheta) + (1cm,-0.75cm)$)
 	        ;
         \end{tikzpicture}
       %\end{block}
-      \vspace{0.8cm}
+      \vspace{0.5cm}
       %\begin{block}{Eigenstates}
-        $$ \left \{ \begin{array}{rcl} \displaystyle \frac{m}{\hbar} \theta_1 L + \Phi( \theta_1 - \theta_2) & = & 2 \pi I_1 \\ \displaystyle \frac{m}{\hbar} \theta_2 L + \Phi( \theta_2 - \theta_1) & = & 2 \pi I_2  \end{array}\right .  \quad I_1 , I_2 \in \mathbb{Z} + \frac{1}{2} $$
+        $$ \frac{m}{\hbar} {\color{red}\theta_a} L + \sum_{b = 1}^N \Phi ( \theta_a - \theta_b) = 2 \pi {\color{red}I_a} \quad a = 1 , \cdots , N $$
       %\end{block}
-      
       }
     \end{column}
     \begin{column}{0.4\textwidth}
       \centering
-      \includegraphics[width=\textwidth , page = 7 ]{figures/Figures_temporaire.pdf}
-      \vspace{0.2cm}
-      \includegraphics[width=\textwidth , page = 8 ]{figures/Figures_temporaire.pdf}
+      \alt<2>{
+      \includegraphics[width=\textwidth , page = 4 ]{figures/Figures.pdf}
+      }{
+      \includegraphics[width=\textwidth , page = 3 ]{figures/Figures.pdf} 
+      }
     \end{column} 
   \end{columns}
 
+  \vspace{0.3cm}
+
+  \begin{columns}[T, totalwidth=\textwidth]
+    \begin{column}{0.4\textwidth}
+      \centering
+      \alt<2>{
+      \includegraphics[width=1.5\textwidth , page = 2 ]{figures/Figures.pdf}
+      }{
+      \includegraphics[width=1.5\textwidth , page = 1 ]{figures/Figures.pdf}  
+      }   
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \centering
+      {\fontsize{6}{5}\selectfont  % <- ajuste ici aussi
+      $$ \left \{ \begin{array}{rccl} L \rho(\theta) \delta \theta & : \# &  \mathrm{rapidities} &\in [\theta , \theta + \delta \theta ] \\ L \rho_h(\theta) \delta \theta & : \# &  \mathrm{holes} & \in [\theta , \theta + \delta \theta ] \\ L \rho_s(\theta) \delta \theta & : \# &  \mathrm{states} & \in [\theta , \theta + \delta \theta ]\end{array}\right . $$
+      }
+    \end{column}
+  \end{columns}
+
 \end{frame}
+
+\Section{Large-scale dynamics}
+
+
+\begin{frame}{Comparaison des commandes}
+  \begin{itemize}
+    \item<1-> \uncover<1->{\textbf{Uncover} : espace réservé}
+    \item<2-> \visible<2->{\textbf{Visible} : sans espace réservé}
+    \item<3-> \only<3->{\textbf{Only} : supprime l’élément avant}
+    \item<4-> \onslide<4->{\textbf{Onslide} : garde l’espace}
+    \item<5-> \alt<5>{\textcolor{red}{A}}{\textcolor{gray}{B}} : alterne contenu
+  \end{itemize}
+\end{frame}
+
 
 % \begin{frame}
 %   \frametitle{Rapidities and GGE in a classical system}
