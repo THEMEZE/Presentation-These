@@ -9,6 +9,8 @@
 *.aux
 *.pdf
 *.toc
+*.fdb_latexmk
+*.fls
 
 
 ._.ipynb_checkpoints
@@ -22,7 +24,6 @@
 #.gitignore
 
 .ipynb_checkpoints/
-versions/
-outputs/
-animations/
 
+
+figures/._.DS_Store
