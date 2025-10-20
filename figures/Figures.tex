@@ -22,6 +22,8 @@ decorations.pathreplacing}
 \usetikzlibrary{calc,patterns,shapes.geometric}
 \usepackage{anyfontsize}
 
+\usetikzlibrary {fadings,patterns}
+
 \setlength\PreviewBorder{5pt}
 %\usepgfplotslibrary{external}
 %\tikzexternalize
@@ -384,7 +386,7 @@ decorations.pathreplacing}
 
 \end{tikzpicture}
 
-% rho Exité
+% rho Fondamentale 
 \begin{tikzpicture}
 
 	%\drawgrid{-12}{7}{-4}{7}
@@ -725,7 +727,7 @@ decorations.pathreplacing}
 
 \end{tikzpicture}
 
-% rho Fondamentale 
+% rho Exité
 \begin{tikzpicture}
 
 	%\drawgrid{-12}{7}{-4}{7}
@@ -1063,6 +1065,172 @@ decorations.pathreplacing}
 
 
 \end{tikzpicture}
+
+\begin{tikzpicture}
+    %\drawgrid{-12}{7}{-10}{7}
+    \begin{scope}[shift={(0,0)}]
+        \draw[
+            decoration={
+                markings,
+                % mark=at position 0.0 with {
+                %     \arrow[line width=0.5ex, color=\colorThree]{Computer Modern Rightarrow[reversed]}
+                % },
+                % mark=at position 1.0 with {
+                %     \arrow[line width=0.5ex, color=\colorThree]{Computer Modern Rightarrow}
+                % },
+				mark connection node=my node,
+                mark=at position 0.5 with {
+                    \node[
+                        color=\colorThree,
+                        transform shape
+                    ] (my node) {\fontsize{20}{5}\selectfont \bfseries \color{\colorThree} System size $ \leftarrow L \gg \ell $};
+                },
+            },
+            %postaction={decorate},
+            color=\colorThree,
+            thick,
+            line width=0.5ex
+        ] 
+		(-10, 0) edge[arrows={Computer Modern Rightarrow[line cap=round]-}] (-9, 0) decorate {(-9.5, 0) -- (9.5, 0)} (9, 0) edge[arrows={-Computer Modern Rightarrow[line cap=round]}] (10, 0)
+		;
+
+		% Now we use the fading in another picture:
+		\pgfdeclarehorizontalshading{multiGradient}{200bp}{
+  			color(0bp)=(\colorTwo);
+  			color(50bp)=(\colorTwo!70!\colorFour);
+  			color(100bp)=(\colorFour);
+  			color(150bp)=(\colorFour!70!\colorTwo);
+  			color(200bp)=(\colorTwo)
+		}
+
+		\begin{scope}[shift={(0,-0.75)}]
+  			\shade[shading=multiGradient] (-10,-0.5) rectangle (10,0.5);
+		\end{scope}
+
+		\begin{scope}[shift={(0,-1.25)}]
+    		% Petit rectangle
+    		\draw[
+        		color=\colorSix,
+        		thick,
+        		line width=0.5ex
+    		] (5,0) rectangle ++(1,1);
+
+    		% Triangle dégradé dessous
+    		\shade[shading=axis, left color=\colorOne, right color=\colorTwo, shading angle=0] 
+        		(5,0) -- (6,0) -- (10,-3) -- (-10,-3) -- cycle;
+		\end{scope}
+
+
+
+
+    \end{scope}
+
+	\begin{scope}[shift={(0,-4.5)}]
+        \draw[
+            decoration={
+                markings,
+                % mark=at position 0.0 with {
+                %     \arrow[line width=0.5ex, color=\colorThree]{Computer Modern Rightarrow[reversed]}
+                % },
+                % mark=at position 1.0 with {
+                %     \arrow[line width=0.5ex, color=\colorThree]{Computer Modern Rightarrow}
+                % },
+				mark connection node=my node,
+                mark=at position 0.5 with {
+                    \node[
+                        color=\colorThree,
+                        transform shape
+                    ] (my node) {\fontsize{15}{5}\selectfont \bfseries \color{\colorThree} continum of locally homogeneous cells of fluid of size  $ \leftarrow \ell \gg d $};
+                },
+            },
+            %postaction={decorate},
+            color=\colorThree,
+            thick,
+            line width=0.5ex
+        ] 
+		(-10, 0) edge[arrows={Computer Modern Rightarrow[line cap=round]-}] (-9, 0) decorate {(-9.5, 0) -- (9.5, 0)} (9, 0) edge[arrows={-Computer Modern Rightarrow[line cap=round]}] (10, 0)
+		;
+
+		% Now we use the fading in another picture:
+		\pgfdeclarehorizontalshading{multiGradient}{200bp}{
+  			color(0bp)=(\colorFour);
+  			%color(50bp)=(\colorTwo!70!\colorFour);
+  			%color(100bp)=(\colorFour);
+  			%color(150bp)=(\colorFour!70!\colorTwo);
+  			color(200bp)=(\colorFour)
+		}
+
+		\begin{scope}[shift={(0,-0.75)}]
+  			\shade[shading=multiGradient] (-10,-0.5) rectangle (10,0.5);
+		\end{scope}
+
+		\begin{scope}[shift={(0,-1.25)}]
+    		% Petit rectangle
+    		\draw[
+        		color=\colorSix,
+        		thick,
+        		line width=0.5ex
+    		] (5,0) rectangle ++(1,1);
+
+    		% Triangle dégradé dessous
+    		\shade[shading=axis, left color=\colorOne, right color=\colorTwo, shading angle=0] 
+        		(5,0) -- (6,0) -- (10,-3) -- (-10,-3) -- cycle;
+		\end{scope}
+
+
+
+
+    \end{scope}
+
+	\begin{scope}[shift={(0,-9)}]
+        \draw[
+            color=\colorThree,
+            thick,
+            line width=0.5ex,
+        ] 
+		(-0.5, 0) edge[{Computer Modern Rightarrow[line cap=round]}-{Computer Modern Rightarrow[line cap=round]}] node[pos = 0.5 , right , shift = {(-0.25 , 0.5 )} , color = \colorOne ]{\fontsize{15}{5}\selectfont \bfseries \color{\colorThree} $d \rightarrow $ the microscopic length scle } (0.5, 0)
+		;
+
+		\begin{scope}[shift={(0,-0.75)}]
+
+			% Fixer la seed
+    		\pgfmathsetseed{1234}  % Choisis n'importe quel entier
+
+
+    		% Dimensions du rectangle
+    		\def\xmin{-10}
+    		\def\xmax{10}
+    		\def\ymin{-0.5}
+    		\def\ymax{0.5}
+
+    		% Rayon des cercles et distance moyenne
+    		\def\r{0.12}   % rayon
+    		\def\d{0.5}   % distance moyenne
+
+   		 	% Nombre approximatif de cercles selon l'aire
+    		\pgfmathsetmacro{\Nx}{(\xmax-\xmin)/\d}
+    		\pgfmathsetmacro{\Ny}{(\ymax-\ymin)/\d}
+
+    		% Dessin des cercles aléatoires
+   		 	\foreach \i in {1,...,\Nx}{
+        		\foreach \j in {1,...,\Ny}{
+            		% Position aléatoire centrée sur une grille de pas d
+            		\pgfmathsetmacro{\x}{\xmin + \i*\d + (\d*rand-0.5*\d)}
+            		\pgfmathsetmacro{\y}{\ymin + \j*\d + (\d*rand-0.5*\d)}
+            		\fill[\colorFour] (\x,\y) circle[radius=\r];
+        		}
+    		}
+    
+    		% Rectangle de fond (optionnel, pour limiter la zone)
+    		%\draw[\colorThree, thick, line width=0.5ex] (\xmin,\ymin) rectangle (\xmax,\ymax);
+\end{scope}
+
+
+
+
+    \end{scope}
+\end{tikzpicture}
+
 
 
 

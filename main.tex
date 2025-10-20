@@ -252,7 +252,7 @@
   %}
 \end{frame}
 
-\Section{Lieb-Liniger}
+\Section{Lieb-Liniger/Large-scale dynamics}
 
 %The 2-body problem: the scattering phase
 % \begin{frame}
@@ -365,7 +365,105 @@
 
 \end{frame}
 
-\Section{Large-scale dynamics}
+% Dynamique Euler
+\begin{frame}
+  \frametitle{GHD}
+  \framesubtitle{Hydrodynamic scale}
+  
+  %\begin{columns}
+  
+    % === Colonne gauche ===
+    %\begin{column}{0.5\textwidth}
+      \begin{columns}[T, totalwidth=\textwidth]
+        \centering
+        \begin{column}{0.5\textwidth} 
+          \centering
+          \begin{block}{Chaotic/Ergodic}
+          \end{block}
+        \end{column}
+        \begin{column}{0.5\textwidth} 
+          \centering
+          \begin{block}{Integrable/non-ergidic}
+          \end{block}
+        \end{column}
+      \end{columns}
+
+      \begin{columns}[c, totalwidth=\textwidth]
+      
+        % --- Sous-colonne gauche ---
+        \begin{column}{0.5\textwidth} 
+          \centerline{
+          %\begin{block}%{Chaotic/Ergodic}\centering
+          \animategraphics[
+            %controls, 
+            %autoplay, % démarre automatiquement 
+            %loop, % boucle infinie,
+            %palindrome, % (optionnel) rejoue à l'envers,
+            %clicktoshow, % permet de lancer/pause par clic
+            width=0.6\linewidth,
+            buttonsize=1em,
+            poster=first
+          ]{60}{figures/frames_2D_positions_animation/frame_}{00001}{00001}
+          {~}{~}{~}{~}{~}{~}{~}{~}{~}{~}{~}{~}{~}{~}{~}{~}{~}{~}{~}{~}{~}{~}{~}{~}{~}{~}{~}{~}{~}{~}{~}{~}
+          }
+
+          {\fontsize{6}{5}\selectfont 
+          \begin{tikzpicture}[remember picture, overlay]
+            \node [right]  at  (3,2.5)   (part)                            {$q_0(x;t) = n(x;t)$};
+            \node [right]     (moment) [below=1mm of part]             {$q_1(x;t) = nu(x;t)$};
+            \node [right]     (nrj) [below=1mm of moment]             {$q_2(x;t) = \varepsilon(x;t)$};
+	          \draw[  opacity = 0.5 ]
+		          (part) edge[line width=0.2ex ,color = blue ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 50 , in = 180  ]node[pos=1, right]{\color{blue} \fontsize{6}{1}\selectfont \bfseries  local particle density}($(part) + (2cm,1.0cm)$)
+              (moment) edge[line width=0.2ex ,color = red ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 10 , in = 180  ]node[pos=1, right]{\color{red} \fontsize{6}{1}\selectfont \bfseries  local velocity maen }($(moment) + (2cm,0.5cm)$)
+              (nrj) edge[line width=0.2ex ,color = black ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = -50 , in = 180  ]node[pos=1, right]{\color{black} \fontsize{6}{1}\selectfont \bfseries  local energie density }($(nrj) + (1cm,-1.25cm)$)
+	          ;
+          \end{tikzpicture}
+          }
+        %\end{block}
+        \end{column}
+        
+        % --- Sous-colonne droite ---
+        \begin{column}{0.5\textwidth} 
+          \centering
+          %\begin{block}%{Integrable/non-ergidic}\centering
+          
+          \animategraphics[
+            width=0.6\linewidth,
+            buttonsize=1em,
+            poster=first
+          ]{60}{figures/frames_1D_positions_animation/frame_}{00001}{00001} 
+
+          {
+          \fontsize{6}{5}\selectfont 
+          \begin{tikzpicture}[remember picture, overlay]
+            \node []  at  (0,0)   (rho)                            {$\rho(\theta, x ; t )$};
+	          \draw[  opacity = 0.5 ]
+              (rho) edge[line width=0.2ex ,color = black ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = -90 , in = 180  ]node[pos=1, right]{\color{black} \fontsize{6}{1}\selectfont \bfseries  local velocity density }($(rho) + (1cm,-1.0cm)$)
+	          ;
+          \end{tikzpicture}
+          }
+          
+          
+        %\end{block}
+        \end{column}
+        
+      \end{columns}
+    %\end{column}
+    \vspace{0.0cm}
+    
+    % \begin{columns}[T, totalwidth=\textwidth]
+      
+    %   \centering 
+    %   \begin{column}{0.5\textwidth} 
+         \centering 
+         \includegraphics[width=0.4\textwidth , page = 5 ]{figures/Figures.pdf}
+    %   \end{column}
+
+    % \end{columns}
+
+\end{frame}
+
+
 
 
 \begin{frame}{Comparaison des commandes}

@@ -1,4 +1,6 @@
 
+![Demo](main.gif)
+
 ---
 
 ## ⚙️ Git Mise à jour
@@ -423,6 +425,169 @@ echo -e "${BLUE}─────────────────────�
 ✅ Points forts :
 - Tu peux facilement ajouter un filtre pour ne compiler que certains fichiers.
 - Python peut ensuite déplacer, renommer ou traiter les PDFs automatiquement après compilation.
+
+---
+
+Transformer un PDF (une ou plusieurs pages) en GIF animé est tout à fait faisable — tu peux le faire en ligne de commande (avec `ImageMagick`) ou en Python (avec `Pillow` ou `imageio`).
+
+## 🧩 1. Méthode rapide avec ImageMagick (en terminal)
+
+### 🔧 Installation (si besoin)
+
+```bash
+brew install imagemagick
+```
+
+### ⚠️ Sur macOS, il faut que `ghostscript` soit installé :
+
+```bash
+brew install ghostscript
+```
+
+### 💫 Conversion d’un PDF en GIF
+
+```bash
+convert -density 200 input.pdf -resize 800x800 -loop 0 output.gif
+```
+
+🔹 Explications :
+- `density 200` → meilleure qualité d’entrée (augmente la résolution)
+- `-quality 90` → Qualité de compression des images intermédiaires (JPEG). Ce n’est pas le "fps", c’est juste le niveau de compression visuelle (100 = meilleur rendu, mais fichier plus lourd).
+- `resize 800x800` → redimensionne le GIF final (facultatif)
+- `-delay X` → contrôler la vitesse du GIF (frames par seconde ou délai entre images); où X = délai entre images en centièmes de seconde.
+| But    | Commande     | Effet                     |
+| ------ | ------------ | ------------------------- |
+| 10 FPS | `-delay 10`  | 1 image toutes les 0.10 s |
+| 2 FPS  | `-delay 50`  | 1 image toutes les 0.50 s |
+| 1 FPS  | `-delay 100` | 1 image par seconde       |
+
+- `loop 0` → fait boucler le GIF à l’infini
+- `output.gif` → le nom du GIF final
+👉 Chaque page du PDF devient une frame dans le GIF animé.
+
+### 🧠 Exemple plus propre
+```bash
+convert -density 300 "main.pdf" -quality 100 -resize 1024x1024 -delay 1 -loop 0 "main.gif"
+```
+### 💡 Astuce :
+Si ton PDF a beaucoup de pages et que le GIF devient trop lourd :
+```bash
+convert -density 200 "main.pdf[0-10]" -resize 800x800 -delay 20 -loop 0 "main.gif"
+```
+👉 Compile seulement les pages 0 à 10, avec une densité plus légère et 5 FPS.
+
+### 🧩 MÉTHODE  — En ImageMagick uniquement (effet “approché”)
+Si tu veux rester en bash pur, tu peux faire une transition approximative avec la commande suivante :
+```bash
+convert -density 300 main.pdf -resize 1024x1024 -delay 10 -loop 0 \
+  \( -clone 0--1 -morph 10 \) main.gif
+```
+🔹 `-morph 10` → crée 10 images intermédiaires entre chaque page (effet de fondu “interpolé”).
+Mais c’est moins fluide que la méthode Python (pas un vrai alpha blending).
+
+## 🐍 2. En Python avec `imageio`
+
+### 📦 Installation
+
+```bash
+pip install imageio[ffmpeg] PyMuPDF
+```
+
+### 💡 Script Python
+```python
+import imageio.v3 as iio
+import fitz  # PyMuPDF
+
+pdf_path = "main.pdf"
+gif_path = "main.gif"
+
+# Ouvre le PDF et extrait les pages en images
+doc = fitz.open(pdf_path)
+images = []
+
+for page in doc:
+    pix = page.get_pixmap(matrix=fitz.Matrix(2, 2))  # facteur de zoom
+    img = iio.imread(pix.tobytes(), extension=".png")
+    images.append(img)
+
+# Crée le GIF (durée en secondes entre les frames)
+iio.imwrite(gif_path, images, duration=0.8, loop=0)
+
+print(f"✅ GIF créé : {gif_path}")
+```
+🔹 Chaque page du PDF devient une image.
+🔹 `duration=0.8` → durée entre deux pages.
+🔹 `loop=0` → le GIF boucle indéfiniment.
+
+### 🧠 MÉTHODE  — En Python (effet de fondu progressif entre pages)
+
+Cette approche donne un rendu beaucoup plus esthétique ✨
+Tu peux ajuster la durée, le nombre de frames de transition et la taille finale du GIF.
+
+#### ⚙️ Installation des dépendances
+```bash
+pip install imageio[ffmpeg] Pillow PyMuPDF numpy tqdm
+
+```
+
+#### 🐍 Script Python : `pdf_to_gif_fade.py``
+
+```python
+import fitz  # PyMuPDF
+import imageio.v3 as iio
+from PIL import Image
+import numpy as np
+from tqdm import tqdm
+
+pdf_path = "main.pdf"
+gif_path = "main.gif"
+
+# Paramètres
+zoom = 2.0               # Zoom pour la qualité
+fps = 10                 # Images par seconde
+fade_frames = 10         # Nombre d'images de fondu entre deux pages
+frame_duration = 1 / fps # Durée d'une image
+images = []
+
+# Extraction des pages du PDF
+doc = fitz.open(pdf_path)
+pages = []
+for page in doc:
+    pix = page.get_pixmap(matrix=fitz.Matrix(zoom, zoom))
+    img = Image.frombytes("RGB", [pix.width, pix.height], pix.samples)
+    pages.append(img)
+
+# Création du GIF avec transitions fondues
+for i in tqdm(range(len(pages))):
+    images.append(pages[i])
+    if i < len(pages) - 1:
+        img1 = np.array(pages[i]).astype(float)
+        img2 = np.array(pages[i + 1]).astype(float)
+        # Génère les frames de transition
+        for alpha in np.linspace(0, 1, fade_frames):
+            blend = (1 - alpha) * img1 + alpha * img2
+            images.append(Image.fromarray(np.uint8(blend)))
+
+# Sauvegarde du GIF
+iio.imwrite(gif_path, images, duration=frame_duration, loop=0)
+print(f"✅ GIF créé avec effet de fondu : {gif_path}")
+```
+#### 🔧 Paramètres personnalisables :
+| Paramètre        | Description                                              |
+| ---------------- | -------------------------------------------------------- |
+| `zoom`           | Qualité de rendu des pages PDF                           |
+| `fps`            | Vitesse globale du GIF (nombre d’images par seconde)     |
+| `fade_frames`    | Nombre d’images utilisées pour la transition entre pages |
+| `frame_duration` | Vitesse de chaque frame (automatique à partir du FPS)    |
+
+
+#### 🎨 Résultat :
+Tu obtiens un GIF :
+- fluide et continu,
+- avec fondu progressif entre pages,
+- en qualité haute grâce à PyMuPDF.
+
+---
 
 # Presentation-These
 
