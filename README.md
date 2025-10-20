@@ -690,3 +690,66 @@ Tu obtiens un GIF :
 | 🔁 `\alt<>{A}{B}` | B avant          | A après          | dépend du contenu | utile pour alterner         | ```\alt<2>{Version 1}{Version 2}```|
 | 🚫 `\invisible`   | caché            | jamais visible   | selon cas         | souvent pour forcer un état | ```\invisible<1>{Texte}```|
 
+## 🌈 Options possibles pour personnaliser l’effet
+| Commande                         | Effet visuel                                                        |
+| -------------------------------- | ------------------------------------------------------------------- |
+| `\setbeamercovered{transparent}` | éléments futurs sont semi-transparents                              |
+| `\setbeamercovered{dynamic}`     | transparence progressive selon la slide                             |
+| `\transfade[duration=0.5]`       | vraie transition de fondu entre deux slides (PDF viewer compatible) |
+
+### 🧩 Code complet (fichier `transition_fluide.tex`)
+Voici un **exemple complet de diapositive Beamer** avec une **transition fluide (fondu entre les étapes)** — le tout sans décalage d’éléments, idéal pour ta soutenance.
+Tu peux le compiler directement avec `lualatex` ou `pdflatex`.
+```latex
+\documentclass{beamer}
+
+% --- Thème sobre et clair ---
+\usetheme{Madrid}
+\usecolortheme{default}
+
+% --- Transitions PDF (fade, wipe, etc.) ---
+\usepackage{pdftrans}
+
+% --- Couleurs et réglages optionnels ---
+\setbeamertemplate{navigation symbols}{}
+\setbeamercovered{transparent} % rend les éléments non encore visibles translucides
+
+\begin{document}
+
+\begin{frame}{Transition fluide entre deux étapes}
+
+% --- Étape 1 : Image ---
+\onslide<1>{
+  \centering
+  \begin{block}{}
+    \centering
+    \includegraphics[width=0.4\textwidth, page=5]{figures/Figures.pdf}
+  \end{block}
+}
+
+% --- Transition de fondu entre les deux slides ---
+\only<1>{\transfade[duration=0.6]} % durée en secondes (0.3 à 1.0 conseillé)
+
+% --- Étape 2 : Équations ---
+\onslide<2->{
+  \centering
+  \begin{columns}[T, totalwidth=\textwidth]
+    \begin{column}{0.5\textwidth}
+      \centering
+      {\fontsize{8}{7}\selectfont
+      $$ \partial_t q_i + \partial_x j_i = 0 $$
+      }
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \centering
+      {\fontsize{8}{7}\selectfont
+      $$ \partial_t \rho + \partial_x j = 0 $$
+      }
+    \end{column}
+  \end{columns}
+}
+
+\end{frame}
+
+\end{document}
+```

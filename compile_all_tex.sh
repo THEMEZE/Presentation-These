@@ -20,6 +20,7 @@ echo
 # puis les trie pour que les plus profonds soient compilés en premier.
 texfiles=$(find . -type f -name "*.tex" ! -name "._*" ! -path "*/.*/*" | awk '{ print length, $0 }' | sort -nr | cut -d" " -f2-)
 
+#texfiles="./figures/Figures.tex"  "./main.tex" 
 # Vérifie si des fichiers ont été trouvés
 if [ -z "$texfiles" ]; then
     echo -e "${RED}❌ Aucun fichier .tex trouvé.${RESET}"
