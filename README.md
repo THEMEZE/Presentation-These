@@ -485,6 +485,22 @@ convert -density 300 main.pdf -resize 1024x1024 -delay 10 -loop 0 \
 🔹 `-morph 10` → crée 10 images intermédiaires entre chaque page (effet de fondu “interpolé”).
 Mais c’est moins fluide que la méthode Python (pas un vrai alpha blending).
 
+### ⚙️ Optionnel : afficher la progression
+
+#### 🧩 Explications :
+
+- `mkdir -p Exp_Bord` : crée le dossier s’il n’existe pas déjà.
+- `convert` : outil d’ImageMagick.
+- `Exp_Bord.gif` : ton fichier source.
+- `Exp_Bord/frame_%06d.png` :
+    → `%06d` signifie un numéro sur **6 chiffres** (ex. `frame_000001.png`, `frame_000002.png`, etc.).
+
+```bash
+mkdir -p Exp_Bord
+convert -monitor Exp_Bord.gif Exp_Bord/frame_%05d.png
+```
+
+
 ## 🐍 2. En Python avec `imageio`
 
 ### 📦 Installation

@@ -21,6 +21,7 @@
 decorations.pathreplacing}
 \usetikzlibrary{calc,patterns,shapes.geometric}
 \usepackage{anyfontsize}
+\usepackage{bm}
 
 \usetikzlibrary {fadings,patterns}
 \usetikzlibrary{hobby} % <-- indispensable pour use Hobby shortcut
@@ -260,6 +261,19 @@ decorations.pathreplacing}
     \end{scope}
 
 
+}
+
+\usepackage[french, english]{babel} 
+
+\AtBeginDocument{\shorthandoff{:;!?}}
+\tikzset{every picture/.style={execute at begin picture={\shorthandoff{:;!?};}}}
+\tikzstyle{every picture}+=[remember picture]
+\tikzstyle{na} = [shape=rectangle,inner sep=0pt]
+
+
+\newcommand{\ptFleche}[2]{		% Déclaration d'une extrémité de flèche
+    \shorthandoff{:;!?}% <- désactive les shorthands
+    \tikz[baseline=(#1.base)]\node[na](#1){#2};
 }
 
 
@@ -1070,7 +1084,7 @@ decorations.pathreplacing}
 
 \end{tikzpicture}
 
-%Echelle hydro
+% Echelle hydro
 \begin{tikzpicture}
     %\drawgrid{-12}{7}{-10}{7}
     \begin{scope}[shift={(0,0)}]
@@ -1382,6 +1396,975 @@ decorations.pathreplacing}
     
         
     %\drawgrid{-2}{10}{-1}{10};
+\end{tikzpicture}
+
+% Classique 2 problem
+\begin{tikzpicture}
+
+	% Axxes 
+	\draw[shift = {(0,0)}]
+		(-1, 0) edge[thick, line width=0.5ex, ->, color=\colorOne] node[shift = {(0,0)} , pos=0.6, below]{\fontsize{12pt}{16pt}\selectfont \huge \color{\colorOne} position } (6, 0)
+		(-0, -1) edge[thick, line width=0.5ex, ->, color=\colorOne] node[shift = {(0,0)} , pos=0.4, above , rotate = 90 ]{\fontsize{12pt}{16pt}\selectfont \huge \color{\colorOne} temps } (-0, 7)		
+	;
+	
+	\draw[]
+		(1,1) edge[thick, line width=0.5ex , color = colorFour] ($(1,1) + 1.0*(1,2) $)
+		(2,3) edge[dashed, line width=0.5ex , color = colorFour!50!colorThree] ($(2,3)!2.0!(3,5)$)
+
+		(5,1) edge[thick, line width=0.5ex , color = colorFive] ($(5,1) + 1.0*(-2,2) $)
+		(3,3) edge[dashed, line width=0.5ex , color = colorFive!50!colorThree] ($(3,3) + 2.0*(-2,2) $)
+	;
+
+	\draw[]
+		(2,3) edge[thick, line width=0.5ex , -> ,  >=Triangle , color = colorFive] ($(2,3) + 2.0*(-2,2) $)
+		(3,3) edge[thick, line width=0.5ex , -> , >=Triangle , color = colorFour] ($(3,3) + 2.0*(1,2) $)
+	;
+	
+
+	\draw[draw = none , fill = colorFour , opacity = 0.8] 
+		(1,1) circle (0.5) node [right]{
+			\tikz \draw[](0,0) edge[shift = {(0,1)}, thick, line width=0.3ex , -> ,  >=Stealth , color = colorFour] node [pos = 0.5 , above ]{\fontsize{12pt}{16pt}\selectfont $v_1$}  (1,0) ;
+			}
+	;
+	\draw[draw = none , fill = colorFour , opacity = 0.8] (2,3) circle (0.5) ;
+	\draw[draw = none , fill = colorFive , opacity = 0.8] 
+		(5,1) circle (0.5) node [left]{
+			\tikz \draw[](0,0) edge[shift = {(-0.1,1)}, thick, line width=0.3ex , -> ,  >=Stealth , color = colorFive] node [pos = 0.5 , above ]{\fontsize{12pt}{16pt}\selectfont $v_2$}  (-2,0) ;
+			}
+	;
+	\draw[draw = none , fill = colorFive , opacity = 0.8] (3,3) circle (0.5) ;
+
+	\draw[draw = none , fill = colorFive , opacity = 0.8] 
+		(0,5) circle (0.5) node [left]{
+			\tikz \draw[](0,0) edge[shift = {(-0.1,1)}, thick, line width=0.3ex , -> ,  >=Stealth , color = colorFive] node [pos = 0.5 , above ]{\fontsize{12pt}{16pt}\selectfont $v_2$}  (-2,0) ;
+			}
+	;
+	\draw[draw = none , fill = colorFour , opacity = 0.8] 
+		(4,5) circle (0.5) node [right]{
+			\tikz \draw[](0,0) edge[shift = {(0,1)}, thick, line width=0.3ex , -> ,  >=Stealth , color = colorFour] node [pos = 0.5 , above ]{\fontsize{12pt}{16pt}\selectfont $v_1$}  (1,0) ;
+			}
+	;
+	
+	\begin{scope}[shift = {(4.1,6.2)}]
+		\draw[shift = {(-0.6,0)}, thick, line width=0.5ex , -> ,  >=Stealth , color = colorThree] 
+			(-0.5,0) -- (0,0) 
+		;
+		\draw[shift = {(0.6,0)}]
+			(0,0) edge [thick, line width=0.5ex , <- , >=Stealth , color = colorThree] node [ pos = 1.0 , right ]{\fontsize{12pt}{16pt}\selectfont  \color{colorThree} $\Delta$ } (0.5,0) 
+		;			
+	\end{scope}
+
+	\begin{scope}[shift = {(5,1)}]
+		\draw[shift = {(-0.6,0)}, thick, line width=0.5ex , -> ,  >=Stealth , color = colorThree] 
+			(-0.5,0) -- (0,0) 
+		;
+		\draw[shift = {(0.6,0)}]
+			(0,0) edge [thick, line width=0.5ex , <- , >=Stealth , color = colorThree] node [ pos = 1.0 , right ]{\fontsize{12pt}{16pt}\selectfont  \color{colorThree} $\Delta$ } (0.5,0) 
+		;			
+	\end{scope}
+	
+	\begin{scope}[shift={(3,3.2)} , opacity = 0.0]
+    	\draw[
+        	fill=colorSix,
+       	 	color=colorSix,
+       		decorate,
+        	decoration={random steps, segment length=1mm, amplitude=1mm}
+   		 ] (0,0) circle (0.8);
+
+    	% Texte au centre
+    	\node at (0,0.) {\color{colorTwo} \fontsize{10pt}{5pt}\selectfont \bf Collision};
+	\end{scope}
+	
+
+	
+
+	%\drawgrid{-3}{7}{-1}{7}	
+\end{tikzpicture}
+
+% Quantique2 problem
+\begin{tikzpicture}
+
+	% Axxes 
+	\draw[shift = {(0,0)}]
+		(-1, 0) edge[thick, line width=0.5ex, ->, color=\colorOne] node[shift = {(0,0)} , pos=0.6, below]{\fontsize{12pt}{16pt}\selectfont \huge \color{\colorOne} position } (6, 0)
+		(-0, -1) edge[thick, line width=0.5ex, ->, color=\colorOne] node[shift = {(0,0)} , pos=0.4, above , rotate = 90 ]{\fontsize{12pt}{16pt}\selectfont \huge \color{\colorOne} temps } (-0, 7)		
+	;
+	
+	\draw[]
+		(1,1) edge[thick, line width=0.5ex , color = colorFour] ($(1,1) + 1.0*(1,2) $)
+		(2,3) edge[dashed, line width=0.5ex , color = colorFour!50!colorThree] ($(2,3)!2.0!(3,5)$)
+
+		(5,1) edge[thick, line width=0.5ex , color = colorFive] ($(5,1) + 1.0*(-2,2) $)
+		(3,3) edge[dashed, line width=0.5ex , color = colorFive!50!colorThree] ($(3,3) + 2.0*(-2,2) $)
+	;
+
+	\draw[]
+		(2,3) edge[thick, line width=0.5ex , -> ,  >=Triangle , color = colorFive] ($(2,3) + 2.0*(-2,2) $)
+		(3,3) edge[thick, line width=0.5ex , -> , >=Triangle , color = colorFour] ($(3,3) + 2.0*(1,2) $)
+	;
+	
+
+	\shade[draw = none , inner color = colorFour , outer color=colorTwo, opacity = 0.8 , shading=radial ] 
+		(1,1) circle (0.5) node [right]{
+			\tikz \draw[](0,0) edge[shift = {(0,1)}, thick, line width=0.3ex , -> ,  >=Stealth , color = colorFour] node [pos = 0.5 , above ]{\fontsize{12pt}{16pt}\selectfont $\theta_1$}  (1,0) ;
+			}
+	;
+	\shade[draw = none , inner color = colorFour , outer color=colorTwo, opacity = 0.8 , shading=radial ] (2,3) circle (0.5) ;
+	\shade[draw = none , inner color = colorFive , outer color=colorTwo, opacity = 0.8 , shading=radial ] 
+		(5,1) circle (0.5) node [left]{
+			\tikz \draw[](0,0) edge[shift = {(-0.1,1)}, thick, line width=0.3ex , -> ,  >=Stealth , color = colorFive] node [pos = 0.5 , above ]{\fontsize{12pt}{16pt}\selectfont $\theta_2$}  (-2,0) ;
+			}
+	;
+	\shade[draw = none , inner color = colorFive , outer color=colorTwo, opacity = 0.8 , shading=radial ] (3,3) circle (0.5) ;
+
+	\shade[draw = none , inner color = colorFive , outer color=colorTwo, opacity = 0.8 , shading=radial ] 
+		(0,5) circle (0.5) node [left]{
+			\tikz \draw[](0,0) edge[shift = {(-0.1,1)}, thick, line width=0.3ex , -> ,  >=Stealth , color = colorFive] node [pos = 0.5 , above ]{\fontsize{12pt}{16pt}\selectfont $\theta_2$}  (-2,0) ;
+			}
+	;
+	\shade[draw = none , inner color = colorFour , outer color=colorTwo, opacity = 0.8 , shading=radial ] 
+		(4,5) circle (0.5) node [right]{
+			\tikz \draw[](0,0) edge[shift = {(0,1)}, thick, line width=0.3ex , -> ,  >=Stealth , color = colorFour] node [pos = 0.5 , above ]{\fontsize{12pt}{16pt}\selectfont $\theta_1$}  (1,0) ;
+			}
+	;
+	
+	\begin{scope}[shift = {(4.1,6.2)}]
+		\draw[shift = {(-0.6,0)}, thick, line width=0.5ex , -> ,  >=Stealth , color = colorThree] 
+			(-0.5,0) -- (0,0) 
+		;
+		\draw[shift = {(0.6,0)}]
+			(0,0) edge [thick, line width=0.5ex , <- , >=Stealth , color = colorThree] node [ pos = 1.0 , right ]{\fontsize{12pt}{16pt}\selectfont  \color{colorThree} $\Delta(\theta_1 - \theta_2)$ } (0.5,0) 
+		;			
+	\end{scope}
+
+	
+	\begin{scope}[shift={(2.5,3)} , opacity = 0.5]
+    	\draw[
+        	fill=colorSix,
+       	 	color=colorSix,
+       		decorate,
+        	decoration={random steps, segment length=1mm, amplitude=1mm}
+   		 ] (0,0) circle (1.1);
+
+    	% Texte au centre
+    	\node at (0,0.) {\color{colorTwo} \fontsize{10pt}{5pt}\selectfont \bf Collision};
+	\end{scope}
+	
+
+	%\drawgrid{-3}{7}{-1}{7}	
+\end{tikzpicture}
+
+% veff classique 
+\begin{tikzpicture}
+
+	\node[] at (0,0) {
+		\includegraphics[width=1.0\textwidth]{trajectoires_hard_rods.png}
+	};
+
+	% Axxes 
+	\draw[shift = {(-6.0,-5.5)}]
+		(-1, 0) edge[thick, line width=0.5ex, ->, color=\colorOne] node[shift = {(0,0)} , pos=0.6, below]{\fontsize{12pt}{16pt}\selectfont \huge \color{\colorOne} position } (12, 0)
+		(-0, -1) edge[thick, line width=0.5ex, ->, color=\colorOne] node[shift = {(0,0)} , pos=0.6, above , rotate = 90 ]{\fontsize{12pt}{16pt}\selectfont \huge \color{\colorOne} temps } (-0, 11)		
+	;
+
+	\node (pointveff) at (-3.5,5.2) {};
+	\node (pointve)   at (-0.2,5.2) {};
+
+	\draw[ opacity = 1.0 ]
+
+	    (pointveff) edge[line width=0.4ex ,color = colorFive ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 90 , in = 180  ]node[pos=1, right]{\color{colorFive} \fontsize{15}{10}\selectfont \bfseries  $ \displaystyle  v^{\mathrm{eff}}_{[\rho]}(v) = v + \ptFleche{motDelta}{$\Delta$} \int \ptFleche{motcolli}{\color{colorFive} $(v^{\mathrm{eff}}_{[\rho]}(w) -v^{\mathrm{eff}}_{[\rho]}(v) ) \rho ( w ) \, d w$ }  $ }($(pointveff) + (1cm,1.75cm)$)
+
+        (pointve) edge[line width=0.4ex ,color = colorSix ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 90 , in = 180  ]node[pos=1, right]{\color{colorSix} \fontsize{15}{10}\selectfont \bfseries  $ \displaystyle  v $ }($(pointve) + (1cm,0.75cm)$)
+
+		(motDelta) edge[line width=0.4ex ,color = colorSix ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 90 , in = 0  ]node[pos=1, left]{\color{colorSix} \fontsize{10}{10}\selectfont \bfseries  - diameters of balls }($(motDelta) + (-1cm,1.0cm)$)
+
+		(motcolli) edge[line width=0.4ex ,color = colorSix ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = -150 , in = 150  ]node[pos=1, right]{\color{colorSix} \fontsize{10}{10}\selectfont \bfseries  number of collisions per second }($(motcolli) + (-1cm,-1.0cm)$)
+
+
+	;
+
+	%\drawgrid{-7}{7}{-7}{7}
+
+\end{tikzpicture}
+
+% veff quqntique 
+\begin{tikzpicture}
+
+	\draw[shift = {(0,-0)}]
+		(-1, 0) edge[thick, line width=0.5ex, ->, color=\colorOne] node[shift = {(0,0)} , pos=1.0, right]{\fontsize{12pt}{16pt}\selectfont \huge \color{\colorOne} $x$ } (7, 0)
+		(-1, 5) edge[thick, line width=0.5ex, ->, color=\colorOne] node[shift = {(0,0)} , pos=1.0, right]{\fontsize{12pt}{16pt}\selectfont \huge \color{\colorOne} $x$ } (7, 5)
+		(-0, -1) edge[thick, line width=0.5ex, ->, color=\colorOne] node[shift = {(0,0)} , pos=0.5, above , rotate = 90 ]{\fontsize{12pt}{16pt}\selectfont \huge \color{\colorOne} time } (-0, 6)		
+	;
+
+	\draw[shift = {(0,-0)}]
+		(3,-0.2) edge[thick, line width=0.5ex, color=\colorFive](3,0.2)
+		(4,-0.2) edge[thick, line width=0.5ex, color=\colorFive](4,0.2)
+	;
+
+	
+
+	\draw[
+        decoration={
+			markings,
+			mark connection node=my node,
+            mark=at position 0.5 with {
+                \node[
+                    color=\colorThree,
+                    transform shape,
+					draw = none ,
+					rectangle,
+					fill = colorTwo
+                ] (my node) {
+					\fontsize{15}{5}\selectfont \bfseries \color{\colorThree} $ \ell $
+				};
+            },
+        },
+        %postaction={decorate},
+        color=\colorThree,
+        thick,
+        line width=0.5ex,
+		shift = {(0,-0.5)}
+        ] 
+		(3, 0) edge[arrows={Computer Modern Rightarrow[line cap=round]-}] (3.2, 0) decorate {(3.2, 0) -- (3.8, 0)} (3.8, 0) edge[arrows={-Computer Modern Rightarrow[line cap=round]}] (4, 0)
+	;
+
+	\draw[
+        decoration={
+			markings,
+			mark connection node=my node,
+            mark=at position 0.5 with {
+                \node[
+                    color=\colorFour,
+                    transform shape,
+					draw = none ,
+					rectangle,
+					fill = colorTwo,
+					%rotate = 90
+                ] (my node) {
+					\fontsize{10}{5}\selectfont \bfseries \color{\colorFour}  collision 
+				};
+            },
+        },
+        %postaction={decorate},
+        color=\colorFour,
+        thick,
+        line width=0.5ex,
+		shift = {(8,0)}
+        ] 
+		(0, 0) edge[arrows={Computer Modern Rightarrow[line cap=round]-}] (0, 0.2) decorate {(0,0.2) -- (0, 2.8)} (0, 2.8) edge[arrows={-Computer Modern Rightarrow[line cap=round]}] (0, 3)
+	;
+
+	\draw[
+        decoration={
+			markings,
+			mark connection node=my node,
+            mark=at position 0.5 with {
+                \node[
+                    color=\colorFour,
+                    transform shape,
+					draw = none ,
+					rectangle,
+					fill = colorTwo,
+					%rotate = 90
+                ] (my node) {
+					\fontsize{10}{5}\selectfont \bfseries \color{\colorFour} \begin{tabular}{c} no \\[0.01cm] collision \end{tabular}  
+				};
+            },
+        },
+        %postaction={decorate},
+        color=\colorFour,
+        thick,
+        line width=0.5ex,
+		shift = {(8,3)}
+        ] 
+		(0, 0) edge[arrows={Computer Modern Rightarrow[line cap=round]-}] (0, 0.2) decorate {(0,0.2) -- (0, 1.8)} (0, 1.8) edge[arrows={-Computer Modern Rightarrow[line cap=round]}] (0, 2)
+	;
+
+	\node[] (v1) at (3.8,0) {
+		\tikz \shade[draw = none , inner color = colorFour , outer color=colorTwo, opacity = 0.8 , shading=radial ] (0,0) circle (0.2) ;
+	};
+	\node[] (v2) at (3.9,0) {
+		\tikz \shade[draw = none , inner color = colorFour , outer color=colorTwo, opacity = 0.8 , shading=radial ] (0,0) circle (0.2) ;
+	};
+	\node[] (v3) at (3.4,0) {
+		\tikz \shade[draw = none , inner color = colorFour , outer color=colorTwo, opacity = 0.8 , shading=radial ] (0,0) circle (0.2) ;
+	};
+	\node[] (v4) at (3.5,0) {
+		\tikz \shade[draw = none , inner color = colorFour , outer color=colorTwo, opacity = 0.8 , shading=radial ] (0,0) circle (0.2) ;
+	};
+	\node[] (v5) at (3.2,0) {
+		\tikz \shade[draw = none , inner color = colorFour , outer color=colorTwo, opacity = 0.8 , shading=radial ] (0,0) circle (0.2) ;
+	};
+
+	\begin{scope}[shift = {(0,5)}]
+	\node[] (v12) at (0.5,0) {
+		\tikz \shade[draw = none , inner color = colorFour , outer color=colorTwo, opacity = 0.8 , shading=radial ] (0,0) circle (0.2); 
+			
+	};
+	\node[] (v22) at (2,0) {
+		\tikz \shade[draw = none , inner color = colorFour , outer color=colorTwo, opacity = 0.8 , shading=radial ] (0,0) circle (0.2) ; 
+	};
+	\node[] (v32) at (3,0) {
+		\tikz \shade[draw = none , inner color = colorFour , outer color=colorTwo, opacity = 0.8 , shading=radial ] (0,0) circle (0.2) ;
+	};
+	\node[] (v42) at (5,0) {
+		\tikz \shade[draw = none , inner color = colorFour , outer color=colorTwo, opacity = 0.8 , shading=radial ] (0,0) circle (0.2) ;
+	};
+	\node[] (v52) at (6.5,0) {
+		\tikz \shade[draw = none , inner color = colorFour , outer color=colorTwo, opacity = 0.8 , shading=radial ] (0,0) circle (0.2) ;
+	};
+	\node [above = 0mm of v12 , shift = {(0,0mm)}]{\color{colorFour}\fontsize{12pt}{16pt}\selectfont $\theta_1$} ;
+	\node [above = 0mm of v22 , shift = {(0,0mm)}]{\color{colorFour}\fontsize{12pt}{16pt}\selectfont $\theta_2$} ;
+	\node [above = 0mm of v52 , shift = {(0,0mm)}]{\color{colorFour}\fontsize{12pt}{16pt}\selectfont $\theta_N$} ; 
+
+	\end{scope}
+
+
+
+	\draw[line width=0.4ex ,color = colorFour ,  opacity = 0.5 ]
+	    (v1) edge[out = 90 , in = -50  ](v12)
+		(v2) edge[out = 90 , in = -70  ](v22)
+		(v3) edge[out = 90 , in = -90  ](v32)
+		(v4) edge[out = 90 , in = -110  ](v42)
+		(v5) edge[out = 90 , in = -140  ](v52)
+
+	;
+
+	\begin{scope}[shift={(3.5,2.1)} , opacity = 0.5]
+    	\draw[
+			draw = none ,
+        	fill = colorFour,
+       	 	color = colorFour,
+       		decorate,
+        	decoration={random steps, segment length=1mm, amplitude=1mm}
+   		 ] (0,0) circle (1.6);
+
+    	% Texte au centre
+    	\node at (0,0.) {\color{colorTwo} \fontsize{10pt}{5pt}\selectfont \bf Collision};
+	\end{scope}
+
+
+	%\drawgrid{-1}{7}{-1}{7}
+\end{tikzpicture}
+
+% tube 
+\begin{tikzpicture}
+	\draw[shift = {(0,-0)}]
+		(-8, 0) edge[thick, line width=0.5ex, ->, color=\colorOne] node[shift = {(0,0)} , pos=1.0, above]{\fontsize{12pt}{16pt}\selectfont \huge \color{\colorOne} $\vec{e}_x$ } (8, 0)
+		(-0, -1) edge[thick, line width=0.5ex, ->, color=\colorOne] node[shift = {(0,0)} , pos=0.8, above , rotate = 90 ]{\fontsize{12pt}{16pt}\selectfont \huge \color{\colorOne} $\vec{e}_y$ } (-0, 2)		
+	;
+
+	\draw[fill=\colorFive , opacity = 0.8 , draw = none , rounded corners = 4ex ]
+		(-7.2,-0.75) rectangle (7.2,0.75)
+	;
+	\draw[line width=2.0ex, color=\colorFive ]
+		(-7.0,-0.75) -- (7.0,-0.75)
+		(-7.0,0.75) -- (7.0,0.75)
+	;
+\end{tikzpicture}
+
+% harmonique transv exité
+\begin{tikzpicture}
+
+	\begin{scope}[shift = {(-6,-0)}]
+		%\node[] (A) {
+			%\begin{tikzpicture}
+				\draw[shift = {(-0.5,-0)}, fill=colorFive , opacity = 0.8 , draw = colorOne , rounded corners = 0ex , thick, line width=0.5ex, ]
+					(0,0) rectangle (1,5)
+				;
+				\draw[shift = {(-0.5,3.5)},opacity = 1.0 , draw = colorSix , thick, line width=0.8ex, scale = 1.0 ]
+					(-0.2,0) -- (1.2,0)
+				;
+			%\end{tikzpicture}
+		%};
+		% \node[above = of (-5,7)]  { \fontsize{12pt}{16pt}\selectfont \huge \color{\colorFour}  Temperature T
+		% }	
+		% ;
+		\node[]  at (0,6) {\fontsize{15}{5}\selectfont \bfseries \color{\colorFour}  Temperature T};
+	\end{scope}
+
+	\begin{scope}[shift = {(0,-0)}]
+		% Points donnés
+    	\pgfmathsetmacro{\xA}{-2}
+    	\pgfmathsetmacro{\yA}{3}
+    	\pgfmathsetmacro{\xB}{0}
+    	\pgfmathsetmacro{\yB}{0}
+    	\pgfmathsetmacro{\xC}{2}
+    	\pgfmathsetmacro{\yC}{3}
+
+    	% Résolution du système pour la parabole y = a*x^2 + b*x + c
+    	\pgfmathsetmacro{\den}{(\xA-\xB)*(\xA-\xC)*(\xB-\xC)}
+    	\pgfmathsetmacro{\a}{(\xC*(\yB-\yA)+\xB*(\yA-\yC)+\xA*(\yC-\yB))/\den}
+    	\pgfmathsetmacro{\b}{(\xC*\xC*(\yA-\yB)+\xB*\xB*(\yC-\yA)+\xA*\xA*(\yB-\yC))/\den}
+    	\pgfmathsetmacro{\c}{(\xB*\xC*(\xB-\xC)*\yA+\xC*\xA*(\xC-\xA)*\yB+\xA*\xB*(\xA-\xB)*\yC)/\den}
+
+    	% Axes
+    	%\draw[->] (-3,0) -- (3,0) node[right] {$x$};
+    	%\draw[->] (0,-0.5) -- (0,4) node[above] {$V(x)$};
+
+    	% Parabole ajustée
+    	\draw[domain=-2.5:2.5, smooth, variable=\x, thick, line width=0.8ex, color = colorOne ]
+        	plot ({\x},{\a*\x*\x + \b*\x + \c});
+
+    	% Points donnés
+    	\filldraw[red] (\xA,\yA) circle (1.5pt);
+    	\filldraw[red] (\xB,\yB) circle (1.5pt);
+    	\filldraw[red] (\xC,\yC) circle (1.5pt);
+
+		\begin{scope}[shift = {(0,-0)}]
+			%\clip (-3,0) plot[domain=-2.5:2.5, smooth, variable=\x] ({\x},{\a*\x*\x + \b*\x + \c}) -- (2.5,0) -- cycle ;
+
+			%\draw[domain=-2.5:2.5, smooth, variable=\x, thick, line width=0.8ex, color = colorOne ](-4,0) -- (-4,5) --  plot ({\x},{\a*\x*\x + \b*\x + \c}) -- (4,5) -- (4,0) -- cycle ;
+
+			%\clip (-4,0) -- (-4,5) --  plot[domain=-2.5:2.5, smooth, variable=\x] ({\x},{\a*\x*\x + \b*\x + \c}) -- (4,5) -- (4,0) -- cycle ;
+
+			\clip plot[domain=-2.5:2.5, smooth, variable=\x] ({\x},{\a*\x*\x + \b*\x + \c}) -- cycle ;
+
+			\begin{scope}[shift = {(-3, 0.4)}]
+				\draw[shift = {(0,0)}, line width=0.8ex, color=\colorFour , dashed] (0,0) -- (6,0);
+				\draw[shift = {(0,1)}, line width=0.8ex, color=\colorFour!75!\colorSix , dashed] (0,0) -- (6,0);	
+				\draw[shift = {(0,2)}, line width=0.8ex, color=\colorFour!50!\colorSix , dashed] (0,0) -- (6,0);	
+				\draw[shift = {(0,3)}, line width=0.8ex, color=\colorFour!25!\colorSix , dashed] (0,0) -- (6,0);	
+				\draw[shift = {(0,4)}, line width=0.8ex, color=\colorSix , dashed] (0,0) -- (6,0);		
+			\end{scope}
+		\end{scope}
+
+
+		\draw[
+        decoration={
+			markings,
+			mark connection node=my node,
+            mark=at position 0.5 with {
+                \node[
+                    color=\colorFour,
+                    transform shape,
+					draw = none ,
+					rectangle,
+					fill = colorTwo,
+					%rotate = 90
+                ] (my node) {
+					\fontsize{10}{5}\selectfont \bfseries \color{\colorFour}  \begin{tabular}{c} Excited \\[0.01cm] states \end{tabular} 
+				};
+            },
+        },
+        %postaction={decorate},
+        color=\colorFour,
+        thick,
+        line width=0.5ex,
+		shift = {(3,1.2)}
+        ] 
+		(0, 0) edge[arrows={Computer Modern Rightarrow[line cap=round]-}] (0, 0.2) decorate {(0,0.2) -- (0, 3.3)} (0, 3.3) edge[arrows={-Computer Modern Rightarrow[line cap=round]}] (0, 3.5)
+		;
+
+		\draw[
+			color=\colorFour,
+        	thick,
+        	line width=0.5ex,
+			shift = {(1.5,0.4)}
+			]
+			(0, 0) edge[arrows={Computer Modern Rightarrow[line cap=round]-Computer Modern Rightarrow[line cap=round]}]node[pos = 0.5 , right ]{\fontsize{8}{5}\selectfont \bfseries \color{\colorFour} $\Delta E_\perp = \hbar \omega_\perp $} (0, 1)
+		;
+
+		\draw[
+			color=\colorFour,
+        	thick,
+        	line width=0.5ex,
+			shift = {(0,0)}
+			]
+			(0, 0.35) edge[out = -50 , in = 180 , arrows={Computer Modern Rightarrow[line cap=round]-}]node[pos = 1.0, right ]{\fontsize{10}{5}\selectfont \bfseries \color{\colorFour} \begin{tabular}{c} Ground \\[0.01cm] state \end{tabular} } (2, -0.6)
+		;
+
+		\node[] at (0,6) {\fontsize{15}{5}\selectfont \bfseries \color{\colorFour} Transverse energy states };
+
+		\begin{scope}[shift = {(0, 0.4)}]
+			\draw[shift = {(-0.5, 1 )}, draw = none , inner color = colorSix , outer color=colorTwo, opacity = 0.8 , shading=radial ] (0,0) circle (0.2);
+			\draw[shift = {(-1.0, 2)}, draw = none , inner color = colorSix , outer color=colorTwo, opacity = 0.8 , shading=radial ] (0,0) circle (0.2);
+			\draw[shift = {(1.2, 2 )}, draw = none , inner color = colorSix , outer color=colorTwo, opacity = 0.8 , shading=radial ] (0,0) circle (0.2);
+			\draw[shift = {(-1.0, 3)}, draw = none , inner color = colorSix , outer color=colorTwo, opacity = 0.8 , shading=radial ] (0,0) circle (0.2);
+			\draw[shift = {(1.0, 3 )}, draw = none , inner color = colorSix , outer color=colorTwo, opacity = 0.8 , shading=radial ] (0,0) circle (0.2);
+		\end{scope}
+	\end{scope}
+
+	%\drawgrid{-3}{3}{-1}{5}
+\end{tikzpicture}
+
+% harmonique transv fonda
+\begin{tikzpicture}
+
+	\begin{scope}[shift = {(-6,-0)}]
+		%\node[] (A) {
+			%\begin{tikzpicture}
+				\draw[shift = {(-0.5,-0)}, fill=colorFive , opacity = 0.8 , draw = colorOne , rounded corners = 0ex , thick, line width=0.5ex, ]
+					(0,0) rectangle (1,5)
+				;
+				\draw[shift = {(-0.5,0.5)},opacity = 1.0 , draw = colorSix , thick, line width=0.8ex, scale = 1.0 ]
+					(-0.2,0) -- (1.2,0)
+				;
+			%\end{tikzpicture}
+		%};
+		% \node[above = of (-5,7)]  { \fontsize{12pt}{16pt}\selectfont \huge \color{\colorFour}  Temperature T
+		% }	
+		% ;
+		\node[]  at (0,6) {\fontsize{15}{5}\selectfont \bfseries \color{\colorFour}  Temperature T};
+	\end{scope}
+
+	\begin{scope}[shift = {(0,-0)}]
+		% Points donnés
+    	\pgfmathsetmacro{\xA}{-2}
+    	\pgfmathsetmacro{\yA}{3}
+    	\pgfmathsetmacro{\xB}{0}
+    	\pgfmathsetmacro{\yB}{0}
+    	\pgfmathsetmacro{\xC}{2}
+    	\pgfmathsetmacro{\yC}{3}
+
+    	% Résolution du système pour la parabole y = a*x^2 + b*x + c
+    	\pgfmathsetmacro{\den}{(\xA-\xB)*(\xA-\xC)*(\xB-\xC)}
+    	\pgfmathsetmacro{\a}{(\xC*(\yB-\yA)+\xB*(\yA-\yC)+\xA*(\yC-\yB))/\den}
+    	\pgfmathsetmacro{\b}{(\xC*\xC*(\yA-\yB)+\xB*\xB*(\yC-\yA)+\xA*\xA*(\yB-\yC))/\den}
+    	\pgfmathsetmacro{\c}{(\xB*\xC*(\xB-\xC)*\yA+\xC*\xA*(\xC-\xA)*\yB+\xA*\xB*(\xA-\xB)*\yC)/\den}
+
+    	% Axes
+    	%\draw[->] (-3,0) -- (3,0) node[right] {$x$};
+    	%\draw[->] (0,-0.5) -- (0,4) node[above] {$V(x)$};
+
+    	% Parabole ajustée
+    	\draw[domain=-2.5:2.5, smooth, variable=\x, thick, line width=0.8ex, color = colorOne ]
+        	plot ({\x},{\a*\x*\x + \b*\x + \c});
+
+    	% Points donnés
+    	\filldraw[red] (\xA,\yA) circle (1.5pt);
+    	\filldraw[red] (\xB,\yB) circle (1.5pt);
+    	\filldraw[red] (\xC,\yC) circle (1.5pt);
+
+		\begin{scope}[shift = {(0,-0)}]
+			%\clip (-3,0) plot[domain=-2.5:2.5, smooth, variable=\x] ({\x},{\a*\x*\x + \b*\x + \c}) -- (2.5,0) -- cycle ;
+
+			%\draw[domain=-2.5:2.5, smooth, variable=\x, thick, line width=0.8ex, color = colorOne ](-4,0) -- (-4,5) --  plot ({\x},{\a*\x*\x + \b*\x + \c}) -- (4,5) -- (4,0) -- cycle ;
+
+			%\clip (-4,0) -- (-4,5) --  plot[domain=-2.5:2.5, smooth, variable=\x] ({\x},{\a*\x*\x + \b*\x + \c}) -- (4,5) -- (4,0) -- cycle ;
+
+			\clip plot[domain=-2.5:2.5, smooth, variable=\x] ({\x},{\a*\x*\x + \b*\x + \c}) -- cycle ;
+
+			\begin{scope}[shift = {(-3, 0.4)}]
+				\draw[shift = {(0,0)}, line width=0.8ex, color=\colorFour , dashed] (0,0) -- (6,0);
+				\draw[shift = {(0,1)}, line width=0.8ex, color=\colorFour!75!\colorSix , dashed] (0,0) -- (6,0);	
+				\draw[shift = {(0,2)}, line width=0.8ex, color=\colorFour!50!\colorSix , dashed] (0,0) -- (6,0);	
+				\draw[shift = {(0,3)}, line width=0.8ex, color=\colorFour!25!\colorSix , dashed] (0,0) -- (6,0);	
+				\draw[shift = {(0,4)}, line width=0.8ex, color=\colorSix , dashed] (0,0) -- (6,0);		
+			\end{scope}
+		\end{scope}
+
+
+		\draw[
+        decoration={
+			markings,
+			mark connection node=my node,
+            mark=at position 0.5 with {
+                \node[
+                    color=\colorFour,
+                    transform shape,
+					draw = none ,
+					rectangle,
+					fill = colorTwo,
+					%rotate = 90
+                ] (my node) {
+					\fontsize{10}{5}\selectfont \bfseries \color{\colorFour}  \begin{tabular}{c} Excited \\[0.01cm] states \end{tabular} 
+				};
+            },
+        },
+        %postaction={decorate},
+        color=\colorFour,
+        thick,
+        line width=0.5ex,
+		shift = {(3,1.2)}
+        ] 
+		(0, 0) edge[arrows={Computer Modern Rightarrow[line cap=round]-}] (0, 0.2) decorate {(0,0.2) -- (0, 3.3)} (0, 3.3) edge[arrows={-Computer Modern Rightarrow[line cap=round]}] (0, 3.5)
+		;
+
+		\draw[
+			color=\colorFour,
+        	thick,
+        	line width=0.5ex,
+			shift = {(1.5,0.4)}
+			]
+			(0, 0) edge[arrows={Computer Modern Rightarrow[line cap=round]-Computer Modern Rightarrow[line cap=round]}]node[pos = 0.5 , right ]{\fontsize{8}{5}\selectfont \bfseries \color{\colorFour} $\Delta E_\perp = \hbar \omega_\perp $} (0, 1)
+		;
+
+		\draw[
+			color=\colorFour,
+        	thick,
+        	line width=0.5ex,
+			shift = {(0,0)}
+			]
+			(0, 0.35) edge[out = -50 , in = 180 , arrows={Computer Modern Rightarrow[line cap=round]-}]node[pos = 1.0, right ]{\fontsize{10}{5}\selectfont \bfseries \color{\colorFour} \begin{tabular}{c} Ground \\[0.01cm] state \end{tabular} } (2, -0.6)
+		;
+
+		\node[] at (0,6) {\fontsize{15}{5}\selectfont \bfseries \color{\colorFour} Transverse energy states };
+
+		\begin{scope}[shift = {(0, 0.4)}]
+			\draw[shift = {(-0, 0 )}, draw = none , inner color = colorSix , outer color=colorTwo, opacity = 0.8 , shading=radial ] (0,0) circle (0.2);
+		\end{scope}
+	\end{scope}
+
+	%\drawgrid{-3}{3}{-1}{5}
+\end{tikzpicture}
+
+coupe puce
+\begin{tikzpicture}
+
+
+\begin{scope}
+
+
+	\draw[shift={(-2cm , 1.25cm)} , thick,line width=2.5cm, color = \colorThree , opacity = 1 ]
+		(0,0) -- node[shift={(-0.75cm , -0.5cm)} , pos = 0.0, right , color = \colorTwo]{{\color{\colorTwo} \fontsize{15pt}{8pt}\selectfont \bf SiC} } (13.5,0)
+	;
+	\draw[shift={(-2cm , 3.5cm)} , thick,line width=2.cm, color = \colorFour , opacity = 1 ]
+		(0,0) -- node[shift={(-0.75cm , -0.5cm)} , pos = 0.0, right , color = \colorTwo]{{\color{\colorTwo} \fontsize{15pt}{8pt}\selectfont \bf BCB} } (13.5,0)
+	;
+	\draw[shift={(-2cm , 5.cm)} , thick,line width=1.cm, color = \colorGold , opacity = 1 ]
+		(0,0) -- node[shift={(-0.2cm , 0.cm)} , pos = 0.0, right , color = \colorTwo]{{\color{\colorOne} \fontsize{15pt}{8pt}\selectfont \bf Au} } (13.5,0)
+	;
+	
+	
+	\begin{scope}[shift={(2cm , 2.5cm)}]
+		\draw[thick,line width=0.1cm , rounded corners=0cm,  color = \colorTwo , fill = \colorFive ] 
+			(0,0) rectangle (1,1)
+			;
+		% croix
+		\draw[ thick,line width=0.1cm , color = \colorOne] 
+			(0,0) -- (1,1)
+			(0,1) -- (1,0)
+		;
+		\node[left , shift={(-0.3cm , 0.5cm)} , color = \colorTwo] at (0,0) {{\color{\colorTwo}\fontsize{20pt}{8pt}\selectfont$-I$}};
+	\end{scope}
+	
+	\begin{scope}[shift={(5cm , 2.5cm)}]
+		\draw[thick,line width=0.1cm , rounded corners=0cm,  color = \colorTwo , fill = \colorFive ] 
+			(0,0) rectangle (1,1)
+			;
+		% croix
+		\fill[ thick,line width=0.1cm , color = \colorOne] 
+			(0.5,0.5) circle (0.1cm);
+		\node[left , shift={(-0.3cm , 0.5cm)} , color = \colorTwo] at (0,0) {{\color{\colorTwo}\fontsize{20pt}{8pt}\selectfont$I$}};
+	\end{scope}
+	
+	\begin{scope}[shift={(8cm , 2.5cm)}]
+		\draw[thick,line width=0.1cm , rounded corners=0cm,  color = \colorTwo , fill = \colorFive ] 
+			(0,0) rectangle (1,1)
+			;
+		% croix
+		\draw[ thick,line width=0.1cm , color = \colorOne] 
+			(0,0) -- (1,1)
+			(0,1) -- (1,0)
+		;
+		\node[left , shift={(-0.3cm , 0.5cm)} , color = \colorTwo] at (0,0) {{\color{\colorTwo}\fontsize{20pt}{8pt}\selectfont$-I$}};
+	\end{scope}
+	
+	\draw[shift={(2.5cm , 2.cm)}]
+		(0,0) edge [decoration={
+   							markings,
+    						mark connection node=midnode,
+    						mark=at position 0.5 with {
+      							\node[draw = none ,fill= \colorThree ,transform shape , opacity = 1] (midnode) {{\color{\colorTwo} \fontsize{10pt}{8pt}\selectfont
+					$d = 15 \mu m $}};
+    							}
+ 						 	},
+  							postaction={decorate},
+		thick,line width=0.1cm , <->, color = \colorTwo	, >=Stealth	
+		] (3,0)
+	;
+	
+	\draw[shift={(3.8cm , 3.cm)}]
+		(0,0) edge [decoration={
+   							markings,
+    						mark connection node=midnode,
+    						mark=at position 0.65 with {
+      							\node[draw = none ,fill= \colorGold ,transform shape , opacity = 1] (midnode) {{\color{\colorOne} \fontsize{10pt}{8pt}\selectfont
+					$d$}};
+    							}
+ 						 	},
+  							postaction={decorate},
+		thick,line width=0.1cm , <->, color = \colorOne , >=Stealth	
+		] (0,3)
+	;
+	
+	\draw[shift={(10.25cm , 0.cm)}]
+		(0,0) edge [decoration={
+   							markings,
+    						mark connection node=midnode,
+    						mark=at position 0.5 with {
+      							\node[draw = none ,fill= \colorThree ,transform shape , opacity = 1] (midnode) {{\color{\colorTwo} \fontsize{10pt}{8pt}\selectfont
+					$\sim 300 \mu m $}};
+    							}
+ 						 	},
+  							postaction={decorate},
+		thick,line width=0.1cm , <->, color = \colorTwo	, >=Stealth	
+		] (0,2.5)
+	;
+	
+	\draw[shift={(10.25cm , 2.5cm)}]
+		(0,0) edge [decoration={
+   							markings,
+    						mark connection node=midnode,
+    						mark=at position 0.5 with {
+      							\node[draw = none ,fill= \colorFour ,transform shape , opacity = 1] (midnode) {{\color{\colorTwo} \fontsize{10pt}{8pt}\selectfont
+					$< 6 \,\mu m $}};
+    							}
+ 						 	},
+  							postaction={decorate},
+		thick,line width=0.1cm , <->, color = \colorTwo	, >=Stealth	
+		] (0,2)
+	;
+	
+	\draw[shift={(10.25cm , 4.5cm)}, thick,line width=0.1cm , {Triangle[scale=0.5]}-{Triangle[scale=0.5]}, color = \colorOne ]
+		(0,0) -- node[pos = 0.5 , left ]{{\color{\colorOne} \fontsize{15pt}{8pt}\selectfont $\sim 150 \, nm $}}  (0,1)
+	;
+	
+	\draw[shift={(2.5cm , 5.5cm)}, thick,line width=0.08cm , >-< ,   {Triangle[scale=0.7, reversed]}-{Triangle[scale=0.7, reversed]}, color = \colorOne ]
+		(0,0) -- node[pos = 0.5 , left ]{{\color{\colorOne} \fontsize{17pt}{8pt}\selectfont $\sim 7 \,\mu m $}}  (0,0.5)
+	;
+	
+	\begin{scope}[shift={(4.5cm , 4.9cm)} , decoration={
+    		markings,% switch on markings
+    		mark=between positions 0.3 and 1 step 1cm with {\arrow[\colorSix,line width=1mm]{>}}}
+    	]
+  		\draw [postaction={decorate} , color = \colorSix , line width=1mm] (0,0) .. controls (1,1) and (1,1) .. (2,0);
+  		\draw [ shift={(2.25cm , 2.25cm)} , rotate = 90, xscale=-1 ,  postaction={decorate} , color = \colorSix , line width=1mm] (0,0) .. controls (1,1) and (1,1) .. (2,0);
+  		\draw [shift={(-0.25cm , 0.25cm)} , rotate = -90, xscale=-1 , postaction={decorate} , color = \colorSix , line width=1mm] (0,0) .. controls (1,1) and (1,1) .. (2,0);
+  		\draw [shift={(2.cm , 2.5cm)} , rotate = 180, xscale=1 , postaction={decorate} , color = \colorSix , line width=1mm] (0,0) .. controls (1,1) and (1,1) .. (2,0);
+  		
+  		\node[align=center, font=\fontsize{15}{12}\selectfont, text=\colorSix] at (3.95,1.25) {Champ produit\\par les micro-fils};
+	\end{scope}
+	
+
+	\draw[shift={(-0.0cm , -0.0cm)} , thick,line width=0.1cm, color = \colorOne , opacity = 1 ]
+		(-0.,0)edge[, ->] node[pos = 1.01, above]{\fontsize{20pt}{8pt}\selectfont$\bm{\vec{e}_u}$} (12,0)
+		(0,-0.) edge[, ->] node[pos = 0.99, left]{\fontsize{20pt}{8pt}\selectfont$\bm{\vec{e}_v}$} (0,7.25)
+	;
+	
+	\draw[thick ,line width=0.1cm] (0,0) circle (0.3cm);
+	\fill (0,0) circle (1mm);
+	\node[below , shift={(-0.0cm , -0.4cm)}] at (0,0) {\fontsize{20pt}{8pt}\selectfont$\bm{\vec{e}_x}$};
+	
+	
+	
+	%\drawgrid{-3}{12}{-1}{10}
+\end{scope}
+\end{tikzpicture}
+
+% bipartition Oms
+\begin{tikzpicture}
+	\draw[shift = {(0,-0)}]
+		(-2, 0) edge[thick, line width=0.5ex, ->, color=\colorOne] node[shift = {(0,0)} , pos=1.0, above]{\fontsize{12pt}{16pt}\selectfont \huge \color{\colorOne} $x$ } (3, 0)
+		(-0, -0.5) edge[thick, line width=0.5ex, ->, color=\colorOne] node[shift = {(0,0)} , pos=0.8, above , rotate = 90 ]{\fontsize{12pt}{16pt}\selectfont \huge \color{\colorOne} $n(x)$ } (-0, 3)		
+	;
+
+	% Zone remplie
+\fill[
+    shift={(0,0)},
+    color=\colorFour,
+    ultra thick,
+    line width=0.6ex,
+	opacity = 0.6
+]
+(-1.5,0) -- (0,0) -- (0,2) -- (3,2) -- (3,0) -- cycle;
+
+\draw[
+    shift={(0,0)},
+    fill=none,
+    color=\colorFour,
+    ultra thick,
+    line width=0.6ex
+]
+(-1.5,0) -- (0,0) -- (0,2) -- (2,2);
+
+% Prolongement pointillé
+\draw[
+    color=\colorFour,
+    ultra thick,
+    line width=0.6ex,
+    dashed
+]
+(2,2) -- (3,2);
+
+
+
+\end{tikzpicture}
+
+
+% bipartition tms
+\begin{tikzpicture}[use Hobby shortcut]
+	\draw[shift = {(0,-0)}]
+		(-2, 0) edge[thick, line width=0.5ex, ->, color=\colorOne] node[shift = {(0,0)} , pos=1.0, above]{\fontsize{12pt}{16pt}\selectfont \huge \color{\colorOne} $x$ } (3, 0)
+		(-0, -0.5) edge[thick, line width=0.5ex, ->, color=\colorOne] node[shift = {(0,0)} , pos=0.8, above , rotate = 90 ]{\fontsize{12pt}{16pt}\selectfont \huge \color{\colorOne} $n(x)$ } (-0, 3)		
+	;
+
+	% Zone remplie
+% Zone remplie semi-transparente
+\fill[
+    shift={(0,0)},
+    fill=\colorFour,
+    opacity=0.6
+]
+(-1.5,0) -- (-1,0) .. controls (0,0) and (0,2) .. (1,2) -- (3,2) -- (3,0) -- cycle;
+
+% Contour plein jusqu'à (2,2)
+\draw[
+    shift={(0,0)},
+    color=\colorFour,
+    line width=0.6ex,
+    line cap=round,
+    line join=round
+]
+(-1.5,0) -- (-1,0) .. controls (0,0) and (0,2) .. (1,2) -- (2,2);
+
+% Prolongement pointillé à partir de (2,2)
+\draw[
+    color=\colorFour,
+    line width=0.6ex,
+    line cap=round,
+    dashed
+]
+(2,2) -- (3,2);
+
+\end{tikzpicture}
+
+
+%potentiel 4 
+\begin{tikzpicture}[use Hobby shortcut]
+
+	\begin{scope}[shift = {(0,-0)}]
+		\draw[shift = {(0,-0)}]
+			(-3, 0) edge[thick, line width=0.5ex, ->, color=\colorOne] node[shift = {(0,0)} , pos=1.0, below]{\fontsize{12pt}{16pt}\selectfont \huge \color{\colorOne} $x$ } (3, 0)	
+		;
+		\def\a{0.05}
+		\def\xmax{2.5}	
+
+		\draw[domain=-2.7:2.7, smooth, variable=\x, thick, line width=0.8ex, color = colorOne ]
+        	plot ({\x},{\a*\x*\x*\x*\x}  );
+
+		\draw[domain=-\xmax:\xmax, smooth, variable=\x, thick, line width=0.8ex, color = colorFour ]
+        	plot ({\x},{-\a*\x*\x*\x*\x  + \a*\xmax^4 } );
+
+	
+		\draw[line width=0.8ex, color = colorSix , fill = colorFive , opacity = 0.7 ] (-2.8, 0 ) rectangle (-1,2.3) ; 
+
+
+		\draw[opacity = 1.0 ]
+            (0,0) edge[shift = {(-2,-0.1)}, line width=0.4ex ,color = colorSix ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = -90 , in = 0 ]node[pos=1, left ]{\color{colorSix} \fontsize{10}{10}\selectfont \bfseries  light beams  }($(0,0) + (-0.5cm,-0.75cm)$)
+
+			(0,0) edge[shift = {(2.6,2.5)}, line width=0.4ex ,color = colorOne ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 150 , in = 0 ]node[pos=1, left ]{\color{colorOne} \fontsize{10}{10}\selectfont \bfseries  \begin{tabular}{r}potential \\ $V_\parallel(x) \propto x^4 $ \end{tabular}  }($(0,0) + (-1.0cm,0.75cm)$)
+
+			(0,0) edge[shift = {(0,2.1)}, line width=0.4ex ,color = colorFour ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 130, in = 0 ]node[pos=1, left ]{\color{colorFour} \fontsize{10}{10}\selectfont \bfseries  density $n(x)$ }($(0,0) + (-1.0cm,0.75cm)$)
+	    ;
+	\end{scope}
+
+	\begin{scope}[shift = {(4.8,-0)}]
+		\node[rectangle] at (0,1) {\color{colorFour} \fontsize{40}{10}\selectfont \bfseries  $\Rightarrow$ } ;
+	\end{scope}
+
+
+
+	\begin{scope}[shift = {(9,-0)}]
+		\draw[shift = {(0,-0)}]
+			(-3, 0) edge[thick, line width=0.5ex, ->, color=\colorOne] node[shift = {(0,0)} , pos=1.0, below]{\fontsize{12pt}{16pt}\selectfont \huge \color{\colorOne} $x$ } (3, 0)	
+		;
+		\def\a{0.05}
+		\def\xmax{2.5}	
+
+		%\draw[domain=-2.7:2.7, smooth, variable=\x, thick, line width=0.8ex, color = colorOne ]plot ({\x},{\a*\x*\x*\x*\x}  );
+
+		\draw[line width=0.8ex, color = colorFour ]
+        	(-3,0) -- (-1,0) -- plot[domain=-1:\xmax, smooth, variable=\x] ({\x},{-\a*\x*\x*\x*\x  + \a*\xmax^4 } ) -- (3,0);
+
+	
+%		\draw[line width=0.8ex, color = colorSix , fill = colorFive , opacity = 0.7 ] (-2.8, 0 ) rectangle (-1,2.3) ; 
+
+
+		\draw[opacity = 1.0 ]
+            %(0,0) edge[shift = {(-2,-0.1)}, line width=0.4ex ,color = colorSix ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = -90 , in = 0 ]node[pos=1, left ]{\color{colorSix} \fontsize{10}{10}\selectfont \bfseries  light beams  }($(0,0) + (-0.5cm,-0.75cm)$)
+
+			%(0,0) edge[shift = {(2.6,2.5)}, line width=0.4ex ,color = colorOne ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 150 , in = 0 ]node[pos=1, left ]{\color{colorOne} \fontsize{10}{10}\selectfont \bfseries  \begin{tabular}{r}potential \\ $V_\parallel(x) \propto x^4 $ \end{tabular}  }($(0,0) + (-1.0cm,0.75cm)$)
+
+			(0,0) edge[shift = {(0,2.1)}, line width=0.4ex ,color = colorFour ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 130, in = 0 ]node[pos=1, left ]{\color{colorFour} \fontsize{10}{10}\selectfont \bfseries  atom restant }($(0,0) + (-1.0cm,0.75cm)$)
+	    ;
+	\end{scope}
+
+	%\drawgrid{-4}{20}{-1}{4}
+
+\end{tikzpicture}
+
+
+
+
+%%%%%%%%%%
+\begin{tikzpicture}
+
+	% Axxes 
+	\draw[shift = {(0,0)}]
+		(-1, 0) edge[thick, line width=0.5ex, ->, >=Stealth, color=\colorOne] node[shift = {(0,0)} , pos=0.6, below]{ \huge \color{\colorOne} position } (6, 0)
+		(0, -1) edge[thick, line width=0.5ex, ->, >=Stealth, color=\colorOne] node[shift = {(0,0)} , pos=0.6, above , rotate = 90 ]{ \huge \color{\colorOne} temps } (0, 6)		
+	;
+	
+	\draw[]
+		(1,1) edge[thick, line width=0.5ex , color = colorFour] (3,3)
+		(3,3) edge[dashed, line width=0.5ex , color = colorThree] (5,5)
+		(5,1) edge[thick, line width=0.5ex , color = colorFive] (3,3)
+		(3,3) edge[dashed, line width=0.5ex , color = colorThree] (1,5) 
+	;
+	
+	\draw[]
+		(0,0) edge[shift = {(2.5,3)}, thick, line width=0.5ex , -> ,  >=Triangle , color = colorFour] (2.5,2.5)
+		(0,0) edge[shift = {(3.5,3)}, thick, line width=0.5ex , -> , >=Triangle , color = colorFive] (-2.5,2.5)
+	;
+	
+	\begin{scope}[shift = {(3.85,4.5)}]
+		\draw[thick, line width=0.2ex , -> ,  >=Stealth , color = colorThree] 
+			(-0.5,0) -- (0,0) 
+		;
+		\draw[shift = {(0.8,0)}]
+			(0,0) edge [thick, line width=0.2ex , <- , >=Stealth , color = colorThree] node [ pos = 1.0 , right ]{ \color{colorThree} $\Delta(\theta_1 - \theta_2)$ } (0.5,0) 
+		;			
+	\end{scope}
+	
+	\begin{scope}[shift={(3,3.2)}]
+    	\draw[
+        	fill=colorSix,
+       	 	color=colorSix,
+       		decorate,
+        	decoration={random steps, segment length=1mm, amplitude=1mm}
+   		 ] (0,0) circle (0.8);
+
+    	% Texte au centre
+    	\node at (0,0.) {\color{colorTwo} \fontsize{10pt}{5pt}\selectfont \bf Collision};
+	\end{scope}
+	
+	%Legende
+	\begin{scope}[shift = {(4.5cm,2.3cm)}]
+		\draw[
+  			shift={(0cm,0cm)},
+  			line width=0.5ex,
+  			draw=\colorThree,
+  			fill=\colorThree!50!\colorTwo,
+  			rounded corners=6pt,
+  			opacity = 0.2
+			] 
+  			(0,0) rectangle (1.7,1.2)
+  		;
+  		
+    	\draw[shift={(0.4cm,0.85cm)} , line width=0.5ex  ,color=\colorFive ,  fill = none] 	
+			(0,0) edge[] node[shift = {(0,0)} , pos=1, right ]{\fontsize{10pt}{5pt}\selectfont \bf $\theta_1$  } (0.5,0)
+		;
+		\draw[shift={(0.4cm,0.35cm)} , line width=0.5ex  ,color=\colorFour ,  fill = none] 	
+			(0,0) edge[] node[shift = {(0,0)} , pos=1, right ]{\fontsize{10pt}{5pt}\selectfont \bf $\theta_2$  } (0.5,0)
+		;
+	
+	\end{scope}
+
+	
+
+	%\drawgrid{-1}{7}{-1}{7}	
 \end{tikzpicture}
 
 \begin{tikzpicture}[use Hobby shortcut]

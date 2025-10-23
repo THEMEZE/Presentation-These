@@ -59,11 +59,11 @@
           {\fontsize{10}{5}\selectfont 
           \begin{tikzpicture}[remember picture, overlay]
             \node []  at  (2,2.5)   (part)                            {$n$};
-            \node []     (moment) [below=1mm of part]             {$nu$};
+            \node []     (moment) [below=1mm of part]             {$p$};
             \node []     (nrj) [below=1mm of moment]             {$\varepsilon$};
 	          \draw[  opacity = 0.5 ]
 		          (part) edge[line width=0.2ex ,color = blue ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 90 , in = 180  ]node[pos=1, right]{\color{blue} \fontsize{6}{1}\selectfont \bfseries  particule density }($(part) + (1cm,1.0cm)$)
-              (moment) edge[line width=0.2ex ,color = red ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 0 , in = 180  ]node[pos=1, right]{\color{red} \fontsize{6}{1}\selectfont \bfseries  velocity maen }($(moment) + (1cm,0cm)$)
+              (moment) edge[line width=0.2ex ,color = red ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 0 , in = 180  ]node[pos=1, right]{\color{red} \fontsize{6}{1}\selectfont \bfseries  moment maen }($(moment) + (1cm,0cm)$)
               (nrj) edge[line width=0.2ex ,color = black ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = -90 , in = 180  ]node[pos=1, right]{\color{black} \fontsize{6}{1}\selectfont \bfseries  energie density }($(nrj) + (1cm,-1.0cm)$)
 	          ;
           \end{tikzpicture}
@@ -449,7 +449,7 @@
   \setbeamercovered{transparent} % ou "dynamic" pour un effet progressif
 
   \frametitle{GHD}
-  \framesubtitle{Hydrodynamic scale}
+  \framesubtitle{Hydrodynamic \uncover<1>{scale}}
   
   \onslide<1->{
    \begin{columns}[T, totalwidth=\textwidth]
@@ -488,7 +488,7 @@
             %\begin{minipage}[T][0.2\textheight][t]{{0.8\textwidth}
               {\fontsize{6}{5}\selectfont
               \textbf{Generalized hydrodynamics for an integrable quantum system:}\\[0.1cm]
-              Local description by a Generalized Gibbs Ensemble parameterized by the local rapidity distribution~$\rho(\theta, x, t)$.
+              Local description by a Generalized Gibbs Ensemble parameterized by the local rapidity distribution~$\rho( x, \theta ;t)$.
             
               }
             %\end{minipage}
@@ -715,6 +715,802 @@
   \end{center}
 
 \end{frame}
+
+%vitesse effectif 
+\begin{frame}
+  \setbeamercovered{transparent} % ou "dynamic" pour un effet progressif
+
+  \frametitle{Fluxes : $\displaystyle j(x, \theta ;t) =  v^{\mathrm{eff}}_{[\rho]}(\theta)\,  \rho(x , \theta ; t )$}
+  %\framesubtitle{Effective velocities}
+
+  % \begin{center}
+  %   \tikz \node[draw, rectangle , rounded corners=6pt , line width=0.8ex, color=\colorGold ] at (10,-0.5) {\fontsize{6}{5}\selectfont $\displaystyle j(x, \theta ;t) =  v^{\mathrm{eff}}_{[\rho]}(\theta)\,  \rho(x , \theta ; t )$ } ;
+  % \end{center}
+  {\fontsize{6}{5}\selectfont
+  \textbf{In the case of the classical integrable hard-sphere model :}\\[0.1cm]
+  \vspace{-0.5cm}
+  \begin{columns}[b, totalwidth=\textwidth]
+    \begin{column}{0.4\textwidth}
+      \centering
+      \includegraphics[width=0.8\textwidth, page=8]{figures/Figures.pdf}
+    \end{column}
+    \begin{column}{0.6\textwidth}
+      \centering
+      \includegraphics[width=0.7\textwidth, page=10]{figures/Figures.pdf}
+    \end{column}
+  \end{columns}
+
+  \vspace{0.0cm}
+
+  \textbf{In the quantum case, described by the Lieb–Liniger model :}
+  \begin{columns}[T, totalwidth=\textwidth]
+    \begin{column}{0.4\textwidth}
+      \centering
+      \includegraphics[width=0.8\textwidth, page=9]{figures/Figures.pdf}
+    \end{column}
+    \hspace{-0.5cm}
+    \begin{column}{0.6\textwidth}
+      \centering
+      $$ \psi_{\{\theta_1 , \theta_2\} }(x_1, x_2) \propto \left \{ \begin{array}{ccl} e^{i\frac{m}{\hbar}(\theta_1 x_1 + \theta_2 x_2 )} - \ptFleche{Dephase}{\color{blue} $\displaystyle e^{i \Phi } $} e^{i\frac{m}{\hbar}(\theta_2 x_1 + \theta_1 x_2 )} & \mbox{if} &  x_1 < x_2 \\ ( x_1 \leftrightarrow x_2 ) & \mbox{if} &  x_2 < x_1  \end{array}\right . $$
+
+      $$v^{\mathrm{eff}}_{[\rho]}(\theta) = \theta +  \int \ptFleche{motDelta}{$\Delta$}(\theta - \theta') (v^{\mathrm{eff}}_{[\rho]}(\theta') -v^{\mathrm{eff}}_{[\rho]}(\theta) ) \rho (\theta' ) \, d \theta$$
+
+        \begin{tikzpicture}[overlay]
+	        \draw[  opacity = 0.5 ]
+		        %(Dephase) edge[line width=0.4ex ,color = blue ,arrows = {Computer Modern Rightarrow[sharp ,length=0.3cm]-},  , out = -90 , in = 0  ]node[pos=1, left]{\color{blue} \fontsize{5}{10}\selectfont \bfseries  $ \displaystyle e^{i \Phi } = \frac{m \frac{g}{\hbar} - i (p_2 - p_1)}{m \frac{g}{\hbar} + i (p_2 - p_1)}$ }($(Dephase) + (-1cm,-1.5cm)$)
+	          (Dephase) edge[line width=0.4ex ,color = blue ,arrows = -{Computer Modern Rightarrow[sharp ,length=0.2cm]},  , out = 90 , in = 180  ]node[pos=1, right]{\color{blue} \fontsize{5}{10}\selectfont \bfseries  $ \displaystyle \Delta = \frac{m}{\hbar} \frac{d \Phi }{d\theta} $ }($(Dephase) + (1cm,0.75cm)$)
+
+            (motDelta) edge[line width=0.4ex ,color = blue ,arrows = -{Computer Modern Rightarrow[sharp ,length=0.2cm]},  , out = 90 , in = 180  ]node[pos=1, right]{\color{blue} \fontsize{5}{10}\selectfont \bfseries  $ \displaystyle \Delta = \frac{2g/m}{(g \hbar/m)^2 + \theta^2} $ }($(motDelta) + (1cm,0.75cm)$)
+	        ;
+        \end{tikzpicture}
+
+      
+      
+    \end{column}
+  \end{columns}
+  }
+
+\end{frame}
+
+% consepte
+\begin{frame}
+  \frametitle{Key concept of 1D Bose gas: the rapidities}
+  {\fontsize{6}{5}\selectfont
+  The rapidities are the \textbf{asymptotic velocities, when one lets the system expand in 1D :}\\[0.1cm]
+  \begin{center}
+    \includegraphics[width=0.4\textwidth, page=11]{figures/Figures.pdf}
+  \end{center}
+
+  \begin{center}
+    $$ \tilde{n}(v,\tau ) \underset{\tau \to \infty}{\rightarrow} \rho(v) $$
+  \end{center}
+
+  \textbf{The rapidity distribution is an experimentally accessible quantity}, homothetic to the asymptotic density profile following a longitudinal expansion.
+
+  \begin{center}
+    $$ \tau n(x, \tau )  \underset{\tau \to \infty}{\rightarrow}  \tilde{n}(x/\tau) \underset{\tau \to \infty}{\rightarrow} \ell \rho(x/\tau) $$
+  \end{center}
+
+  
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Production of 1D Gases}
+
+  {\fontsize{6}{5}\selectfont
+  \begin{columns}[b, totalwidth=\textwidth]
+    \centering
+    \begin{column}{0.5\textwidth}
+
+      \centering
+
+      \begin{block}{}
+        \textbf{Atoms confined in a transverse potential :}
+        $$ V_\perp(y,z) = \frac{1}{2} m \omega_\perp^2 ( y^2 + z^2 )$$
+        \begin{center}
+          \includegraphics[width=0.9\textwidth, page=12]{figures/Figures.pdf}
+        \end{center}
+      \end{block}
+
+      \begin{columns}[b, totalwidth=\textwidth]
+
+        \centering
+
+        \begin{column}{0.5\textwidth}
+          \centering
+          \begin{tabular}{c}
+            \textbf{Tubes} \\[0.01cm] \textbf{in a 2D optical lattice}  
+          \end{tabular}
+          \begin{center}
+            \includegraphics[width=0.9\textwidth, trim=0cm 0.5cm 0cm 0.5cm, clip]{figures/Haller.png}
+          \end{center}
+          \begin{tabular}{c}
+            Haller et al, Science, \\[0.01cm] 2009 
+          \end{tabular}
+        \end{column}
+
+        \begin{column}{0.5\textwidth}
+          \centering
+          \begin{tabular}{c}
+            \textbf{Single tube} \\[0.01cm] \textbf{using an atom chip} 
+          \end{tabular}
+          \begin{center}
+            \includegraphics[width=0.9\textwidth, trim=0cm 0.5cm 0cm 0.5cm, clip]{figures/Puce.png}
+          \end{center}
+          \begin{tabular}{c}
+            Puce atomique  \\[0.01cm] au LCF 
+          \end{tabular}
+        \end{column}
+
+      \end{columns}
+
+    \end{column}
+
+    \begin{column}{0.5\textwidth}
+      \centering
+      \begin{center}
+        \alt<2>{
+          \includegraphics[width=1.1\textwidth, page = 14]{figures/Figures.pdf}
+        }{
+          \includegraphics[width=1.1\textwidth, page = 13]{figures/Figures.pdf}
+        }
+
+        \tikz \node[
+    draw,
+    rectangle,
+    rounded corners=6pt,
+    line width=0.8ex,
+    color=\colorFive,
+    fill=white,
+    minimum width=2.8cm,
+    minimum height=1.2cm,
+    align=center,
+    inner sep=6pt
+] at (0,-0.5)
+{\fontsize{6}{7}\selectfont
+    \textbf{If $k_B T,\, \mu \ll \Delta E_\perp$,} \\[0.2cm]
+    \textbf{the transverse degrees of freedom are frozen.}
+};
+      \end{center}
+    \end{column}
+  \end{columns}
+  }
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Atom chip experiment}
+  {\fontsize{7}{5}\selectfont
+  \begin{columns}[b, totalwidth=\textwidth]
+    \begin{column}{0.5\textwidth}
+      \textbf{Atoms used:} Rubidium-87 in the state $\vert F = 2 , m_F = 2 \rangle$ \\[0.2cm]
+      \textbf{Atom chip experiment:} the atoms are trapped by a magnetic potential generated by micro-wires\\[0.1cm]
+      \textbf{Potential experienced by the atoms: $V = \ptFleche{gf}{$g_F$} m_F \ptFleche{mub}{$\mu_B$} \vert \vec{B} \vert $}\\[0.2cm]
+      \begin{tikzpicture}[overlay]
+	        \draw[  opacity = 0.5 ]
+	          (gf) edge[line width=0.4ex ,color = red ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = -90 , in = 60 ]node[pos=1, left]{\color{red} \fontsize{5}{10}\selectfont \bfseries \begin{tabular}{c} Landé \\[0.01cm] factor \end{tabular} }($(gf) + (-0.5cm,-0.75cm)$)
+            (mub) edge[line width=0.4ex ,color = red ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = -90 , in = 130  ]node[pos=1, right]{\color{red} \fontsize{5}{10}\selectfont \bfseries  \begin{tabular}{c} Bohr \\[0.01cm] magneton  \end{tabular}}($(mub) + (0.5cm,-0.75cm)$)
+	        ;
+      \end{tikzpicture}
+
+      \begin{columns}[b, totalwidth=\textwidth]
+        \begin{column}{0.6\textwidth}
+          \includegraphics[width=0.9\textwidth]{figures/Puce_Lea.png}
+        \end{column}
+        \begin{column}{0.4\textwidth}
+          \alt<2>
+          {\includegraphics[width=1.5\textwidth]{figures/Shema_Lea.png}}
+          {\includegraphics[width=1.5\textwidth, page=15]{figures/Figures.pdf}}
+        \end{column}
+      \end{columns}
+
+      \onslide<3>{
+      \begin{tikzpicture}[remember picture, overlay]
+    % Position absolue du coin inférieur gauche du petit tikz
+        \begin{scope}[shift={(-0.2cm,0cm)}] % ici tu choisis la position absolue
+            % Petit dessin
+                \draw[
+                    line width=0.5ex,
+                    draw=\colorThree,
+                    fill=\colorThree!50!\colorTwo,
+                    rounded corners=6pt,
+                    opacity=1
+                ]
+                (0,0) rectangle (6.5,3.5);
+
+                \node[
+                  draw = none ,               % si tu veux un cadre autour
+                  rounded corners,     % coins arrondis
+                  fill=none ,          % fond blanc
+                  text width=3.5cm,     % largeur maximale du nœud
+                  align=center,        % centrer le texte
+                  line width=0.8pt     % épaisseur du contour
+                ]  at (1.8,3) {\fontsize{8}{10}\selectfont \bfseries \color{\colorFour}  Linear density profile of a 1D gas};
+                \node[
+                  draw = none ,               % si tu veux un cadre autour
+                  rounded corners,     % coins arrondis
+                  fill=none ,          % fond blanc
+                  text width=3.5cm,     % largeur maximale du nœud
+                  align=center,        % centrer le texte
+                  line width=0.8pt     % épaisseur du contour
+                ] at (1.8,1.5) {
+                \fontsize{8}{10}\selectfont
+                 \color{\colorFour} \centering
+                \textbf{Yang--Yang thermometry:} temperature and chemical potential extracted by fitting the density profile.
+                };
+                %\draw[draw=\colorThree](0,0) circle (1);
+                %\drawgrid{-1}{4}{-1}{4}
+          \node[] (A) at (5,2) {\includegraphics[width=0.5\textwidth]{figures/YY_Lea.png}};
+          \node[below = 1mm of A] {
+                \fontsize{8}{10}\selectfont
+                 \color{\colorFour} \centering
+                $T=90nK,\quad \mu = 49 n K $
+                };
+        \end{scope}
+        
+      \end{tikzpicture}
+      }
+
+    \end{column}
+    \begin{column}{0.1\textwidth}
+    \end{column}
+    \onslide<2->{
+    \begin{column}{0.4\textwidth}
+
+      \textbf{Absorption imaging:}\\[0.2cm]
+      \includegraphics[width=1.0\textwidth]{figures/Absorbsion_Lea.png}
+
+      \textbf{Remarks:}\\[0.2cm]
+      \begin{itemize}
+        \item Independent control of longitudinal and transverse confinement
+        \item Longitudinal confinement:
+      \end{itemize}
+
+      $$ V(x) = \sum_{i = 1}^4 a_i x^i $$ 
+
+    \end{column}
+
+    }
+  \end{columns}
+  }
+\end{frame}
+
+\Section{Domain Wall Dynamics protocol}
+
+\begin{frame}
+  \frametitle{Context}
+  {\fontsize{7}{5}\selectfont
+  \begin{columns}[b, totalwidth=\textwidth]
+    \begin{column}{0.4\textwidth}
+      \textbf{Partitioning protocol:} deformation of the edge profile of an initially homogeneous and semi-infinite gas.\\[0.2cm]
+      \textbf{GHD theory} developed by solving the edge deformation problem.
+    \end{column}
+
+    \begin{column}{0.6\textwidth}
+      \centerline{
+        \includegraphics[width=0.5\textwidth, page=16]{figures/Figures.pdf}
+        \includegraphics[width=0.5\textwidth, page=17]{figures/Figures.pdf}
+      }
+    \end{column}
+
+  \end{columns}
+
+  \vspace{3.3cm}
+  
+   \begin{columns}[b, totalwidth=\textwidth]
+      \begin{column}{0.4\textwidth}
+       $$\ptFleche{rhot}{$\partial_t \rho + \partial_x(v^{\mathrm{eff}}_{[\rho]} \rho) = 0$}$$
+      \end{column}
+      \onslide<2->{
+      \begin{column}{0.4\textwidth}
+        $$\ptFleche{nut}{$\partial_t \nu + v^{\mathrm{eff}}_{[\nu]}\partial_x \nu = 0$}$$
+     \end{column}
+      }
+     \begin{column}{0.2\textwidth}
+    \end{column}
+    \onslide<2->{
+    \begin{tikzpicture}[overlay]
+          \draw[shift={(0 , 0)}]
+		        (rhot) edge [
+                decoration={
+   							markings,
+    						mark connection node=midnode,
+    						mark=at position 0.65 with {
+      							\node[ ellipse , draw = none ,fill= \colorTwo ,transform shape , opacity = 1] (midnode) {{\color{\colorSix} \fontsize{6pt}{8pt}\selectfont
+					            $\nu = \frac{\rho}{\rho_s}$}};
+    							}
+ 						 	  },
+  							postaction={decorate},
+		            thick,line width=0.1cm ,  color = \colorSix , line width=0.4ex ,color = red ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-Computer Modern Rightarrow[sharp ,length=0.2cm]},  , out = 50 , in = 130 
+		      ] (nut)
+	        ;
+    \end{tikzpicture}
+    }
+   \end{columns}
+   %\vspace{1.3cm}
+    \begin{columns}[t, totalwidth=\textwidth]
+
+      \onslide<2->{
+      \begin{column}{0.4\textwidth}
+        $$ \nu ( x , \theta ; 0 ) = \left \{ \begin{array}{rcl} \nu_0(\theta) &  \mbox{if} &  x > 0 , \\ 0 & \mbox{else} & \end{array} \right .$$
+      \end{column}
+        }
+      \onslide<3>{
+      \begin{column}{0.6\textwidth}
+        $$  \ptFleche{nuscale}{$\nu ( x , \theta ; t ) =  \nu^\ast \left ( \frac{x}t , \theta  \right )$} = \left \{ \begin{array}{rcl} \nu_0(\theta) &  \mbox{if} &  \theta < \ptFleche{thetas}{$\theta^\ast$} , \\ 0 & \mbox{else} & \end{array} \right .$$
+        
+        \begin{tikzpicture}[overlay]
+	        \draw[  opacity = 0.5 ]
+	          (thetas) edge[line width=0.4ex ,color = red ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 90 , in = 0 ]node[pos=1, left]{\color{red} \fontsize{5}{10}\selectfont \bfseries $ v^{\mathrm{eff}}_{[\nu^\ast]}(\theta^\ast) = \frac{x}t $}($(thetas) + (-0.5cm,0.75cm)$)
+          ;
+          \draw[  opacity = 0.5 ]
+            (nuscale) edge[line width=0.4ex ,color = red ,arrows = {-Computer Modern Rightarrow[sharp ,length=0.2cm]},  , out = -90 , in = 180 ]node[pos=1, right]{\color{red} \fontsize{10}{10}\selectfont \bfseries $ n ( x , ; t ) =  n^\ast \left ( \frac{x}t  \right ) $}($(nuscale) + (0.5cm,-0.75cm)$)
+	        ;
+      \end{tikzpicture}
+      
+      \end{column}
+      }
+    \end{columns}
+
+    \onslide<2->{
+      \begin{tikzpicture}[remember picture, overlay]
+    % Position absolue du coin inférieur gauche du petit tikz
+        \begin{scope}[shift={(-0.2cm,3.5cm)}] % ici tu choisis la position absolue
+            % Petit dessin
+                \draw[
+                    line width=0.5ex,
+                    draw=\colorThree,
+                    fill=\colorTwo!50!\colorTwo,
+                    rounded corners=6pt,
+                    opacity=0.9
+                ]
+                (0,0) rectangle (5.5,4.3);
+
+          
+          \node[] (A) at (2.75,2.2) {\includegraphics[width=0.4\textwidth, page=1]{figures/Shema.pdf}};
+
+        \end{scope}
+
+        \onslide<3->{
+        \begin{scope}[shift={(6cm,3.5cm)}] % ici tu choisis la position absolue
+            % Petit dessin
+                \draw[
+                    line width=0.5ex,
+                    draw=\colorThree,
+                    fill=\colorTwo!50!\colorTwo,
+                    rounded corners=6pt,
+                    opacity=0.9
+                ]
+                (0,0) rectangle (5.5,4.3);
+
+          
+          \node[] (A) at (2.75,2.2) {\includegraphics[width=0.4\textwidth, page=2]{figures/Shema.pdf}};
+
+        \end{scope}
+        }
+        
+      \end{tikzpicture}
+    }
+
+
+  }
+\end{frame}
+
+%Partitioning protocol
+\begin{frame}
+  \frametitle{Partitioning protocol}
+  %\framesubtitle{Partitioning protocol}
+
+  {\fontsize{7}{5}\selectfont
+  \begin{columns}[b, totalwidth=\textwidth]
+    \begin{column}{0.3\textwidth}
+      \animategraphics[
+            %controls, 
+            autoplay, % démarre automatiquement 
+            loop, % boucle infinie,
+            %palindrome, % (optionnel) rejoue à l'envers,
+            %clicktoshow, % permet de lancer/pause par clic
+            width=0.9\linewidth,
+            buttonsize=1em,
+            poster=first,
+            trim=0cm 0.5cm 17cm 1.5cm,
+            clip
+          ]{3}{figures/Exp_Bord/frame_}{00001}{00010}
+
+      \vspace{1.0cm}
+
+      \animategraphics[
+            %controls, 
+            autoplay, % démarre automatiquement 
+            loop, % boucle infinie,
+            %palindrome, % (optionnel) rejoue à l'envers,
+            %clicktoshow, % permet de lancer/pause par clic
+            width=0.9\linewidth,
+            buttonsize=1em,
+            poster=first,
+            trim=17cm 0.5cm 0cm 1.5cm,
+            clip
+          ]{3}{figures/Exp_Bord/frame_}{00001}{00010}
+    \end{column}
+    \begin{column}{0.7\textwidth}
+      \textbf{Edge deformation:} \onslide<2->{$n^\ast(x/t)$}\\[0.1cm]
+      \begin{itemize}
+        \item The atoms are trapped in a quartic potential,
+          \begin{itemize}
+            \item[$\rightarrow$] \textbf{resulting in a large, quasi-homogeneous density region.}
+          \end{itemize}
+        \item Selection is performed via radiation pressure.
+      \end{itemize}
+      
+      \centering{
+      \includegraphics[width=1.0\textwidth, page=18]{figures/Figures.pdf}
+      }
+
+      \begin{itemize}
+        \item The longitudinal quartic potential is then switched off,
+        \item while the transverse confinement is maintained,
+        \begin{itemize}
+            \item[$\rightarrow$] \textbf{leading to a longitudinal expansion.}
+        \end{itemize}
+      \end{itemize}
+      
+
+    \end{column}
+  \end{columns}
+
+  \onslide<2->{
+      \begin{tikzpicture}[remember picture, overlay]
+    % Position absolue du coin inférieur gauche du petit tikz
+        \begin{scope}[shift={(3.5cm,0.0cm)}] % ici tu choisis la position absolue
+            % Petit dessin
+                \draw[
+                    line width=0.5ex,
+                    draw=\colorThree,
+                    fill=\colorTwo!50!\colorTwo,
+                    rounded corners=6pt,
+                    opacity=0.9
+                ]
+                (0,0) rectangle (6.5,6.0);
+
+          
+          \node[] (A) at (3.3,3.8) {\includegraphics[width=0.56\textwidth]{figures/Densite_Bord.png}};
+
+          \node[below= 5mm of A, text width=5cm, align=center] { \fontsize{7}{5}\selectfont \color{colorSix}
+            \textbf{Conclusion:} After 10\,ms deformation, a hydrodynamic behavior is clearly observed.
+          };
+          
+          %\drawgrid{-4}{5}{-1}{4}
+
+        \end{scope}
+
+        %\drawgrid{-4}{4}{-1}{4}
+
+      \end{tikzpicture}
+
+      }
+        
+      
+  }
+
+\end{frame}
+
+% \begin{frame}
+%   \frametitle{Partitioning protocol}
+%   %\framesubtitle{Partitioning protocol}
+
+%   {\fontsize{7}{5}\selectfont
+%   \begin{columns}[b, totalwidth=\textwidth]
+%     \begin{column}{0.3\textwidth}
+%       \animategraphics[
+%             %controls, 
+%             autoplay, % démarre automatiquement 
+%             loop, % boucle infinie,
+%             %palindrome, % (optionnel) rejoue à l'envers,
+%             %clicktoshow, % permet de lancer/pause par clic
+%             width=0.9\linewidth,
+%             buttonsize=1em,
+%             poster=first,
+%             trim=0cm 0.5cm 17cm 1.5cm,
+%             clip
+%           ]{3}{figures/Exp_Bord/frame_}{00001}{00010}
+
+%       \vspace{1.0cm}
+
+%       \animategraphics[
+%             %controls, 
+%             autoplay, % démarre automatiquement 
+%             loop, % boucle infinie,
+%             %palindrome, % (optionnel) rejoue à l'envers,
+%             %clicktoshow, % permet de lancer/pause par clic
+%             width=0.9\linewidth,
+%             buttonsize=1em,
+%             poster=first,
+%             trim=17cm 0.5cm 0cm 1.5cm,
+%             clip
+%           ]{3}{figures/Exp_Bord/frame_}{00001}{00010}
+%     \end{column}
+%     \begin{column}{0.7\textwidth}
+%       \textbf{Edge deformation:} \onslide<2->{$n^\ast(x/t)$}\\[0.1cm]
+%       \begin{itemize}
+%         \item The atoms are trapped in a quartic potential,
+%           \begin{itemize}
+%             \item[$\rightarrow$] \textbf{resulting in a large, quasi-homogeneous density region.}
+%           \end{itemize}
+%         \item Selection is performed via radiation pressure.
+%       \end{itemize}
+      
+%       \centering{
+%       \includegraphics[width=1.0\textwidth, page=18]{figures/Figures.pdf}
+%       }
+
+%       \begin{itemize}
+%         \item The longitudinal quartic potential is then switched off,
+%         \item while the transverse confinement is maintained,
+%         \begin{itemize}
+%             \item[$\rightarrow$] \textbf{leading to a longitudinal expansion.}
+%         \end{itemize}
+%       \end{itemize}
+      
+
+%     \end{column}
+%   \end{columns}
+
+%   \onslide<2->{
+%       \begin{tikzpicture}[remember picture, overlay]
+%     % Position absolue du coin inférieur gauche du petit tikz
+%         \begin{scope}[shift={(3.5cm,0.0cm)}] % ici tu choisis la position absolue
+%             % Petit dessin
+%                 \draw[
+%                     line width=0.5ex,
+%                     draw=\colorThree,
+%                     fill=\colorTwo!50!\colorTwo,
+%                     rounded corners=6pt,
+%                     opacity=0.9
+%                 ]
+%                 (0,0) rectangle (6.5,6.0);
+
+          
+%           \node[] (A) at (3.3,3.8) {\includegraphics[width=0.56\textwidth]{figures/Densite_Bord.png}};
+
+%           \node[below= 5mm of A, text width=5cm, align=center] { \fontsize{7}{5}\selectfont \color{colorSix}
+%             \textbf{Conclusion:} After 10\,ms deformation, a hydrodynamic behavior is clearly observed.
+%           };
+          
+%           %\drawgrid{-4}{5}{-1}{4}
+
+%         \end{scope}
+
+%         %\drawgrid{-4}{4}{-1}{4}
+
+%       \end{tikzpicture}
+
+%       }
+        
+      
+%   }
+
+% \end{frame}
+
+
+% \begin{frame}
+%   \frametitle{Partitioning protocol}
+%   %\framesubtitle{Partitioning protocol}
+
+%   {\fontsize{7}{5}\selectfont
+%   \begin{columns}[b, totalwidth=\textwidth]
+%     \begin{column}{0.3\textwidth}
+%       \animategraphics[
+%             %controls, 
+%             autoplay, % démarre automatiquement 
+%             loop, % boucle infinie,
+%             %palindrome, % (optionnel) rejoue à l'envers,
+%             %clicktoshow, % permet de lancer/pause par clic
+%             width=0.9\linewidth,
+%             buttonsize=1em,
+%             poster=first,
+%             trim=0cm 0.5cm 17cm 1.5cm,
+%             clip
+%           ]{3}{figures/Exp_Bord/frame_}{00001}{00010}
+
+%       \vspace{1.0cm}
+
+%       \animategraphics[
+%             %controls, 
+%             autoplay, % démarre automatiquement 
+%             loop, % boucle infinie,
+%             %palindrome, % (optionnel) rejoue à l'envers,
+%             %clicktoshow, % permet de lancer/pause par clic
+%             width=0.9\linewidth,
+%             buttonsize=1em,
+%             poster=first,
+%             trim=17cm 0.5cm 0cm 1.5cm,
+%             clip
+%           ]{3}{figures/Exp_Bord/frame_}{00001}{00010}
+%     \end{column}
+%     \begin{column}{0.7\textwidth}
+%       \textbf{Edge deformation:} \onslide<2->{$n^\ast(x/t)$}\\[0.1cm]
+%       \begin{itemize}
+%         \item The atoms are trapped in a quartic potential,
+%           \begin{itemize}
+%             \item[$\rightarrow$] \textbf{resulting in a large, quasi-homogeneous density region.}
+%           \end{itemize}
+%         \item Selection is performed via radiation pressure.
+%       \end{itemize}
+      
+%       \centering{
+%       \includegraphics[width=1.0\textwidth, page=18]{figures/Figures.pdf}
+%       }
+
+%       \begin{itemize}
+%         \item The longitudinal quartic potential is then switched off,
+%         \item while the transverse confinement is maintained,
+%         \begin{itemize}
+%             \item[$\rightarrow$] \textbf{leading to a longitudinal expansion.}
+%         \end{itemize}
+%       \end{itemize}
+      
+
+%     \end{column}
+%   \end{columns}
+
+%   \onslide<2->{
+%       \begin{tikzpicture}[remember picture, overlay]
+%     % Position absolue du coin inférieur gauche du petit tikz
+%         \begin{scope}[shift={(3.5cm,0.0cm)}] % ici tu choisis la position absolue
+%             % Petit dessin
+%                 \draw[
+%                     line width=0.5ex,
+%                     draw=\colorThree,
+%                     fill=\colorTwo!50!\colorTwo,
+%                     rounded corners=6pt,
+%                     opacity=0.9
+%                 ]
+%                 (0,0) rectangle (6.5,6.0);
+
+          
+%           \node[] (A) at (3.3,3.8) {\includegraphics[width=0.56\textwidth]{figures/Densite_Bord.png}};
+
+%           \node[below= 5mm of A, text width=5cm, align=center] { \fontsize{7}{5}\selectfont \color{colorSix}
+%             \textbf{Conclusion:} After 10\,ms deformation, a hydrodynamic behavior is clearly observed.
+%           };
+          
+%           %\drawgrid{-4}{5}{-1}{4}
+
+%         \end{scope}
+
+%         %\drawgrid{-4}{4}{-1}{4}
+
+%       \end{tikzpicture}
+
+%       }
+        
+      
+%   }
+
+% \end{frame}
+
+%Sonder la distribution %Distribution de rapidité
+\begin{frame}
+  \frametitle{Probe the rapidity distribution}
+  {\fontsize{7}{5}\selectfont
+  \begin{columns}[c, totalwidth=\textwidth]
+    \begin{column}{0.4\textwidth}
+      \centering{
+      \includegraphics[width=1.0\textwidth, page=3]{figures/Shema.pdf}
+      }
+      \onslide<2->{
+      \centering{
+      \includegraphics[width=1.0\textwidth, page=4]{figures/Shema.pdf}
+      }
+      }
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      
+      \vspace{1.3cm}
+
+      \centering{
+      \alt<2->{
+      \includegraphics[width=1.0\textwidth, page=6]{figures/Shema.pdf}
+      }{
+      \includegraphics[width=1.0\textwidth, page=5]{figures/Shema.pdf}
+      }
+      }
+
+      \vspace{1.3cm}
+
+      \begin{itemize}
+        \item At $t=0$, symmetric rapidity distribution
+        \item<2-> At $t=18~ms$, asymmetric rapidity distribution at the edge
+      \end{itemize}
+      
+      \vspace{1.3cm}
+
+      \onslide<2->{
+      \begin{center} \color{colorSix}
+        Experimentally probe the local rapidity distribution
+      \end{center}
+      }
+    \end{column}
+  \end{columns}
+  }
+\end{frame}
+
+% Experimentaly
+\begin{frame}
+  \frametitle{Probe the rapidity distribution}
+  \framesubtitle{Experimentally}
+  {\fontsize{7}{5}\selectfont
+  \begin{columns}[c, totalwidth=\textwidth]
+    \begin{column}{0.4\textwidth}
+      \textbf{Experimental protocol:}\\
+      \begin{itemize}
+        \item Deformation profile of the edge of an initially semi-infinite gas with homogeneous density.
+        \item Selection of an edge region.
+        \centering{
+        \includegraphics[width=1.0\textwidth]{figures/Exp_profils.png}
+        }
+        \item Longitudinal expansion to probe the rapidity distribution.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      
+      \vspace{1.3cm}
+
+      \centering{
+      
+      \includegraphics[width=1.0\textwidth, trim = 15cm 5cm 2cm 0cm, clip]{figures/Shemat_Isa.png}
+
+      \vspace{1.3cm}
+
+      \onslide<2->{
+      \includegraphics[width=1.0\textwidth]{figures/article_asymetrie_24-04-2024.pdf}
+      }
+      }
+
+      
+    \end{column}
+  \end{columns}
+  }
+\end{frame}
+
+%
+\begin{frame}
+  \frametitle{Probe the rapidity distribution}
+  \framesubtitle{Simulation}
+  {\fontsize{7}{5}\selectfont
+  \begin{columns}[c, totalwidth=\textwidth]
+    \begin{column}{0.4\textwidth}
+      \textbf{Comments:}
+      \begin{itemize}
+        \item Take into account the non-uniformity of the rapidity distribution in the selected region.
+        \item The asymptotic regime is not fully reached.
+      \end{itemize}
+      \centering{
+        \includegraphics[width=0.6\textwidth, page = 7]{figures/Shema.pdf}
+        \includegraphics[width=0.6\textwidth, page = 8]{figures/Shema.pdf}
+      }
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \centering{
+        \includegraphics[width=1.0\textwidth]{figures/article_simul_deformation_1_24-04-2024-T-x0.pdf}
+      }
+      \centerline{
+        \includegraphics[width=0.5\textwidth]{figures/article_distribution_24-04-2024.pdf}
+        \includegraphics[width=0.5\textwidth]{figures/article_simul_expansion_1_24-04-2024-T-x0.pdf}
+      }
+      \centering{
+        The edge simulation agrees with the data, but the expansion simulation does not.
+      }
+    \end{column}
+  \end{columns}
+
+  }
+\end{frame}
+
+
+
 
 
 
