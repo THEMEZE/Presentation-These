@@ -92,14 +92,14 @@ ffplay -framerate 12 frame_%03d.png
 Si tu veux récupérer les frames/vidéo embarquées dans un PDF :
 ```bash 
 # liste les pièces jointes
-pdfdetach -list fichier.pdf
+pdfdetach -list main.pdf
 
 # extraire toutes les pièces jointes
-pdfdetach -saveall -o out_dir fichier.pdf
+pdfdetach -saveall -o out_dir main.pdf
 ```
 Pour extraire images rasterisées d’une page (si animation est une série de pages) :
 ```bash
-pdftoppm -png fichier.pdf page
+pdftoppm -png main.pdf page
 # -> page-1.png, page-2.png, ...
 ```
 Ensuite tu peux lire les images avec `ffplay`/`mpv`.
@@ -112,7 +112,7 @@ Ensuite tu peux lire les images avec `ffplay`/`mpv`.
 
 ---
 
-Tu veux donc **afficher un fichier PDF en ligne de commande**, sans logiciel graphique.
+Tu veux donc **afficher un fichier PDF `main.pdf` en ligne de commande**, sans logiciel graphique.
 Voici **toutes les méthodes possibles selon ton système (Linux/macOS)**.
 
 ## 🧭 1. Vérifier ton système
@@ -123,39 +123,39 @@ Tu es sur macOS (d’après nos échanges précédents), donc les solutions suiv
 ### 🔹 Option A — Ouvrir avec *Preview.app* (la visionneuse native macOS)
 C’est la méthode la plus simple, **même si elle ouvre une fenêtre graphique** :
 ```bash
-open fichier.pdf
+open main.pdf
 ```
-➡️ Cela ouvrira `fichier.pdf` dans Aperçu (`Preview.app`).
+➡️ Cela ouvrira `main.pdf` dans Aperçu (`Preview.app`).
 Si tu veux **ouvrir dans Safari** :
 ```bash
-open -a Safari fichier.pdf
+open -a Safari main.pdf
 ```
 Si tu veux **ouvrir dans Chrome** :
 ```bash
-open -a "Google Chrome" fichier.pdf
+open -a "Google Chrome" main.pdf
 ```
 
 ### 🔹 Option B — Ouvrir en ligne de commande sans interface graphique
 Si tu veux **vraiment afficher dans le terminal**, il faut convertir le PDF en texte ou en images ASCII.
 ① Lire **le texte du PDF** :
 ```bash
-pdftotext fichier.pdf -
+pdftotext main.pdf -
 ```
 ➡️ Cela affiche le contenu texte directement dans le terminal.
 ② **Afficher les pages en ASCII (avec catimg ou imgcat)** :
 Si ton terminal supporte les images (comme iTerm2 ou Kitty) :
 ```bash
 brew install catimg
-catimg fichier.pdf
+catimg main.pdf
 ```
 ⚠️ Ça affichera seulement la première page. Pour toutes les pages :
 ```bash
-pdftoppm fichier.pdf page -png
+pdftoppm main.pdf page -png
 catimg page-1.png
 ```
 ③ **Convertir en images pour visualiser les pages** :
 ```bash
-pdftoppm -png fichier.pdf page
+pdftoppm -png main.pdf page
 open page-1.png
 ```
 
@@ -164,12 +164,12 @@ open page-1.png
 Si tu travailles sur un serveur ou un environnement Linux (sans GUI) :
 ```bash
 sudo apt install mupdf
-mupdf fichier.pdf
+mupdf main.pdf
 ```
 ou :
 ```bash
 sudo apt install zathura
-zathura fichier.pdf
+zathura main.pdf
 ```
 Mais ces outils ouvrent une interface légère, pas strictement texte.
 
@@ -179,11 +179,11 @@ Seul **Adobe Acrobat Reader Desktop** (GUI) supporte les objets `animategraphics
 
 Sur macOS, tu peux ouvrir avec :
 ```bash
-open -a "Adobe Acrobat Reader" fichier.pdf
+open -a "Adobe Acrobat Reader" main.pdf
 ```
 Si tu veux rester 100 % ligne de commande et voir l’animation, il faut **extraire les images et les lire avec `ffplay`** :
 ```bash
-pdftoppm -png fichier.pdf frame
+pdftoppm -png main.pdf frame
 ffplay -framerate 12 frame-*.png
 ```
 
@@ -191,12 +191,12 @@ ffplay -framerate 12 frame-*.png
 
 | Objectif                     | Commande                                     |
 | ---------------------------- | -------------------------------------------- |
-| Ouvrir dans Aperçu           | `open fichier.pdf`                           |
-| Ouvrir dans Chrome           | `open -a "Google Chrome" fichier.pdf`        |
-| Extraire le texte            | `pdftotext fichier.pdf -`                    |
-| Convertir pages → images     | `pdftoppm -png fichier.pdf page`             |
+| Ouvrir dans Aperçu           | `open main.pdf`                           |
+| Ouvrir dans Chrome           | `open -a "Google Chrome" main.pdf`        |
+| Extraire le texte            | `pdftotext main.pdf -`                    |
+| Convertir pages → images     | `pdftoppm -png main.pdf page`             |
 | Lire animation dans terminal | `ffplay -framerate 12 frame-*.png`           |
-| Lire animation intégrée      | `open -a "Adobe Acrobat Reader" fichier.pdf` |
+| Lire animation intégrée      | `open -a "Adobe Acrobat Reader" main.pdf` |
 
 ---
 
@@ -602,6 +602,16 @@ Tu obtiens un GIF :
 - fluide et continu,
 - avec fondu progressif entre pages,
 - en qualité haute grâce à PyMuPDF.
+
+### 
+```bach
+input="./figures/Newton.gif"
+output_dir="./figures/frames_Newton"
+
+mkdir -p "$output_dir"
+ffmpeg -i "$input" -vf "fps=60" "$output_dir/frame_%05d.png"
+```
+
 
 ---
 

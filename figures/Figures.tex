@@ -746,7 +746,7 @@ decorations.pathreplacing}
 \end{tikzpicture}
 
 % rho Exité
-\begin{tikzpicture}
+\begin{tikzpicture}[use Hobby shortcut]
 
 	%\drawgrid{-12}{7}{-4}{7}
 	\begin{scope}[shift={(0,10)}]
@@ -762,7 +762,8 @@ decorations.pathreplacing}
 
 		
 		\draw[shift={(0,0)} , thick,line width=1.6ex  , color = colorSix ]
-			(-13,0) -- (-7,0) -- ( -7 , 3 ) to [controls=+(90:4) and +(90:4)] ( 7 , 3 ) -- ( 7 , 0 ) -- ( 13 , 0 )
+			%(-13,0) .. (-7,0) .. ( -7 , 3 ) to [controls=+(90:4) and +(90:4)] ( 7 , 3 ) -- ( 7 , 0 ) -- ( 13 , 0 )
+			(-13,0) -- (-10,0) .. (-8,1) .. ( -7 , 3 ) .. ( 7 , 3 ) .. (8,1) ..( 10 , 0 ) -- ( 13 , 0 )
 		;
 
 		\draw[shift={(0,0)} , thick,line width=1.0ex  , color = colorFour ]
