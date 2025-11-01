@@ -777,6 +777,96 @@
 	
 \end{tikzpicture}
 
+%Data exp 
+\begin{tikzpicture}
+	%\clip[scale = 0.95 , decorate, decoration={random steps, segment length=0.1 cm, amplitude=0.2cm}](#1 , #2 ) rectangle ( #3 , #4 ) ;
+	\clip[](-13 , -3) rectangle (9.5 , 11.4) ;
+	
+	% Définition de l’échelle
+	%\def\echelleY{10}
+	\pgfmathsetmacro{\echelleYCm}{10/4}
+	%\def\echelleX{50}
+	\pgfmathsetmacro{\echelleXCm}{20/9}
+
+	% Définition de la liste
+	\def\listeLabelsY{{0,1,2,3,4}}
+	\def\listeLabelsX{{-500,-400,-300,-200,-100 , 0 ,100, 200 , 300 , 400}}
+	
+	
+
+    \pgfmathparse{-5*\echelleXCm}  
+    \let\valXmin\pgfmathresult
+    \begin{scope}
+		
+    	\clip[](\valXmin , -1) rectangle (9, 11.0) ;
+    	\backgrowngrid{-6}{0}{4}{4}{\echelleXCm}{\echelleYCm}
+    	
+    	\draw[
+  			shift={(-10.5cm,8.2cm)},
+  			line width=0.5ex,
+  			draw=\colorThree,
+  			fill=\colorThree!50!\colorTwo,
+  			rounded corners=6pt,
+  			opacity = 0.2
+			] 
+  			(0,0) rectangle (5.5,2.5);
+  			
+    	\draw[line width=0.8ex  ,color=colorFour ,  fill = none] 	
+			plot[smooth] file {data/Donnee_article_simul_expansion_1_24-04-2024-T-x0.table}
+			(-10.2,10) edge[] node[shift = {(0,0)} , pos=1, right , scale = 2,  font = \fontsize{10pt}{10pt}\selectfont \bfseries ]{$\tilde{n}(x)$ } (-8.7,10)
+		;
+		% \draw[line width=0.8ex  ,color= colorFive,  fill = none] 	
+		% 	plot[smooth] file {data/Donnee_2_article_asymetrie_24-04-202.table}
+		% 	(-10.2,8) edge[] node[shift = {(0,0)} , pos=1, right , scale = 2,  font = \fontsize{10pt}{10pt}\selectfont \bfserie]{ $\tilde{n}(2 x_s - x)$  } (-8.7,8)
+		% ;
+
+		% \draw[line width=0.8ex, color=colorFive, fill=none] 	
+  		% 	plot[smooth] file {data/Donnee_2_article_asymetrie_24-04-202.table}
+  		% 		(-10.2,9) edge[] 
+    	% 		node[
+      	% 		shift={(0,0)}, 
+      	% 		pos=1, 
+      	% 		right, 
+	  	% 		scale = 2 , 
+      	% 		font=\bfseries\fontsize{10pt}{10pt}\selectfont,
+      	% 		text=colorFive
+    	% 	]{$\tilde{n}(2x_s - x)$} 
+  		% 	(-8.7,9)
+		% ;
+
+		% \draw[line width=1.5ex  ,color=colorOne,  fill = none , dashed] 	
+		% 	plot[] file {data/rho_1_article_distribution_24-04-2024.table}
+		% 	(-10.2,9) edge[] node[shift = {(0,0)} , pos=1, right , scale = 2,  font = \fontsize{10pt}{10pt}\selectfont \bfseries , ]{\bf $\ell \rho /\tau $  } (-8.7,9)
+		% ;
+		
+		% \draw[line width=1.5ex  ,color=\colorThree,  fill = none] 	
+		% 	plot[] file {data/GHD_2_article_simul_expansion_1_24-04-2024-T-x0.table}
+		% 	(-10.2,8) edge[] node[shift = {(0,0)} , pos=1, right ]{\fontsize{16pt}{19pt}\selectfont \bf Ajust : T = 1550 nK  } (-8.7,8)
+		% ;
+    \end{scope}
+    
+    
+    % Graduations     
+	\begin{scope}[shift = {(\valXmin,0)}]
+		\GraduationYCm{0}{4}{\listeLabelsY}{\echelleYCm}	
+	\end{scope}			
+	\begin{scope}[shift = {(0,-1)}]	
+		\GraduationXCm{-5}{4}{\listeLabelsX}{\echelleXCm}
+	\end{scope}
+	
+	
+	% Axxes 
+	\draw[shift = {(0,-1)}](\valXmin, 0) edge[thick, line width=0.8ex, ->, >=Triangle, color=\colorOne] node[shift = {(0,-1)} , pos=0.5, below]{ \huge $x~(\mu m) $ } (9.5, 0);
+    \draw [shift = {(\valXmin,0)}]  (0, -1) edge[thick, line width=0.8ex, ->, >=Triangle, color=\colorOne] node[shift = {(-1,0)} , pos=0.5, above , rotate = 90 ]{ \huge ${\mu m}^{-1}$ } (0, 11.5)
+		
+		
+	;
+	
+	%\draw[line width=2.5ex , color = red ] (-14 , -1) rectangle (9.5 , 12) ;
+	%\drawgrid{-13}{13}{-4}{12}
+	
+\end{tikzpicture}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %article_distribution_24-04-2024

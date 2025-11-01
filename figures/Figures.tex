@@ -1102,9 +1102,11 @@ decorations.pathreplacing}
                 mark=at position 0.5 with {
                     \node[
                         color=\colorThree,
-                        transform shape
-                    ] (my node) {\fontsize{20}{5}\selectfont \bfseries \color{\colorThree} System size $ \leftarrow L \gg \ell $};
-                },
+                        transform shape,
+						scale = 1.0,
+						font = \fontsize{20}{5}\selectfont \bfseries
+                    ] (my node) { \color{\colorThree}  $L \gg \ell $};
+                },%System size  \leftarrow 
             },
             %postaction={decorate},
             color=\colorThree,
@@ -1159,9 +1161,11 @@ decorations.pathreplacing}
                 mark=at position 0.5 with {
                     \node[
                         color=\colorThree,
-                        transform shape
-                    ] (my node) {\fontsize{15}{5}\selectfont \bfseries \color{\colorThree} continum of locally homogeneous cells of fluid of size  $ \leftarrow \ell \gg d $};
-                },
+                        transform shape,
+						scale = 1.0,
+						font = \fontsize{20}{5}\selectfont \bfseries 
+                    ] (my node) {\color{\colorThree}  $ \ell \gg d $};
+                },%continum of locally homogeneous cells of fluid of size \leftarrow 
             },
             %postaction={decorate},
             color=\colorThree,
@@ -1208,8 +1212,8 @@ decorations.pathreplacing}
             thick,
             line width=0.5ex,
         ] 
-		(-0.5, 0) edge[{Computer Modern Rightarrow[line cap=round]}-{Computer Modern Rightarrow[line cap=round]}] node[pos = 0.5 , right , shift = {(-0.25 , 0.5 )} , color = \colorOne ]{\fontsize{15}{5}\selectfont \bfseries \color{\colorThree} $d \rightarrow $ the microscopic length scle } (0.5, 0)
-		;
+		(-0.5, 0) edge[{Computer Modern Rightarrow[line cap=round]}-{Computer Modern Rightarrow[line cap=round]}] node[pos = 0.5 , right , shift = {(-0.25 , 0.5 )} , color = \colorOne , scale = 1.5 , font = \fontsize{15}{5}\selectfont \bfseries ]{ \color{\colorThree} $d$ } (0.5, 0)
+		;%\rightarrow the microscopic length scle 
 
 		\begin{scope}[shift={(0,-0.75)}]
 
@@ -1269,8 +1273,8 @@ decorations.pathreplacing}
 		\node[right] at (1.5,2.0) {
   			\fontsize{10pt}{12pt}\selectfont
   			\begin{tabular}{c}
-    			\textbf{Conservation of the atom number :}\\[0.2cm]
-    			$\displaystyle \int dx\, n(x,t) = N$\\[0.5cm]
+    			\fontsize{20pt}{19pt}\selectfont \textbf{Conservation of the atom number :}\\[0.2cm]
+    			\fontsize{20pt}{19pt}\selectfont $\displaystyle \int dx\, n(x,t) = N$\\[0.5cm]
 				\fontsize{20pt}{19pt}\selectfont $ \partial_t n + \partial_x j_n = 0$
   			\end{tabular}
 		};
@@ -1292,8 +1296,8 @@ decorations.pathreplacing}
 		\node[right] at (1.5,2.0) {
   			\fontsize{10pt}{12pt}\selectfont
   			\begin{tabular}{c}
-    			\textbf{Conservation of total momentum:}\\[0.2cm]
-    			$\displaystyle \int dx\, p(x,t) = P$\\[0.5cm]
+    			\fontsize{20pt}{19pt}\selectfont \textbf{Conservation of total momentum:}\\[0.2cm]
+    			\fontsize{20pt}{19pt}\selectfont $\displaystyle \int dx\, p(x,t) = P$\\[0.5cm]
 				\fontsize{20pt}{19pt}\selectfont $ \partial_t p + \partial_x j_p = 0 $
   			\end{tabular}
 		};
@@ -1315,8 +1319,8 @@ decorations.pathreplacing}
 		\node[right] at (1.5,2.0) {
   			\fontsize{10pt}{12pt}\selectfont
   			\begin{tabular}{c}
-    			\textbf{Conservation of total energy :}\\[0.2cm]
-    			$\displaystyle \int dx\, e(x,t) = E$\\[0.5cm]
+    			\fontsize{20pt}{19pt}\selectfont \textbf{Conservation of total energy :}\\[0.2cm]
+    			\fontsize{20pt}{19pt}\selectfont $\displaystyle \int dx\, e(x,t) = E$\\[0.5cm]
 				\fontsize{20pt}{19pt}\selectfont $ \partial_t e + \partial_x j_e = 0 $
   			\end{tabular}
 		};
@@ -1351,12 +1355,12 @@ decorations.pathreplacing}
 				(2,0.5) -- (9.75,0.5)
 			;
 			\draw[color=\colorFour]
-				(10,0) edge[<->, line width=0.1ex , ultra thick] node[pos= 0.5 , right]{\fontsize{12pt}{16pt}\selectfont $\delta \theta$} (10,0.5)
+				(10,0) edge[<->, line width=0.1ex , ultra thick] node[pos= 0.5 , right]{\fontsize{20pt}{16pt}\selectfont $\delta \theta$} (10,0.5)
 			;
 			\begin{scope}%[overlay]
 				\node[] (point) at (4,0.1) {};
 	        	\draw[  opacity = 1 ]
-		        	(point) edge[line width=0.4ex ,color = \colorFour ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-} , out = 90 , in = 180  ]node[pos=1, right]{\color{colorFour} \fontsize{20}{10}\selectfont \bfseries \begin{tabular}{c} $\displaystyle \int dx \rho ( x , \theta ; t ) \, \delta \theta = \Pi(\theta) \, \delta \theta  $  \\[0.2cm] \textbf{is conserved} \end{tabular} }($(point) + (2.0cm,2.0cm)$)
+		        	(point) edge[line width=0.4ex ,color = \colorFour ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-} , out = 90 , in = 180  ]node[pos=1, right , font = \fontsize{12pt}{16pt}\selectfont]{\color{colorFour} \fontsize{20}{10}\selectfont \bfseries \begin{tabular}{c} $\displaystyle \int dx \rho ( x , \theta ; t ) \, \delta \theta = \Pi(\theta) \, \delta \theta  $  \\[0.2cm] \textbf{is conserved} \end{tabular} }($(point) + (2.0cm,2.0cm)$)
              	;
         	\end{scope}
 		\end{scope}
@@ -1488,7 +1492,7 @@ decorations.pathreplacing}
 	% Axxes 
 	\draw[shift = {(0,0)}]
 		(-1, 0) edge[thick, line width=0.5ex, ->, color=\colorOne] node[shift = {(0,0)} , pos=0.6, below]{\fontsize{12pt}{16pt}\selectfont \huge \color{\colorOne} position } (6, 0)
-		(-0, -1) edge[thick, line width=0.5ex, ->, color=\colorOne] node[shift = {(0,0)} , pos=0.4, above , rotate = 90 ]{\fontsize{12pt}{16pt}\selectfont \huge \color{\colorOne} temps } (-0, 7)		
+		(-0, -1) edge[thick, line width=0.5ex, ->, color=\colorOne] node[shift = {(0,0)} , pos=0.5, above , rotate = 90 ]{\fontsize{12pt}{16pt}\selectfont \huge \color{\colorOne} time } (-0, 8)		
 	;
 	
 	\draw[]
@@ -1500,55 +1504,57 @@ decorations.pathreplacing}
 	;
 
 	\draw[]
-		(2,3) edge[thick, line width=0.5ex , -> ,  >=Triangle , color = colorFive] ($(2,3) + 2.0*(-2,2) $)
-		(3,3) edge[thick, line width=0.5ex , -> , >=Triangle , color = colorFour] ($(3,3) + 2.0*(1,2) $)
+		($(1,1) + 1.6*(1,2) $) edge[thick, line width=0.5ex , -> ,  >=Triangle , color = colorFive] ($(1,1) + 1.6*(1,2)  + 1.5*(-2,2) $)
+		($(5,1) + 1.6*(-2,2) $) edge[thick, line width=0.5ex , -> , >=Triangle , color = colorFour] ($(5,1) + 1.6*(-2,2)  + 1.5*(1,2) $)
 	;
 	
 
 	\shade[draw = none , inner color = colorFour , outer color=colorTwo, opacity = 0.8 , shading=radial ] 
 		(1,1) circle (0.5) node [right]{
-			\tikz \draw[](0,0) edge[shift = {(0,1)}, thick, line width=0.3ex , -> ,  >=Stealth , color = colorFour] node [pos = 0.5 , above ]{\fontsize{12pt}{16pt}\selectfont $\theta_1$}  (1,0) ;
-			}
-	;
-	\shade[draw = none , inner color = colorFour , outer color=colorTwo, opacity = 0.8 , shading=radial ] (2,3) circle (0.5) ;
-	\shade[draw = none , inner color = colorFive , outer color=colorTwo, opacity = 0.8 , shading=radial ] 
-		(5,1) circle (0.5) node [left]{
-			\tikz \draw[](0,0) edge[shift = {(-0.1,1)}, thick, line width=0.3ex , -> ,  >=Stealth , color = colorFive] node [pos = 0.5 , above ]{\fontsize{12pt}{16pt}\selectfont $\theta_2$}  (-2,0) ;
-			}
-	;
-	\shade[draw = none , inner color = colorFive , outer color=colorTwo, opacity = 0.8 , shading=radial ] (3,3) circle (0.5) ;
-
-	\shade[draw = none , inner color = colorFive , outer color=colorTwo, opacity = 0.8 , shading=radial ] 
-		(0,5) circle (0.5) node [left]{
-			\tikz \draw[](0,0) edge[shift = {(-0.1,1)}, thick, line width=0.3ex , -> ,  >=Stealth , color = colorFive] node [pos = 0.5 , above ]{\fontsize{12pt}{16pt}\selectfont $\theta_2$}  (-2,0) ;
-			}
-	;
-	\shade[draw = none , inner color = colorFour , outer color=colorTwo, opacity = 0.8 , shading=radial ] 
-		(4,5) circle (0.5) node [right]{
-			\tikz \draw[](0,0) edge[shift = {(0,1)}, thick, line width=0.3ex , -> ,  >=Stealth , color = colorFour] node [pos = 0.5 , above ]{\fontsize{12pt}{16pt}\selectfont $\theta_1$}  (1,0) ;
+			\tikz \draw[](0,0) edge[shift = {(0,1)}, thick, line width=0.3ex , -> ,  >=Stealth , color = colorFour] node [pos = 0.5 , above ]{\fontsize{20pt}{16pt}\selectfont $\theta_1$}  (1,0) ;
 			}
 	;
 	
-	\begin{scope}[shift = {(4.1,6.2)}]
+	\shade[draw = none , inner color = colorFive , outer color=colorTwo, opacity = 0.8 , shading=radial ] 
+		(5,1) circle (0.5) node [left]{
+			\tikz \draw[](0,0) edge[shift = {(-0.1,1)}, thick, line width=0.3ex , -> ,  >=Stealth , color = colorFive] node [pos = 0.5 , above ]{\fontsize{20pt}{16pt}\selectfont $\theta_2$}  (-2,0) ;
+			}
+	;
+	
+
+	\shade[draw = none , inner color = colorFive , outer color=colorTwo, opacity = 0.8 , shading=radial ] 
+		($(1,1) + 1.6*(1,2)  + 0.8*(-2,2) $)  circle (0.5) node [left]{
+			\tikz \draw[](0,0) edge[shift = {(-0.1,0.0)}, thick, line width=0.3ex , -> ,  >=Stealth , color = colorFive] node [pos = 1 , left  ]{\fontsize{20pt}{16pt}\selectfont $\theta_2$}  (-2,0) ;
+			}
+	;
+	\shade[draw = none , inner color = colorFour , outer color=colorTwo, opacity = 0.8 , shading=radial ] 
+		($(5,1) + 1.6*(-2,2)  + 0.8*(1,2) $) circle (0.5) node [right]{
+			\tikz \draw[](0,0) edge[shift = {(0,0.0)}, thick, line width=0.3ex , -> ,  >=Stealth , color = colorFour] node [pos = 1 , right ]{\fontsize{20pt}{16pt}\selectfont $\theta_1$}  (1,0) ;
+			}
+	;
+	
+	\begin{scope}[shift = {(3.45,6.5)}]
 		\draw[shift = {(-0.6,0)}, thick, line width=0.5ex , -> ,  >=Stealth , color = colorThree] 
 			(-0.5,0) -- (0,0) 
 		;
-		\draw[shift = {(0.6,0)}]
-			(0,0) edge [thick, line width=0.5ex , <- , >=Stealth , color = colorThree] node [ pos = 1.0 , right ]{\fontsize{12pt}{16pt}\selectfont  \color{colorThree} $\Delta(\theta_1 - \theta_2)$ } (0.5,0) 
+		\draw[shift = {(0.35,0)}]
+			(0,0) edge [thick, line width=0.5ex , <- , >=Stealth , color = colorThree] node [ pos = 1.0 , right ]{\fontsize{20pt}{16pt}\selectfont  \color{colorThree} $\Delta(\theta_1 - \theta_2)$ } (0.5,0) 
 		;			
 	\end{scope}
 
 	
-	\begin{scope}[shift={(2.5,3)} , opacity = 0.5]
+	\begin{scope}[shift={(2.3,3.6)} , opacity = 0.6]
+		\shade[draw = none , inner color = colorFour , outer color=colorTwo, opacity = 0.8 , shading=radial ] (-0.2,0) circle (0.5) ;
+		\shade[draw = none , inner color = colorFive , outer color=colorTwo, opacity = 0.8 , shading=radial ] (0.2,0) circle (0.5) ;
     	\draw[
         	fill=colorSix,
        	 	color=colorSix,
        		decorate,
         	decoration={random steps, segment length=1mm, amplitude=1mm}
-   		 ] (0,0) circle (1.1);
+   		 ] (0,0) circle (1.4);
 
     	% Texte au centre
-    	\node at (0,0.) {\color{colorTwo} \fontsize{10pt}{5pt}\selectfont \bf Collision};
+    	\node at (0,0.) {\color{colorTwo} \fontsize{10pt}{5pt}\selectfont \bf Interaction};
 	\end{scope}
 	
 
@@ -1781,7 +1787,7 @@ decorations.pathreplacing}
 		% \node[above = of (-5,7)]  { \fontsize{12pt}{16pt}\selectfont \huge \color{\colorFour}  Temperature T
 		% }	
 		% ;
-		\node[]  at (0,6) {\fontsize{15}{5}\selectfont \bfseries \color{\colorFour}  Temperature T};
+		\node[]  at (0,6) {\fontsize{15}{5}\selectfont \bfseries \color{\colorFour}  Energy/Atom};
 	\end{scope}
 
 	\begin{scope}[shift = {(0,-0)}]
@@ -1808,9 +1814,9 @@ decorations.pathreplacing}
         	plot ({\x},{\a*\x*\x + \b*\x + \c});
 
     	% Points donnés
-    	\filldraw[red] (\xA,\yA) circle (1.5pt);
-    	\filldraw[red] (\xB,\yB) circle (1.5pt);
-    	\filldraw[red] (\xC,\yC) circle (1.5pt);
+    	%\filldraw[red] (\xA,\yA) circle (1.5pt);
+    	%\filldraw[red] (\xB,\yB) circle (1.5pt);
+    	%\filldraw[red] (\xC,\yC) circle (1.5pt);
 
 		\begin{scope}[shift = {(0,-0)}]
 			%\clip (-3,0) plot[domain=-2.5:2.5, smooth, variable=\x] ({\x},{\a*\x*\x + \b*\x + \c}) -- (2.5,0) -- cycle ;
@@ -1906,7 +1912,7 @@ decorations.pathreplacing}
 		% \node[above = of (-5,7)]  { \fontsize{12pt}{16pt}\selectfont \huge \color{\colorFour}  Temperature T
 		% }	
 		% ;
-		\node[]  at (0,6) {\fontsize{15}{5}\selectfont \bfseries \color{\colorFour}  Temperature T};
+		\node[]  at (0,6) {\fontsize{15}{5}\selectfont \bfseries \color{\colorFour}  Energy/Atom};
 	\end{scope}
 
 	\begin{scope}[shift = {(0,-0)}]
@@ -1933,9 +1939,9 @@ decorations.pathreplacing}
         	plot ({\x},{\a*\x*\x + \b*\x + \c});
 
     	% Points donnés
-    	\filldraw[red] (\xA,\yA) circle (1.5pt);
-    	\filldraw[red] (\xB,\yB) circle (1.5pt);
-    	\filldraw[red] (\xC,\yC) circle (1.5pt);
+    	%\filldraw[red] (\xA,\yA) circle (1.5pt);
+    	%\filldraw[red] (\xB,\yB) circle (1.5pt);
+    	%\filldraw[red] (\xC,\yC) circle (1.5pt);
 
 		\begin{scope}[shift = {(0,-0)}]
 			%\clip (-3,0) plot[domain=-2.5:2.5, smooth, variable=\x] ({\x},{\a*\x*\x + \b*\x + \c}) -- (2.5,0) -- cycle ;
@@ -2017,12 +2023,19 @@ decorations.pathreplacing}
 \begin{scope}
 
 
+	% \draw[shift={(-2cm , 1.25cm)} , thick,line width=2.5cm, color = \colorThree , opacity = 1 ]
+	% 	(0,0) -- node[shift={(-0.75cm , -0.5cm)} , pos = 0.0, right , color = \colorTwo]{{\color{\colorTwo} \fontsize{15pt}{8pt}\selectfont \bf SiC} } (13.5,0)
+	% ;
+	% \draw[shift={(-2cm , 3.5cm)} , thick,line width=2.cm, color = \colorFour , opacity = 1 ]
+	% 	(0,0) -- node[shift={(-0.75cm , -0.5cm)} , pos = 0.0, right , color = \colorTwo]{{\color{\colorTwo} \fontsize{15pt}{8pt}\selectfont \bf BCB} } (13.5,0)
+	% ;
 	\draw[shift={(-2cm , 1.25cm)} , thick,line width=2.5cm, color = \colorThree , opacity = 1 ]
-		(0,0) -- node[shift={(-0.75cm , -0.5cm)} , pos = 0.0, right , color = \colorTwo]{{\color{\colorTwo} \fontsize{15pt}{8pt}\selectfont \bf SiC} } (13.5,0)
+		(0,0) -- (13.5,0)
 	;
 	\draw[shift={(-2cm , 3.5cm)} , thick,line width=2.cm, color = \colorFour , opacity = 1 ]
-		(0,0) -- node[shift={(-0.75cm , -0.5cm)} , pos = 0.0, right , color = \colorTwo]{{\color{\colorTwo} \fontsize{15pt}{8pt}\selectfont \bf BCB} } (13.5,0)
+		(0,0) -- (13.5,0)
 	;
+
 	\draw[shift={(-2cm , 5.cm)} , thick,line width=1.cm, color = \colorGold , opacity = 1 ]
 		(0,0) -- node[shift={(-0.2cm , 0.cm)} , pos = 0.0, right , color = \colorTwo]{{\color{\colorOne} \fontsize{15pt}{8pt}\selectfont \bf Au} } (13.5,0)
 	;
@@ -2080,53 +2093,53 @@ decorations.pathreplacing}
 		(0,0) edge [decoration={
    							markings,
     						mark connection node=midnode,
-    						mark=at position 0.65 with {
-      							\node[draw = none ,fill= \colorGold ,transform shape , opacity = 1] (midnode) {{\color{\colorOne} \fontsize{10pt}{8pt}\selectfont
+    						mark=at position 0.5 with {
+      							\node[draw = none ,fill= \colorGold ,transform shape , opacity = 1] (midnode) {{\color{\colorOne} \fontsize{20pt}{8pt}\selectfont
 					$d$}};
     							}
  						 	},
   							postaction={decorate},
 		thick,line width=0.1cm , <->, color = \colorOne , >=Stealth	
-		] (0,3)
+		] (0,3.6)
 	;
 	
-	\draw[shift={(10.25cm , 0.cm)}]
-		(0,0) edge [decoration={
-   							markings,
-    						mark connection node=midnode,
-    						mark=at position 0.5 with {
-      							\node[draw = none ,fill= \colorThree ,transform shape , opacity = 1] (midnode) {{\color{\colorTwo} \fontsize{10pt}{8pt}\selectfont
-					$\sim 300 \mu m $}};
-    							}
- 						 	},
-  							postaction={decorate},
-		thick,line width=0.1cm , <->, color = \colorTwo	, >=Stealth	
-		] (0,2.5)
-	;
+	% \draw[shift={(10.25cm , 0.cm)}]
+	% 	(0,0) edge [decoration={
+   	% 						markings,
+    % 						mark connection node=midnode,
+    % 						mark=at position 0.5 with {
+    %   							\node[draw = none ,fill= \colorThree ,transform shape , opacity = 1] (midnode) {{\color{\colorTwo} \fontsize{10pt}{8pt}\selectfont
+	% 				$\sim 300 \mu m $}};
+    % 							}
+ 	% 					 	},
+  	% 						postaction={decorate},
+	% 	thick,line width=0.1cm , <->, color = \colorTwo	, >=Stealth	
+	% 	] (0,2.5)
+	% ;
 	
-	\draw[shift={(10.25cm , 2.5cm)}]
-		(0,0) edge [decoration={
-   							markings,
-    						mark connection node=midnode,
-    						mark=at position 0.5 with {
-      							\node[draw = none ,fill= \colorFour ,transform shape , opacity = 1] (midnode) {{\color{\colorTwo} \fontsize{10pt}{8pt}\selectfont
-					$< 6 \,\mu m $}};
-    							}
- 						 	},
-  							postaction={decorate},
-		thick,line width=0.1cm , <->, color = \colorTwo	, >=Stealth	
-		] (0,2)
-	;
+	% \draw[shift={(10.25cm , 2.5cm)}]
+	% 	(0,0) edge [decoration={
+   	% 						markings,
+    % 						mark connection node=midnode,
+    % 						mark=at position 0.5 with {
+    %   							\node[draw = none ,fill= \colorFour ,transform shape , opacity = 1] (midnode) {{\color{\colorTwo} \fontsize{10pt}{8pt}\selectfont
+	% 				$< 6 \,\mu m $}};
+    % 							}
+ 	% 					 	},
+  	% 						postaction={decorate},
+	% 	thick,line width=0.1cm , <->, color = \colorTwo	, >=Stealth	
+	% 	] (0,2)
+	% ;
 	
-	\draw[shift={(10.25cm , 4.5cm)}, thick,line width=0.1cm , {Triangle[scale=0.5]}-{Triangle[scale=0.5]}, color = \colorOne ]
-		(0,0) -- node[pos = 0.5 , left ]{{\color{\colorOne} \fontsize{15pt}{8pt}\selectfont $\sim 150 \, nm $}}  (0,1)
-	;
+	% \draw[shift={(10.25cm , 4.5cm)}, thick,line width=0.1cm , {Triangle[scale=0.5]}-{Triangle[scale=0.5]}, color = \colorOne ]
+	% 	(0,0) -- node[pos = 0.5 , left ]{{\color{\colorOne} \fontsize{15pt}{8pt}\selectfont $\sim 150 \, nm $}}  (0,1)
+	% ;
 	
 	\draw[shift={(2.5cm , 5.5cm)}, thick,line width=0.08cm , >-< ,   {Triangle[scale=0.7, reversed]}-{Triangle[scale=0.7, reversed]}, color = \colorOne ]
-		(0,0) -- node[pos = 0.5 , left ]{{\color{\colorOne} \fontsize{17pt}{8pt}\selectfont $\sim 7 \,\mu m $}}  (0,0.5)
+		(0,0) -- node[pos = 0.5 , left ]{{\color{\colorOne} \fontsize{17pt}{8pt}\selectfont $\sim 7 \,\mu m $}}  (0,1.1)
 	;
 	
-	\begin{scope}[shift={(4.5cm , 4.9cm)} , decoration={
+	\begin{scope}[shift={(4.5cm , 5.5cm)} , decoration={
     		markings,% switch on markings
     		mark=between positions 0.3 and 1 step 1cm with {\arrow[\colorSix,line width=1mm]{>}}}
     	]
@@ -2135,7 +2148,7 @@ decorations.pathreplacing}
   		\draw [shift={(-0.25cm , 0.25cm)} , rotate = -90, xscale=-1 , postaction={decorate} , color = \colorSix , line width=1mm] (0,0) .. controls (1,1) and (1,1) .. (2,0);
   		\draw [shift={(2.cm , 2.5cm)} , rotate = 180, xscale=1 , postaction={decorate} , color = \colorSix , line width=1mm] (0,0) .. controls (1,1) and (1,1) .. (2,0);
   		
-  		\node[align=center, font=\fontsize{15}{12}\selectfont, text=\colorSix] at (3.95,1.25) {Champ produit\\par les micro-fils};
+  		\node[align=center, font=\fontsize{15}{12}\selectfont, text=\colorSix] at (3.95,1.25) {Field produced \\ by the micro-wires};
 	\end{scope}
 	
 
@@ -2253,11 +2266,11 @@ decorations.pathreplacing}
 
 
 		\draw[opacity = 1.0 ]
-            (0,0) edge[shift = {(-2,-0.1)}, line width=0.4ex ,color = colorSix ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = -90 , in = 0 ]node[pos=1, left ]{\color{colorSix} \fontsize{10}{10}\selectfont \bfseries  light beams  }($(0,0) + (-0.5cm,-0.75cm)$)
+            (0,0) edge[shift = {(-2,-0.1)}, line width=0.4ex ,color = colorSix ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = -90 , in = 180 ]node[pos=1, right ]{\color{colorSix} \fontsize{20pt}{10pt}\selectfont \bfseries  light beams  }($(0,0) + (0.5cm,-0.75cm)$)
 
-			(0,0) edge[shift = {(2.6,2.5)}, line width=0.4ex ,color = colorOne ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 150 , in = 0 ]node[pos=1, left ]{\color{colorOne} \fontsize{10}{10}\selectfont \bfseries  \begin{tabular}{r}potential \\ $V_\parallel(x) \propto x^4 $ \end{tabular}  }($(0,0) + (-1.0cm,0.75cm)$)
+			(0,0) edge[shift = {(2.6,2.5)}, line width=0.4ex ,color = colorOne ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 150 , in = 0 ]node[pos=1, left ]{\color{colorOne} \fontsize{20pt}{10pt}\selectfont \bfseries  \begin{tabular}{r}potential \\ $V_\parallel(x) \propto x^4 $ \end{tabular}  }($(0,0) + (-1.25cm,1.75cm)$)
 
-			(0,0) edge[shift = {(0,2.1)}, line width=0.4ex ,color = colorFour ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 130, in = 0 ]node[pos=1, left ]{\color{colorFour} \fontsize{10}{10}\selectfont \bfseries  density $n(x)$ }($(0,0) + (-1.0cm,0.75cm)$)
+			(0,0) edge[shift = {(0,2.1)}, line width=0.4ex ,color = colorFour ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 130, in = 0 ]node[pos=1, left ]{\color{colorFour} \fontsize{20pt}{10pt}\selectfont \bfseries  density $n(x)$ }($(0,0) + (-1.0cm,0.75cm)$)
 	    ;
 	\end{scope}
 
@@ -2288,7 +2301,7 @@ decorations.pathreplacing}
 
 			%(0,0) edge[shift = {(2.6,2.5)}, line width=0.4ex ,color = colorOne ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 150 , in = 0 ]node[pos=1, left ]{\color{colorOne} \fontsize{10}{10}\selectfont \bfseries  \begin{tabular}{r}potential \\ $V_\parallel(x) \propto x^4 $ \end{tabular}  }($(0,0) + (-1.0cm,0.75cm)$)
 
-			(0,0) edge[shift = {(0,2.1)}, line width=0.4ex ,color = colorFour ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 130, in = 0 ]node[pos=1, left ]{\color{colorFour} \fontsize{10}{10}\selectfont \bfseries  atom restant }($(0,0) + (-1.0cm,0.75cm)$)
+			(0,0) edge[shift = {(0,2.1)}, line width=0.4ex ,color = colorFour ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 130, in = 0 ]node[pos=1, left ]{\color{colorFour} \fontsize{20pt}{10}\selectfont \bfseries  atom restant }($(0,0) + (-1.0cm,0.75cm)$)
 	    ;
 	\end{scope}
 
@@ -2358,10 +2371,12 @@ decorations.pathreplacing}
 	}
 
 \def\listetuple{
-	-8.5/{I_{1}}/{-\frac{N-1}2\quad }, -8/{I_{2}}/{} , -7.5/{I_{3}}/{} , -7/{}/{} , -6.5/{}/{} , -6/{}/{} , -5.5/{}/{} , -5/{}/{} , -4.5/{}/{} , -4/{}/{} , -3.5/{}/{} ,  -2.0/{}/{} , -1.5/{}/{} , -1/{}/{} , -0.5/{I_{a}}/{} , 0/{}/{} , 0.5/{}/{} , 1/{}/{} , 1.5/{}/{} , 2/{}/{} , 2.5/{}/{} , 4/{}/{} , 4.5/{}/{} , 5/{}/{} , 5.5/{}/{} , 6/{}/{} , 6.5/{}/{} , 7/{}/{} , 7.5/{}/{} , 8/{}/{} , 8.5/{I_N}/{\frac{N-1}2}
+	-11.5/{I_{1}}/{}, -9/{I_{2}}/{} , -7.5/{I_{3}}/{} , -7/{}/{} , -6/{}/{}  , -4.5/{}/{} , -4/{}/{} , -3.5/{}/{} ,  -2.0/{}/{}  , -1/{}/{} , -0.5/{I_{a}}/{} , 0/{}/{} ,  1/{}/{} ,  2/{}/{} , 2.5/{}/{} , 5/{}/{} , 5.5/{}/{} , 6/{}/{}  , 7/{}/{} , 8/{}/{}  , 9.5/{}/{} , 11/{I_N}/{}
 	}
 %1
 \begin{tikzpicture}
+
+	\clip (-14,-2) rectangle (14,16);
 
 	\begin{scope}[shift={(0,0)},scale=1.0]
 
@@ -2380,9 +2395,9 @@ decorations.pathreplacing}
 
 
 
-	%\draw[dashed, color=gray!70 , line width=0.8ex] (-14,-3) rectangle (14,20);
-	\path (-14,-3) rectangle (14,20);
-	%\drawgrid{-14}{14}{-3}{20}
+	%\draw[dashed, color=gray!70 , line width=0.8ex] (-14,-2) rectangle (14,16);
+	\path (-14,-2) rectangle (14,16);
+	%\drawgrid{-14}{14}{-2}{17}
 
 
 \end{tikzpicture}
@@ -2390,15 +2405,17 @@ decorations.pathreplacing}
 %2
 \begin{tikzpicture}
 
+	\clip (-14,-2) rectangle (14,16);
+
 	\begin{scope}[shift={(0,0)},scale=1.0]
 
 		\AxeBethe
 
 		%%%delta = 1 
 		\DeltaUn
-		\begin{scope}[shift={(-10.5,1.8)},rotate=0,opacity=1,color=black]
-			\LegendeBetheUn
-		\end{scope}
+		% \begin{scope}[shift={(-10.5,1.8)},rotate=0,opacity=1,color=black]
+		% 	\LegendeBetheUn
+		% \end{scope}
 
 		% Loop over listetrais
 		\foreach \r in \listetrais {
@@ -2439,9 +2456,9 @@ decorations.pathreplacing}
 
 
 
-	%\draw[dashed, color=gray!70 , line width=0.8ex] (-14,-3) rectangle (14,20);
-	\path (-14,-3) rectangle (14,20);
-	%\drawgrid{-14}{14}{-3}{7}
+	%\draw[dashed, color=gray!70 , line width=0.8ex] (-14,-2) rectangle (14,16);
+	%\path (-14,-2) rectangle (14,16);
+	%\drawgrid{-14}{14}{-2}{17}
 
 
 \end{tikzpicture}
@@ -2452,9 +2469,9 @@ decorations.pathreplacing}
 
 		%%%delta = 1 
 		\DeltaUn
-		\begin{scope}[shift={(-10.5,1.8)},rotate=0,opacity=1,color=black]
-			\LegendeBethe
-		\end{scope}
+		% \begin{scope}[shift={(-10.5,1.8)},rotate=0,opacity=1,color=black]
+		% 	\LegendeBethe
+		% \end{scope}
 
 		% Loop over listetrais
 		\foreach \r in \listetrais {
@@ -2487,22 +2504,25 @@ decorations.pathreplacing}
         	    	(\r - 0.25, 0) circle (4pt);
     		\else 
         		% Draw without \nomIand add a blue circle if not found
-        		\draw[color=\colorOne, dashed , line width=0.5ex] 
-         	  	 	(\r - 0.25, -0.5) -- (\r - 0.25, 0.5);
-        		\filldraw[line width=0.5ex, color=\colorSix, outer color=\colorTwo, inner color=\colorTwo]  
-            		(\r - 0.25, 0) circle (4pt); 
+        		% \draw[color=\colorOne, dashed , line width=0.5ex] 
+         	  	%  	(\r - 0.25, -0.5) -- (\r - 0.25, 0.5);
+        		% \filldraw[line width=0.5ex, color=\colorSix, outer color=\colorTwo, inner color=\colorTwo]  
+            	% 	(\r - 0.25, 0) circle (4pt); 
+				\draw[color=\colorFour, thick , line width=0.5ex] (\r - 0.25, -0.5) -- (\r - 0.25, 0.5);
     		\fi
 		}
 }
 \begin{tikzpicture}
 
+	\clip (-14,-2) rectangle (14,16);
+
 	\begin{scope}[shift={(0,0)},scale=1.0]
 		\BetheUn
 	\end{scope}
 
-	%\draw[dashed, color=gray!70 , line width=0.8ex] (-14,-3) rectangle (14,20);
-	\path (-14,-3) rectangle (14,20);
-	%\drawgrid{-14}{14}{-3}{7}
+	%\draw[dashed, color=gray!70 , line width=0.8ex] (-14,-2) rectangle (14,16);
+	%\path (-14,-2) rectangle (14,16);
+	%\drawgrid{-14}{14}{-2}{17}
 
 \end{tikzpicture}
 
@@ -2522,14 +2542,16 @@ decorations.pathreplacing}
 	;
 }
 
-\def\listetupletheta{-10/\theta_{1}, -9/\theta_{2} ,  -8/\theta_{3}, -7.5/{} , -7/{} , -6/{}, -5/{} ,  -4/{},  -1.5/{} , -1/\theta_{a} , 0/{} , 0.5/{} , 1/{} , 2/{} , 4/{} , 5/{} , 5.5/{},  6/{}, 6.5/{},  7/{} , 8/{} , 8.5/{}, 9/\theta_{N} }
+\def\listetupletheta{-12/\theta_{1}, -7.5/\theta_{2} ,  -5/\theta_{3} , -4/{} , -1/\theta_{a} , 0/{}  , 1/{}  , 4/{}  , 5.5/{},  7/{} , 9/\theta_{N} }
 \def\listetraistheta{-13, -12 , -11, -10, -9 , -8 , -7.5 , -7,  -6 , -5, -4, -1.5 , -1, 0 , 0.5, 1, 2, 4 , 5 , 5.5, 6 , 6.5,  7 , 8 , 8.5,  9 ,  10 , 11, 12 }
 
-\def\listetraisthetatherm{-11/\theta_{i-1}, -6/\theta_{i}  ,   -2/\theta_{j} , 2/\theta_{j+1} , 5.5/\theta_{\ell} , 9.5/\theta_{\ell+1} };
+% \def\listetraisthetatherm{-11/\theta_{i-1}, -6/\theta_{i}  ,   -2/\theta_{j} , 2/\theta_{j+1} , 5.5/\theta_{\ell} , 9.5/\theta_{\ell+1} };
+\def\listetraisthetatherm{-2/{} , 2/{} };
 
 
 %\def\listetraisItherm{-1.5/I_{j}, 1.5/I_{j+1} , 5.5/I_{\ell} , 8.5/I_{\ell+1}  };
-\def\listetraisItherm{-1.5/I_{j}, 1.5/I_{j+1}};
+%\def\listetraisItherm{-1.5/I_{j}, 1.5/I_{j+1}};
+\def\listetraisItherm{-1.5/{}, 1.5/{}};
 
 
 
@@ -2566,12 +2588,16 @@ decorations.pathreplacing}
         	    	(\r - 0.25, 0) circle (4pt);
     		\else 
         		% Draw without \nomIand add a blue circle if not found
-        		\draw[color=\colorOne, dashed , line width=0.5ex] 
-         	  	 	(\r - 0.25, -0.5) -- (\r - 0.25, 0.5);
-        		\filldraw[line width=0.5ex, color=\colorSix, outer color=\colorTwo, inner color=\colorTwo]  
-            		(\r - 0.25, 0) circle (4pt); 
+        		% \draw[color=\colorOne, dashed , line width=0.5ex] 
+         	  	%  	(\r - 0.25, -0.5) -- (\r - 0.25, 0.5);
+        		% \filldraw[line width=0.5ex, color=\colorSix, outer color=\colorTwo, inner color=\colorTwo]  
+            	% 	(\r - 0.25, 0) circle (4pt); 
     		\fi
 		}
+}
+
+\newcommand{\ThetaDeux}{	
+	\ThetaUn
 
 		\foreach \r/\nomx in \listetraisthetatherm {
 			\draw[
@@ -2601,8 +2627,57 @@ decorations.pathreplacing}
 %4
 \begin{tikzpicture}
 
+	\clip (-14,-2) rectangle (14,16);
+
 	\begin{scope}[shift={(0,5)},scale=1.0]
 		\ThetaUn
+	\end{scope}
+
+	\begin{scope}[shift={(0,0)},scale=1.0]
+		\BetheUn
+		% \foreach \r/\nomx in \listetraisItherm {
+		% 	\draw[
+		% 		decoration={
+		% 		markings,
+    	% 		mark connection node=my node,
+    	% 		mark=at position .8 with{\node [blue,transform shape] (my node) {\large \color{\colorFour} $\nomx$};}},
+		% 		color=\colorThree , thick, 
+		% 		line width=0.5ex] decorate { 
+        %     (\r, 1.12) -- (\r, -1.2)}
+        % ;
+		% }
+		% \draw[
+		% 	decoration={
+		% 	markings,
+    	% 	mark connection node=my node,
+    	% 	mark=at position .5 with{\node [blue,transform shape] (my node) {\color{colorThree} \fontsize{20pt}{102pt}\selectfont \bfseries $\delta I$ };}},
+		% 	color=\colorThree , thick, 
+		% 	line width=0.5ex] (-1.5, 1.2) edge[arrows={Computer Modern Rightarrow[line cap=round]-}] (-1 , 1.2)decorate { 
+        %     (-1.5, 1.2) -- (1.5, 1.2)}(1.0, 1.2) edge[arrows={-Computer Modern Rightarrow[line cap=round]}] (1.5 , 1.2)
+        % ;
+	\end{scope}
+
+	% \begin{scope}[shift={(0,0)}]
+	% 	\draw[color=\colorThree, dashed , line width=0.5ex]
+	% 		(-1.5 , 1.5) --  (-2 , 3)
+	% 		(1.5 , 1.5) --  (2 , 3)
+	% 	;
+	% \end{scope}
+	
+
+	%\draw[dashed, color=gray!70 , line width=0.8ex] (-14,-2) rectangle (14,16);
+	%\path (-14,-2) rectangle (14,16);
+	%\drawgrid{-14}{14}{-2}{17}
+
+\end{tikzpicture}
+
+%5
+\begin{tikzpicture}
+
+	\clip (-14,-2) rectangle (14,16);
+
+	\begin{scope}[shift={(0,5)},scale=1.0]
+		\ThetaDeux
 	\end{scope}
 
 	\begin{scope}[shift={(0,0)},scale=1.0]
@@ -2637,31 +2712,35 @@ decorations.pathreplacing}
 	\end{scope}
 	
 
-	%\draw[dashed, color=gray!70 , line width=0.8ex] (-14,-3) rectangle (14,20);
-	\path (-14,-3) rectangle (14,20);
-	%\drawgrid{-14}{14}{-3}{20}
+	%\draw[dashed, color=gray!70 , line width=0.8ex] (-14,-2) rectangle (14,16);
+	%\path (-14,-2) rectangle (14,16);
+	%\drawgrid{-14}{14}{-2}{17}
 
 \end{tikzpicture}
 
-%5
-\begin{tikzpicture}
+%6
 
+\newcommand{\FinDefRhoUn}{	
+	
 
 	\begin{scope}[shift={(0,10)}]
 		\draw[shift={(0,0)}]
 			(-13, 0 ) edge [thick,line width=0.8ex,->,>=Stealth , color = colorOne ]node [pos=1.01,below  ]{\huge$\theta$}	( 13  , 0 )
 		;
-		\draw[shift={(0,0)}]
-			(-12, -1 ) edge [thick,line width=0.8ex,->,>=Stealth , color = colorOne ]node [pos=0.9,left  ]{\huge$\rho$}	( -12  , 10 )
-		;
+		% \draw[shift={(0,0)}]
+		% 	(-12, -1 ) edge [thick,line width=0.8ex,->,>=Stealth , color = colorOne ]node [pos=0.9,left  ]{\huge$\rho$}	( -12  , 10 )
+		% ;
 		% \draw[shift={(0,0)}]
 		% 	(12, -1 ) edge [thick,line width=0.8ex,->,>=Stealth , color = colorOne ]node [pos=0.9,right  ]{\huge$\nu$}	( 12  , 10 )
 		% ;
 
 		
-		\draw[shift={(0,0)} , thick,line width=1.6ex  , color = colorSix ]
-			(-13,0) -- (-7,0) -- ( -7 , 3 ) to [controls=+(90:4) and +(90:4)] ( 7 , 3 ) -- ( 7 , 0 ) -- ( 13 , 0 )
-		;
+		% \draw[shift={(0,0)} , thick,line width=1.6ex  , color = colorSix ]
+		% 	(-13,0) -- (-7,0) -- ( -7 , 3 ) to [controls=+(90:4) and +(90:4)] ( 7 , 3 ) -- ( 7 , 0 ) -- ( 13 , 0 )
+		% ;
+		\draw[line width=0.8ex, color = colorSix](-12,0) .. ( -11,1 ).. (-9,2).. (-7,2.5).. (-1,3.5) .. (4,4).. (7.5,4.2) .. ( 11, 1 ).. (12,0);
+		\node[font=\fontsize{40pt}{10pt}\selectfont\bfseries] at (4,5) {\textcolor{colorSix}{$\rho$}};
+
 
 		% \draw[shift={(0,0)} , thick,line width=1.0ex  , color = colorFour ]
 		% 	(-13,0) -- (-7,0) -- ( -7 , 8 ) -- ( 7 , 8 ) -- ( 7 , 0 ) -- ( 13 , 0 )
@@ -2672,7 +2751,7 @@ decorations.pathreplacing}
 
 
 	\begin{scope}[shift={(0,5)},scale=1.0]
-		\ThetaUn
+		\ThetaDeux
 	\end{scope}
 
 	\begin{scope}[shift={(0,0)},scale=1.0]
@@ -2711,25 +2790,99 @@ decorations.pathreplacing}
 			(-2 , 6.5) --  (0 , 10)
 			(2 , 6.5) --  (0 , 10)
 		;
+		\draw[color=\colorThree, thick, line width=0.9ex]
+			(0 , 10) --  (0 , 14)
+		;
 	\end{scope}
 
-	\begin{scope}[shift={(5,1.8)},rotate=0,opacity=1,color=black]	
+	
+
+	
+}
+
+\begin{tikzpicture}[use Hobby shortcut]
+
+	\clip (-14,-2) rectangle (14,16);
+
+	\FinDefRhoUn
+
+	\begin{scope}[shift={(1.7,4.5)},rotate=0,opacity=1,color= colorSix , transform canvas = {scale=1.5}]	
 		
-		\draw[shift={(0,0)} ,line width=1ex,rounded corners = 1ex,color=\colorOne , opacity =1 ,fill=\colorOne!00 , pattern={north east lines} , pattern color=\colorOne!00 ]
-			(0 , -1 ) rectangle (8,1)
+		\draw[shift={(0,0)} ,line width=1ex,rounded corners = 1ex,color=\colorSix , opacity =1 ,fill=\colorOne!00  ]
+			(0.1 , -3.5 ) rectangle (7.5,1)
 		;
 		
-		\node[anchor=west] at (0.5, 0.5) {\color{\colorFour}\large $L\rho (\theta) \delta \theta$ };\node[anchor=west, font=\bfseries] at (2, 0.5) {\color{\colorFour}\large : $\#$ rapiditie $\in [\theta , \theta + \delta \theta $ ]};
+		\node[anchor=west] at (0.2, 0.5) {\color{\colorSix}\large $L\rho (\theta) \delta \theta$ };\node[anchor=west, font=\bfseries] at (2, 0.5) {\color{\colorSix}\large : $\#$ rapiditie $\in [\theta , \theta + \delta \theta $ ]};
 		
-		\node[anchor=west] at (0.5, -0.5) {\color{\colorFour}\large $L\rho_s (\theta) \delta \theta = \delta I $ };\node[anchor=west, font=\bfseries] at (3.2, -0.5) {\color{\colorFour}\large  : $\#$ states $\in [\theta , \theta + \delta \theta [$};
+		\node[anchor=west] at (0.2, -0.5) {\color{\colorSix}\large $L\rho_s (\theta) \delta \theta = \delta I $ };\node[anchor=west, font=\bfseries] at (2.9, -0.5) {\color{\colorSix}\large  : $\#$ states $\in [\theta , \theta + \delta \theta [$};
+		
+
+		\node[anchor=west] at (0.5, -2) {\color{\colorSix}\large $ \displaystyle \nu(\theta) = \frac{\rho(\theta)}{\rho_s(\theta)}$ };\node[anchor=west, font=\bfseries] at (2.95,-2) {\color{\colorSix}\large : Occupation factor };
+
+		\node[anchor=west] at (0.5, -3) {\color{\colorSix}\large $ \displaystyle \rho(\theta) \rightleftharpoons
+ 		\nu(\theta)$ } ;
+		
 		
 	\end{scope}
 
 	
 
-	%\draw[dashed, color=gray!70 , line width=0.8ex] (-14,-3) rectangle (14,20);
-	\path (-14,-3) rectangle (14,20);
-	%\drawgrid{-14}{14}{-1}{17}
+	%\draw[dashed, color=gray!70 , line width=0.8ex] (-14,-2) rectangle (14,16);
+	%\path (-14,-2) rectangle (14,16);
+	%\drawgrid{-14}{14}{-2}{17}
+
+\end{tikzpicture}
+
+\begin{tikzpicture}[use Hobby shortcut]
+
+	\clip (-14,-2) rectangle (14,16);
+	
+	\FinDefRhoUn
+
+
+
+	%\draw[dashed, color=gray!70 , line width=0.8ex] (-14,-2) rectangle (14,16);
+	%\path (-14,-2) rectangle (14,16);
+	%\drawgrid{-14}{14}{-2}{17}
+
+\end{tikzpicture}
+
+
+\begin{tikzpicture}[use Hobby shortcut]
+
+	\clip (-14,-2) rectangle (14,16);
+	
+	\FinDefRhoUn
+
+	\begin{scope}[shift={(1.7,4.8)},rotate=0,opacity=1,color= colorSix , transform canvas = {scale=1.5}]	
+		
+		\draw[shift={(0,0)} ,line width=1ex,rounded corners = 1ex,color=\colorSix , opacity =1 ,fill=\colorOne!00 , pattern={north east lines} , pattern color=\colorOne!00 ]
+			(0.1 , -0.3 ) rectangle (7.5,1.3)
+		;
+		
+		\node[anchor=west] at (0.5, 0.5) {\color{\colorSix}\large $ \displaystyle \nu(\theta) = \frac{\rho(\theta)}{\rho_s(\theta)}$ };\node[anchor=west, font=\bfseries] at (2.95, 0.5) {\color{\colorSix}\large : Occupation factor };
+		
+		
+	\end{scope}
+
+
+	\begin{scope}[shift={(1.7,0)},rotate=0,opacity=1,color= colorSix , transform canvas = {scale=1.5}]	
+		
+		\draw[shift={(0,0)} ,line width=1ex,rounded corners = 1ex,color=\colorSix , opacity =1 ,fill=\colorOne!00 , pattern={north east lines} , pattern color=\colorOne!00 ]
+			(0.1 , -0.3 ) rectangle (7.5,1.3)
+		;
+		
+		\node[anchor=west] at (0.5, 0.5) {\color{\colorSix}\large $ \displaystyle \rho(\theta) \rightleftharpoons
+ \nu(\theta)$ } ;
+		
+		
+	\end{scope}
+
+	
+
+	%\draw[dashed, color=gray!70 , line width=0.8ex] (-14,-2) rectangle (14,16);
+	%\path (-14,-2) rectangle (14,16);
+	\drawgrid{-14}{14}{-2}{17}
 
 \end{tikzpicture}
 

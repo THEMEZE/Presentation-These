@@ -5,6 +5,7 @@
 \begin{document}
 
 \frame[plain]{\titlepage}
+%\frame[plain,bg=./figures/vages.jpeg]{\titlepage}
 % \begin{frame}[plain]{\titlepage}
 % \end{frame}
 
@@ -24,8 +25,8 @@
 % Rapidities and GGE in a classical system
 %%%%%%%
 \begin{frame}
-  \frametitle{2D vs 1D Classical Dynamics : }
-  %\framesubtitle{Velocity Distribution Conservation}
+  \frametitle{Why are 1D systems different ?}
+  \framesubtitle{Classical hard-sphere}
 
   
   %\begin{columns}
@@ -44,7 +45,7 @@
         \onslide<4->{
         \begin{column}{0.5\textwidth} 
           \centering
-          \begin{block}{Integrable/non-ergidic}
+          \begin{block}{Integrable/non-ergodic}
           \end{block}
         \end{column}
         }
@@ -98,9 +99,9 @@
             \node []     (moment) [below=1mm of part]             {$p$};
             \node []     (nrj) [below=1mm of moment]             {$\varepsilon$};
 	          \draw[  opacity = 0.5 ]
-		          (part) edge[line width=0.2ex ,color = blue ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 90 , in = 180  ]node[pos=1, right]{\color{blue} \fontsize{6}{1}\selectfont \bfseries  particule density }($(part) + (1cm,1.0cm)$)
+		          (part) edge[line width=0.2ex ,color = blue ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 90 , in = 180  ]node[pos=1, right]{\color{blue} \fontsize{6}{1}\selectfont \bfseries  particle density }($(part) + (1cm,1.0cm)$)
               (moment) edge[line width=0.2ex ,color = red ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 0 , in = 180  ]node[pos=1, right]{\color{red} \fontsize{6}{1}\selectfont \bfseries  momentum density }($(moment) + (1cm,0.75cm)$)
-              (nrj) edge[line width=0.2ex ,color = black ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = -90 , in = 180  ]node[pos=1, right]{\color{black} \fontsize{6}{1}\selectfont \bfseries  energie density }($(nrj) + (1cm,-1.0cm)$)
+              (nrj) edge[line width=0.2ex ,color = black ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = -90 , in = 180  ]node[pos=1, right]{\color{black} \fontsize{6}{1}\selectfont \bfseries  energy density }($(nrj) + (1cm,-0.75cm)$)
 	          ;
           \end{tikzpicture}
           }
@@ -116,7 +117,7 @@
             \only<1-3>{
               \includegraphics[width=\linewidth]{figures/frames_1D_positions_animation/frame_00001}
             }
-            \only<4>{
+            \only<4-5>{
               \animategraphics[
             width=\linewidth,
             autoplay, % démarre automatiquement 
@@ -125,7 +126,7 @@
             poster=first
           ]{60}{figures/frames_1D_positions_animation/frame_}{00001}{00600} 
             }
-            \only<5->{
+            \only<6->{
               \includegraphics[width=\linewidth]{figures/frames_1D_positions_animation/frame_00001}
             }
           }
@@ -137,7 +138,7 @@
           \begin{tikzpicture}[remember picture, overlay]
             \node []  at  (0,0)   (rho)                            {$\rho(v)$};
 	          \draw[  opacity = 0.5 ]
-              (rho) edge[line width=0.2ex ,color = black ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = -90 , in = 180  ]node[pos=1, right]{\color{black} \fontsize{6}{1}\selectfont \bfseries  velocity density }($(rho) + (1cm,-1.0cm)$)
+              (rho) edge[line width=0.2ex ,color = black ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = -90 , in = 180  ]node[pos=1, right]{\color{black} \fontsize{6}{1}\selectfont \bfseries  velocity distribution }($(rho) + (1cm,-0.75cm)$)
 	          ;
           \end{tikzpicture}
           }
@@ -233,12 +234,38 @@
                 % (0,0) rectangle (10,3);
 
           
+          % \node[rectangle] (A) at (1.5,1.5) {
+          %   \parbox{0.55\linewidth}{
+          %     \only<1-2>{
+          %       \includegraphics[width=\linewidth]{figures/frames_2D_velocity_distribution/frame_00001}
+          %     }
+          %     \only<3>{
+          %       \animategraphics[
+          %        autoplay,
+          %       %loop,
+          %       width=\linewidth,
+          %        buttonsize=1em,
+          %        poster=first
+          %      ]{60}{figures/frames_2D_velocity_distribution/frame_}{00001}{0600}
+          %    }
+          %     \only<4->{
+          %       \includegraphics[width=\linewidth]{figures/frames_2D_velocity_distribution/frame_00600}
+          %   }
+          %   }
+
+          % };
+          
+          \only<1-2>{
           \node[rectangle] (A) at (1.5,1.5) {
             \parbox{0.55\linewidth}{
-              \only<1-2>{
                 \includegraphics[width=\linewidth]{figures/frames_2D_velocity_distribution/frame_00001}
               }
-              \only<3>{
+          };
+          }
+
+          \only<3>{
+          \node[rectangle] (A) at (1.5,1.5) {
+            \parbox{0.55\linewidth}{       
                 \animategraphics[
                  autoplay,
                 %loop,
@@ -247,28 +274,16 @@
                  poster=first
                ]{60}{figures/frames_2D_velocity_distribution/frame_}{00001}{0600}
              }
-              \only<4->{
-                \includegraphics[width=\linewidth]{figures/frames_2D_velocity_distribution/frame_00600}
-            }
-            }
-            % \alt<4->{
-            %   \includegraphics[width=0.55\linewidth]{figures/frames_2D_velocity_distribution/frame_00001}
-            % }{
-            % \alt<3>
-            % {
-            % \animategraphics[
-            %      autoplay,
-            %     %loop,
-            %     width=0.55\linewidth,
-            %      buttonsize=1em,
-            %      poster=first
-            %    ]{60}{figures/frames_2D_velocity_distribution/frame_}{00001}{0060}
-            % }
-            % {
-            % \includegraphics[width=0.55\linewidth]{figures/frames_2D_velocity_distribution/frame_00001}
-            % }
-            % }
           };
+          }
+
+          \only<4->{
+            \node[rectangle] (A) at (1.5,1.5) {
+            \parbox{0.55\linewidth}{       
+              \includegraphics[width=\linewidth]{figures/frames_2D_velocity_distribution/frame_00001}
+             }
+          };   
+          }
 
           \onslide<3->{
           \node[rectangle , right = -1mm of A ] (B)
@@ -276,22 +291,27 @@
             $ \overset{thermalisation}{\Longrightarrow} $
           };
 
-          \node[rectangle , right = -1mm of B ] (C){
-            \includegraphics[width=0.55\linewidth]{figures/frames_2D_velocity_distribution/frame_00600}
+          \node[rectangle , right = -1mm of B  ] (C)  { %at (6,1.5)
+            \parbox{0.55\linewidth}{
+            \includegraphics[width=1\linewidth]{figures/frames_2D_velocity_distribution/frame_00600}
+            }
           };
           }
 
-          \alt<5->{
+          \only<4>{
           \node[rectangle , right = 5mm of C ] (D){
             \animategraphics[
             autoplay,
             width=0.55\linewidth,
             buttonsize=1em,
             poster=first
-          ]{60}{figures/frames_1D_velocity_distribution/frame_}{00001}{00061} 
+          ]{60}{figures/frames_1D_velocity_distribution/frame_}{00001}{00600} 
           };
-          }{
-
+          }
+          \only<5->{
+          \node[rectangle , right = 5mm of C ] (D){
+            \includegraphics[width=0.55\linewidth]{figures/frames_1D_velocity_distribution/frame_00600}
+          };
           }
 
         
@@ -301,21 +321,21 @@
         \only<5>{
         \begin{scope}[shift={(0cm,0cm)}] % ici tu choisis la position absolue
             % Petit dessin
-                \draw[
-                    line width=0.5ex,
-                    draw=\colorThree,
-                    fill=\colorTwo!50!\colorTwo,
-                    rounded corners=6pt,
-                    opacity=1.0
-                ]
-                (0,0) rectangle (5,7.5);
+                % \draw[
+                %     line width=0.5ex,
+                %     draw=\colorThree,
+                %     fill=\colorTwo!50!\colorTwo,
+                %     rounded corners=6pt,
+                %     opacity=0.0
+                % ]
+                % (0,0) rectangle (5,7.5);
 
           
-          \node[rectangle] at (2.5,4) {
+          \node[rectangle] at (8.2,6) {
                 \animategraphics[
                  autoplay,
                  loop,
-                 width=0.6\linewidth,
+                 width=0.4\linewidth,
                  buttonsize=1em,
                  poster=first
                ]{60}{figures/frames_Newton/frame_}{00001}{0043}
@@ -325,7 +345,7 @@
 
          
 
-        %\drawgrid{0}{6}{0}{10}
+        %\drawgrid{0}{10}{0}{10}
         
       \end{tikzpicture}
     \end{minipage}
@@ -386,6 +406,7 @@
 % \end{frame}
 
 % Thesis Problematic
+
 % \begin{frame}
 %   \frametitle{Thesis Problematic}
 %   %\scalebox{1.0}{
@@ -451,7 +472,7 @@
 % \tableofcontents[pausesections]
 % \end{frame}
 
-\section{Lieb-Liniger/Large-scale dynamics}
+\section{Theoretical framework}%: Lieb–Liniger / Large-scale dynamics
 
 %The 2-body problem: the scattering phase
 % \begin{frame}
@@ -564,73 +585,193 @@
 
 % \end{frame}
 
+% \begin{frame}
+%   \frametitle{Solution of the Lieb–Liniger model}
+%   %\framesubtitle{Shift collisionnel 2 corps BA}
+%   \vspace{1.0cm}
+%   {\fontsize{6}{5}\selectfont  % <- ajuste ici aussi
+%     %\begin{block}{Hamiltonien}
+%       $$
+%       \ptFleche{LL}{$\operator{H}$} = 
+%       \ptFleche{Cinetic}{\alt<3->{\color{colorFour}}{\color{colorOne}} $\displaystyle -\frac{\hslash^2}{2m} \ptFleche{Nombre}{$\displaystyle  \sum_{a = 1}^N$} \operator{\partial}_{x_a}^2 $} 
+%       + 
+%       \ptFleche{Potentiel}{\alt<4->{\color{colorSix}}{\color{colorOne}} $\displaystyle \ptFleche{motg}{$g$} \sum_{1\leq a < b \leq N} \delta ( \operator{x}_a - \operator{x}_b)$}
+%       $$
+
+
+%     %\FlecheEllipse{Cinetic}{45}{180}{3}{1}{blue}{$\text{Kinetic energy}$}
+
+%     \begin{tikzpicture}[overlay]
+% 	    \draw[  opacity = 1 ]
+%         (LL) edge[line width=0.4ex ,color = colorOne ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 180 , in = 0  ]node[pos=1, left]{\color{colorOne} \fontsize{8pt}{102pt}\selectfont \bfseries  Lieb-Liniger Hamiltonien }($(LL) + (-0.5cm,0.0cm)$)
+%       ;
+%       \onslide<2->{
+%       \draw[  opacity = 1 ]
+%         (Nombre) edge[line width=0.2ex ,color = colorOne ,arrows = {Computer Modern Rightarrow[sharp ,length=0.1cm]-},  , out = 90 , in = 180  ]node[pos=1, right]{\color{colorOne} \fontsize{5pt}{102pt}\selectfont \bfseries  Number of atoms }($(Nombre) + (1cm,1.0cm)$)
+%       ;
+%       }
+%       \onslide<3->{
+%       \draw[  opacity = 1 ]
+% 		    (Cinetic) edge[line width=0.4ex ,color = colorFour ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 110 , in = 0  ]node[pos=1, left]{\color{colorFour} \fontsize{8pt}{102pt}\selectfont \bfseries  Kinetic energy }($(Cinetic) + (-1cm,1.0cm)$)
+%       ;
+%       }
+%       \onslide<4->{
+%       \draw[  opacity = 1 ]
+%         (Potentiel) edge[line width=0.4ex ,color = colorSix ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 90 , in = 180  ]node[pos=1, right]{\color{colorSix} \fontsize{8pt}{102pt}\selectfont \bfseries  Contact potential }($(Potentiel) + (1cm,1.5cm)$)
+%         (motg) edge[line width=0.2ex ,color = colorOne ,arrows = {Computer Modern Rightarrow[sharp ,length=0.1cm]-},  , out = -90 , in = 0  ]node[pos=1, left]{\color{colorOne} \fontsize{5pt}{102pt}\selectfont \bfseries  1D repulsion strength }($(motg) + (-1cm,-0.75cm)$)
+%       ;
+%       }
+	    
+%     \end{tikzpicture}
+%       %\end{block}
+%     \vspace{0.5cm}
+%       %\begin{block}{Eigenstates}
+%     \onslide<5->{
+%       $$ 
+%       \ptFleche{FOnde}{$\displaystyle \psi_{\ptFleche{Listetheta}{\alt<8->{\color{colorSix}}{\color{colorOne}} $\{\theta_a \}$}}(x_1 < \cdots <  x_N)$}
+%       \propto 
+%       \sum_{\mathrm{perm.}\sigma} {\alt<6-7>{\color{colorOne!50!colorTwo}}{\alt<9>{\color{Prune}}{\color{colorOne}}} e^{i \Phi_\sigma({\alt<8->{\color{colorSix}}{\alt<6-7>{\color{colorOne!50!colorTwo}}{\color{colorOne}}}\{\theta_a\}})} } e^{i \frac{m}{\hslash}\left ( {\alt<7->{\color{colorSix}}{\color{colorOne}}\ptFleche{Rapiditie}{$\theta$}_{\sigma(b)}}x_b + \cdots + {\alt<7->{\color{colorSix}}{\color{colorOne}}\theta_{\sigma(N)}}x_N \right )  } 
+%       $$
+%     }
+%     \begin{tikzpicture}[overlay]
+%       \onslide<5->{
+%       \draw[  opacity = 1 ]
+%         ($(FOnde) + (-1.2cm,0.0cm)$) edge[line width=0.4ex ,color = colorOne ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 180 , in = 0  ]node[pos=1, left]{\color{colorOne} \fontsize{8pt}{102pt}\selectfont \bfseries  Wavefonction }($(FOnde) + (-2cm,0.0cm)$)
+%       ;
+%       }
+%       \onslide<7->{
+% 	    \draw[  opacity = 1 ]
+% 	          (Rapiditie) edge[line width=0.4ex ,color = colorSix ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 90 , in = 180  ]node[pos=1, right]{\color{colorSix} \fontsize{8pt}{10}\selectfont \bfseries Rapiditie}($(Rapiditie) + (1cm,0.75cm)$)
+% 	    ;
+%       }
+%       \onslide<8->{
+% 	    \draw[  
+%         opacity = 1 ,
+%         ]
+%         (Listetheta) edge[
+%         line width=0.4ex ,
+%         color = red ,
+%         arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},
+%         out = 90 , in = 180 ,
+%         % decorate,
+%         % decoration={
+%         %   text along path,
+%         %   text align=center,
+%         %   text={\color{\colorSix}\fontsize{6pt}{8pt}\selectfont Wavefunction}
+%         % },
+%         ]
+% 	      node[pos=1, right]
+%           {\color{red}\fontsize{6pt}{8pt}\selectfont$\{\theta_1,\dots,\theta_N\}$}
+%         ($(Listetheta)+(1cm,0.75cm)$)
+%         ;
+%       \draw[  opacity = 1 ]
+%             (Listetheta) edge[line width=0.4ex ,color = red ,arrows = -{Computer Modern Rightarrow[sharp ,length=0.2cm]},  , out = -90 , in = 180  ]node[pos=1, right]{\color{red} \fontsize{5}{10}\selectfont \bfseries  $ \displaystyle  \ket{\{\theta_a \}}$ }($(Listetheta) + (1cm,-0.75cm)$)
+% 	    ;
+%       }
+%     \end{tikzpicture}
+%       %\end{block}
+%       \vspace{1.0cm}
+%       %\begin{block}{Eigenstates}
+%       \onslide<9->{
+%         $$
+%         \ptFleche{BA}{$\displaystyle \frac{m}{\hslash} {\color{red}\theta_a} L + \sum_{b = 1}^N \Phi ( \theta_a - \theta_b) = 2 \pi {\color{colorSix}\ptFleche{I}{$I_a$}} \quad a = 1 , \cdots , N $}
+%         $$
+%       }
+%       %\end{block}
+%       \begin{tikzpicture}[overlay]
+%         \onslide<9->{
+%         \draw[  opacity = 1 ]
+%             ($(BA) + (-2.5cm,0cm)$) edge[line width=0.4ex ,color = colorOne ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 180 , in = 0  ]node[pos=1, left]{\color{colorOne} \fontsize{8pt}{10}\selectfont \bfseries Bethe Ansatz equation }($(BA) + (-3.5cm,0cm)$)
+%             ($(I) + (0cm,0cm)$) edge[line width=0.4ex ,color = colorSix ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 90 , in = 180  ]node[pos=1, right]{\color{colorSix} \fontsize{6pt}{10}\selectfont \bfseries Fermionic nomber $\displaystyle  I_a \in 
+%               \left\{
+%               \begin{array}{rcl}
+%               \mathbb{Z} + \dfrac{1}{2} & \text{if} & N \in 2\mathbb{N} \\
+%               \mathbb{Z} & \text{else} &
+%               \end{array}
+%               \right.$ }($(I) + (0.5cm,0.5cm)$)
+%         ;
+%             }
+%       \end{tikzpicture}
+%   }
+
+
+%   %\vspace{0.3cm}
+
+  
+%       % \centering
+%       %  \includegraphics[width=1.0\textwidth , page = 1 ]{figures/Figures.pdf}  
+      
+
+% \end{frame}
+
 %%%%%%
 \begin{frame}
-  \frametitle{System State Defined by a Set of Rapidities}
+  \frametitle{\only<1-10>{Solution of the Lieb–Liniger model}\only<11->{Distribution of Rapidities in Large System}}
   %\framesubtitle{Shift collisionnel 2 corps BA}
-  \vspace{1.0cm}
-  {\fontsize{6}{5}\selectfont  % <- ajuste ici aussi
+  \vspace{-2.0cm}
+  \onslide<1-10>
+  {\fontsize{10pt}{5}\selectfont  % <- ajuste ici aussi
     %\begin{block}{Hamiltonien}
       $$
       \ptFleche{LL}{$\operator{H}$} = 
-      \ptFleche{Cinetic}{\alt<3->{\color{colorFour}}{\color{colorOne}} $\displaystyle -\frac{\hslash^2}{2m} \ptFleche{Nombre}{$\displaystyle  \sum_{a = 1}^N$} \operator{\partial}_{x_a}^2 $} 
+      \ptFleche{Cinetic}{\alt<2-3>{\color{colorFour}}{\color{colorOne}} $\displaystyle -\frac{\hslash^2}{2m} \displaystyle  \sum_{a = 1}^{\ptFleche{Nombre}{$N$}} \operator{\partial}_{x_a}^2 $} 
       + 
-      \ptFleche{Potentiel}{\alt<4->{\color{colorSix}}{\color{colorOne}} $\displaystyle \ptFleche{motg}{$g$} \sum_{1\leq a < b \leq N} \delta ( \operator{x}_a - \operator{x}_b)$}
+      \ptFleche{Potentiel}{\alt<3>{\color{colorSix}}{\color{colorOne}} $\displaystyle \ptFleche{motg}{$g$} \sum_{1\leq a < b \leq N} \delta ( \operator{x}_a - \operator{x}_b)$}
       $$
 
 
     %\FlecheEllipse{Cinetic}{45}{180}{3}{1}{blue}{$\text{Kinetic energy}$}
 
     \begin{tikzpicture}[overlay]
-	    \draw[  opacity = 0.5 ]
-        (LL) edge[line width=0.4ex ,color = colorOne ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 180 , in = 0  ]node[pos=1, left]{\color{colorOne} \fontsize{8pt}{102pt}\selectfont \bfseries  Lieb-Liniger Hamiltonien }($(LL) + (-0.5cm,0.0cm)$)
+	    \draw[  opacity = 1 ]
+        (LL) edge[line width=0.4ex ,color = colorOne ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 180 , in = 0  ]node[pos=1, left]{\color{colorOne} \fontsize{8pt}{102pt}\selectfont \bfseries  Hamiltonian }($(LL) + (-0.5cm,0.0cm)$)
       ;
       \onslide<2->{
-      \draw[  opacity = 0.5 ]
-        (Nombre) edge[line width=0.2ex ,color = colorOne ,arrows = {Computer Modern Rightarrow[sharp ,length=0.1cm]-},  , out = 90 , in = 180  ]node[pos=1, right]{\color{colorOne} \fontsize{5pt}{102pt}\selectfont \bfseries  Number of atoms }($(Nombre) + (1cm,1.0cm)$)
+      \draw[  opacity = 1 ]
+        (Nombre) edge[line width=0.2ex ,color = colorOne ,arrows = {Computer Modern Rightarrow[sharp ,length=0.1cm]-},  , out = 10 , in = 180  ]node[pos=1, right]{\color{colorOne} \fontsize{5pt}{102pt}\selectfont \bfseries  Number of atoms }($(Nombre) + (1cm,0.25cm)$)
       ;
       }
+      % \onslide<3->{
+      % \draw[  opacity = 1 ]
+		  %   (Cinetic) edge[line width=0.4ex ,color = colorFour ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 150, in = 0  ]node[pos=1, left]{\color{colorFour} \fontsize{8pt}{102pt}\selectfont \bfseries  Kinetic energy }($(Cinetic) + (-1cm,1.0cm)$)
+      % ;
+      % }
       \onslide<3->{
-      \draw[  opacity = 0.5 ]
-		    (Cinetic) edge[line width=0.4ex ,color = colorFour ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 110 , in = 0  ]node[pos=1, left]{\color{colorFour} \fontsize{8pt}{102pt}\selectfont \bfseries  Kinetic energy }($(Cinetic) + (-1cm,1.0cm)$)
-      ;
-      }
-      \onslide<4->{
-      \draw[  opacity = 0.5 ]
-        (Potentiel) edge[line width=0.4ex ,color = colorSix ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 90 , in = 180  ]node[pos=1, right]{\color{colorSix} \fontsize{8pt}{102pt}\selectfont \bfseries  Contact potential }($(Potentiel) + (1cm,1.5cm)$)
+      \draw[  opacity = 1 ]
+        %(Potentiel) edge[line width=0.4ex ,color = colorSix ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 90 , in = 180  ]node[pos=1, right]{\color{colorSix} \fontsize{8pt}{102pt}\selectfont \bfseries  Contact potential }($(Potentiel) + (1cm,1.5cm)$)
         (motg) edge[line width=0.2ex ,color = colorOne ,arrows = {Computer Modern Rightarrow[sharp ,length=0.1cm]-},  , out = -90 , in = 0  ]node[pos=1, left]{\color{colorOne} \fontsize{5pt}{102pt}\selectfont \bfseries  1D repulsion strength }($(motg) + (-1cm,-0.75cm)$)
       ;
       }
 	    
     \end{tikzpicture}
       %\end{block}
-    \vspace{0.5cm}
+    \vspace{-0.75cm}
       %\begin{block}{Eigenstates}
-    \onslide<5->{
+    \onslide<1->{
       $$ 
-      \ptFleche{FOnde}{$\displaystyle \psi_{\ptFleche{Listetheta}{\alt<8->{\color{colorSix}}{\color{colorOne}} $\{\theta_a \}$}}(x_1 < \cdots <  x_N)$}
+      \ptFleche{FOnde}{$\displaystyle \psi_{\ptFleche{Listetheta}{\alt<4->{\color{colorSix}}{\color{colorOne}} $\{\theta_a \}$}}(x_1 < \cdots <  x_N)$}
       \propto 
-      \sum_{\mathrm{perm.}\sigma} {\alt<6-7>{\color{colorOne!50!colorTwo}}{\alt<9>{\color{Prune}}{\color{colorOne}}} e^{i \Phi_\sigma({\alt<8->{\color{colorSix}}{\alt<6-7>{\color{colorOne!50!colorTwo}}{\color{colorOne}}}\{\theta_a\}})} } e^{i \frac{m}{\hslash}\left ( {\alt<7->{\color{colorSix}}{\color{colorOne}}\ptFleche{Rapiditie}{$\theta$}_{\sigma(b)}}x_b + \cdots + {\alt<7->{\color{colorSix}}{\color{colorOne}}\theta_{\sigma(N)}}x_N \right )  } 
+      \sum_{\mathrm{perm.}\sigma} {\alt<5>{\color{colorOne!50!colorTwo}}{\alt<6>{\color{Prune}}{\color{colorOne}}} e^{i \Phi_\sigma({\alt<6->{\color{colorSix}}{\alt<5>{\color{colorOne!50!colorTwo}}{\color{colorOne}}}\{\theta_a\}})} } e^{i \frac{m}{\hslash}\left ( {\alt<4->{\color{colorSix}}{\color{colorOne}}\ptFleche{Rapiditie}{$\theta$}_{\sigma(1)}}x_1 + \cdots + {\alt<4->{\color{colorSix}}{\color{colorOne}}\theta_{\sigma(N)}}x_N \right )  } 
       $$
     }
     \begin{tikzpicture}[overlay]
-      \onslide<5->{
-      \draw[  opacity = 0.5 ]
-        ($(FOnde) + (-1.2cm,0.0cm)$) edge[line width=0.4ex ,color = colorOne ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 180 , in = 0  ]node[pos=1, left]{\color{colorOne} \fontsize{8pt}{102pt}\selectfont \bfseries  Wavefonction }($(FOnde) + (-2cm,0.0cm)$)
+      \onslide<4->{
+      \draw[  opacity = 1 ]
+        ($(FOnde) + (-1.8cm,0.0cm)$) edge[line width=0.4ex ,color = colorOne ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 180 , in = 0  ]node[pos=1, left]{\color{colorOne} \fontsize{8pt}{102pt}\selectfont \bfseries  State }($(FOnde) + (-2.2cm,0.0cm)$)
       ;
       }
-      \onslide<7->{
-	    \draw[  opacity = 0.5 ]
-	          (Rapiditie) edge[line width=0.4ex ,color = colorSix ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 90 , in = 180  ]node[pos=1, right]{\color{colorSix} \fontsize{8pt}{10}\selectfont \bfseries Rapiditie}($(Rapiditie) + (1cm,0.75cm)$)
+      \onslide<4->{
+	    \draw[  opacity = 1 ]
+	          (Rapiditie) edge[line width=0.4ex ,color = colorSix ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 90 , in = 180  ]node[pos=1, right]{\color{colorSix} \fontsize{8pt}{10}\selectfont \bfseries Rapidity}($(Rapiditie) + (1.5cm,0.75cm)$)
 	    ;
       }
-      \onslide<8->{
+      \onslide<4->{
 	    \draw[  
-        opacity = 0.5 ,
+        opacity = 1 ,
         ]
         (Listetheta) edge[
         line width=0.4ex ,
-        color = red ,
+        color = colorSix ,
         arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},
         out = 90 , in = 180 ,
         % decorate,
@@ -641,38 +782,79 @@
         % },
         ]
 	      node[pos=1, right]
-          {\color{red}\fontsize{6pt}{8pt}\selectfont$\{\theta_1,\dots,\theta_N\}$}
-        ($(Listetheta)+(1cm,0.75cm)$)
+          {\color{colorSix}\fontsize{6pt}{8pt}\selectfont$\{\theta_1,\dots,\theta_N\}$}
+        ($(Listetheta)+(0.5cm,0.75cm)$)
         ;
-      \draw[  opacity = 0.5 ]
-            (Listetheta) edge[line width=0.4ex ,color = red ,arrows = -{Computer Modern Rightarrow[sharp ,length=0.2cm]},  , out = -90 , in = 180  ]node[pos=1, right]{\color{red} \fontsize{5}{10}\selectfont \bfseries  $ \displaystyle  \ket{\{\theta_a \}}$ }($(Listetheta) + (1cm,-0.75cm)$)
-	    ;
+      % \draw[  opacity = 1 ]
+      %       (Listetheta) edge[line width=0.4ex ,color = colorSix ,arrows = -{Computer Modern Rightarrow[sharp ,length=0.2cm]},  , out = -90 , in = 180  ]node[pos=1, right]{\color{red} \fontsize{5}{10}\selectfont \bfseries  $ \displaystyle  \ket{\{\theta_a \}}$ }($(Listetheta) + (1cm,-0.75cm)$)
+	    % ;
       }
     \end{tikzpicture}
       %\end{block}
-      \vspace{1.0cm}
+      \vspace{-1.0cm}
       %\begin{block}{Eigenstates}
-      \onslide<9->{
+      \onslide<1->{
         $$
-        \ptFleche{BA}{$\displaystyle \frac{m}{\hslash} {\color{red}\theta_a} L + \sum_{b = 1}^N \Phi ( \theta_a - \theta_b) = 2 \pi {\color{colorSix}\ptFleche{I}{$I_a$}} \quad a = 1 , \cdots , N $}
+        \ptFleche{BA}{$\displaystyle \frac{m}{\hslash} {\alt<7->{\color{colorSix}}{\color{colorOne}}\theta_a} L + \sum_{b = 1}^N \Phi ( \theta_a - \theta_b) = 2 \pi {\color{colorSix}\ptFleche{I}{\alt<7->{\color{colorSix}}{\color{colorOne}} $I_a$}} \quad a = 1 , \cdots , N $}
         $$
       }
       %\end{block}
       \begin{tikzpicture}[overlay]
-        \onslide<9->{
-        \draw[  opacity = 0.5 ]
-            ($(BA) + (-2.5cm,0cm)$) edge[line width=0.4ex ,color = colorOne ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 180 , in = 0  ]node[pos=1, left]{\color{colorOne} \fontsize{8pt}{10}\selectfont \bfseries Bethe Ansatz equation }($(BA) + (-3.5cm,0cm)$)
-            ($(I) + (0cm,0cm)$) edge[line width=0.4ex ,color = colorSix ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 90 , in = 180  ]node[pos=1, right]{\color{colorSix} \fontsize{4pt}{10}\selectfont \bfseries Fermionic nomber $\displaystyle  I_a \in 
+        \onslide<7->{
+        \draw[  opacity = 1 ]
+            ($(BA) + (-3.5cm,0.0cm)$) edge[line width=0.4ex ,color = colorOne ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 180 , in = 0  ]node[pos=1, left]{\color{colorOne} \fontsize{8pt}{10}\selectfont \bfseries Bethe Ansatz eq}($(BA) + (-4.0cm,0cm)$)%periodic boundary condition
+            ($(I) + (0cm,0.2cm)$) edge[line width=0.4ex ,color = colorSix ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 90 , in = 180  ]node[pos=1, right]{\color{colorSix} \fontsize{6pt}{10}\selectfont \bfseries Bethe integers$\displaystyle  I_a \in 
               \left\{
               \begin{array}{rcl}
               \mathbb{Z} + \dfrac{1}{2} & \text{if} & N \in 2\mathbb{N} \\
               \mathbb{Z} & \text{else} &
               \end{array}
-              \right.$ }($(I) + (1cm,0.75cm)$)
+              \right.$ }($(I) + (0.25cm,0.75cm)$)
         ;
             }
       \end{tikzpicture}
   }
+
+  \onslide<8->{
+      %\begin{minipage}[T][1\textheight][c]{1\textwidth}
+      \begin{tikzpicture}[remember picture,overlay ]%, overlay
+    % Position absolue du coin inférieur gauche du petit tikz
+        \begin{scope}[shift={(-0.5cm,0cm)}, remember picture,overlay ]] % ici tu choisis la position absolue
+            % Petit dessin
+                % \draw[
+                %     line width=0.5ex,
+                %     draw=\colorThree,
+                %     fill=\colorTwo!50!\colorTwo,
+                %     rounded corners=6pt,
+                %     opacity=1.0
+                % ]
+                % (0,0) rectangle (10,3);
+
+                \only<8>{
+                \node[rectangle] (A) at (6,1.5) {\includegraphics[width=1.1\textwidth, page=19]{figures/Figures.pdf}};
+                }
+                \only<9>{
+                \node[rectangle] (A) at (6,1.5) {\includegraphics[width=1.1\textwidth, page=20]{figures/Figures.pdf}};
+                }
+                \only<10>{
+                \node[rectangle] (A) at (6,1.5) {\includegraphics[width=1.1\textwidth, page=22]{figures/Figures.pdf}};
+                }
+                \only<11>{
+                \node[rectangle] (A) at (6,1.5) {\includegraphics[width=1.1\textwidth, page=23]{figures/Figures.pdf}};
+                }
+                \only<12>{
+                \node[rectangle] (A) at (6,1.5) {\includegraphics[width=1.1\textwidth, page=24]{figures/Figures.pdf}};
+                }
+          
+         
+          
+        \end{scope}
+
+        %\drawgrid{0}{10}{-2}{10}
+        
+      \end{tikzpicture}
+    %\end{minipage}
+    }
 
 
   %\vspace{0.3cm}
@@ -684,39 +866,80 @@
 
 \end{frame}
 
+
+
 %Thermodynamique
-%%%%
-\begin{frame}
-  \frametitle{System State Defined by the Distribution of Rapidities}
-  \centering
-  \alt<5>{
-    \includegraphics[width=0.7\textwidth, page=23]{figures/Figures.pdf}
-  }{
-    \alt<4>{
-      \includegraphics[width=0.7\textwidth, page=22]{figures/Figures.pdf}
-    }{
-      \alt<3>{
-        \includegraphics[width=0.7\textwidth, page=21]{figures/Figures.pdf}
-      }{
-        \alt<2>{
-          \includegraphics[width=0.7\textwidth, page=20]{figures/Figures.pdf}
-        }{
-          \includegraphics[width=0.7\textwidth, page=19]{figures/Figures.pdf}
-        }
-      }
-    }
-  }
+%
+% \begin{frame}
+%   \frametitle{System State Defined by the Distribution of Rapidities}
+%   \centering
+%   % \alt<5>{
+%   %   \includegraphics[width=0.7\textwidth, page=23]{figures/Figures.pdf}
+%   % }{
+%   %   \alt<4>{
+%   %     \includegraphics[width=0.7\textwidth, page=22]{figures/Figures.pdf}
+%   %   }{
+%   %     \alt<3>{
+%   %       \includegraphics[width=0.7\textwidth, page=21]{figures/Figures.pdf}
+%   %     }{
+%   %       \alt<2>{
+%   %         \includegraphics[width=0.7\textwidth, page=20]{figures/Figures.pdf}
+%   %       }{
+%   %         \includegraphics[width=0.7\textwidth, page=19]{figures/Figures.pdf}
+%   %       }
+%   %     }
+%   %   }
+%   % }
+%   % \begin{minipage}[T][1\textheight][c]{1\textwidth}
+%   % \end{minipage}
+%   \onslide<1->{
+%       \begin{minipage}[T][1\textheight][c]{1\textwidth}
+%       \begin{tikzpicture}[remember picture,overlay ]%, overlay
+%     % Position absolue du coin inférieur gauche du petit tikz
+%         \begin{scope}[shift={(-0.5cm,0cm)}] % ici tu choisis la position absolue
+%             % Petit dessin
+%                 % \draw[
+%                 %     line width=0.5ex,
+%                 %     draw=\colorThree,
+%                 %     fill=\colorTwo!50!\colorTwo,
+%                 %     rounded corners=6pt,
+%                 %     opacity=1.0
+%                 % ]
+%                 % (0,0) rectangle (10,3);
+
+%                 \only<1>{
+%                 \node[rectangle] (A) at (6,1.5) {\includegraphics[width=1.1\textwidth, page=19]{figures/Figures.pdf}};
+%                 }
+%                 \only<2>{
+%                 \node[rectangle] (A) at (6,1.5) {\includegraphics[width=1.1\textwidth, page=20]{figures/Figures.pdf}};
+%                 }
+%                 \only<3>{
+%                 \node[rectangle] (A) at (6,1.5) {\includegraphics[width=1.1\textwidth, page=21]{figures/Figures.pdf}};
+%                 }
+%                 \only<4>{
+%                 \node[rectangle] (A) at (6,1.5) {\includegraphics[width=1.1\textwidth, page=22]{figures/Figures.pdf}};
+%                 }
+%                 \only<5>{
+%                 \node[rectangle] (A) at (6,1.5) {\includegraphics[width=1.1\textwidth, page=23]{figures/Figures.pdf}};
+%                 }
+          
+         
+          
+%         \end{scope}
+
+%         %\drawgrid{0}{10}{-2}{10}
+        
+%       \end{tikzpicture}
+%     \end{minipage}
+%     }
 
 
-\end{frame}
-
-\begin{frame}
-\end{frame}
+% \end{frame}
 
 % consepte
 %%%%
 \begin{frame}
-  \frametitle{Key concept of 1D Bose gas: the rapidities}
+  \frametitle{Velocities vs Rapidities }
   {\fontsize{6}{5}\selectfont
   The rapidities are the \textbf{asymptotic velocities, when one lets the system expand in 1D :}\\[0.1cm]
   \begin{center}
@@ -724,7 +947,7 @@
   \end{center}
 
   \begin{center}
-    $$ \tilde{n}(v,\tau ) \underset{\tau \to \infty}{\rightarrow} \rho(v) $$
+    $$ \tilde{n}(v,\tau ) \underset{\tau \to \infty}{\rightarrow} \ell\rho(v) $$
   \end{center}
 
   \textbf{The rapidity distribution is an experimentally accessible quantity}, homothetic to the asymptotic density profile following a longitudinal expansion.
@@ -736,6 +959,506 @@
   
   }
 \end{frame}
+
+% \begin{frame}
+%   \frametitle{Distribution of rapidities}
+%   {\fontsize{6}{5}\selectfont
+%   \textbf{À l'état fondamental : }\\[1mm]
+%   \centerline{
+%   \includegraphics[width=0.4\textwidth]{figures/data/nu_fonda.pdf}
+%   }
+%   \textbf{paramètre de Lieb : $\gamma = \frac{mg}{n \hbar^2}$}\\[1mm]
+%   \begin{columns}[b, totalwidth=\textwidth]
+%         \centering
+%         \begin{column}{0.5\textwidth} 
+%           \textbf{$\cdot$ $\gamma \to \infty$ : régime de sphères dures}\\[1mm]
+%         \end{column}
+%         \begin{column}{0.5\textwidth} 
+%           \textbf{$\cdot$ $\gamma \to 0$ : régime quasi-condensat}\\[1mm]
+%         \end{column}
+%     \end{columns}
+%     \begin{columns}[b, totalwidth=\textwidth]
+%         \centering
+%         \begin{column}{0.5\textwidth} 
+%         \end{column}
+%         \begin{column}{0.5\textwidth} 
+%           $ \displaystyle \rho(\theta) = \frac{n}{\pi c}\sqrt{1-\left(\frac{\theta}{2c}\right)^2} $ avec $\displaystyle c = \sqrt{\frac{gn}m}$
+%         \end{column}
+%     \end{columns}
+%     \begin{columns}[b, totalwidth=\textwidth]
+%         \centering
+%         \begin{column}{0.5\textwidth} 
+%           \centerline{
+%           \includegraphics[width=0.6\textwidth]{figures/data/rho_fonda_1.pdf}
+%           }
+%         \end{column}
+%         \begin{column}{0.5\textwidth} 
+%           \centerline{
+%           \includegraphics[width=0.6\textwidth]{figures/data/rho_fonda_2.pdf}
+%           }
+%         \end{column}
+%     \end{columns}
+%     \tikz \node[
+%     draw,
+%     rectangle,
+%     rounded corners=6pt,
+%     line width=0.8ex,
+%     color=\colorFive,
+%     fill=white,
+%     minimum width=2.8cm,
+%     minimum height=1.2cm,
+%     align=center,
+%     inner sep=6pt
+% ] at (10,-0.5)
+% {\fontsize{6}{7}\selectfont
+%     \textbf{Rapiditie}  $\theta \neq  $ \textbf{Velociti} $v$
+% };
+%   }
+% \end{frame}
+
+%
+% \begin{frame}
+%   \frametitle{Distribution of rapidities}
+%   {\fontsize{6}{5}\selectfont
+%   \textbf{At the ground state:}\\[1mm]
+%   \centerline{
+%   \includegraphics[width=0.4\textwidth]{figures/data/nu_fonda.pdf}
+%   }
+%   \textbf{Lieb parameter:} $\displaystyle \gamma = \frac{m g}{\hbar^2 n}$\\[0.5cm]
+%   %\vspace{1cm}
+%   \begin{columns}[b, totalwidth=\textwidth]
+%         \centering
+%         \begin{column}{0.5\textwidth} 
+%           \textbf{$\cdot$ $\gamma \to \infty$:  Tonks–Girardeau regime (hard spheres)}\\[1mm]
+%         \end{column}
+%         \begin{column}{0.5\textwidth} 
+%           \textbf{$\cdot$ $\gamma \to 0$:  quasi-condensate regime}\\[1mm]
+%         \end{column}
+%     \end{columns}
+%     \begin{columns}[b, totalwidth=\textwidth]
+%         \centering
+%         \begin{column}{0.5\textwidth} 
+%         \end{column}
+%         \begin{column}{0.5\textwidth} 
+%           $\displaystyle 
+%           \rho(\theta) = \frac{n}{\pi c}
+%           \sqrt{1 - \left( \frac{\theta}{2c} \right)^2}, 
+%           \qquad 
+%           c = \sqrt{\frac{g n}{m}}$
+%         \end{column}
+%     \end{columns}
+%     \begin{columns}[b, totalwidth=\textwidth]
+%         \centering
+%         \begin{column}{0.5\textwidth} 
+%           \centerline{
+%           \includegraphics[width=0.6\textwidth]{figures/data/rho_fonda_1.pdf}
+%           }
+%         \end{column}
+%         \begin{column}{0.5\textwidth} 
+%           \centerline{
+%           \includegraphics[width=0.6\textwidth]{figures/data/rho_fonda_2.pdf}
+%           }
+%         \end{column}
+%     \end{columns}
+%     \vspace{0.5cm}
+%     \onslide<2->{
+%     \begin{columns}[b, totalwidth=\textwidth]
+%     \begin{column}{0.4\textwidth} 
+%       \tikz \node[
+%         draw,
+%         rectangle,
+%         rounded corners=6pt,
+%         line width=0.8ex,
+%         color=\colorFive,
+%         fill=white,
+%         minimum width=2.8cm,
+%         minimum height=0.2cm,
+%         align=center,
+%         inner sep=6pt
+%         ] at (10,0.5)
+%         {\fontsize{6}{7}\selectfont
+%          $ \nu \rightleftharpoons \rho $
+%         };
+%     \end{column}
+%     \begin{column}{0.4\textwidth} 
+%       \tikz \node[
+%         draw,
+%         rectangle,
+%         rounded corners=6pt,
+%         line width=0.8ex,
+%         color=\colorFive,
+%         fill=white,
+%         minimum width=2.8cm,
+%         minimum height=0.2cm,
+%         align=center,
+%         inner sep=6pt
+%         ] at (10,0.5)
+%         {\fontsize{6}{7}\selectfont
+%          $\langle \operator{\mathcal{O}} \rangle = \mathcal{O}_{[\rho]} $\\
+%          %$\rho(\theta)$ is necessary and sufficient to characterize the local properties of the system after relaxation
+%          $\rho(\theta) \Leftrightarrow $ characterize the local properties of the system after relaxation
+%         };
+%     \end{column}
+%     \begin{column}{0.2\textwidth} 
+%       \tikz \node[
+%         draw,
+%         rectangle,
+%         rounded corners=6pt,
+%         line width=0.8ex,
+%         color=\colorFive,
+%         fill=white,
+%         minimum width=2.8cm,
+%         minimum height=0.2cm,
+%         align=center,
+%         inner sep=6pt
+%         ] at (10,0.5)
+%         {\fontsize{6}{7}\selectfont
+%          \textbf{Rapidity} $\theta \neq$ \textbf{Velocity} $v$
+%         };
+%     \end{column}
+%     \end{columns}
+%     }
+%   }
+% \end{frame}
+
+%
+% \begin{frame}
+%   \frametitle{Distribution of rapidities}
+%   {\fontsize{6}{5}\selectfont
+%   \textbf{At the ground state:}\\[1mm]
+%   \centerline{
+%   \includegraphics[width=0.4\textwidth]{figures/data/nu_fonda.pdf}
+%   }
+%   \textbf{Lieb parameter:} $\displaystyle \gamma = \frac{m g}{\hbar^2 n}$\\[0.5cm]
+%   %\vspace{1cm}
+%   \begin{columns}[b, totalwidth=\textwidth]
+%         \centering
+%         \begin{column}{0.5\textwidth} 
+%           \textbf{$\cdot$ $\gamma \to \infty$ :  Tonks–Girardeau regime (hard spheres)}\\[1mm]
+%         \end{column}
+%         \begin{column}{0.5\textwidth} 
+%           \textbf{$\cdot$ $\gamma \to 0$ :  quasi-condensate regime}\\[1mm]
+%         \end{column}
+%     \end{columns}
+%     \begin{columns}[b, totalwidth=\textwidth]
+%         \centering
+%         \begin{column}{0.5\textwidth} 
+%         \end{column}
+%         \begin{column}{0.5\textwidth} 
+%           $\displaystyle 
+%           \rho(\theta) = \frac{n}{\pi c}
+%           \sqrt{1 - \left( \frac{\theta}{2c} \right)^2}, 
+%           \qquad 
+%           c = \sqrt{\frac{g n}{m}}$
+%         \end{column}
+%     \end{columns}
+%     \begin{columns}[b, totalwidth=\textwidth]
+%         \centering
+%         \begin{column}{0.5\textwidth} 
+%           \centerline{
+%           \includegraphics[width=0.6\textwidth]{figures/data/rho_fonda_1.pdf}
+%           }
+%         \end{column}
+%         \begin{column}{0.5\textwidth} 
+%           \centerline{
+%           \includegraphics[width=0.6\textwidth]{figures/data/rho_fonda_2.pdf}
+%           }
+%         \end{column}
+%     \end{columns}
+%     \vspace{0.5cm}
+%     \onslide<2->{
+%     \begin{columns}[b, totalwidth=\textwidth]
+%     \begin{column}{0.4\textwidth} 
+%       \tikz \node[
+%         draw,
+%         rectangle,
+%         rounded corners=6pt,
+%         line width=0.8ex,
+%         color=\colorFive,
+%         fill=white,
+%         minimum width=2.8cm,
+%         minimum height=0.2cm,
+%         align=center,
+%         inner sep=6pt
+%         ] at (10,0.5)
+%         {\fontsize{6}{7}\selectfont
+%          $ \nu \rightleftharpoons \rho $
+%         };
+%     \end{column}
+%     \begin{column}{0.4\textwidth} 
+%       \tikz \node[
+%         draw,
+%         rectangle,
+%         rounded corners=6pt,
+%         line width=0.8ex,
+%         color=\colorFive,
+%         fill=white,
+%         minimum width=2.8cm,
+%         minimum height=0.2cm,
+%         align=center,
+%         inner sep=6pt
+%         ] at (10,0.5)
+%         {\fontsize{6}{7}\selectfont
+%          $\langle \operator{\mathcal{O}} \rangle = \mathcal{O}_{[\rho]} $\\
+%          %$\rho(\theta)$ is necessary and sufficient to characterize the local properties of the system after relaxation
+%          $\rho(\theta) \Leftrightarrow $ characterize the local properties of the system after relaxation
+%         };
+%     \end{column}
+%     \begin{column}{0.2\textwidth} 
+%       \tikz \node[
+%         draw,
+%         rectangle,
+%         rounded corners=6pt,
+%         line width=0.8ex,
+%         color=\colorFive,
+%         fill=white,
+%         minimum width=2.8cm,
+%         minimum height=0.2cm,
+%         align=center,
+%         inner sep=6pt
+%         ] at (10,0.5)
+%         {\fontsize{6}{7}\selectfont
+%          \textbf{Rapidity} $\theta \neq$ \textbf{Velocity} $v$
+%         };
+%     \end{column}
+%     \end{columns}
+%     }
+%   }
+
+%   \begin{tikzpicture}[remember picture , overlay]%, overlay
+%     % Position absolue du coin inférieur gauche du petit tikz
+%         \begin{scope}[shift={(-0.5cm,0cm)}] % ici tu choisis la position absolue
+%             % Petit dessin
+%                 \draw[
+%                     line width=0.5ex,
+%                     draw=\colorThree,
+%                     fill=\colorTwo!50!\colorTwo,
+%                     rounded corners=6pt,
+%                     opacity=1.0
+%                 ]
+%                 (0,0) rectangle (10,3);
+
+          
+%           \node[rectangle] (A) at (1.5,1.5) {
+%             \parbox{0.55\linewidth}{
+%               \only<1-2>{
+%                 \includegraphics[width=\linewidth]{figures/frames_2D_velocity_distribution/frame_00001}
+%           };
+
+%         \end{scope}
+          
+
+         
+
+%         \drawgrid{0}{10}{0}{10}
+        
+%       \end{tikzpicture}
+% \end{frame}
+
+%%%%
+\begin{frame}
+  \frametitle{Distribution of rapidities}
+  % {\fontsize{6}{5}\selectfont
+  % \textbf{At the ground state:}\\[1mm]
+  % \centerline{
+  % \includegraphics[width=0.4\textwidth]{figures/data/nu_fonda.pdf}
+  % }
+  % \textbf{Lieb parameter:} $\displaystyle \gamma = \frac{m g}{\hbar^2 n}$\\[0.5cm]
+  % %\vspace{1cm}
+  % \begin{columns}[b, totalwidth=\textwidth]
+  %       \centering
+  %       \begin{column}{0.5\textwidth} 
+  %         \textbf{$\cdot$ $\gamma \to \infty$:  Tonks–Girardeau regime (hard spheres)}\\[1mm]
+  %       \end{column}
+  %       \begin{column}{0.5\textwidth} 
+  %         \textbf{$\cdot$ $\gamma \to 0$:  quasi-condensate regime}\\[1mm]
+  %       \end{column}
+  %   \end{columns}
+  %   \begin{columns}[b, totalwidth=\textwidth]
+  %       \centering
+  %       \begin{column}{0.5\textwidth} 
+  %       \end{column}
+  %       \begin{column}{0.5\textwidth} 
+  %         $\displaystyle 
+  %         \rho(\theta) = \frac{n}{\pi c}
+  %         \sqrt{1 - \left( \frac{\theta}{2c} \right)^2}, 
+  %         \qquad 
+  %         c = \sqrt{\frac{g n}{m}}$
+  %       \end{column}
+  %   \end{columns}
+  %   \begin{columns}[b, totalwidth=\textwidth]
+  %       \centering
+  %       \begin{column}{0.5\textwidth} 
+  %         \centerline{
+  %         \includegraphics[width=0.6\textwidth]{figures/data/rho_fonda_1.pdf}
+  %         }
+  %       \end{column}
+  %       \begin{column}{0.5\textwidth} 
+  %         \centerline{
+  %         \includegraphics[width=0.6\textwidth]{figures/data/rho_fonda_2.pdf}
+  %         }
+  %       \end{column}
+  %   \end{columns}
+  %   \vspace{0.5cm}
+  %   \onslide<2->{
+  %   \begin{columns}[b, totalwidth=\textwidth]
+  %   \begin{column}{0.4\textwidth} 
+  %     \tikz \node[
+  %       draw,
+  %       rectangle,
+  %       rounded corners=6pt,
+  %       line width=0.8ex,
+  %       color=\colorFive,
+  %       fill=white,
+  %       minimum width=2.8cm,
+  %       minimum height=0.2cm,
+  %       align=center,
+  %       inner sep=6pt
+  %       ] at (10,0.5)
+  %       {\fontsize{6}{7}\selectfont
+  %        $ \nu \rightleftharpoons \rho $
+  %       };
+  %   \end{column}
+  %   \begin{column}{0.4\textwidth} 
+  %     \tikz \node[
+  %       draw,
+  %       rectangle,
+  %       rounded corners=6pt,
+  %       line width=0.8ex,
+  %       color=\colorFive,
+  %       fill=white,
+  %       minimum width=2.8cm,
+  %       minimum height=0.2cm,
+  %       align=center,
+  %       inner sep=6pt
+  %       ] at (10,0.5)
+  %       {\fontsize{6}{7}\selectfont
+  %        $\langle \operator{\mathcal{O}} \rangle = \mathcal{O}_{[\rho]} $\\
+  %        %$\rho(\theta)$ is necessary and sufficient to characterize the local properties of the system after relaxation
+  %        $\rho(\theta) \Leftrightarrow $ characterize the local properties of the system after relaxation
+  %       };
+  %   \end{column}
+  %   \begin{column}{0.2\textwidth} 
+  %     \tikz \node[
+  %       draw,
+  %       rectangle,
+  %       rounded corners=6pt,
+  %       line width=0.8ex,
+  %       color=\colorFive,
+  %       fill=white,
+  %       minimum width=2.8cm,
+  %       minimum height=0.2cm,
+  %       align=center,
+  %       inner sep=6pt
+  %       ] at (10,0.5)
+  %       {\fontsize{6}{7}\selectfont
+  %        \textbf{Rapidity} $\theta \neq$ \textbf{Velocity} $v$
+  %       };
+  %   \end{column}
+  %   \end{columns}
+  %   }
+  %}
+
+  {\fontsize{6pt}{5}\selectfont
+    \begin{tikzpicture}[remember picture , overlay]%, overlay
+    % Position absolue du coin inférieur gauche du petit tikz
+        \begin{scope}[shift={(0.0cm,0cm)}] % ici tu choisis la position absolue
+            % Petit dessin
+                \draw[
+                    line width=0.5ex,
+                    draw=\colorThree,
+                    fill=\colorTwo!50!\colorTwo,
+                    rounded corners=6pt,
+                    opacity=0.5
+                ]
+                (0,-5) rectangle (10,5);
+
+          
+          \node[rectangle] (A) at (1.5,1.) {
+            %\parbox{0.55\linewidth}{
+            \begin{tikzpicture}
+            \node[rectangle] (A0) at (0,0) {
+            \textbf{At the ground state:}
+            };
+            \node[rectangle , below = -1mm of A0]{
+            \includegraphics[width=0.4\textwidth]{figures/data/nu_fonda.pdf}
+            };
+            \end{tikzpicture}
+            %}
+          };
+
+          \node[rectangle , right = 0.1cm of A ] (B) {
+            \textbf{Lieb parameter:} $\displaystyle \gamma = \frac{m g}{\hbar^2 n}$
+          };
+
+          
+
+          \node[rectangle, right = 0.1cm of B , shift = {(0cm,1cm)}] (C)  {
+            %\parbox{0.55\linewidth}{
+            \begin{tikzpicture}
+            \node[rectangle] (A0) at (0,0) {
+            \textbf{$\bullet$ $\gamma \to \infty$:  Tonks–Girardeau regime (hard spheres)}
+            };
+            \node[rectangle , below = -1mm of A0]{
+            \includegraphics[width=0.4\textwidth]{figures/data/rho_fonda_1.pdf}
+            };
+            \end{tikzpicture}
+            %}
+          };
+
+          \node[rectangle, below =  0.1cm of C , shift = {(0cm,0cm)}] (D)  {
+            %\parbox{0.55\linewidth}{
+            \begin{tikzpicture}
+            \node[rectangle] (A0) at (0,0) {
+           \textbf{$\bullet$ $\gamma \to 0$:  Quasi-condensate regime}
+            };
+            \node[rectangle , below = -1mm of A0]{
+            \includegraphics[width=0.4\textwidth]{figures/data/rho_fonda_2.pdf}
+            };
+            \end{tikzpicture}
+            %}
+          };
+
+          \node[rectangle ,  anchor=west, align=left , color = colorSix , font = \fontsize{6pt}{5pt }\selectfont] (E) at (0,-2.5) {
+            %\parbox{0.55\linewidth}{
+            \begin{tikzpicture}
+              \draw[
+                    line width=0.5ex,
+                    draw=\colorSix,
+                    fill=\colorTwo!50!\colorTwo,
+                    rounded corners=6pt,
+                    opacity=1
+                ]
+                (0,-1.7) rectangle (6.5,0.5);
+            \node[rectangle, anchor=west, align=left] (A0) at (0,0) {
+              $\rho(\theta) \Leftrightarrow$ characterize the local properties of the system after relaxation
+            };
+
+            \node[rectangle, anchor=west, align=left, below=5mm of A0] (A1) {
+              \textbf{Locally conserved quantity}
+            };
+
+            \node[rectangle, anchor=west, align=left, below=1mm of A1] (A2) {
+              $Q(\theta) = \Pi(\theta)\delta \theta = \int dx \, \rho(x , \theta) \, \delta \theta$
+            };
+            \end{tikzpicture}
+            %}
+          };
+
+        \end{scope}
+          
+
+         
+
+        \drawgrid{0}{10}{-5}{5}
+        
+      \end{tikzpicture}
+  }
+  
+\end{frame}
+
+
+
 
 
 % \begin{frame}[t]
@@ -821,8 +1544,8 @@
   % Effet de transparence pour les éléments non encore affichés
   %\setbeamercovered{transparent} % ou "dynamic" pour un effet progressif
 
-  \frametitle{Grande échelle}
-  \framesubtitle{Hydrodynamic \uncover<1>{scale}}
+  \frametitle{Large-scale hydrodynamics}
+  %\framesubtitle{Hydrodynamic \uncover<1>{scale}}
   
   \onslide<1->{
    \begin{columns}[T, totalwidth=\textwidth]
@@ -834,7 +1557,7 @@
         \end{column}
         \begin{column}{0.5\textwidth} 
           \centering
-          \begin{block}{Integrable/non-ergidic}
+          \begin{block}{Integrable/non-ergodic}
           \end{block}
         \end{column}
     \end{columns}
@@ -851,8 +1574,9 @@
           \begin{column}{0.5\textwidth}
             %\begin{minipage}[T][0.2\textheight][t]{0.8\textwidth}
               {\fontsize{6}{5}\selectfont
-                \textbf{Hydrodynamics for a non-integrable quantum system:}\\[0.1cm]
-                Locally described by a Gibbs ensemble with $n(x,t)$, $p(x,t)$ and $e(x,t)$.
+                %\textbf{Hydrodynamics for a non-integrable quantum system:}\\[0.1cm]
+                %Locally described by a Gibbs ensemble with $n(x,t)$, $p(x,t)$ and $e(x,t)$.
+                Locally described by  $n(x,t)$, $p(x,t)$ and $e(x,t)$.
                 
               }
             %\end{minipage}
@@ -860,31 +1584,36 @@
           \begin{column}{0.5\textwidth}
             %\begin{minipage}[T][0.2\textheight][t]{{0.8\textwidth}
               {\fontsize{6}{5}\selectfont
-              \textbf{Generalized hydrodynamics for an integrable quantum system:}\\[0.1cm]
-              Local description by a Generalized Gibbs Ensemble parameterized by the local rapidity distribution~$\rho( x, \theta ;t)$.
+              %\textbf{Generalized hydrodynamics for an integrable quantum system:}\\[0.1cm]
+              %Local description by a Generalized Gibbs Ensemble parameterized by the local rapidity distribution~$\rho( x, \theta ;t)$.
+              Local description by the local rapidity distribution~$\rho( x, \theta ;t)$.
             
               }
             %\end{minipage}
           \end{column}
       \end{columns} 
 
+      \vspace{0.2cm}
+
       \begin{columns}[c, totalwidth=\textwidth]
         \centering
         \begin{column}{0.5\textwidth}
           \centering
-          \includegraphics[width=0.7\textwidth, page=6]{figures/Figures.pdf}
+          \includegraphics[width=1\textwidth, page=6]{figures/Figures.pdf}
         \end{column}
         \begin{column}{0.5\textwidth}
           \centering
-          \includegraphics[width=0.7\textwidth, page=7]{figures/Figures.pdf}
+          \includegraphics[width=1\textwidth, page=7]{figures/Figures.pdf}
         \end{column}
       \end{columns} 
+
+       %\vspace{0.2cm}
 
       \begin{columns}[c, totalwidth=\textwidth]
           \begin{column}{0.5\textwidth}
             \centering
             {\fontsize{6}{5}\selectfont
-              $$ \partial_t q_i + \partial_x j_i = 0 , \quad  i\in \{n,p,e\}$$
+              %$$ \partial_t q_i + \partial_x j_i = 0 , \quad  i\in \{n,p,e\}$$
             }
             
           \end{column}
@@ -895,6 +1624,8 @@
             }
           \end{column}
       \end{columns}
+
+       \vspace{0.2cm}
 
            \begin{columns}[c, totalwidth=\textwidth]
           \begin{column}{0.5\textwidth}
@@ -907,7 +1638,7 @@
                 rectangle,
                 rounded corners=6pt,
                 line width=0.8ex,
-                color=\colorGold,
+                color=\colorFive,
                 minimum width=4cm,
                minimum height=1cm, 
                align=center ,
@@ -923,7 +1654,7 @@
             minimum width=0cm,
             minimum height=0cm, 
             align=center ,
-            text=\colorGold
+            text=\colorFive
           ]{\fontsize{6pt}{6pt}\selectfont \textbf{At the Euler scale:}};
         }
       }
@@ -934,7 +1665,7 @@
 \begin{tikzpicture}%[overlay]
   \node[goldbox] at (0,1.2){
     {\fontsize{6}{7}\selectfont
-     $\displaystyle j_{i}(x;t) \simeq f(n(x;t),\, p(x;t),\, e(x;t))$
+     $\displaystyle j_n(x;t) \simeq f(n(x;t),\, p(x;t),\, e(x;t))$
     }
   };
 \end{tikzpicture}
@@ -956,7 +1687,7 @@
                 rectangle,
                 rounded corners=6pt,
                 line width=0.8ex,
-                color=\colorGold,
+                color=\colorFive,
                 minimum width=4cm,
                minimum height=1cm, 
                align=center ,
@@ -972,7 +1703,7 @@
             minimum width=0cm,
             minimum height=0cm, 
             align=center ,
-            text=\colorGold
+            text=\colorFive
           ]{\fontsize{6pt}{6pt}\selectfont \textbf{At the Euler scale:}};
         }
       }
@@ -994,6 +1725,35 @@
     }{
     % === Colonne gauche ===
     %\begin{column}{0.5\textwidth}
+
+    \begin{columns}[T, totalwidth=\textwidth] 
+          \centering
+          % \begin{column}{0.5\textwidth}  
+          %   \centering 
+          %   {\fontsize{6}{5}\selectfont
+          %   \textbf{Hydrodynamic approach:}\\[0.2cm]
+          %   \begin{itemize}
+          %     \item Large-scale dynamics.\\[0.2cm]
+          %     \item The spatio-temporal space is decomposed into cells of size $\tau \times \ell$.
+          %   \end{itemize}
+
+          %   \tikz \node[draw, rectangle , rounded corners=6pt , line width=0.8ex, color=\colorGold ] at (0,-0.5) {\fontsize{6}{5}\selectfont \begin{tabular}{c}\textbf{Concept of local relaxation}\\[0.2cm]\textbf{in an isolated quantum system} \end{tabular}} ;
+          %   }  
+          % \end{column}
+          \begin{column}{0.25\textwidth}
+          \end{column}
+          \begin{column}{0.5\textwidth}    
+            \centering
+            \includegraphics[width=0.8\textwidth, page=5]{figures/Figures.pdf}
+          \end{column}
+          \begin{column}{0.25\textwidth}
+          \end{column}
+        \end{columns}
+        %\end{block}
+
+        %\texttt{\textbackslash frame[plain,bg=./figures/vages.jpeg]\{\textbackslash titlepage\}}
+
+        \vspace{0.5cm}
 
       \begin{columns}[c, totalwidth=\textwidth]
       
@@ -1057,31 +1817,10 @@
       \end{columns}
     %\end{column}
 
-    \vspace{0.5cm}
+    %\vspace{0.5cm}
 
     %\begin{block}{}
-        \begin{columns}[T, totalwidth=\textwidth] 
-          \centering
-          \begin{column}{0.5\textwidth}  
-            \centering 
-            {\fontsize{6}{5}\selectfont
-            \textbf{Hydrodynamic approach:}\\[0.2cm]
-            \begin{itemize}
-              \item Large-scale dynamics.\\[0.2cm]
-              \item The spatio-temporal space is decomposed into cells of size $\tau \times \ell$.
-            \end{itemize}
-
-            \tikz \node[draw, rectangle , rounded corners=6pt , line width=0.8ex, color=\colorGold ] at (0,-0.5) {\fontsize{6}{5}\selectfont \begin{tabular}{c}\textbf{Concept of local relaxation}\\[0.2cm]\textbf{in an isolated quantum system} \end{tabular}} ;
-            }  
-          \end{column}
-          \begin{column}{0.5\textwidth}    
-            \centering
-            \includegraphics[width=0.8\textwidth, page=5]{figures/Figures.pdf}
-          \end{column}
-        \end{columns}
-        %\end{block}
-
-        %\texttt{\textbackslash frame[plain,bg=./figures/vages.jpeg]\{\textbackslash titlepage\}}
+        
     }
 
     \end{minipage}
@@ -1094,13 +1833,14 @@
 \begin{frame}
   \setbeamercovered{transparent} % ou "dynamic" pour un effet progressif
 
-  \frametitle{Fluxes : $\displaystyle j(x, \theta ;t) =  v^{\mathrm{eff}}_{[\rho]}(\theta)\,  \rho(x , \theta ; t )$}
-  %\framesubtitle{Effective velocities}
+  \frametitle{Fluxes : Introduction of Effective velocities}
+  \framesubtitle{}
 
   % \begin{center}
   %   \tikz \node[draw, rectangle , rounded corners=6pt , line width=0.8ex, color=\colorGold ] at (10,-0.5) {\fontsize{6}{5}\selectfont $\displaystyle j(x, \theta ;t) =  v^{\mathrm{eff}}_{[\rho]}(\theta)\,  \rho(x , \theta ; t )$ } ;
   % \end{center}
-  {\fontsize{6}{5}\selectfont
+  {\fontsize{10pt}{5}\selectfont
+  $$\displaystyle j(x, \theta ;t) =  v^{\mathrm{eff}}_{[\rho]}(\theta)\,  \rho(x , \theta ; t )$$
   % \textbf{In the case of the classical integrable hard-sphere model :}\\[0.1cm]
   % \vspace{-0.5cm}
   % \begin{columns}[b, totalwidth=\textwidth]
@@ -1114,15 +1854,15 @@
   %   \end{column}
   % \end{columns}
 
-  \vspace{0.0cm}
+  \vspace{1.0cm}
 
-  \textbf{In the quantum case, described by the Lieb–Liniger model :}
-  \begin{columns}[T, totalwidth=\textwidth]
-    \begin{column}{0.4\textwidth}
+  %\textbf{In the quantum case, described by the Lieb–Liniger model :}
+  \begin{columns}[c, totalwidth=\textwidth]
+    \begin{column}{0.25\textwidth}
       \centering
-      \includegraphics[width=0.8\textwidth, page=9]{figures/Figures.pdf}
+      \includegraphics[width=1.6\textwidth, page=9]{figures/Figures.pdf}
     \end{column}
-    \hspace{-0.5cm}
+    \hspace{0.5cm}
     \begin{column}{0.6\textwidth}
       \centering
       % $$ \psi_{\{\theta_1 , \theta_2\} }(x_1, x_2) \propto \left \{ \begin{array}{ccl} e^{i\frac{m}{\hbar}(\theta_1 x_1 + \theta_2 x_2 )} - \ptFleche{Dephase}{\color{blue} $\displaystyle e^{i \Phi } $} e^{i\frac{m}{\hbar}(\theta_2 x_1 + \theta_1 x_2 )} & \mbox{if} &  x_1 < x_2 \\ ( x_1 \leftrightarrow x_2 ) & \mbox{if} &  x_2 < x_1  \end{array}\right . $$
@@ -1130,11 +1870,11 @@
       $$v^{\mathrm{eff}}_{[\rho]}(\theta) = \theta +  \int \ptFleche{motDelta}{$\Delta$}(\theta - \theta') (v^{\mathrm{eff}}_{[\rho]}(\theta') -v^{\mathrm{eff}}_{[\rho]}(\theta) ) \rho (\theta' ) \, d \theta$$
 
         \begin{tikzpicture}[overlay]
-	        \draw[  opacity = 0.5 ]
+	        \draw[  opacity = 1 ]
 		        %(Dephase) edge[line width=0.4ex ,color = blue ,arrows = {Computer Modern Rightarrow[sharp ,length=0.3cm]-},  , out = -90 , in = 0  ]node[pos=1, left]{\color{blue} \fontsize{5}{10}\selectfont \bfseries  $ \displaystyle e^{i \Phi } = \frac{m \frac{g}{\hbar} - i (p_2 - p_1)}{m \frac{g}{\hbar} + i (p_2 - p_1)}$ }($(Dephase) + (-1cm,-1.5cm)$)
 	          % (Dephase) edge[line width=0.4ex ,color = blue ,arrows = -{Computer Modern Rightarrow[sharp ,length=0.2cm]},  , out = 90 , in = 180  ]node[pos=1, right]{\color{blue} \fontsize{5}{10}\selectfont \bfseries  $ \displaystyle \Delta = \frac{m}{\hbar} \frac{d \Phi }{d\theta} $ }($(Dephase) + (1cm,0.75cm)$)
 
-            (motDelta) edge[line width=0.4ex ,color = blue ,arrows = -{Computer Modern Rightarrow[sharp ,length=0.2cm]},  , out = 90 , in = 180  ]node[pos=1, right]{\color{blue} \fontsize{5}{10}\selectfont \bfseries  $ \displaystyle \Delta = \frac{2g/m}{(g \hbar/m)^2 + \theta^2} $ }($(motDelta) + (1cm,0.75cm)$)
+            (motDelta) edge[line width=0.4ex ,color = colorFour ,arrows = -{Computer Modern Rightarrow[sharp ,length=0.2cm]},  , out = 90 , in = 180  ]node[pos=1, right]{\color{colorFour} \fontsize{10pt}{10pt}\selectfont \bfseries  $ \displaystyle \Delta(\theta) = \frac{2g/m}{(g \hbar/m)^2 + \theta^2} $ }($(motDelta) + (1.5cm,0.75cm)$)
 	        ;
         \end{tikzpicture}
 
@@ -1146,6 +1886,7 @@
 
 \end{frame}
 
+\section{Atom chip experiment}
 %%%%
 \begin{frame}
   \frametitle{Production of 1D Gases}
@@ -1160,6 +1901,7 @@
       \begin{block}{}
         \textbf{Atoms confined in a transverse potential :}
         $$ V_\perp(y,z) = \frac{1}{2} m \omega_\perp^2 ( y^2 + z^2 )$$
+        \vspace{-0.1cm}
         \begin{center}
           \includegraphics[width=0.9\textwidth, page=12]{figures/Figures.pdf}
         \end{center}
@@ -1221,7 +1963,9 @@
     inner sep=6pt
 ] at (0,-0.5)
 {\fontsize{6}{7}\selectfont
-    \textbf{If $k_B T,\, \mu \ll \Delta E_\perp$,} \\[0.2cm]
+%the energy per atom 
+    \textbf{If the energy per atom $\ll \Delta E_\perp$,} \\[0.2cm]
+    %\textbf{If $k_B T,\, \mu \ll \Delta E_\perp$,} \\[0.2cm]
     \textbf{the transverse degrees of freedom are frozen.}
 };
       \end{center}
@@ -1242,26 +1986,65 @@
       \textbf{Potential experienced by the atoms: $V = \ptFleche{gf}{$g_F$} m_F \ptFleche{mub}{$\mu_B$} \vert \vec{B} \vert $}\\[0.2cm]
       \begin{tikzpicture}[overlay]
 	        \draw[  opacity = 0.5 ]
-	          (gf) edge[line width=0.4ex ,color = red ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = -90 , in = 60 ]node[pos=1, left]{\color{red} \fontsize{5}{10}\selectfont \bfseries \begin{tabular}{c} Landé \\[0.01cm] factor \end{tabular} }($(gf) + (-0.5cm,-0.75cm)$)
-            (mub) edge[line width=0.4ex ,color = red ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = -90 , in = 130  ]node[pos=1, right]{\color{red} \fontsize{5}{10}\selectfont \bfseries  \begin{tabular}{c} Bohr \\[0.01cm] magneton  \end{tabular}}($(mub) + (0.5cm,-0.75cm)$)
+	          (gf) edge[line width=0.4ex ,color = red ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = -90 , in = 0 ]node[pos=1, left]{\color{red} \fontsize{5}{10}\selectfont \bfseries \begin{tabular}{c} Landé \\[0.1cm] factor \end{tabular} }($(gf) + (-0.5cm,-0.75cm)$)
+            (mub) edge[line width=0.4ex ,color = red ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = -90 , in = 180  ]node[pos=1, right]{\color{red} \fontsize{5}{10}\selectfont \bfseries  \begin{tabular}{c} Bohr \\[0.1cm] magneton  \end{tabular}}($(mub) + (0.5cm,-0.75cm)$)
 	        ;
       \end{tikzpicture}
 
-      \begin{columns}[b, totalwidth=\textwidth]
-        \begin{column}{0.6\textwidth}
-          \includegraphics[width=0.9\textwidth]{figures/Puce_Lea.png}
-        \end{column}
-        \begin{column}{0.4\textwidth}
-          \alt<2>
-          {\includegraphics[width=1.5\textwidth]{figures/Shema_Lea.png}}
-          {\includegraphics[width=1.5\textwidth, page=15]{figures/Figures.pdf}}
-        \end{column}
-      \end{columns}
+      % \hspace{1cm}
+       \vspace{3cm}
+      % \begin{columns}[b, totalwidth=\textwidth]
+      %   \begin{column}{0.6\textwidth}
+      %     \includegraphics[width=0.9\textwidth]{figures/Puce_Lea.png}
+      %     $$ V(x) = \sum_{i = 1}^4 a_i x^i $$ 
+      %   \end{column}
+      %   \begin{column}{0.4\textwidth}
+      %     \hspace{-1cm}
+      %     \alt<2->
+      %     {\includegraphics[width=1.7\textwidth]{figures/Shema_Lea.png}}
+      %     {\includegraphics[width=1.7\textwidth, page=15]{figures/Figures.pdf}}
+      %   \end{column}
+        
+      % \end{columns}
+
+    \begin{tikzpicture}[remember picture, overlay]
+      \begin{scope}[shift={(0cm,0cm)}]
+
+        % Image principale (puce)
+        \node[rectangle] (A) at (1,1) {
+         \includegraphics[width=0.5\textwidth]{figures/Puce_Lea.png}
+        };
+
+        % Équation sous l'image
+        \node[rectangle, below=1mm of A] {
+          $\displaystyle V(x) = \sum_{i = 1}^4 a_i x^i$
+        };
+
+        % Slide 1 : image de Figures.pdf
+        \only<1>{
+          \node[rectangle, right=2mm of A] {
+            \includegraphics[width=0.9\textwidth, page=15]{figures/Figures.pdf}
+          };
+        }
+
+        % Slide 2 : schéma de Léa
+        \only<2>{
+          \node[rectangle, right=2mm of A] {
+          \includegraphics[width=0.7\textwidth]{figures/Shema_Lea.png}
+          };
+        }
+
+        \end{scope}
+
+        % Optionnel : grille pour debug
+        \drawgrid{0}{5}{0}{5}
+
+      \end{tikzpicture}
 
       \onslide<3>{
       \begin{tikzpicture}[remember picture, overlay]
     % Position absolue du coin inférieur gauche du petit tikz
-        \begin{scope}[shift={(-0.2cm,0cm)}] % ici tu choisis la position absolue
+        \begin{scope}[shift={(-0.2cm,-1cm)}] % ici tu choisis la position absolue
             % Petit dessin
                 \draw[
                     line width=0.5ex,
@@ -1320,7 +2103,7 @@
         \item Longitudinal confinement:
       \end{itemize}
 
-      $$ V(x) = \sum_{i = 1}^4 a_i x^i $$ 
+      %$$ V(x) = \sum_{i = 1}^4 a_i x^i $$ 
 
     \end{column}
 
@@ -1329,15 +2112,15 @@
   }
 \end{frame}
 
-\section{Domain Wall Dynamics protocol}
+\section{Study of a non-equilibrium protocol}
 
 %%%%
 \begin{frame}
-  \frametitle{Context}
+  \frametitle{Partitioning protocol}
   {\fontsize{7}{5}\selectfont
-  \begin{columns}[b, totalwidth=\textwidth]
+  \begin{columns}[c, totalwidth=\textwidth]
     \begin{column}{0.4\textwidth}
-      \textbf{Partitioning protocol:} deformation of the edge profile of an initially homogeneous and semi-infinite gas.\\[0.2cm]
+      %\textbf{Partitioning protocol:} deformation of the edge profile of an initially homogeneous and semi-infinite gas.\\[0.2cm]
       \textbf{GHD theory} developed by solving the edge deformation problem.
     \end{column}
 
@@ -1393,11 +2176,11 @@
       \vspace{-0.3cm}
 
       \begin{itemize}
-        \item The atoms are trapped in a quartic potential,
-          \begin{itemize}
+        %\item The atoms are trapped in a quartic potential,
+         % \begin{itemize}
             \item[$\rightarrow$] {\bf \fontsize{7}{5}\selectfont resulting in a large, quasi-homogeneous density region.}
-          \end{itemize}
-        \item Selection is performed via radiation pressure.
+         % \end{itemize}
+        \item Selection is performed via radiation pressure (DMD).
       \end{itemize}
       
       \centering{
@@ -1405,11 +2188,11 @@
       }
 
       \begin{itemize}
-        \item The longitudinal quartic potential is then switched off,
-        \item while the transverse confinement is maintained,
-        \begin{itemize}
+        %\item The longitudinal quartic potential is then switched off,
+        %\item while the transverse confinement is maintained,
+        %\begin{itemize}
             \item[$\rightarrow$] {\bf \fontsize{7}{5}\selectfont leading to a longitudinal expansion.}
-        \end{itemize}
+        %\end{itemize}
       \end{itemize}
       
 
@@ -1425,13 +2208,14 @@
   \frametitle{GHD predictions}
   {\fontsize{7}{5}\selectfont
   \begin{itemize}
-    \item Initial rapidity distribution\\[1mm]
+    \item \textbf{Initial rapidity distribution : }\\[1mm]
     $$ \rho ( x , \theta ; 0 ) = \left \{ \begin{array}{rcl} \rho_0(\theta) &  \mbox{if} &  x > 0 , \\ 0 & \mbox{else} & \end{array} \right . $$
-    \item Dynamics\\[1mm]
+    \item \textbf{Dynamics : } \\[1mm]
     $$  \partial_t \rho + \partial_x (v^{\mathrm{eff}}_{[\rho]} \rho ) = 0 $$
+    \item \textbf{Balistic Scaling : }\\[1mm]
   \end{itemize}
 
-  \vspace{0.2cm}
+  %\vspace{0.2cm}
 
   \begin{columns}
     \begin{column}{0.5\textwidth}
@@ -1483,10 +2267,10 @@
             fill=white,
             minimum width=2.8cm,
             minimum height=1.2cm,
-            text width=4cm,       % ← largeur maximale du texte
+            text width=4.5cm,       % ← largeur maximale du texte
             align=center,
             inner sep=6pt] 
-             {\textbf{Conclusion:} After 10\,ms deformation, a hydrodynamic behavior is clearly observed. };
+             {\textbf{Validity of hydrodynamics : } $10\, ms < t < 18 \, ms $ };
 
         \end{scope}
 
@@ -1505,7 +2289,8 @@
 \end{frame} 
 %%%%
 \begin{frame}
-  \frametitle{Simulation of Boundary Deformation}
+  %\frametitle{Simulation of Boundary Profil}
+  \frametitle{\only<1-3>{GHD Calculation}\only<4>{Calculation of Boundary Profil and Fit of Data}}
 
   {\fontsize{7}{5}\selectfont
   \vspace{-3.0cm}
@@ -1583,6 +2368,7 @@
                 (0,0) rectangle (5.5,4.3);
 
           
+          \node[]  at (2.75,4) {\fontsize{10pt}{5}\selectfont $\bullet$ At $t = 0$};
           \node[] (A) at (2.75,2.2) {\includegraphics[width=0.55\textwidth, page=1]{figures/Shema.pdf}};
 
         \end{scope}
@@ -1599,7 +2385,7 @@
                 ]
                 (0,0) rectangle (5.5,4.3);
 
-          
+          \node[]  at (2.75,4) {\fontsize{10pt}{5}\selectfont $\bullet$ At $t > 0 $};
           \node[] (A) at (2.75,2.2) {\includegraphics[width=0.55\textwidth, page=2]{figures/Shema.pdf}};
 
         \end{scope}
@@ -1615,10 +2401,10 @@
                     rounded corners=6pt,
                     opacity=0.99
                 ]
-                (0,0) rectangle (6.2,7.5);
+                (0,3.2) rectangle (6.2,7.5);
 
           
-          \node[] (A) at (2.9,2.0) {\includegraphics[width=0.55\textwidth , page = 2 ]{figures/Graphs.pdf} };
+          \node[] (A) at (2.9,5.0) {\includegraphics[width=0.55\textwidth , page = 2 ]{figures/Graphs.pdf} };
 
         \end{scope}
         }
@@ -1700,7 +2486,11 @@
       %\vspace{1.3cm}
 
       \onslide<4->{
+      \alt<5->{
       \includegraphics[width=1.0\textwidth, page = 4]{figures/Graphs.pdf}
+      }{
+      \includegraphics[width=1.0\textwidth, page = 7]{figures/Graphs.pdf}
+      }
       }
       }
 
@@ -1717,10 +2507,10 @@
       %\vspace{1.3cm}
 
       \onslide<5->{
-      \alt<7->{
+      \alt<8->{
         \includegraphics[width=1.0\textwidth, page = 7]{figures/Graphs.pdf}
       }{
-      \alt<6>{
+      \alt<7>{
         \includegraphics[width=1.0\textwidth, page = 6]{figures/Graphs.pdf}
       }{
       \includegraphics[width=1.0\textwidth, page = 5]{figures/Graphs.pdf}
@@ -1736,7 +2526,7 @@
   
       \begin{tikzpicture}[remember picture, overlay]
     % Position absolue du coin inférieur gauche du petit tikz
-        \onslide<1-5>{
+        \onslide<1-6>{
         \begin{scope}[shift={(-0.5cm,3.5cm)}] % ici tu choisis la position absolue
             % Petit dessin
                 \draw[
@@ -1754,7 +2544,7 @@
         \end{scope}
         }
 
-        \onslide<6->{
+        \onslide<7->{
         \begin{scope}[shift={(-0.5cm,3.5cm)}] % ici tu choisis la position absolue
             % Petit dessin
                 \draw[
@@ -1772,7 +2562,7 @@
         \end{scope}
         }
 
-        \onslide<7->{
+        \onslide<8->{
         \begin{scope}[shift={(6cm,3.5cm)}] % ici tu choisis la position absolue
             % Petit dessin
                 \draw[
@@ -1798,6 +2588,11 @@
 
 
 \end{frame}
+
+\begin{frame}
+
+\end{frame}
+
 
 %
 % \begin{frame}
@@ -2303,29 +3098,29 @@
 %%
 % 
 
-\section{Fluctuations}
+\section{Fluctuations in stationary states}
 
-\begin{frame}
-  \frametitle{Ensemble de Gibbs Généralisé pour un sous-systeme à l'équilibre}
-  {\fontsize{6}{5}\selectfont
-  \textbf{Tous les quantitié conservé : } 
-  $$
-  \begin{array}{rcll}
-    \langle\mathcal{O}\rangle & \approx & \displaystyle \overline{\mathcal{O}}_{[\overline{\rho}]}\\
-    \\
-    \overline{N} & = & \displaystyle \ell \int \overline{\rho}(\theta) d \theta & \mbox{: particule nomber}\\
-    \overline{P} & = & \displaystyle \ell \int m \theta \overline{\rho}(\theta) d \theta & \mbox{: total momentum}\\
-    \overline{E} & = & \displaystyle \ell \int m \frac{\theta^2}2 \overline{\rho}(\theta) d \theta & \mbox{: energy}\\
-    & \vdots & & \mbox{Etc,}
-  \end{array}
-  $$
-  avec 
-  $$\langle\rho\rangle  = \overline{\rho}. $$
+% \begin{frame}
+%   \frametitle{Ensemble de Gibbs Généralisé pour un sous-systeme à l'équilibre}
+%   {\fontsize{6}{5}\selectfont
+%   \textbf{Tous les quantitié conservé : } 
+%   $$
+%   \begin{array}{rcll}
+%     \langle\mathcal{O}\rangle & \approx & \displaystyle \overline{\mathcal{O}}_{[\overline{\rho}]}\\
+%     \\
+%     \overline{N} & = & \displaystyle \ell \int \overline{\rho}(\theta) d \theta & \mbox{: particule nomber}\\
+%     \overline{P} & = & \displaystyle \ell \int m \theta \overline{\rho}(\theta) d \theta & \mbox{: total momentum}\\
+%     \overline{E} & = & \displaystyle \ell \int m \frac{\theta^2}2 \overline{\rho}(\theta) d \theta & \mbox{: energy}\\
+%     & \vdots & & \mbox{Etc,}
+%   \end{array}
+%   $$
+%   avec 
+%   $$\langle\rho\rangle  = \overline{\rho}. $$
 
-  Si
-  $$ \rho = \overline{\rho} + \delta \rho , \qquad \qquad   \langle \delta \rho (\theta)\delta \rho (\theta') \rangle = ?$$
-  }
-\end{frame}
+%   Si
+%   $$ \rho = \overline{\rho} + \delta \rho , \qquad \qquad   \langle \delta \rho (\theta)\delta \rho (\theta') \rangle = ?$$
+%   }
+% \end{frame}
 
 \begin{frame}
   \frametitle{Generalized Gibbs Ensemble (GGE) for a Homogeneous System}
@@ -2343,31 +3138,71 @@
   \vspace{4pt}
   \textbf{Open question:}  
   \begin{itemize}
-    \item Knowing only the average rapidity distribution $\rho_{\mathrm{eq}}(\theta)$ is not enough.  
-    \item Several ensembles can yield the same $\langle \rho(\theta) \rangle$.  
-    \item Need to study \textbf{fluctuations} around $\rho_{\mathrm{eq}}$:  
-      $$\rho = \rho_{\mathrm{eq}} + \delta\rho$$
+    \item Knowing only the average rapidity distribution $\overline{\rho}(\theta)$ is not enough.  
+    \item Several ensembles can yield the same $ \overline{\rho}(\theta)$.  
+    \item Need to study \textbf{fluctuations} around $\overline{\rho}$:  
+      $$\rho = \overline{\rho} + \delta\rho$$
   \end{itemize}
 
-  \vspace{4pt}
-  \textbf{Motivation:}  
-  \begin{itemize}
-    \item Expand the thermodynamic functional $(S_{\mathrm{YY}} - W)[\rho]$ to \textbf{quadratic order} in $\delta\rho$.  
-    \item Test whether the GGE not only reproduces mean quantities,  
-          but also the \textbf{correct fluctuations}.
-  \end{itemize}
+  $$\langle \delta \rho (\theta)\delta \rho (\theta') \rangle = ?$$
 
-  \vspace{6pt}
-  \centering
-  {\bf Goal: Test if GGE is the right statistical ensemble for the stationary state.}
-  }
+  % \vspace{4pt}
+  % \textbf{Motivation:}  
+  % \begin{itemize}
+  %   \item Expand the thermodynamic functional $(S_{\mathrm{YY}} - W)[\rho]$ to \textbf{quadratic order} in $\delta\rho$.  
+  %   \item Test whether the GGE not only reproduces mean quantities,  
+  %         but also the \textbf{correct fluctuations}.
+  % \end{itemize}
+
+  % \vspace{6pt}
+  % \centering
+  % {\bf Goal: Test if GGE is the right statistical ensemble for the stationary state.}
+  % }
+   \onslide<1->{
+      \begin{tikzpicture}[remember picture, overlay]
+    % Position absolue du coin inférieur gauche du petit tikz
+        \begin{scope}[shift={(8cm,1.5cm)}] % ici tu choisis la position absolue
+            % Petit dessin
+                \draw[
+                    line width=0.5ex,
+                    draw=\colorThree,
+                    fill=\colorTwo!50!\colorTwo,
+                    rounded corners=6pt,
+                    opacity=0.0
+                ]
+                (0,0) rectangle (5.5,4.3);
+
+          
+          \node[] (A) at (2.75,2.2) {
+$
+  \begin{array}{rcll}
+    \langle\mathcal{O}\rangle & \approx & \displaystyle \overline{\mathcal{O}}_{[\overline{\rho}]}\\[2mm]
+    \\
+    \overline{N} & = & \displaystyle \ell \int \overline{\rho}(\theta)\, d\theta  \\[2mm]
+    \overline{P} & = & \displaystyle \ell \int m \theta\, \overline{\rho}(\theta)\, d\theta  \\[2mm]
+    \overline{E} & = & \displaystyle \ell \int m \frac{\theta^2}{2}\, \overline{\rho}(\theta)\, d\theta  \\[2mm]
+    & \vdots & \text{etc.}
+  \end{array}
+$
+};
+
+        \end{scope}
+
+        
+
+        %\drawgrid{0}{10}{-0}{10}
+        
+      \end{tikzpicture}
+   }
+    
+}
 \end{frame}
 
 
 \begin{frame}
   \frametitle{System with a single locally conserved quantity}
-  {\fontsize{6}{5}\selectfont 
-  Locally: $$\langle \mathcal{O} \rangle = \mathcal{O}(e)$$ \\
+  {\fontsize{8pt}{5}\selectfont 
+  Locally: $$\langle \mathcal{O} \rangle = \mathcal{O}(e) , \quad E=\ell e $$ \\
   \onslide<2->{
   $$ p_i \propto e^{\ell \beta e_i}, \quad \beta = 1/(k_B T) $$
   $$ P(e) \propto e^{\ell (S(e) - \beta e)}, \quad e^{\ell S(e)} : \# \text{ microstates in } [e, e + de[ $$
@@ -2375,21 +3210,32 @@
 
   \onslide<3->{
   For large $\ell$:
-  $$ S(e) - \beta e = S(\overline{e}) - \beta \overline{e} + \frac{1}{2} \left( \frac{\partial^2 S}{\partial e^2} \right) \delta e^2, \quad \text{such that } \partial_e S = \beta $$
+  %$$ S(e) - \beta e = S(\overline{e}) - \beta \overline{e} + \frac{1}{2} \left( \frac{d^2 S}{d e^2} \right)_{e = \overline{e}} \delta e^2, \quad \text{such that } \left(\frac{ d  S}{de} \right)_{e = \overline{e}} = \beta $$
+  $$\left(\frac{ d  S}{de} \right)_{e = \overline{e}} = \beta $$
+  
   }
 
   \onslide<4->{
-  Hence:
-  $$ P(e) \propto e^{\frac{1}{2} \left( \frac{\partial^2 S}{\partial e^2} \right) \delta e^2} $$
-  Gaussian statistics:
-  $$ \langle \delta e^2 \rangle = - \left( \ell \frac{\partial^2 S}{\partial e^2} \right)^{-1} $$
+  %Hence:
+  $$ P(e) \propto e^{\frac{1}{2} \left( \frac{\partial^2 S}{\partial e^2} \right)_{e = \overline{e}} \delta e^2} %$$
+  %Gaussian statistics:
+  \quad , 
+  %$$
+   \langle \delta e^2 \rangle = - \left( \ell \left( \frac{\partial^2 S}{\partial e^2} \right)_{e = \overline{e}} \right)^{-1} $$
   }
   \\[1cm]
 
   \onslide<5->{
   For a system with conserved $N$ and $E$ (Gibbs ensemble):
-  $$ \langle \delta n^2 \rangle = - \left( \ell \frac{\partial^2 S}{\partial n^2} \right)^{-1} $$
-  $$ \langle \delta n \, \delta e \rangle = - \left( \ell \frac{\partial^2 S}{\partial n \, \partial e} \right)^{-1} $$
+  %$$ A_{i,j} = \left ( \frac{\partial^2 S}{\partial q_i \partial q_j } \right)_{n, e = \overline{n} , \overline{e} }, \quad q_1 =   n , q_2 =  e $$
+  $$ 
+  A = \left ( \begin{array}{cc} \left ( \frac{\partial^2 S}{\partial n ^2 } \right)_{\overline{n}, \overline{e}} & \left ( \frac{\partial^2 S}{\partial n  \partial e }  \right)_{\overline{n}, \overline{e}} \\ \left ( \frac{\partial^2 S}{\partial e  \partial n }  \right)_{\overline{n}, \overline{e}} &  \left ( \frac{\partial^2 S}{\partial e^2 } \right)_{\overline{n}, \overline{e}} \end{array}\right ) 
+  %$$ 
+  \quad , 
+  %$$
+   \langle \delta n^2 \rangle = - \left( \ell A \right)^{-1}_{1,1} $$
+  %$$ \langle \delta e^2 \rangle = - \left( \ell A \right)^{-1}_{2,2} $$
+  %$$ \langle \delta n \, \delta e \rangle = - \left( \ell A \right)^{-1}_{1,2} $$
   }
   }
 \end{frame}
@@ -2405,15 +3251,16 @@
   }
   \onslide<3->{
   For large $\ell$:
-  $$ S_{YY}[\rho] - \int \beta(\theta) \rho(x,\theta) \, d\theta = S_{YY}[\overline{\rho}] - \int \beta(\theta) \overline{\rho}(x,\theta) \, d\theta + \frac{1}{2} \int d\theta \, d\theta' \, \delta \rho(\theta) \left( \frac{\delta^2 S_{YY}}{\delta \rho(\theta) \delta \rho(\theta')} \right)_{\rho = \overline{\rho}} \delta \rho(\theta'), $$
-  with
+  %$$ S_{YY}[\rho] - \int \beta(\theta) \rho(x,\theta) \, d\theta = S_{YY}[\overline{\rho}] - \int \beta(\theta) \overline{\rho}(x,\theta) \, d\theta + \frac{1}{2} \int d\theta \, d\theta' \, \delta \rho(\theta) \left( \frac{\delta^2 S_{YY}}{\delta \rho(\theta) \delta \rho(\theta')} \right)_{\rho = \overline{\rho}} \delta \rho(\theta'), $$
+  %with
   $$ \left( \frac{\delta S_{YY}}{\delta \rho(\theta)} \right)_{\rho = \overline{\rho}} = \beta(\theta). $$
   }
   \onslide<4->{
   Hence:
-  $$ P_{[\rho]} \propto e^{\frac{1}{2} \int d\theta \, d\theta' \, \delta \rho(\theta) \left( \frac{\delta^2 S_{YY}}{\delta \rho(\theta) \delta \rho(\theta')} \right)_{\rho = \overline{\rho}} \delta \rho(\theta')} $$
+  $$ P_{[\rho]} \propto e^{\displaystyle \frac{1}{2} \int d\theta \, d\theta' \, \delta \rho(\theta) \mathcal{H}(\theta,\theta') \delta \rho(\theta')} $$
   Gaussian statistics:
-  $$ \langle \delta \rho(\theta) \, \delta \rho(\theta') \rangle = - \left( \ell \left( \frac{\delta^2 S_{YY}}{\delta \rho(\theta) \delta \rho(\theta')} \right)_{\rho = \overline{\rho}} \right)^{-1} $$
+  $$ \mathcal{H}(\theta,\theta') = \left( \frac{\delta^2 S_{YY}}{\delta \rho(\theta) \delta \rho(\theta')} \right)_{\rho = \overline{\rho}}$$ 
+  $$ \langle \delta \rho(\theta) \, \delta \rho(\theta') \rangle = - \left( \ell \mathcal{H}\right)^{-1}(\theta,\theta') $$
   }
   }
 \end{frame}
@@ -2442,6 +3289,33 @@
   }
   }
 \end{frame}
+
+\End
+
+\begin{frame}
+  \frametitle{Conclusion and Perspectives}
+  \begin{itemize}
+    %\item \textbf{First spatially resolved probe} of rapidity distributions.
+    %\item \textbf{Out-of-equilibrium dynamics} successfully investigated.
+    \item \textbf{Out-of-equilibrium dynamics} successfully described within the partitioning protocol framework.
+    \item \textbf{GHD-based analysis} enabling quantitative understanding.
+    \item \textbf{Performed fluctuation calculations for large systems}.
+  \end{itemize}
+
+  \vspace{0.5cm}
+  \textbf{Outlook:}
+  \begin{itemize}
+    \item \textbf{Observation of effects beyond the Euler scale:} 
+deviation between bipartition data and Euler-scale simulations, 
+possibly due to technical limitations or data issues.
+    \item \textbf{Realization of a box-shaped potential:} dipole potential.
+    %\item \textbf{Dipole potential} for a more homogeneous system.
+    %\item \textbf{Monte Carlo approach} to study rapidity fluctuations beyond mean-field.
+    \item For small systems, fluctuations are non-Gaussian: 
+\textbf{Monte Carlo approach} to study rapidity fluctuations beyond mean-field.
+  \end{itemize}
+\end{frame}
+
 
 
 

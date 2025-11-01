@@ -327,12 +327,13 @@ table [meta=z] {./data/donnees1.dat};
 		\node at (0,0) [circle, ]{\includegraphics[height = 1.6\textwidth ]{data/complete_graph_coupure_1_0.pdf}}; 
 	\end{scope}
 				
-	\draw[opacity = 0.5 , dashed , dash pattern=on 6pt off 3pt, line width=1.8ex , color = \colorOne , fill = none] 
+	\draw[opacity = 1 , dashed , dash pattern=on 6pt off 3pt, line width=1.8ex , color = \colorOne , fill = none] 
 		plot[smooth] file {data/bord_0_0.table}
 		(0,0) edge [shift = {(-7.5cm , 6cm)} ]node [scale = 1.5 , pos=1.1, right , font = \fontsize{150pt}{10pt}\selectfont \bfseries , color = colorOne  ]{  $ x_{t=0}^b $ } ( 1  , 0 )	 
 	;
 	
-	\node at (5,1.5) [scale = 1.5, circle, font = \fontsize{150pt}{10pt}\selectfont \bfseries , color = colorTwo  ] { $\nu(x,\theta ; 0)$ };
+	%\node at (5,1.5) [scale = 1.5, circle, font = \fontsize{150pt}{10pt}\selectfont \bfseries , color = colorTwo  ] { $\nu(x,\theta ; 0)$ };
+	\node at (5,1.5) [scale = 1.5, circle, font = \fontsize{150pt}{10pt}\selectfont \bfseries , color = colorTwo  ] { $\nu_0(\theta)$ };
 
 	\node at (0,0) [circle, ] {\begin{tikzpicture}[transform canvas={scale=1}] \Axesphase[\color{\colorFour} $x ~ (\mu m)$]{$\theta ~ (\mu m / {ms}) $} \end{tikzpicture}};
 
@@ -402,7 +403,7 @@ table [meta=z] {./data/donnees1.dat};
 		%\filldraw[  smooth, line width=1.8ex, color=\colorFour, fill=\colorThree] (-10,0)  .. controls (0,0) and (-10,5) .. (0,5) .. controls (10,5) and (0,0) .. (10,0);	
 					
 
-    	\filldraw[opacity = 1.0 , smooth , dashed , line width=1.8ex , color = \colorFour , fill = none] plot coordinates {(-10,0)  (10 , 0 )};
+    	%\filldraw[opacity = 1.0 , smooth , dashed , line width=1.8ex , color = \colorFour , fill = none] plot coordinates {(-10,0)  (10 , 0 )};
     	\draw[opacity = 1.0 ,  line width=1.8ex , color = \colorSix, fill = none] plot[smooth] file {data/insitut.table};
     				
     	\draw[line width=1.8ex , color = \colorFour]     	
@@ -411,15 +412,15 @@ table [meta=z] {./data/donnees1.dat};
     	;				
 	\end{scope}	
 				
-	\draw[shift={(4,5)}]
-		%(4,5) edge [thick,line width=1.8ex,opacity = 0.9 , dashed , color = \colorThree ]node [pos=1.1, right ]{\huge $\nu(x < 0 ; t = 0^{-})$ } ( 4.5  , 5 )	
-    	%(4,4) edge [thick,line width=1.8ex , color = \colorFour ]node [pos=1.1, right ]{\huge $\nu(x < 0 ; t = 0^{+} )$ } ( 4.5  , 4 )
-		(0,0) edge [thick,line width=1.8ex,opacity = 1.0 , color = colorSix]node [scale = 1.5 , pos=1.1, right , font = \fontsize{150pt}{10pt}\selectfont \bfseries  ]{$\nu(x > 0 ) = \nu_0 $ } ( 1  , 0 )
-		(0,0) edge [shift={(0,-1.5)}, thick,line width=1.8ex , dashed , color = colorFour ]node [scale = 1.5 , pos=1.1, right  , font = \fontsize{150pt}{10pt}\selectfont \bfseries ]{$\nu(x < 0 ) = 0 $ } ( 1 , 0 )	
+	% \draw[shift={(4,5)}]
+	% 	%(4,5) edge [thick,line width=1.8ex,opacity = 0.9 , dashed , color = \colorThree ]node [pos=1.1, right ]{\huge $\nu(x < 0 ; t = 0^{-})$ } ( 4.5  , 5 )	
+    % 	%(4,4) edge [thick,line width=1.8ex , color = \colorFour ]node [pos=1.1, right ]{\huge $\nu(x < 0 ; t = 0^{+} )$ } ( 4.5  , 4 )
+	% 	(0,0) edge [thick,line width=1.8ex,opacity = 1.0 , color = colorSix]node [scale = 1.5 , pos=1.1, right , font = \fontsize{150pt}{10pt}\selectfont \bfseries  ]{$\nu(x > 0 ) = \nu_0 $ } ( 1  , 0 )
+	% 	(0,0) edge [shift={(0,-1.5)}, thick,line width=1.8ex , dashed , color = colorFour ]node [scale = 1.5 , pos=1.1, right  , font = \fontsize{150pt}{10pt}\selectfont \bfseries ]{$\nu(x < 0 ) = 0 $ } ( 1 , 0 )	
 		
     				
-    ;	
-	\Axesdistribution[$\theta ~ (\mu m / {ms}) $]{$\nu ( t = 0 ) $}
+    % ;	
+	\Axesdistribution[$\theta ~ (\mu m / {ms}) $]{$\nu_0(\theta) $}
 }
 
 \newcommand{\CoupureUnZeroDistributionMinusRho}[0]{
@@ -494,10 +495,10 @@ table [meta=z] {./data/donnees1.dat};
 			\draw
     			(0.45, 0.2) edge[line width=2.8ex, color=colorFour] (0.45, -0.2)
         		(0.2 , 1.45 ) edge[line width=2.8ex, color=colorFour] 
-        						node[pos=1.1, left , font = \fontsize{150pt}{10pt}\selectfont \bfseries ]{ \color{colorFour} $\theta_b^\ast$} (-0.2 , 1.45 )
-				(0.45 , -9.0 ) edge[line width=1.8ex, color=colorFour , dashed ] (0.45 , -3.2 )
-        		(0.45 , -0.5 ) edge[line width=1.8ex, color=colorFour , dashed ] node[pos=0.0, left , rotate = 90 , font = \fontsize{150pt}{10pt}\selectfont \bfseries, color = colorFour ]{ $x_b/t$}  (0.45 , 9.0 )
-        		(-0.2 , 1.45 )  edge[line width=1.8ex, color=colorFour , dashed ] (1.0  , 1.45 )
+        						node[pos=1.1, left , scale = 1.5 , font = \fontsize{150pt}{10pt}\selectfont \bfseries ]{ \color{colorFour} $\theta_b^\ast$} (-0.2 , 1.45 )
+				(0.45 , -9.0 ) edge[line width=1.8ex, color=colorFour ,  ] (0.45 , -3.9 )
+        		(0.45 , -0.5 ) edge[line width=1.8ex, color=colorFour , ] node[pos=0.0, left , rotate = 90 ,scale = 1.5,  font = \fontsize{150pt}{10pt}\selectfont \bfseries, color = colorFour ]{ $x_b/t$}  (0.45 , 9.0 )
+        		(-0.2 , 1.45 )  edge[line width=1.8ex, color=colorFour , ] (1.0  , 1.45 )
         	;
 
         					
@@ -508,12 +509,17 @@ table [meta=z] {./data/donnees1.dat};
 		%   [fill=blue!20,draw=blue,thick] (0,0) -- (2,1) arc (90:-90:.5) -- cycle;
 		
 		};
-	\draw[opacity = 0.5 , dashed , dash pattern=on 6pt off 3pt, line width=1.8ex , color = \colorOne , fill = none] 
+	% \draw[opacity = 0.5 , dashed , dash pattern=on 6pt off 3pt, line width=1.8ex , color = \colorOne , fill = none] 
+	% 	plot[smooth] file {data/bord_0_sur_18.table}
+	% 	(0,0) edge [shift = {(-7.5,7)}]node [ scale = 1.2, pos=1.1, right , font = \fontsize{150pt}{150pt}\selectfont  \bfseries ,  color = colorOne  ]{ $ x_t^b/t \, \& \, v^{\mathrm{eff}}_{[\nu^\ast]}(\theta^\ast)$ } ( 1  , 0)	 
+	% ;
+	\draw[opacity = 1 , dashed , dash pattern=on 6pt off 3pt, line width=1.8ex , color = \colorOne , fill = none] 
 		plot[smooth] file {data/bord_0_sur_18.table}
-		(0,0) edge [shift = {(-7.5,7)}]node [ scale = 1.0, pos=1.1, right , font = \fontsize{150pt}{150pt}\selectfont  \bfseries ,  color = colorOne  ]{ $ x_t^b/t \, \& \, v^{\mathrm{eff}}_{[\nu^\ast]}(\theta^\ast)$ } ( 1  , 0)	 
+		(0,0) edge [shift = {(-7.5,7)}]node [ scale = 1.5, pos=1.1, right , font = \fontsize{150pt}{150pt}\selectfont  \bfseries ,  color = colorOne  ]{ $ x_t^b/t $ } ( 1  , 0)	 
 	;
 
-	\node at (5,1.5) [scale = 1.5, circle, font = \fontsize{150pt}{10pt}\selectfont \bfseries , color = colorTwo  ] { $\nu(x,\theta ; t)$ };
+	%\node at (5,1.5) [scale = 1.5, circle, font = \fontsize{150pt}{10pt}\selectfont \bfseries , color = colorTwo  ] { $\nu(x,\theta ; t)$ };
+	\node at (5,1.5) [scale = 1.5, circle, font = \fontsize{150pt}{10pt}\selectfont \bfseries , color = colorTwo  ] { $\nu_0(\theta)$ };
 	
 	% \node[
     % 	rotate=90,
@@ -625,10 +631,12 @@ table [meta=z] {./data/donnees1.dat};
 	\end{scope}
 	\draw
     	(1.45, 0.2) edge[line width=1.8ex, color=\colorThree] 
-        				node[pos=1.1, below , , scale = 1.2,  font = \fontsize{150pt}{10pt}\selectfont \bfseries ]{ $\theta_b^\ast$} (1.45, -0.2)
+        				node[pos=1.1, below , , scale = 1.5,  font = \fontsize{150pt}{10pt}\selectfont \bfseries ]{ $\theta_b^\ast$} (1.45, -0.2)
         				
-        (0,0) edge [shift = {(4,5)}, thick,line width=1.8ex,opacity = 1 , dashed , color = colorSix ]node [pos=1.1, right ,  scale = 1.5,  font = \fontsize{150pt}{10pt}\selectfont \bfseries ]{ $\nu(x_b; t = 0^{-}) = \nu_0 $ } ( 1  , 0 )	
-    	(0,0) edge [shift = {(4,3.5)},thick,line width=1.8ex , color = \colorFour ]node [pos=1.1, right , scale = 1.5,  font = \fontsize{150pt}{10pt}\selectfont \bfseries ]{ $\nu(x_b; t = 18 ~ms )$ } ( 1  , 0 )	
+        %(0,0) edge [shift = {(4,5)}, thick,line width=1.8ex,opacity = 1 , dashed , color = colorSix ]node [pos=1.1, right ,  scale = 1.5,  font = \fontsize{150pt}{10pt}\selectfont \bfseries ]{ $\nu(x_b; t = 0^{-}) = \nu_0 $ } ( 1  , 0 )	
+    	%(0,0) edge [shift = {(4,3.5)},thick,line width=1.8ex , color = \colorFour ]node [pos=1.1, right , scale = 1.5,  font = \fontsize{150pt}{10pt}\selectfont \bfseries ]{ $\nu(x_b; t = 18 ~ms )$ } ( 1  , 0 )	
+		(0,0) edge [shift = {(4,5)}, thick,line width=1.8ex,opacity = 1 , dashed , color = colorSix ]node [pos=1.1, right ,  scale = 1.5,  font = \fontsize{150pt}{10pt}\selectfont \bfseries ]{ $\nu_0 $ } ( 1  , 0 )	
+    	(0,0) edge [shift = {(4,3.5)},thick,line width=1.8ex , color = \colorFour ]node [pos=1.1, right , scale = 1.5,  font = \fontsize{150pt}{10pt}\selectfont \bfseries ]{ $\nu(x_b/t)$ } ( 1  , 0 )
     ;		
 	\Axesdistribution[$\theta ~ (\mu m/ms)$]{$\nu ( x_b ) $}
 	
@@ -745,14 +753,14 @@ table [meta=z] {./data/donnees1.dat};
 	\node at (0,0) [circle, ] {
 		\begin{tikzpicture}[transform canvas={scale=1}] 
 			%\Axesphase[\color{\colorFour}  $x/t {~}\qquad  $]{$\theta ~ (\mu m / {ms}) $}
-			\draw[opacity = 0.5]
-    			(0.45, 0.2) edge[line width=0.8ex, color=colorFour] (0.45, -0.2)
-        		(0.2 , 1.45 ) edge[line width=0.8ex, color=colorFour] 
-        						node[pos=1.1, left , font = \fontsize{150pt}{10pt}\selectfont \bfseries ]{ \color{colorFour} $\theta_g^\ast$} (-0.2 , 1.45 )
-				(0.45 , -9.0 ) edge[line width=0.8ex, color=colorFour , dashed ] (0.45 , 3.2 )
-        		(0.45 , 5.5 ) edge[line width=0.8ex, color=colorFour , dashed ] node[pos=0.0, left , rotate = 90 , font = \fontsize{150pt}{10pt}\selectfont \bfseries, color = colorFour ]{ $x_g$}  (0.45 , 9.0 )
-        		(-0.2 , 1.45 )  edge[line width=0.8ex, color=colorFour , dashed ] (1.0  , 1.45 )
-        	;
+			% \draw[opacity = 0.5]
+    		% 	(0.45, 0.2) edge[line width=0.8ex, color=colorFour] (0.45, -0.2)
+        	% 	(0.2 , 1.45 ) edge[line width=0.8ex, color=colorFour] 
+        	% 					node[pos=1.1, left , font = \fontsize{150pt}{10pt}\selectfont \bfseries ]{ \color{colorFour} $\theta_g^\ast$} (-0.2 , 1.45 )
+			% 	(0.45 , -9.0 ) edge[line width=0.8ex, color=colorFour , dashed ] (0.45 , 3.2 )
+        	% 	(0.45 , 5.5 ) edge[line width=0.8ex, color=colorFour , dashed ] node[pos=0.0, left , rotate = 90 , font = \fontsize{150pt}{10pt}\selectfont \bfseries, color = colorFour ]{ $x_g$}  (0.45 , 9.0 )
+        	% 	(-0.2 , 1.45 )  edge[line width=0.8ex, color=colorFour , dashed ] (1.0  , 1.45 )
+        	% ;
 
         					
 		\end{tikzpicture}
@@ -762,18 +770,18 @@ table [meta=z] {./data/donnees1.dat};
 		%   [fill=blue!20,draw=blue,thick] (0,0) -- (2,1) arc (90:-90:.5) -- cycle;
 		
 		};
-	\draw[opacity = 0.5 , dashed , dash pattern=on 6pt off 3pt, line width=1.0ex , color = colorThree , fill = none] 
-		plot[smooth] file {data/bord_0_sur_18.table}
-		(0,0) edge [shift = {(-7.5,7)}]node [ scale = 1.0, pos=1.1, right , font = \fontsize{150pt}{150pt}\selectfont  \bfseries ,  color = colorOne  ]{ $ x^b$ } ( 1  , 0)	 
-	;
-	\draw[opacity = 1 , dotted , dash pattern=on 8pt off 2pt on 2pt off 2pt, line width=2.0ex , color = colorOne , fill = none] 
-		plot[smooth] file {data/bord_1_0.table}
-		(0,0) edge [shift = {(-7.5,5.5)}]node [pos=1.1, right , font = \fontsize{150pt}{150pt}\selectfont  \bfseries ,  ]{ $x_{\tau = 0}^g$ } ( 1  , 0)	 
-	;
-	\draw[opacity = 1 , dash dot , dash pattern=on 8pt off 2pt on 2pt off 2pt, line width=2.0ex , color = colorFour , fill = none] 
-		plot[smooth] file {data/bord_2_0.table}
-		(0,0) edge [shift = {(-7.5,4)}]node [pos=1.1, right , font = \fontsize{150pt}{150pt}\selectfont  \bfseries ,  ]{ $x_{\tau = 0}^d$ } ( 1  , 0)	 
-	;
+	% \draw[opacity = 0.5 , dashed , dash pattern=on 6pt off 3pt, line width=1.0ex , color = colorThree , fill = none] 
+	% 	plot[smooth] file {data/bord_0_sur_18.table}
+	% 	(0,0) edge [shift = {(-7.5,7)}]node [ scale = 1.0, pos=1.1, right , font = \fontsize{150pt}{150pt}\selectfont  \bfseries ,  color = colorOne  ]{ $ x^b$ } ( 1  , 0)	 
+	% ;
+	% \draw[opacity = 1 , dotted , dash pattern=on 8pt off 2pt on 2pt off 2pt, line width=2.0ex , color = colorOne , fill = none] 
+	% 	plot[smooth] file {data/bord_1_0.table}
+	% 	(0,0) edge [shift = {(-7.5,5.5)}]node [pos=1.1, right , font = \fontsize{150pt}{150pt}\selectfont  \bfseries ,  ]{ $x_{\tau = 0}^g$ } ( 1  , 0)	 
+	% ;
+	% \draw[opacity = 1 , dash dot , dash pattern=on 8pt off 2pt on 2pt off 2pt, line width=2.0ex , color = colorFour , fill = none] 
+	% 	plot[smooth] file {data/bord_2_0.table}
+	% 	(0,0) edge [shift = {(-7.5,4)}]node [pos=1.1, right , font = \fontsize{150pt}{150pt}\selectfont  \bfseries ,  ]{ $x_{\tau = 0}^d$ } ( 1  , 0)	 
+	% ;
 	
 	%\node at (5,1.5) [scale = 1.5, circle, font = \fontsize{150pt}{10pt}\selectfont \bfseries , color = colorTwo  ] { $\nu(x,\theta ; 0)$ };
 
@@ -888,14 +896,14 @@ table [meta=z] {./data/donnees1.dat};
 	% 	(-7,5) edge []node [pos=1.1, right , font = \fontsize{150pt}{150pt}\selectfont  \bfseries]{ $x_{\tau}^d$ } ( -6.5  , 5 )	 
 	% ;
 
-	\draw[opacity = 1 , dotted , dash pattern=on 8pt off 2pt on 2pt off 2pt, line width=2.0ex , color = colorOne , fill = none] 
-		plot[smooth] file {data/bord_1_30.table}
-		(0,0) edge [shift = {(-7.5,5.5)}]node [pos=1.1, right , font = \fontsize{150pt}{150pt}\selectfont  \bfseries ,  ]{ $x_{\tau}^g$ } ( 1  , 0)	 
-	;
-	\draw[opacity = 1 , dash dot , dash pattern=on 8pt off 2pt on 2pt off 2pt, line width=2.0ex , color = colorFour , fill = none] 
-		plot[smooth] file {data/bord_2_30.table}
-		(0,0) edge [shift = {(-7.5,4)}]node [pos=1.1, right , font = \fontsize{150pt}{150pt}\selectfont  \bfseries ,  ]{ $x_{\tau}^d$ } ( 1  , 0)	 
-	;
+	% \draw[opacity = 1 , dotted , dash pattern=on 8pt off 2pt on 2pt off 2pt, line width=2.0ex , color = colorOne , fill = none] 
+	% 	plot[smooth] file {data/bord_1_30.table}
+	% 	(0,0) edge [shift = {(-7.5,5.5)}]node [pos=1.1, right , font = \fontsize{150pt}{150pt}\selectfont  \bfseries ,  ]{ $x_{\tau}^g$ } ( 1  , 0)	 
+	% ;
+	% \draw[opacity = 1 , dash dot , dash pattern=on 8pt off 2pt on 2pt off 2pt, line width=2.0ex , color = colorFour , fill = none] 
+	% 	plot[smooth] file {data/bord_2_30.table}
+	% 	(0,0) edge [shift = {(-7.5,4)}]node [pos=1.1, right , font = \fontsize{150pt}{150pt}\selectfont  \bfseries ,  ]{ $x_{\tau}^d$ } ( 1  , 0)	 
+	% ;
 	
 	% \node[
     % 	rotate=90,
@@ -987,7 +995,8 @@ table [meta=z] {./data/donnees1.dat};
 \begin{tikzpicture}[scale=1]
 	\node at (0,0) [rectangle ]{
 		\begin{tikzpicture}[transform canvas={scale=1}] 
-			\DiagramDensityDistribution{\CoupureUnZeroDiagramP}{\CoupureUnZeroDensity}{\CoupureUnZeroDistributionMinus}{\Vide}
+			%\DiagramDensityDistribution{\CoupureUnZeroDiagramP}{\CoupureUnZeroDensity}{\CoupureUnZeroDistributionMinus}{\Vide}
+			\DiagramDensityDistribution{\CoupureUnZeroDiagramP}{\Vide}{\CoupureUnZeroDistributionMinus}{\Vide}
 		\end{tikzpicture}
 	};
 	%\drawgrid{-20}{13}{-11}{20}
@@ -997,7 +1006,8 @@ table [meta=z] {./data/donnees1.dat};
 \begin{tikzpicture}[scale=1]
 	\node at (0,0) [rectangle ]{
 		\begin{tikzpicture}[transform canvas={scale=1}] 
-			\DiagramDensityDistribution{\CoupureUnVeffDiagram}{\CoupureUnVeffDensity}{\CoupureUnVeffDistribution}{\Vide}
+			%\DiagramDensityDistribution{\CoupureUnVeffDiagram}{\CoupureUnVeffDensity}{\CoupureUnVeffDistribution}{\Vide}
+			\DiagramDensityDistribution{\CoupureUnVeffDiagram}{\Vide}{\CoupureUnVeffDistribution}{\Vide}
 		\end{tikzpicture}
 	};
 	%\drawgrid{-20}{13}{-11}{20}
