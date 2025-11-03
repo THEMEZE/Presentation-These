@@ -5,7 +5,7 @@
 \begin{document}
 
 \frame[plain]{\titlepage}
-%\frame[plain,bg=./figures/vages.jpeg]{\titlepage}
+\frame[plain,bg=./figures/vages.jpeg]{\titlepage}
 % \begin{frame}[plain]{\titlepage}
 % \end{frame}
 
@@ -24,338 +24,338 @@
 
 % Rapidities and GGE in a classical system
 %%%%%%%
-\begin{frame}
-  \frametitle{Why are 1D systems different ?}
-  \framesubtitle{Classical hard-sphere}
+% \begin{frame}
+%   \frametitle{Why are 1D systems different ?}
+%   \framesubtitle{(Classical hard-sphere)}
 
   
-  %\begin{columns}
+%   %\begin{columns}
   
-    % === Colonne gauche ===
-    %\begin{column}{0.5\textwidth}
-      \begin{columns}[T, totalwidth=\textwidth]
-        \centering
-        \onslide<3->{
-        \begin{column}{0.5\textwidth} 
-          \centering
-          \begin{block}{Chaotic/Ergodic}
-          \end{block}
-        \end{column}
-        }
-        \onslide<4->{
-        \begin{column}{0.5\textwidth} 
-          \centering
-          \begin{block}{Integrable/non-ergodic}
-          \end{block}
-        \end{column}
-        }
-      \end{columns}
+%     % === Colonne gauche ===
+%     %\begin{column}{0.5\textwidth}
+%       \begin{columns}[T, totalwidth=\textwidth]
+%         \centering
+%         \onslide<3->{
+%         \begin{column}{0.5\textwidth} 
+%           \centering
+%           \begin{block}{Chaotic/Ergodic}
+%           \end{block}
+%         \end{column}
+%         }
+%         \onslide<4->{
+%         \begin{column}{0.5\textwidth} 
+%           \centering
+%           \begin{block}{Integrable/non-ergodic}
+%           \end{block}
+%         \end{column}
+%         }
+%       \end{columns}
 
-      \begin{columns}[c, totalwidth=\textwidth]
+%       \begin{columns}[c, totalwidth=\textwidth]
       
-        % --- Sous-colonne gauche ---
-        \begin{column}{0.5\textwidth} 
-          \centering
-          %\begin{block}%{Chaotic/Ergodic}\centering
-          \parbox{0.6\linewidth}{
-            \only<1-2>{
-              \includegraphics[width=\linewidth]{figures/frames_2D_positions_animation/frame_00001}
-            }
-            \only<3>{
-              \animategraphics[
-            %controls, 
-            autoplay, % démarre automatiquement 
-            %loop, % boucle infinie,
-            %palindrome, % (optionnel) rejoue à l'envers,
-            %clicktoshow, % permet de lancer/pause par clic
-            width=\linewidth,
-            %buttonsize=1em,
-            poster=first
-          ]{60}{figures/frames_2D_positions_animation/frame_}{00001}{00600}
-            }
-            \only<4->{
-              \includegraphics[width=\linewidth]{figures/frames_2D_positions_animation/frame_00600}
-            }
-          }
-          % \alt<3>{
-          % \animategraphics[
-          %   %controls, 
-          %   autoplay, % démarre automatiquement 
-          %   %loop, % boucle infinie,
-          %   %palindrome, % (optionnel) rejoue à l'envers,
-          %   %clicktoshow, % permet de lancer/pause par clic
-          %   width=0.6\linewidth,
-          %   %buttonsize=1em,
-          %   poster=last
-          % ]{60}{figures/frames_2D_positions_animation/frame_}{00001}{00060}
-          % }{
-          %   \includegraphics[width=0.6\linewidth]{figures/frames_2D_positions_animation/frame_00001}
-          % }
+%         % --- Sous-colonne gauche ---
+%         \begin{column}{0.5\textwidth} 
+%           \centering
+%           %\begin{block}%{Chaotic/Ergodic}\centering
+%           \parbox{0.6\linewidth}{
+%             \only<1-2>{
+%               \includegraphics[width=\linewidth]{figures/frames_2D_positions_animation/frame_00001}
+%             }
+%             \only<3>{
+%               \animategraphics[
+%             %controls, 
+%             autoplay, % démarre automatiquement 
+%             %loop, % boucle infinie,
+%             %palindrome, % (optionnel) rejoue à l'envers,
+%             %clicktoshow, % permet de lancer/pause par clic
+%             width=\linewidth,
+%             %buttonsize=1em,
+%             poster=first
+%           ]{60}{figures/frames_2D_positions_animation/frame_}{00001}{00600}
+%             }
+%             \only<4->{
+%               \includegraphics[width=\linewidth]{figures/frames_2D_positions_animation/frame_00600}
+%             }
+%           }
+%           % \alt<3>{
+%           % \animategraphics[
+%           %   %controls, 
+%           %   autoplay, % démarre automatiquement 
+%           %   %loop, % boucle infinie,
+%           %   %palindrome, % (optionnel) rejoue à l'envers,
+%           %   %clicktoshow, % permet de lancer/pause par clic
+%           %   width=0.6\linewidth,
+%           %   %buttonsize=1em,
+%           %   poster=last
+%           % ]{60}{figures/frames_2D_positions_animation/frame_}{00001}{00060}
+%           % }{
+%           %   \includegraphics[width=0.6\linewidth]{figures/frames_2D_positions_animation/frame_00001}
+%           % }
 
-          \onslide<6->{
-          {\fontsize{10}{5}\selectfont 
-          \begin{tikzpicture}[remember picture, overlay]
-            \node []  at  (2,2.5)   (part)                            {$n$};
-            \node []     (moment) [below=1mm of part]             {$p$};
-            \node []     (nrj) [below=1mm of moment]             {$\varepsilon$};
-	          \draw[  opacity = 0.5 ]
-		          (part) edge[line width=0.2ex ,color = blue ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 90 , in = 180  ]node[pos=1, right]{\color{blue} \fontsize{6}{1}\selectfont \bfseries  particle density }($(part) + (1cm,1.0cm)$)
-              (moment) edge[line width=0.2ex ,color = red ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 0 , in = 180  ]node[pos=1, right]{\color{red} \fontsize{6}{1}\selectfont \bfseries  momentum density }($(moment) + (1cm,0.75cm)$)
-              (nrj) edge[line width=0.2ex ,color = black ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = -90 , in = 180  ]node[pos=1, right]{\color{black} \fontsize{6}{1}\selectfont \bfseries  energy density }($(nrj) + (1cm,-0.75cm)$)
-	          ;
-          \end{tikzpicture}
-          }
-          }
-        %\end{block}
-        \end{column}
+%           \onslide<6->{
+%           {\fontsize{10}{5}\selectfont 
+%           \begin{tikzpicture}[remember picture, overlay]
+%             \node []  at  (2,2.5)   (part)                            {$n$};
+%             \node []     (moment) [below=1mm of part]             {$p$};
+%             \node []     (nrj) [below=1mm of moment]             {$\varepsilon$};
+% 	          \draw[  opacity = 0.5 ]
+% 		          (part) edge[line width=0.2ex ,color = blue ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 90 , in = 180  ]node[pos=1, right]{\color{blue} \fontsize{6}{1}\selectfont \bfseries  particle density }($(part) + (1cm,1.0cm)$)
+%               (moment) edge[line width=0.2ex ,color = red ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 0 , in = 180  ]node[pos=1, right]{\color{red} \fontsize{6}{1}\selectfont \bfseries  momentum density }($(moment) + (1cm,0.75cm)$)
+%               (nrj) edge[line width=0.2ex ,color = black ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = -90 , in = 180  ]node[pos=1, right]{\color{black} \fontsize{6}{1}\selectfont \bfseries  energy density }($(nrj) + (1cm,-0.75cm)$)
+% 	          ;
+%           \end{tikzpicture}
+%           }
+%           }
+%         %\end{block}
+%         \end{column}
         
-        % --- Sous-colonne droite ---
-        \begin{column}{0.5\textwidth} 
-          \centering
-          %\begin{block}%{Integrable/non-ergidic}\centering
-          \parbox{0.6\linewidth}{
-            \only<1-3>{
-              \includegraphics[width=\linewidth]{figures/frames_1D_positions_animation/frame_00001}
-            }
-            \only<4-5>{
-              \animategraphics[
-            width=\linewidth,
-            autoplay, % démarre automatiquement 
-            %loop, % boucle infinie,
-            buttonsize=1em,
-            poster=first
-          ]{60}{figures/frames_1D_positions_animation/frame_}{00001}{00600} 
-            }
-            \only<6->{
-              \includegraphics[width=\linewidth]{figures/frames_1D_positions_animation/frame_00001}
-            }
-          }
+%         % --- Sous-colonne droite ---
+%         \begin{column}{0.5\textwidth} 
+%           \centering
+%           %\begin{block}%{Integrable/non-ergidic}\centering
+%           \parbox{0.6\linewidth}{
+%             \only<1-3>{
+%               \includegraphics[width=\linewidth]{figures/frames_1D_positions_animation/frame_00001}
+%             }
+%             \only<4-5>{
+%               \animategraphics[
+%             width=\linewidth,
+%             autoplay, % démarre automatiquement 
+%             %loop, % boucle infinie,
+%             buttonsize=1em,
+%             poster=first
+%           ]{60}{figures/frames_1D_positions_animation/frame_}{00001}{00600} 
+%             }
+%             \only<6->{
+%               \includegraphics[width=\linewidth]{figures/frames_1D_positions_animation/frame_00001}
+%             }
+%           }
 
 
-          \onslide<5->{
-          {
-          \fontsize{10}{5}\selectfont 
-          \begin{tikzpicture}[remember picture, overlay]
-            \node []  at  (0,0)   (rho)                            {$\rho(v)$};
-	          \draw[  opacity = 0.5 ]
-              (rho) edge[line width=0.2ex ,color = black ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = -90 , in = 180  ]node[pos=1, right]{\color{black} \fontsize{6}{1}\selectfont \bfseries  velocity distribution }($(rho) + (1cm,-0.75cm)$)
-	          ;
-          \end{tikzpicture}
-          }
-          }
+%           \onslide<5->{
+%           {
+%           \fontsize{10}{5}\selectfont 
+%           \begin{tikzpicture}[remember picture, overlay]
+%             \node []  at  (0,0)   (rho)                            {$\rho(v)$};
+% 	          \draw[  opacity = 0.5 ]
+%               (rho) edge[line width=0.2ex ,color = black ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = -90 , in = 180  ]node[pos=1, right]{\color{black} \fontsize{6}{1}\selectfont \bfseries  velocity distribution }($(rho) + (1cm,-0.75cm)$)
+% 	          ;
+%           \end{tikzpicture}
+%           }
+%           }
           
           
-        %\end{block}
-        \end{column}
+%         %\end{block}
+%         \end{column}
         
-      \end{columns}
-    %\end{column}
-    \vspace{0.2cm}
-    % === Colonne droite ===
-   %\begin{column}{0.5\textwidth} 
+%       \end{columns}
+%     %\end{column}
+%     \vspace{0.2cm}
+%     % === Colonne droite ===
+%    %\begin{column}{0.5\textwidth} 
    
-      % \begin{columns}[T, totalwidth=\textwidth]
+%       % \begin{columns}[T, totalwidth=\textwidth]
       
-      %   % --- Sous-colonne gauche ---
-      %   \begin{column}{0.5\textwidth} 
-      %     \centering
-      %     \begin{block}{}
-      %     \centering
-      %     \begin{columns}[c, totalwidth=\textwidth]
-      %       \begin{column}{0.4\textwidth} 
-      %         \centering
-      %         \alt<2->{
-      %         \animategraphics[
-      %           autoplay,
-      %           %loop,
-      %           width=1.0\linewidth,
-      %           buttonsize=1em,
-      %           poster=first
-      %         ]{60}{figures/frames_2D_velocity_distribution/frame_}{00001}{0060}
-      %         }{
-      %           \includegraphics[width=1.0\linewidth]{figures/frames_2D_velocity_distribution/frame_00001}
+%       %   % --- Sous-colonne gauche ---
+%       %   \begin{column}{0.5\textwidth} 
+%       %     \centering
+%       %     \begin{block}{}
+%       %     \centering
+%       %     \begin{columns}[c, totalwidth=\textwidth]
+%       %       \begin{column}{0.4\textwidth} 
+%       %         \centering
+%       %         \alt<2->{
+%       %         \animategraphics[
+%       %           autoplay,
+%       %           %loop,
+%       %           width=1.0\linewidth,
+%       %           buttonsize=1em,
+%       %           poster=first
+%       %         ]{60}{figures/frames_2D_velocity_distribution/frame_}{00001}{0060}
+%       %         }{
+%       %           \includegraphics[width=1.0\linewidth]{figures/frames_2D_velocity_distribution/frame_00001}
 
-      %         }
-      %      \end{column}
-      %      \onslide<2->{
-      %      \begin{column}{0.2\textwidth} 
-      %       \centering
-      %       {\fontsize{6}{5}\selectfont 
-      %       $$ \overset{thermalisation}{\Longrightarrow} $$
-      %       }
-      %      \end{column}
-      %      \begin{column}{0.4\textwidth} 
-      %         \centering
-      %         % \animategraphics[
-      %         %   width=1.0\linewidth,
-      %         %   buttonsize=1em,
-      %         %   poster=first
-      %         % ]{60}{figures/frames_2D_velocity_distribution/frame_}{00600}{00600}
-      %         \includegraphics[width=1.0\linewidth]{figures/frames_2D_velocity_distribution/frame_00600}
-      %       \end{column}
-      %      }
-      %     \end{columns}
-      %     \end{block}
-      %   \end{column}
+%       %         }
+%       %      \end{column}
+%       %      \onslide<2->{
+%       %      \begin{column}{0.2\textwidth} 
+%       %       \centering
+%       %       {\fontsize{6}{5}\selectfont 
+%       %       $$ \overset{thermalisation}{\Longrightarrow} $$
+%       %       }
+%       %      \end{column}
+%       %      \begin{column}{0.4\textwidth} 
+%       %         \centering
+%       %         % \animategraphics[
+%       %         %   width=1.0\linewidth,
+%       %         %   buttonsize=1em,
+%       %         %   poster=first
+%       %         % ]{60}{figures/frames_2D_velocity_distribution/frame_}{00600}{00600}
+%       %         \includegraphics[width=1.0\linewidth]{figures/frames_2D_velocity_distribution/frame_00600}
+%       %       \end{column}
+%       %      }
+%       %     \end{columns}
+%       %     \end{block}
+%       %   \end{column}
         
 
-      %   % --- Sous-colonne droite ---
-      %   \alt<3->{
-      %   \begin{column}{0.5\textwidth} 
-      %     \centering
-      %     %\includegraphics[width=0.6\linewidth]{figures/frames_2D_velocity_distribution/frame_00600.png}
-      %     \animategraphics[
-      %       width=0.5\linewidth,
-      %       buttonsize=1em,
-      %       poster=first
-      %     ]{60}{figures/frames_1D_velocity_distribution/frame_}{00001}{00061} 
-      %   \end{column}
-      %   }{
+%       %   % --- Sous-colonne droite ---
+%       %   \alt<3->{
+%       %   \begin{column}{0.5\textwidth} 
+%       %     \centering
+%       %     %\includegraphics[width=0.6\linewidth]{figures/frames_2D_velocity_distribution/frame_00600.png}
+%       %     \animategraphics[
+%       %       width=0.5\linewidth,
+%       %       buttonsize=1em,
+%       %       poster=first
+%       %     ]{60}{figures/frames_1D_velocity_distribution/frame_}{00001}{00061} 
+%       %   \end{column}
+%       %   }{
 
-      %   }
+%       %   }
         
-      % \end{columns}
+%       % \end{columns}
 
       
         
-      \onslide<2->{
-      \begin{minipage}[T][0.5\textheight][c]{0.5\textwidth}
-      \begin{tikzpicture}[remember picture , overlay]%, overlay
-    % Position absolue du coin inférieur gauche du petit tikz
-        \begin{scope}[shift={(-0.5cm,0cm)}] % ici tu choisis la position absolue
-            % Petit dessin
-                % \draw[
-                %     line width=0.5ex,
-                %     draw=\colorThree,
-                %     fill=\colorTwo!50!\colorTwo,
-                %     rounded corners=6pt,
-                %     opacity=1.0
-                % ]
-                % (0,0) rectangle (10,3);
+%       \onslide<2->{
+%       \begin{minipage}[T][0.5\textheight][c]{0.5\textwidth}
+%       \begin{tikzpicture}[remember picture , overlay]%, overlay
+%     % Position absolue du coin inférieur gauche du petit tikz
+%         \begin{scope}[shift={(-0.5cm,0cm)}] % ici tu choisis la position absolue
+%             % Petit dessin
+%                 % \draw[
+%                 %     line width=0.5ex,
+%                 %     draw=\colorThree,
+%                 %     fill=\colorTwo!50!\colorTwo,
+%                 %     rounded corners=6pt,
+%                 %     opacity=1.0
+%                 % ]
+%                 % (0,0) rectangle (10,3);
 
           
-          % \node[rectangle] (A) at (1.5,1.5) {
-          %   \parbox{0.55\linewidth}{
-          %     \only<1-2>{
-          %       \includegraphics[width=\linewidth]{figures/frames_2D_velocity_distribution/frame_00001}
-          %     }
-          %     \only<3>{
-          %       \animategraphics[
-          %        autoplay,
-          %       %loop,
-          %       width=\linewidth,
-          %        buttonsize=1em,
-          %        poster=first
-          %      ]{60}{figures/frames_2D_velocity_distribution/frame_}{00001}{0600}
-          %    }
-          %     \only<4->{
-          %       \includegraphics[width=\linewidth]{figures/frames_2D_velocity_distribution/frame_00600}
-          %   }
-          %   }
+%           % \node[rectangle] (A) at (1.5,1.5) {
+%           %   \parbox{0.55\linewidth}{
+%           %     \only<1-2>{
+%           %       \includegraphics[width=\linewidth]{figures/frames_2D_velocity_distribution/frame_00001}
+%           %     }
+%           %     \only<3>{
+%           %       \animategraphics[
+%           %        autoplay,
+%           %       %loop,
+%           %       width=\linewidth,
+%           %        buttonsize=1em,
+%           %        poster=first
+%           %      ]{60}{figures/frames_2D_velocity_distribution/frame_}{00001}{0600}
+%           %    }
+%           %     \only<4->{
+%           %       \includegraphics[width=\linewidth]{figures/frames_2D_velocity_distribution/frame_00600}
+%           %   }
+%           %   }
 
-          % };
+%           % };
           
-          \only<1-2>{
-          \node[rectangle] (A) at (1.5,1.5) {
-            \parbox{0.55\linewidth}{
-                \includegraphics[width=\linewidth]{figures/frames_2D_velocity_distribution/frame_00001}
-              }
-          };
-          }
+%           \only<1-2>{
+%           \node[rectangle] (A) at (1.5,1.5) {
+%             \parbox{0.55\linewidth}{
+%                 \includegraphics[width=\linewidth]{figures/frames_2D_velocity_distribution/frame_00001}
+%               }
+%           };
+%           }
 
-          \only<3>{
-          \node[rectangle] (A) at (1.5,1.5) {
-            \parbox{0.55\linewidth}{       
-                \animategraphics[
-                 autoplay,
-                %loop,
-                width=\linewidth,
-                 buttonsize=1em,
-                 poster=first
-               ]{60}{figures/frames_2D_velocity_distribution/frame_}{00001}{0600}
-             }
-          };
-          }
+%           \only<3>{
+%           \node[rectangle] (A) at (1.5,1.5) {
+%             \parbox{0.55\linewidth}{       
+%                 \animategraphics[
+%                  autoplay,
+%                 %loop,
+%                 width=\linewidth,
+%                  buttonsize=1em,
+%                  poster=first
+%                ]{60}{figures/frames_2D_velocity_distribution/frame_}{00001}{0600}
+%              }
+%           };
+%           }
 
-          \only<4->{
-            \node[rectangle] (A) at (1.5,1.5) {
-            \parbox{0.55\linewidth}{       
-              \includegraphics[width=\linewidth]{figures/frames_2D_velocity_distribution/frame_00001}
-             }
-          };   
-          }
+%           \only<4->{
+%             \node[rectangle] (A) at (1.5,1.5) {
+%             \parbox{0.55\linewidth}{       
+%               \includegraphics[width=\linewidth]{figures/frames_2D_velocity_distribution/frame_00001}
+%              }
+%           };   
+%           }
 
-          \onslide<3->{
-          \node[rectangle , right = -1mm of A ] (B)
-          {\fontsize{10pt}{5pt}\selectfont 
-            $ \overset{thermalisation}{\Longrightarrow} $
-          };
+%           \onslide<3->{
+%           \node[rectangle , right = -1mm of A ] (B)
+%           {\fontsize{10pt}{5pt}\selectfont 
+%             $ \overset{thermalisation}{\Longrightarrow} $
+%           };
 
-          \node[rectangle , right = -1mm of B  ] (C)  { %at (6,1.5)
-            \parbox{0.55\linewidth}{
-            \includegraphics[width=1\linewidth]{figures/frames_2D_velocity_distribution/frame_00600}
-            }
-          };
-          }
+%           \node[rectangle , right = -1mm of B  ] (C)  { %at (6,1.5)
+%             \parbox{0.55\linewidth}{
+%             \includegraphics[width=1\linewidth]{figures/frames_2D_velocity_distribution/frame_00600}
+%             }
+%           };
+%           }
 
-          \only<4>{
-          \node[rectangle , right = 5mm of C ] (D){
-            \animategraphics[
-            autoplay,
-            width=0.55\linewidth,
-            buttonsize=1em,
-            poster=first
-          ]{60}{figures/frames_1D_velocity_distribution/frame_}{00001}{00600} 
-          };
-          }
-          \only<5->{
-          \node[rectangle , right = 5mm of C ] (D){
-            \includegraphics[width=0.55\linewidth]{figures/frames_1D_velocity_distribution/frame_00600}
-          };
-          }
+%           \only<4>{
+%           \node[rectangle , right = 5mm of C ] (D){
+%             \animategraphics[
+%             autoplay,
+%             width=0.55\linewidth,
+%             buttonsize=1em,
+%             poster=first
+%           ]{60}{figures/frames_1D_velocity_distribution/frame_}{00001}{00600} 
+%           };
+%           }
+%           \only<5->{
+%           \node[rectangle , right = 5mm of C ] (D){
+%             \includegraphics[width=0.55\linewidth]{figures/frames_1D_velocity_distribution/frame_00600}
+%           };
+%           }
 
         
 
-        \end{scope}
+%         \end{scope}
 
-        \only<5>{
-        \begin{scope}[shift={(0cm,0cm)}] % ici tu choisis la position absolue
-            % Petit dessin
-                % \draw[
-                %     line width=0.5ex,
-                %     draw=\colorThree,
-                %     fill=\colorTwo!50!\colorTwo,
-                %     rounded corners=6pt,
-                %     opacity=0.0
-                % ]
-                % (0,0) rectangle (5,7.5);
+%         \only<5>{
+%         \begin{scope}[shift={(0cm,0cm)}] % ici tu choisis la position absolue
+%             % Petit dessin
+%                 % \draw[
+%                 %     line width=0.5ex,
+%                 %     draw=\colorThree,
+%                 %     fill=\colorTwo!50!\colorTwo,
+%                 %     rounded corners=6pt,
+%                 %     opacity=0.0
+%                 % ]
+%                 % (0,0) rectangle (5,7.5);
 
           
-          \node[rectangle] at (8.2,6) {
-                \animategraphics[
-                 autoplay,
-                 loop,
-                 width=0.4\linewidth,
-                 buttonsize=1em,
-                 poster=first
-               ]{60}{figures/frames_Newton/frame_}{00001}{0043}
-             };
-        \end{scope}
-        }
+%           \node[rectangle] at (8.2,6) {
+%                 \animategraphics[
+%                  autoplay,
+%                  loop,
+%                  width=0.4\linewidth,
+%                  buttonsize=1em,
+%                  poster=first
+%                ]{60}{figures/frames_Newton/frame_}{00001}{0043}
+%              };
+%         \end{scope}
+%         }
 
          
 
-        %\drawgrid{0}{10}{0}{10}
+%         %\drawgrid{0}{10}{0}{10}
         
-      \end{tikzpicture}
-    \end{minipage}
-    }
-    %\end{column}
+%       \end{tikzpicture}
+%     \end{minipage}
+%     }
+%     %\end{column}
     
-  %\end{columns}
+%   %\end{columns}
    
 
-\end{frame}
+% \end{frame}
 
 %How do you make 1D?
 % \begin{frame}
@@ -801,8 +801,9 @@
       %\end{block}
       \begin{tikzpicture}[overlay]
         \onslide<7->{
+          %periodic boundary conditions
         \draw[  opacity = 1 ]
-            ($(BA) + (-3.5cm,0.0cm)$) edge[line width=0.4ex ,color = colorOne ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 180 , in = 0  ]node[pos=1, left]{\color{colorOne} \fontsize{8pt}{10}\selectfont \bfseries Bethe Ansatz eq}($(BA) + (-4.0cm,0cm)$)%periodic boundary condition
+            ($(BA) + (-3.5cm,0.0cm)$) edge[line width=0.4ex ,color = colorOne ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 180 , in = 0  ]node[pos=1, left]{\color{colorOne} \fontsize{8pt}{10}\selectfont \bfseries Periodic Boundary}($(BA) + (-4.0cm,0cm)$)%periodic boundary condition
             ($(I) + (0cm,0.2cm)$) edge[line width=0.4ex ,color = colorSix ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 90 , in = 180  ]node[pos=1, right]{\color{colorSix} \fontsize{6pt}{10}\selectfont \bfseries Bethe integers$\displaystyle  I_a \in 
               \left\{
               \begin{array}{rcl}
@@ -940,22 +941,23 @@
 %%%%
 \begin{frame}
   \frametitle{Velocities vs Rapidities }
-  {\fontsize{6}{5}\selectfont
+  {\fontsize{10pt}{5}\selectfont
   The rapidities are the \textbf{asymptotic velocities, when one lets the system expand in 1D :}\\[0.1cm]
   \begin{center}
     \includegraphics[width=0.4\textwidth, page=11]{figures/Figures.pdf}
   \end{center}
 
   \begin{center}
-    $$ \tilde{n}(v,\tau ) \underset{\tau \to \infty}{\rightarrow} \ell\rho(v) $$
+    $$ \tilde{n}(v,\tau ) \underset{\tau \to \infty}{\rightarrow} L\rho(v) $$
   \end{center}
 
+  \onslide<2->{
   \textbf{The rapidity distribution is an experimentally accessible quantity}, homothetic to the asymptotic density profile following a longitudinal expansion.
 
   \begin{center}
-    $$ \tau n(x, \tau )  \underset{\tau \to \infty}{\rightarrow}  \tilde{n}(x/\tau) \underset{\tau \to \infty}{\rightarrow} \ell \rho(x/\tau) $$
+    $$ \tau n(x, \tau )  \underset{\tau \to \infty}{\rightarrow}  \tilde{n}(x/\tau) \underset{\tau \to \infty}{\rightarrow} L \rho(x/\tau) $$
   \end{center}
-
+  }
   
   }
 \end{frame}
@@ -1364,14 +1366,14 @@
     % Position absolue du coin inférieur gauche du petit tikz
         \begin{scope}[shift={(0.0cm,0cm)}] % ici tu choisis la position absolue
             % Petit dessin
-                \draw[
-                    line width=0.5ex,
-                    draw=\colorThree,
-                    fill=\colorTwo!50!\colorTwo,
-                    rounded corners=6pt,
-                    opacity=0.5
-                ]
-                (0,-5) rectangle (10,5);
+                % \draw[
+                %     line width=0.5ex,
+                %     draw=\colorThree,
+                %     fill=\colorTwo!50!\colorTwo,
+                %     rounded corners=6pt,
+                %     opacity=0.5
+                % ]
+                % (0,-5) rectangle (10,5);
 
           
           \node[rectangle] (A) at (1.5,1.) {
@@ -1392,7 +1394,7 @@
           };
 
           
-
+          \onslide<2->{
           \node[rectangle, right = 0.1cm of B , shift = {(0cm,1cm)}] (C)  {
             %\parbox{0.55\linewidth}{
             \begin{tikzpicture}
@@ -1405,7 +1407,9 @@
             \end{tikzpicture}
             %}
           };
-
+          }
+          
+          \onslide<3->{
           \node[rectangle, below =  0.1cm of C , shift = {(0cm,0cm)}] (D)  {
             %\parbox{0.55\linewidth}{
             \begin{tikzpicture}
@@ -1418,39 +1422,62 @@
             \end{tikzpicture}
             %}
           };
-
-          \node[rectangle ,  anchor=west, align=left , color = colorSix , font = \fontsize{6pt}{5pt }\selectfont] (E) at (0,-2.5) {
+          }
+          
+          \onslide<4->{
+          \node[rectangle ,  anchor=west, align=left , color = colorSix , font = \fontsize{10pt}{5pt }\selectfont , text width=6cm, % ← largeur maximale du texte
+    minimum height=1cm, % (optionnel)
+    ] (E) at (0,-2.5) {
             %\parbox{0.55\linewidth}{
             \begin{tikzpicture}
               \draw[
                     line width=0.5ex,
                     draw=\colorSix,
                     fill=\colorTwo!50!\colorTwo,
-                    rounded corners=6pt,
+                    rounded corners=10pt,
                     opacity=1
                 ]
-                (0,-1.7) rectangle (6.5,0.5);
-            \node[rectangle, anchor=west, align=left] (A0) at (0,0) {
-              $\rho(\theta) \Leftrightarrow$ characterize the local properties of the system after relaxation
+                (0,-2.0) rectangle (6.3,0.5);
+            % \node[rectangle, anchor=west, align=left] (A0) at (0,0) {
+            %   $\rho(\theta) \Leftrightarrow$ characterize the local properties of the system after relaxation
+            % };
+
+            \node[rectangle, anchor=west, align=left , right ] (A0) at (0,0) {
+              \begin{tabular}{r}
+               $\rho(\theta) \Leftrightarrow$ characterize the properties of  \\
+                the system after relaxation 
+              \end{tabular}
+              
             };
 
-            \node[rectangle, anchor=west, align=left, below=5mm of A0] (A1) {
-              \textbf{Locally conserved quantity}
+            \node[rectangle, anchor=west, align=left, below=2mm of A0 , right] (A1) at (2,-0.5) {
+              $N = L\int \rho(\theta) d \theta $
+            };
+            \node[rectangle, anchor=west, align=left, below=1mm of A1 , right ] (A2) at (2,-1.0) {
+              $P = L\int m \theta \rho(\theta) d \theta $
+            };
+            \node[rectangle, anchor=west, align=left, below=1mm of A2, right ] (A3) at (2,-1.5) {
+              $E = L\int  m \frac{\theta^2}2 \rho(\theta) d \theta $
             };
 
-            \node[rectangle, anchor=west, align=left, below=1mm of A1] (A2) {
-              $Q(\theta) = \Pi(\theta)\delta \theta = \int dx \, \rho(x , \theta) \, \delta \theta$
-            };
+            % \node[rectangle, anchor=west, align=left, below=5mm of A0] (A1) {
+            %   \textbf{Locally conserved quantity}
+            % };
+
+            % \node[rectangle, anchor=west, align=left, below=1mm of A1] (A2) {
+            %   $Q(\theta) = \Pi(\theta)\delta \theta = \int dx \, \rho(x , \theta) \, \delta \theta$
+            % };
             \end{tikzpicture}
             %}
           };
+          }
 
         \end{scope}
           
 
          
 
-        \drawgrid{0}{10}{-5}{5}
+       % \drawgrid{0}{10}{-5}{5}
         
       \end{tikzpicture}
   }
@@ -1620,7 +1647,7 @@
           \begin{column}{0.5\textwidth}
             \centering
             {\fontsize{6}{5}\selectfont
-            $$ \partial_t \rho(\theta) + \partial_x j(\theta) = 0 ,  \quad  \theta \in \mathbb{R} $$
+            $$\textbf{GHD : } \quad  \partial_t \rho(\theta) + \partial_x j(\theta) = 0 ,  \quad  \theta \in \mathbb{R} $$
             }
           \end{column}
       \end{columns}
@@ -1805,7 +1832,7 @@
           \begin{tikzpicture}[remember picture, overlay]
             \node []  at  (0,0)   (rho)                            {$\rho( x , \theta ; t )$};
 	          \draw[  opacity = 0.5 ]
-              (rho) edge[line width=0.2ex ,color = black ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = -90 , in = 180  ]node[pos=1, right]{\color{black} \fontsize{6}{1}\selectfont \bfseries  local velocity density }($(rho) + (1cm,-1.0cm)$)
+              (rho) edge[line width=0.2ex ,color = black ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = -90 , in = 180  ]node[pos=1, right]{\color{black} \fontsize{6}{1}\selectfont \bfseries  local rapidity distribution }($(rho) + (1cm,-1.0cm)$)
 	          ;
           \end{tikzpicture}
           }
@@ -2037,7 +2064,7 @@
         \end{scope}
 
         % Optionnel : grille pour debug
-        \drawgrid{0}{5}{0}{5}
+        %\drawgrid{0}{5}{0}{5}
 
       \end{tikzpicture}
 
@@ -2096,11 +2123,11 @@
 
       \textbf{Absorption imaging:}\\[0.2cm]
       \includegraphics[width=1.0\textwidth]{figures/Absorbsion_Lea.png}
-
+      \\[0.2cm]
       \textbf{Remarks:}\\[0.2cm]
       \begin{itemize}
         \item Independent control of longitudinal and transverse confinement
-        \item Longitudinal confinement:
+        %\item Longitudinal confinement:
       \end{itemize}
 
       %$$ V(x) = \sum_{i = 1}^4 a_i x^i $$ 
@@ -2133,72 +2160,211 @@
 
   \end{columns}
 
-  \onslide<2->{
-  %\frametitle{Partitioning protocol}
-  %\framesubtitle{Partitioning protocol}
+  \vspace{6cm}
 
-  \textbf{\fontsize{10pt}{10pt}\selectfont Partitioning protocol}
+  % \onslide<2->{
+  % %\frametitle{Partitioning protocol}
+  % %\framesubtitle{Partitioning protocol}
 
-  \begin{columns}[b, totalwidth=\textwidth]
-    \begin{column}{0.3\textwidth}
-      \alt<2->{
-      \animategraphics[
-            %controls, 
-            autoplay, % démarre automatiquement 
-            loop, % boucle infinie,
-            %palindrome, % (optionnel) rejoue à l'envers,
-            %clicktoshow, % permet de lancer/pause par clic
-            width=0.9\linewidth,
-            buttonsize=1em,
-            poster=first,
-            trim=0cm 0.5cm 17cm 1.5cm,
-            clip
-          ]{3}{figures/Exp_Bord/frame_}{00001}{00010}
+  % \textbf{\fontsize{10pt}{10pt}\selectfont Partitioning protocol}
 
-      \vspace{0.5cm}
+  % \begin{columns}[b, totalwidth=\textwidth]
+  %   \begin{column}{0.3\textwidth}
+  %     \alt<2->{
+  %     \animategraphics[
+  %           %controls, 
+  %           autoplay, % démarre automatiquement 
+  %           loop, % boucle infinie,
+  %           %palindrome, % (optionnel) rejoue à l'envers,
+  %           %clicktoshow, % permet de lancer/pause par clic
+  %           width=0.9\linewidth,
+  %           buttonsize=1em,
+  %           poster=first,
+  %           trim=0cm 0.5cm 17cm 1.5cm,
+  %           clip
+  %         ]{3}{figures/Exp_Bord/frame_}{00001}{00010}
 
-      \animategraphics[
-            %controls, 
-            autoplay, % démarre automatiquement 
-            loop, % boucle infinie,
-            %palindrome, % (optionnel) rejoue à l'envers,
-            %clicktoshow, % permet de lancer/pause par clic
-            width=0.9\linewidth,
-            buttonsize=1em,
-            poster=first,
-            trim=17cm 0.5cm 0cm 1.5cm,
-            clip
-          ]{3}{figures/Exp_Bord/frame_}{00001}{00010}
-      }{}
-    \end{column}
-    \begin{column}{0.7\textwidth}
-      %\textbf{Edge deformation:}
-      \vspace{-0.3cm}
+  %     \vspace{0.5cm}
 
-      \begin{itemize}
-        %\item The atoms are trapped in a quartic potential,
-         % \begin{itemize}
-            \item[$\rightarrow$] {\bf \fontsize{7}{5}\selectfont resulting in a large, quasi-homogeneous density region.}
-         % \end{itemize}
-        \item Selection is performed via radiation pressure (DMD).
-      \end{itemize}
+  %     \animategraphics[
+  %           %controls, 
+  %           autoplay, % démarre automatiquement 
+  %           loop, % boucle infinie,
+  %           %palindrome, % (optionnel) rejoue à l'envers,
+  %           %clicktoshow, % permet de lancer/pause par clic
+  %           width=0.9\linewidth,
+  %           buttonsize=1em,
+  %           poster=first,
+  %           trim=17cm 0.5cm 0cm 1.5cm,
+  %           clip
+  %         ]{3}{figures/Exp_Bord/frame_}{00001}{00010}
+  %     }{}
+  %   \end{column}
+  %   \begin{column}{0.7\textwidth}
+  %     %\textbf{Edge deformation:}
+  %     \vspace{-0.3cm}
+
+  %     \begin{itemize}
+  %       %\item The atoms are trapped in a quartic potential,
+  %        % \begin{itemize}
+  %           \item[$\rightarrow$] {\bf \fontsize{7}{5}\selectfont resulting in a large, quasi-homogeneous density region.}
+  %        % \end{itemize}
+  %       \item Selection is performed via radiation pressure (DMD).
+  %     \end{itemize}
       
-      \centering{
-      \includegraphics[width=1.0\textwidth, page=18]{figures/Figures.pdf}
+  %     \centering{
+  %     \includegraphics[width=1.0\textwidth, page=18]{figures/Figures.pdf}
+  %     }
+
+  %     \begin{itemize}
+  %       %\item The longitudinal quartic potential is then switched off,
+  %       %\item while the transverse confinement is maintained,
+  %       %\begin{itemize}
+  %           \item[$\rightarrow$] {\bf \fontsize{7}{5}\selectfont leading to a longitudinal expansion.}
+  %       %\end{itemize}
+  %     \end{itemize}
+      
+
+  %   \end{column}
+  % \end{columns}
+  % } 
+
+  \only<2->{
+      \begin{tikzpicture}[remember picture, overlay]
+    % Position absolue du coin inférieur gauche du petit tikz
+        \begin{scope}[shift={(-0.0cm,0.5cm)}] % ici tu choisis la position absolue
+            % Petit dessin
+                % \draw[
+                %     line width=0.5ex,
+                %     draw=\colorThree,
+                %     fill=\colorThree!50!\colorTwo,
+                %     rounded corners=6pt,
+                %     opacity=1
+                % ]
+                % (0,0) rectangle (6.5,3.5);
+
+                \node[
+                  draw = none ,               % si tu veux un cadre autour
+                  rounded corners,     % coins arrondis
+                  fill=none ,          % fond blanc
+                  text width=3.5cm,     % largeur maximale du nœud
+                  align=center,        % centrer le texte
+                  line width=0.8pt,     % épaisseur du contour
+                  right
+                ]  at (0,5.5) {\fontsize{8}{10}\selectfont \bfseries \color{\colorFour}  \textbf{\fontsize{10pt}{10pt}\selectfont Partitioning protocol}};
+
+                \node[
+                  draw = none ,               % si tu veux un cadre autour
+                  rounded corners,     % coins arrondis
+                  fill=none ,          % fond blanc
+                  text width=8.5cm,     % largeur maximale du nœud
+                  align=center,        % centrer le texte
+                  line width=0.8pt,     % épaisseur du contour
+                  right
+                ]  at (3,4.5) {\fontsize{8pt}{10}\selectfont \bfseries \color{\colorOne}  \textbf{\fontsize{8pt}{10pt}\selectfont $\rightarrow$ resulting in a large, quasi-homogeneous density region.}};
+                \node[
+                  draw = none ,               % si tu veux un cadre autour
+                  rounded corners,     % coins arrondis
+                  fill=none ,          % fond blanc
+                  text width=8.5cm,     % largeur maximale du nœud
+                  align=center,        % centrer le texte
+                  line width=0.8pt,     % épaisseur du contour
+                  right
+                ]  at (3,4.0) {\fontsize{8pt}{10}\selectfont  \color{\colorOne}   $\bullet$ Selection is performed via radiation pressure (DMD).};
+
+                \node[right ] (A) at (3.5,2.5) {\includegraphics[width=0.6\textwidth, page=18]{figures/Figures.pdf}};
+
+                \node[
+                  draw = none ,               % si tu veux un cadre autour
+                  rounded corners,     % coins arrondis
+                  fill=none ,          % fond blanc
+                  text width=8.5cm,     % largeur maximale du nœud
+                  align=center,        % centrer le texte
+                  line width=0.8pt,     % épaisseur du contour
+                  right
+                ]  at (3,0.5) {\fontsize{8pt}{10}\selectfont \bfseries \color{\colorOne}  \textbf{\fontsize{8pt}{10pt}\selectfont $\rightarrow$ leading to a longitudinal expansion.}};
+              
+                
+                
+
+
+                \only<2>{
+                \begin{scope}[shift={(1.5cm,4cm)}]
+                    \node[] (A) at (0,0) {\includegraphics[trim=2cm 2cm 20cm 3.0cm, clip, width=0.3\textwidth]{figures/image247.png}};
+                    \node[below = 1mm of A] {\includegraphics[trim=2cm 2cm 20cm 3.0cm, clip, width=0.3\textwidth]{figures/image246.png}};
+                \end{scope}
+                }
+                
+                \only<3->{
+                \begin{scope}[shift={(1.5cm,4cm)}]
+
+                  \node[] (A) at (0,0) {
+                    \animategraphics[
+            %controls, 
+            autoplay, % démarre automatiquement 
+            loop, % boucle infinie,
+            %palindrome, % (optionnel) rejoue à l'envers,
+            %clicktoshow, % permet de lancer/pause par clic
+            width=0.25\linewidth,
+            buttonsize=1em,
+            poster=first,
+            trim=2cm 2cm 20cm 1.0cm,
+            clip
+          ]{3}{figures/Exp_Bord/frame_}{00001}{00010}
+                  };
+                  \node[below = 1mm of A]  {
+                  \animategraphics[
+            %controls, 
+            autoplay, % démarre automatiquement 
+            loop, % boucle infinie,
+            %palindrome, % (optionnel) rejoue à l'envers,
+            %clicktoshow, % permet de lancer/pause par clic
+            width=0.25\linewidth,
+            buttonsize=1em,
+            poster=first,
+            trim=18cm 2cm 1cm 1.0cm,
+            clip
+          ]{3}{figures/Exp_Bord/frame_}{00001}{00010}
+                  };
+                \end{scope}
+                }
+
+                  
+
+          %       \node[
+          %         draw = none ,               % si tu veux un cadre autour
+          %         rounded corners,     % coins arrondis
+          %         fill=none ,          % fond blanc
+          %         text width=3.5cm,     % largeur maximale du nœud
+          %         align=center,        % centrer le texte
+          %         line width=0.8pt     % épaisseur du contour
+          %       ]  at (1.8,3) {\fontsize{8}{10}\selectfont \bfseries \color{\colorFour}  Linear density profile of a 1D gas};
+          %       \node[
+          %         draw = none ,               % si tu veux un cadre autour
+          %         rounded corners,     % coins arrondis
+          %         fill=none ,          % fond blanc
+          %         text width=3.5cm,     % largeur maximale du nœud
+          %         align=center,        % centrer le texte
+          %         line width=0.8pt     % épaisseur du contour
+          %       ] at (1.8,1.5) {
+          %       \fontsize{8}{10}\selectfont
+          %        \color{\colorFour} \centering
+          %       \textbf{Yang--Yang thermometry:} temperature and chemical potential extracted by fitting the density profile.
+          %       };
+          %       %\draw[draw=\colorThree](0,0) circle (1);
+          %       %\drawgrid{-1}{4}{-1}{4}
+          % \node[] (A) at (5,2) {\includegraphics[width=0.5\textwidth]{figures/YY_Lea.png}};
+          % \node[below = 1mm of A] {
+          %       \fontsize{8}{10}\selectfont
+          %        \color{\colorFour} \centering
+          %       $T=90nK,\quad \mu = 49 n K $
+          %       };
+        \end{scope}
+
+        %\drawgrid{0}{10}{0}{5}
+        
+      \end{tikzpicture}
       }
-
-      \begin{itemize}
-        %\item The longitudinal quartic potential is then switched off,
-        %\item while the transverse confinement is maintained,
-        %\begin{itemize}
-            \item[$\rightarrow$] {\bf \fontsize{7}{5}\selectfont leading to a longitudinal expansion.}
-        %\end{itemize}
-      \end{itemize}
-      
-
-    \end{column}
-  \end{columns}
-  } 
 
   }
 \end{frame}
@@ -2258,8 +2424,8 @@
                 (0,0) rectangle (12,4.3);
 
           
-          \node[] (A) at (3.5,2.1) {\includegraphics[width=0.6\textwidth]{figures/Densite_Bord.png} };
-          \node[right = 1mm of A , draw,
+          \node[] (A) at (3.3,2.1) {\includegraphics[width=0.6\textwidth]{figures/Densite_Bord.png} };
+          \node[right = -1mm of A , draw,
             rectangle,
             rounded corners=6pt,
             line width=0.8ex,
@@ -2267,10 +2433,10 @@
             fill=white,
             minimum width=2.8cm,
             minimum height=1.2cm,
-            text width=4.5cm,       % ← largeur maximale du texte
+            text width=4.8cm,       % ← largeur maximale du texte
             align=center,
             inner sep=6pt] 
-             {\textbf{Validity of hydrodynamics : } $10\, ms < t < 18 \, ms $ };
+             {\textbf{Validity of hydrodynamics :} \\[1mm] $10\, ms < t < 18 \, ms $ };
 
         \end{scope}
 
@@ -2290,7 +2456,7 @@
 %%%%
 \begin{frame}
   %\frametitle{Simulation of Boundary Profil}
-  \frametitle{\only<1-3>{GHD Calculation}\only<4>{Calculation of Boundary Profil and Fit of Data}}
+  \frametitle{GHD Calculation \visible<4->{of Boundary Profil }}%and Fit of Data
 
   {\fontsize{7}{5}\selectfont
   \vspace{-3.0cm}
@@ -2353,6 +2519,8 @@
       }
     \end{columns}
 
+    %\vspace{6cm}
+
     \onslide<2->{
       \begin{tikzpicture}[remember picture, overlay]
     % Position absolue du coin inférieur gauche du petit tikz
@@ -2404,12 +2572,12 @@
                 (0,3.2) rectangle (6.2,7.5);
 
           
-          \node[] (A) at (2.9,5.0) {\includegraphics[width=0.55\textwidth , page = 2 ]{figures/Graphs.pdf} };
+          \node[] (A) at (2.9,5.2) {\includegraphics[width=0.55\textwidth , page = 2 ]{figures/Graphs.pdf} };
 
         \end{scope}
         }
 
-        %\drawgrid{0}{10}{-5}{10}
+       % \drawgrid{0}{10}{-5}{10}
         
       \end{tikzpicture}
     }
@@ -2417,7 +2585,9 @@
 \end{frame} 
 %%%%
 \begin{frame}
-  \frametitle{Probe the rapidity distribution}
+  \frametitle{Probe the local rapidity distribution}
+  \only<7->{\frametitle{Effect of the slice inhomogeneity}}
+  \only<8->{\frametitle{Taking into account a finite expansion time}}
   {\fontsize{7}{5}\selectfont
   \vspace{0.2cm}
   \begin{columns}[c, totalwidth=\textwidth]
@@ -2433,7 +2603,7 @@
       % \vspace{1.3cm}
 
       \centering{
-      \onslide<1-5>{
+      \onslide<1-6>{
       \alt<2->{
       \includegraphics[width=1.0\textwidth, page=6]{figures/Shema.pdf}
       }{
@@ -2445,8 +2615,8 @@
       \vspace{0.0cm}
 
       \begin{itemize}
-        \item<1-5> At $t=0$, symmetric rapidity distribution
-        \item<2-5> At $t=18~ms$, asymmetric rapidity distribution at the edge
+        \item<1-6> At $t=0$, symmetric rapidity distribution
+        \item<2-6> At $t=18~ms$, asymmetric rapidity distribution at the edge
       \end{itemize}
       
       \vspace{0.0cm}
@@ -2460,12 +2630,12 @@
   \end{columns}
   \begin{columns}[b, totalwidth=\textwidth]
     \begin{column}{0.3\textwidth}
-      \textbf{Experimental protocol:}\\
+      %\onslide<3-7>{\textbf{Slice selection}\\}
       % \begin{itemize}
         % \item Deformation profile of the edge of an initially semi-infinite gas with homogeneous density.
         % \item Selection of an edge region.
         \centering{
-          \onslide<3->{
+          \onslide<3-7>{
         \includegraphics[width=1.0\textwidth , page = 3]{figures/Graphs.pdf}
           }
         }
@@ -2474,8 +2644,10 @@
         % \includegraphics[width=1.0\textwidth, trim = 15cm 5cm 2cm 0cm, clip]{figures/Shemat_Isa.png}
         % }
       % \end{itemize}
+      
     \end{column}
     \begin{column}{0.35\textwidth}
+      
       
       %\vspace{1.3cm}
 
@@ -2485,11 +2657,11 @@
 
       %\vspace{1.3cm}
 
-      \onslide<4->{
+      \onslide<4-6>{
       \alt<5->{
       \includegraphics[width=1.0\textwidth, page = 4]{figures/Graphs.pdf}
       }{
-      \includegraphics[width=1.0\textwidth, page = 7]{figures/Graphs.pdf}
+      \includegraphics[width=1.0\textwidth, page = 8]{figures/Graphs.pdf}
       }
       }
       }
@@ -2506,7 +2678,7 @@
 
       %\vspace{1.3cm}
 
-      \onslide<5->{
+      \onslide<6->{
       \alt<8->{
         \includegraphics[width=1.0\textwidth, page = 7]{figures/Graphs.pdf}
       }{
@@ -2540,6 +2712,46 @@
 
           
           \node[] (A) at (2.75,2.2) {\includegraphics[width=0.55\textwidth, page=2]{figures/Shema.pdf}};
+
+        \end{scope}
+        }
+
+        \onslide<3-8>{
+        \begin{scope}[shift={(6cm,3.5cm)}] % ici tu choisis la position absolue
+            % Petit dessin
+                \draw[
+                    line width=0.5ex,
+                    draw=\colorThree,
+                    fill=\colorTwo!50!\colorTwo,
+                    rounded corners=6pt,
+                    opacity=0.0
+                ]
+                (0,0) rectangle (5.5,4.3);
+
+          \onslide<3-7>{
+          \node[right ] (A) at (-5.6,-0.8) {\fontsize{8pt}{5}\selectfont \textbf{Slice selection}};
+          }
+
+          \onslide<4-5>{
+          \node[right ] (A) at (-2.5,-0.4) {\fontsize{8pt}{5}\selectfont \textbf{Slice broadening}};
+          }
+          \onslide<6>{
+          \node[right ] (A) at (-2.5,-0.4) {\fontsize{8pt}{5}\selectfont \textbf{Asymmetry}};
+          }
+
+          \onslide<6>{
+          \node[right ] (A) at (1.5,0) {\fontsize{10pt}{5}\selectfont $\displaystyle \tau \tilde{n}(x, \tau) \underset{\tau \to \infty}{\rightarrow} \ell \rho(x, x/\tau ) $};
+          }
+          
+          \onslide<7>{
+          \node[right] (A) at (1.0,0) {\fontsize{10pt}{5}\selectfont $\displaystyle \tau \tilde{n} \underset{\tau \to \infty}{\rightarrow} \Pi(x/\tau) = \int dx \, \rho(x , \theta)  $};
+          }
+
+          \onslide<8>{
+          \node[right] (A) at (-3.0,-1.5) {\fontsize{10pt}{5}\selectfont $\bullet$ Technical effect };
+          \node[right] (A) at (-3.0,-2) {\fontsize{10pt}{5}\selectfont $\bullet$ Beyond Euler scale ? };
+          }
+
 
         \end{scope}
         }
@@ -2580,7 +2792,7 @@
         \end{scope}
         }
 
-        %\drawgrid{0}{10}{-1}{10}
+       % \drawgrid{0}{10}{-1}{10}
         
       \end{tikzpicture}
     
@@ -2589,9 +2801,9 @@
 
 \end{frame}
 
-\begin{frame}
+% \begin{frame}
 
-\end{frame}
+% \end{frame}
 
 
 %
@@ -3123,11 +3335,13 @@
 % \end{frame}
 
 \begin{frame}
-  \frametitle{Generalized Gibbs Ensemble (GGE) for a Homogeneous System}
+  \frametitle{Generalized Gibbs Ensemble (GGE) for a Homogeneous, Stationary Subsystem}
 
   {\fontsize{8}{7}\selectfont
-  \textbf{Homogeneous system:} Lieb–Liniger model \\[4pt]
+  %\textbf{Homogeneous system:} Lieb–Liniger model \\[4pt]
   \textbf{After relaxation:} described by a \textit{Generalized Gibbs Ensemble (GGE)} \\[6pt]
+  $$ \operator{\varrho}_{\mathrm{GGE}} \propto e^{-\operator{Q}} , \quad  \langle\{\theta_a\}\vert e^{\displaystyle -\operator{Q}}\vert \{\theta_a\}\rangle = e^{-\sum_{a = 1}^N \beta(\theta)}$$
+
 
   \textbf{Key idea:}  
   \begin{itemize}
@@ -3173,7 +3387,7 @@
                 (0,0) rectangle (5.5,4.3);
 
           
-          \node[] (A) at (2.75,2.2) {
+          \node[] (A) at (2.,2.2) {
 $
   \begin{array}{rcll}
     \langle\mathcal{O}\rangle & \approx & \displaystyle \overline{\mathcal{O}}_{[\overline{\rho}]}\\[2mm]
@@ -3223,7 +3437,7 @@ $
   %$$
    \langle \delta e^2 \rangle = - \left( \ell \left( \frac{\partial^2 S}{\partial e^2} \right)_{e = \overline{e}} \right)^{-1} $$
   }
-  \\[1cm]
+  \\[0.3cm]
 
   \onslide<5->{
   For a system with conserved $N$ and $E$ (Gibbs ensemble):
@@ -3242,7 +3456,7 @@ $
 
 \begin{frame}
   \frametitle{System with conserved $\rho(x)$}
-  {\fontsize{6}{5}\selectfont 
+  {\fontsize{8pt}{5}\selectfont 
   Locally: $$\langle \mathcal{O} \rangle = \mathcal{O}_{[\rho]}$$ \\
   $$ p_{[\rho]} \propto e^{\ell \int \beta(\theta) \rho(x,\theta) \, d\theta} $$
 

@@ -1622,7 +1622,7 @@ decorations.pathreplacing}
 					rectangle,
 					fill = colorTwo
                 ] (my node) {
-					\fontsize{15}{5}\selectfont \bfseries \color{\colorThree} $ \ell $
+					\fontsize{15}{5}\selectfont \bfseries \color{\colorThree} $ L $
 				};
             },
         },
@@ -1648,7 +1648,7 @@ decorations.pathreplacing}
 					fill = colorTwo,
 					%rotate = 90
                 ] (my node) {
-					\fontsize{10}{5}\selectfont \bfseries \color{\colorFour}  collision 
+					\fontsize{10}{5}\selectfont \bfseries \color{\colorFour}  Interaction
 				};
             },
         },
@@ -1674,7 +1674,7 @@ decorations.pathreplacing}
 					fill = colorTwo,
 					%rotate = 90
                 ] (my node) {
-					\fontsize{10}{5}\selectfont \bfseries \color{\colorFour} \begin{tabular}{c} no \\[0.01cm] collision \end{tabular}  
+					\fontsize{5}{5}\selectfont \bfseries \color{\colorFour} \begin{tabular}{c} no \\[0.01cm] interaction \end{tabular}  
 				};
             },
         },
@@ -1747,7 +1747,7 @@ decorations.pathreplacing}
    		 ] (0,0) circle (1.6);
 
     	% Texte au centre
-    	\node at (0,0.) {\color{colorTwo} \fontsize{10pt}{5pt}\selectfont \bf Collision};
+    	\node at (0,0.) {\color{colorTwo} \fontsize{10pt}{5pt}\selectfont \bf Interaction};
 	\end{scope}
 
 
@@ -2301,7 +2301,7 @@ decorations.pathreplacing}
 
 			%(0,0) edge[shift = {(2.6,2.5)}, line width=0.4ex ,color = colorOne ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 150 , in = 0 ]node[pos=1, left ]{\color{colorOne} \fontsize{10}{10}\selectfont \bfseries  \begin{tabular}{r}potential \\ $V_\parallel(x) \propto x^4 $ \end{tabular}  }($(0,0) + (-1.0cm,0.75cm)$)
 
-			(0,0) edge[shift = {(0,2.1)}, line width=0.4ex ,color = colorFour ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 130, in = 0 ]node[pos=1, left ]{\color{colorFour} \fontsize{20pt}{10}\selectfont \bfseries  atom restant }($(0,0) + (-1.0cm,0.75cm)$)
+			(0,0) edge[shift = {(0,2.1)}, line width=0.4ex ,color = colorFour ,arrows = {Computer Modern Rightarrow[sharp ,length=0.2cm]-},  , out = 130, in = 0 ]node[pos=1, left ]{\color{colorFour} \fontsize{20pt}{10}\selectfont \bfseries  \begin{tabular}{r} Remaining \\[1mm] atoms \end{tabular} }($(0,0) + (-1.0cm,0.75cm)$)
 	    ;
 	\end{scope}
 
@@ -2812,7 +2812,7 @@ decorations.pathreplacing}
 			(0.1 , -3.5 ) rectangle (7.5,1)
 		;
 		
-		\node[anchor=west] at (0.2, 0.5) {\color{\colorSix}\large $L\rho (\theta) \delta \theta$ };\node[anchor=west, font=\bfseries] at (2, 0.5) {\color{\colorSix}\large : $\#$ rapiditie $\in [\theta , \theta + \delta \theta $ ]};
+		\node[anchor=west] at (0.2, 0.5) {\color{\colorSix}\large $L\rho (\theta) \delta \theta$ };\node[anchor=west, font=\bfseries] at (2, 0.5) {\color{\colorSix}\large : $\#$ rapidities $\in [\theta , \theta + \delta \theta  [$ };
 		
 		\node[anchor=west] at (0.2, -0.5) {\color{\colorSix}\large $L\rho_s (\theta) \delta \theta = \delta I $ };\node[anchor=west, font=\bfseries] at (2.9, -0.5) {\color{\colorSix}\large  : $\#$ states $\in [\theta , \theta + \delta \theta [$};
 		
