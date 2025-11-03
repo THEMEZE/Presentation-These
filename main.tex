@@ -5,7 +5,8 @@
 \begin{document}
 
 \frame[plain]{\titlepage}
-\frame[plain,bg=./figures/vages.jpeg]{\titlepage}
+%\frame[plain,bg=./figures/vages.jpeg]{\titlepage}
+\frame[plain,bg=./figures/premiere.pdf]{\titlepage}
 % \begin{frame}[plain]{\titlepage}
 % \end{frame}
 
@@ -3493,14 +3494,15 @@ $
 \begin{frame}
   \frametitle{Expression of $\langle \delta \rho(\theta) \, \delta \rho(\theta') \rangle$}
   {\fontsize{6}{5}\selectfont 
-  $$ \langle \delta \rho(\theta) \, \delta \rho(\theta') \rangle = (\ell \mathcal{D})^{-1}(\theta, \theta') + \mathcal{B}(\theta, \theta')/\ell $$
-  $$ \mathcal{D}(\theta , \theta') = \left( \frac{1}{\overline{\rho}_s(\theta)\overline{\nu}(\theta)(1-\overline{\nu}(\theta))}\right)\delta(\theta, \theta') $$
+  $$ \ell \langle \delta \rho(\theta) \, \delta \rho(\theta') \rangle = \mathcal{D}(\theta, \theta') + \mathcal{B}(\theta, \theta') $$
+  $$ \mathcal{D}(\theta , \theta') =  \overline{\rho}_s(\theta)\overline{\nu}(\theta)(1-\overline{\nu}(\theta))\delta(\theta-\theta') $$
   \onslide<2->{
-  where $$ \beta(\theta)= T^{-1} \left( \frac{1}{2} \theta^2 - \mu \right) , \quad \hbar = m = k_B = 1 $$ 
-  and $$ \gamma = \frac{g}{n} = 10^{-1.7} , \quad t = \frac{T}{g^2} = 89 $$ 
-  \centerline{\includegraphics[width=0.4\textwidth]{figures/diag_fluctu_1.png} 
+  where $$ \beta(\theta)= (k_B T)^{-1} \left( m\frac{1}{2} \theta^2 - \mu \right) ,  $$ 
+  and $$ \gamma = \frac{m g }{\hbar^2 n } = 9\cdot 10^{-3} , \quad T = 100~nK $$ 
+  \centerline{\includegraphics[width=0.4\textwidth]{figures/diag_fluctu_2axes.png} 
   \includegraphics[width=0.4\textwidth]{figures/fluctu_1.png}}
   }
+
   }
 \end{frame}
 
@@ -3508,6 +3510,7 @@ $
 
 \begin{frame}
   \frametitle{Conclusion and Perspectives}
+  {\fontsize{8pt}{5}\selectfont 
   \begin{itemize}
     %\item \textbf{First spatially resolved probe} of rapidity distributions.
     %\item \textbf{Out-of-equilibrium dynamics} successfully investigated.
@@ -3520,14 +3523,30 @@ $
   \textbf{Outlook:}
   \begin{itemize}
     \item \textbf{Observation of effects beyond the Euler scale:} 
-deviation between bipartition data and Euler-scale simulations, 
-possibly due to technical limitations or data issues.
+    \item \textbf{Deviation between bipartition data and Euler-scale simulations}, 
+      possibly due to technical limitations or data issues.
+      The discrepancy between simulations and experimental data can be attributed to technical limitations on one hand, and to dynamics beyond the Euler scale on the other.
     \item \textbf{Realization of a box-shaped potential:} dipole potential.
     %\item \textbf{Dipole potential} for a more homogeneous system.
     %\item \textbf{Monte Carlo approach} to study rapidity fluctuations beyond mean-field.
-    \item For small systems, fluctuations are non-Gaussian: 
-\textbf{Monte Carlo approach} to study rapidity fluctuations beyond mean-field.
+    \item For small systems, fluctuations are non-Gaussian: \textbf{Monte Carlo approach} to study rapidity fluctuations beyond mean-field.
   \end{itemize}
+  }
+\end{frame}
+
+% \begin{frame}
+
+
+% Thank you for your attention!
+
+% \end{frame}
+
+\begin{frame}[plain]
+  \setbeamercolor{background canvas}{bg=fondgris}
+  \begin{center}
+    {\callifont\fontsize{40}{44}\selectfont Thank you}\\[1cm]
+    {\large \textcolor{white}{Questions?}}
+  \end{center}
 \end{frame}
 
 
