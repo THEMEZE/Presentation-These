@@ -26,7 +26,13 @@
 \usetikzlibrary{decorations.text}
 
 %\usepackage{fontspec} % utiliser xelatex/lualatex
-\setmainfont{TeX Gyre Termes}
-\newfontfamily\callifont{Great Vibes} % police calligraphique installée
+%\usepackage[T1]{fontenc}
+\usepackage{calligra}  % jolie police cursive
+\usepackage{xcolor}
 
+% === Définir les couleurs ===
 \definecolor{fondgris}{HTML}{212529}
+\definecolor{blanc}{RGB}{255,255,255}
+
+% === Commande pratique ===
+\newcommand{\calitext}[1]{{\calligra\fontsize{36}{40}\selectfont #1}}
